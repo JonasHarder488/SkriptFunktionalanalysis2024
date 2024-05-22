@@ -1,0 +1,99 @@
+\chapter{Normierte R\as ume}
+\section{Definitionen}
+\begin{rem}
+	Wir betrachten hier Vektorr\as ume \us ber den K\os rpern \(\K = \R\) oder \(\K = \C\).
+\end{rem}
+\begin{definition}
+	Eine \textit{Norm} \us ber einem $\K$-Vektorraum $V$ ist eine Abbildung \(\norm \cdot: V \to \R_{\geq 0}\) mit:
+	\begin{enumerate}[noitemsep]
+		\item \(\forall x \in V, \lambda \in \K: \norm{\lambda x} = \ab \lambda \norm x\) \label{skalar_norm}
+		\item \(\forall x, y \in V: \norm{x+y} \leq \norm x + \norm y\)
+		\item \(\norm x  = 0 \iff x = 0\) \label{definit_norm}
+	\end{enumerate} 
+	Dann hei\s t \(V, \norm \cdot\) normierter Raum.
+\end{definition}
+\begin{rem}
+	Falls \ref{definit_norm}. nicht gilt, bezeichnen wir die Abbildung als \textit{Halbnorm}.
+\end{rem}
+
+\begin{theorem}
+	Ein normierter Raum \((V, \norm\cdot)\) ist ein metrischer Raum mit der Metrik $d$, definiert durch
+	\[\forall x, y \in V: d(x,y) = \norm{x-y}\;.\]
+\end{theorem}
+\begin{ex}
+	In diesem Fall gilt f\us r die Operationen \(+: V\times V \to V\) und \(\cdot: \K\times V \to V\) (mit \(\lambda \in \K, \; x, y, x, y' \in V\)):
+	\begin{align*}
+		& d(x' + y', x + y) = \norm{x' + y' - (x+y)} \leq \norm{x' + y'} + \norm{x+y} \\
+		&d(\lambda x, \lambda x') = \norm{\lambda(x-x')} = \ab{\lambda} \norm{x-x'} = \ab{\lambda}d(x,x')
+	\end{align*}
+\end{ex}
+
+\begin{definition}
+	Ein \textit{Banachraum} ist ein vollst\as ndiger normierter Raum.
+\end{definition}
+
+\section{Vervollst\as ndigung}
+
+\begin{theorem}
+	Sei \((V,\norm\cdot)\) ein normierter Raum, dann existiert eine Vervollst\as ndigung \((\hat V, \hnorm\cdot)\), d. h. $V$ kann in einen Banachraum eingebettet werden.
+\end{theorem}
+\begin{proof} 
+	Definiere Analog zu Satz \ref{vervollst_mR}:
+	\begin{align*}
+		&\hat V_0 := \{\seq x n \vert \forall n \in \N: x_n \in V, \; \seq x n \text{ Cauchyfolge}\}.\\
+	&\text{\As quivalenzrelation $\sim$ auf $\hat V_0$: } 
+	\seq xn \sim \seq yn :\iff \lim_{n\to\infty} \norm{x_n, y_n} = 0\\
+	&\text{Menge aller \As quivalenzklassen: }
+	\hat V = \faktor{\hat V_0}{\sim} = \{\equ{\seq xn} \vert \seq xn \in \hat X_0\} 
+	\end{align*}
+	Dabei ist \(\hat V\) ein Vektorraum mit \(\forall \lambda \in \K, \seq xn, \seq yn\in \hat V_0:\)
+	\[\lambda \equ{\seq xn} := \equ{\seq{\lambda x}{n}}\text{ und } \equ{\seq xn} + \equ{\seq yn} = \equ{\se{x_n + y_n}{n}}\;.\]
+	Als Norm auf \(\hat V\) definieren wir 
+	\[\hnorm{\equ{\seq xn}} = \lime n \norm{x_n}\;.\]
+	Zeige zun\as chst die Wohldefiniertheit. Der obige Grenzwert existiert, da f\us r \(\seq xn \in \hat V_0\) die Folge \(\se{\norm{x_n}}{n}\) eine Cauchyfolge ist, mit
+	\[\lim_{n,m \to\infty} \ab{\norm{x_n} - \norm x_m} \leq \lim_{n,m\to\infty}\norm{x_n - x_m} = 0 \;.\]
+	Betrachte nun \(\seq xn, \seq yn \in \hat V_0, \; \seq xn \sim \seq yn\), dann
+	\[\lime n\ab{\norm{x_n} - \norm{y_n}} \leq \lime n \norm{x_n -y_n}  = 0 \]
+	und somit ist \(\hnorm \cdot\) unabh\as ngig vom Repr\as sentanten. F\us r die Normeigenschaften zeige hier nur die Dreiecksungleichung und Definitheit (\ref{skalar_norm}. Eigenschaft trivial):
+	\begin{multline*}\hnorm{\equ{\seq xn} + \equ{\seq yn}} = \lime n \norm{x_n + y_n} \leq \lime n \norm{x_n} + \norm{y_n} \\= \lime n \norm{x_n} + \lime n \norm{y_n} = \hnorm{\equ{\seq xn}} + \hnorm{ \equ{\seq yn}}\end{multline*}
+	Weiterhin:
+		\[\hnorm{\equ{\seq xn}} = 0 \iff \lime n \norm{x_n} = 0 \iff \seq xn \sim \se{0}{n} \iff \equ{\seq xn} = \equ{\se{0}{n}} = 0_{\hat V}\]
+\end{proof}
+
+\section{$L^p$-R\as ume}
+
+\begin{definition}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(p\in [1,\infty)\), dann definieren wir
+	\[\p^p(\Omega, \mc F, \mu) := \set{f:\Omega \to \mathbb{K} \vert f\in \mc M(\Omega, \mc F), \; \int \ab{f}^p < \infty}\;.\]
+	Wir schreiben kurz auch \(\p^p(\mu)\).
+\end{definition}
+\begin{rem}
+	\(\p^p(\Omega, \mc F, \mu)\) definiert einen $\K$-Vektorraum.
+\end{rem}
+
+\begin{theorem}
+	\(\normn\cdot p: \p^p(\mu) \to \K, \; \normn fp := \left(\int \ab{f}^p d \mu\right)^{\sfrac{1}{p}}\) ist eine Halbnorm. \label{p_halbnorm}
+\end{theorem}
+\begin{proof}
+	Siehe nach Satz \ref{Hoelder}.
+\end{proof}
+\begin{lemma}[Youngsche Ungleichung]
+	Seien \(u,v \in \R_{\geq 0}, \; p, q \in \R_{>1}, \; \frac{1}{p} + \frac{1}{q} = 1\). Dann gilt
+	\[u\cdot v \leq \frac{u^p}{p} + \frac{v^q}{q}\;.\]\label{Young}
+\end{lemma}
+
+\begin{theorem}[H\os lder Ungleichung]
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(p, q \in (1,\infty)\), \(\frac{1}{p} + \frac{1}{q} = 1\) und \(f\in \p^p(\mu), \;g\in \p^q(\mu)\). Dann gilt \(fg \in \p^1(\mu)\) und \(\normn{fg}{1} \leq \normn fp \normn gq\).
+	\label{Hoelder}
+\end{theorem}
+\begin{proof}
+	Nehmen o B. d. A. an \(f,g \geq 0, \; \normn fp = \normn gq = 1\). Mit Lemma \ref{Young} gilt
+	\begin{multline*}\normn{fg}{1} = \int f(x) g(x) \mu(dx) \leq \int \frac{f(x)^p}{p} + \frac{g(x)^q}{q}\mu(dx) = \frac{1}{p} \int f(x)^p \mu(dx) + \frac{1}{q} \int g(x)^q \mu(dx) \\= \frac{1}{p} + \frac{1}{q} = 1 = \normn fp \cdot \normn gq
+	\end{multline*}
+\end{proof}
+
+\begin{proof}[\textbf{Zu Satz \ref{p_halbnorm}}]
+	\ref{skalar_norm}. Eigenschaft ist trivial.
+	Zeige nun noch die Dreiecksungleichung. Seien daf\us r \(f,g \in \p^p(\mu)\).
+	
+\end{proof}

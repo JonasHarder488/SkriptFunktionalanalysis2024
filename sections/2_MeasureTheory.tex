@@ -1,0 +1,106 @@
+\chapter{Ma\s{}- und Integrationstheorie}
+\section{Grundlegende Konstruktionen}
+\begin{definition}
+	Sei \(\Omega \neq \emptyset\). Dann hei\s t \(\mc F \subseteq \mc P (\Omega)\)  $\sigma$-Algebra, falls
+	\begin{enumerate}[noitemsep]
+		\item \(\Omega \in \mc F\)
+		\item \(\forall A \subseteq \mc P(\Omega): A\in \mc F \implies A^C \in \mc F\)
+		\item \(\forall \seq An,\; \forall n\in \N\; A_n \in \mc F: \bigcup_{n\in\N}\in\mc F\)
+	\end{enumerate}
+	Bezeichne \(\Omega, \mc F\) als messbaren Raum.
+\end{definition}
+\begin{rem}
+	Sei \((X, d)\) ein metrischer Raum, dann ist die $\sigma$-Algebra \(\mc B(X)\) der Borelmengen die kleinste $\sigma$-Algebra, die alle offenen Mengen von $X$ enth\as lt. Bez. \(\mc B(\R) =: \mc B\) und \(\mc B(\R^n) = \mc B^n\).
+\end{rem}
+\begin{definition}
+	Sei \(\Omega, \mc F\) ein messbarer Raum. Dann ist \(\mu: \mc F \to [0,\infty]\) ein Ma\s{}, falls
+	\begin{enumerate}[noitemsep]
+		\item \(\mu(\emptyset) = 0\)
+		\item \(\forall \seq An, \; \forall n\in\N: A_n \in \mc F, \; \forall i, j \in \N, i\neq j: A_i\cap A_j = \emptyset: \mu\left( \cup_{n\in\N} A_n\right) = \sum_{n\in\N} \mu(A_n)\)
+	\end{enumerate}
+	Wir bezeichnen \((\Omega, \mc F, \mu)\) als Ma\s raum.
+\end{definition}
+
+\begin{ex}
+	Sei \(\Omega\) beliebig und \(\mc F = \mc P(\Omega)\). Dann k\os nnen wir das Z\as hlma\s{}  $\mu$ definieren mit \(A \in \mc P(\Omega)\)
+	\[\mu(A) = \begin{cases}\ab{A} & $A$ \text{ endlich}\\ \infty & \text{sonst}\end{cases} \] 
+	Dabei ist $\Omega$ meist abz\as hlbar, z. B. \(\Omega = \N\) oder \(\Omega = \Z\)
+\end{ex}
+
+\begin{ex}
+	Sei \(\Omega = \R^n\) und \(\mc F = \mc B ^n\). Dann definieren wir das Lebesgue-Ma\s{} $l^n$ mit 
+	\[l^n\left(\bigtimes_{i=1}^n [a_i, b_i)\right) = \prod_{i=1}^n (b_i -a_i)\;.\]
+	F\us r $l=1$ gilt damit insbesondere \(l^1([a,b)) =: l([a,b)) = b-a\).
+\end{ex}
+
+\section{Integration}
+\begin{definition}
+	Sei \((\Omega, \mc F)\) ein messbarer Raum, \(f:\Omega\to \C\) hei\s t messbar (bez. \(f\in \mc M (\Omega, \mc F, \C)\)), falls
+	\[\forall r > 0, z \in \C: f^{-1}(K_r(z)) \in \mc F \;\;[\iff \forall U \in \mc B(\C) : f^{-1}(U) \in \mc F]\;.\]
+	Analog ist \(f:\Omega \to \R\) messbar (bez. \(f \in \mc M (\Omega, \mc F, \R)\)), falls
+	\[\forall U \in \mc B(\R): f^{-1}(U) \in \mc F\]
+\end{definition}
+\begin{rem}
+	Wir bezeichnen weiterhin \(\mc M(\Omega, \mc F, [0,\infty)) := \mc M_+(\Omega)\).
+\end{rem}
+\begin{rem}
+	Sei \(\Omega, \mc F\) ein messbarer Raum, \(f: \Omega \to \R\). Dann ist $f$ messbar 
+	\[\iff \forall c\in \R: \set{f > c} := \set{x\in \Omega \vert f(x) > c} \in \mc F\;.\]
+\end{rem}
+
+\begin{definition}
+	Sei $A$ eine Menge. Eine Funktion der Form
+	\[1_A(\omega)\begin{cases}1 & \omega \in A \\ 0 & \omega \not\in A\end{cases}\]
+	hei\s t \textit{Indikatorfunktion} der Menge $A$.
+\end{definition}
+\begin{theorem}[Integral f\us r nichtnegative, messbare Funktionen]
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Dann gibt es genau eine Abbildung \(\varphi: \mc M_+(\Omega) \to [0,\infty]\) mit:
+	\begin{enumerate}
+		\item \(\forall A \in \mc F: \varphi(1_A) = \mu(A)\)
+		\item \(\forall f, g \in \mc M_+(\Omega), \lambda \in [0,\infty]: \varphi(\lambda f + g) = \lambda\varphi(f) + \varphi(g)\) \label{linearitaet_integral}
+		\item \(\forall \seq f n,\; \forall n \in \N f_{n+1} \geq f_{n} \geq 0: \varphi(\li fn) = \lime n \varphi(f_n)\) \label{Beppo_Levi}
+	\end{enumerate}
+	Wir schreiben \(\varphi(f)  =: \int f d\mu =: \int f(\omega) d(\omega) =:\int f(\omega) \mu(d \omega)\).
+\end{theorem}
+\begin{rem}
+	\ref{Beppo_Levi}. ist auch als Satz von Beppo Levi \us ber monotone Konvergenz bekannt.
+\end{rem}
+\begin{rem}
+	Wir k\os nnen in \ref{linearitaet_integral}. \(\lambda \in [0, \infty]\) w\as hlen unter Beachtung, dass auf den erweiterten reellen Zahlen \(\bar\R := \R \cup \set{-\infty, \infty}\) gilt:
+	\[0\cdot (\pm \infty) = (\pm \infty) \cdot 0 : = 0 \;\text{ und }\; (+\infty) + (-\infty) = (-\infty) + (+\infty) = 0\;.\]
+\end{rem}
+\begin{definition}[Integral f\us r messbare Funktionen]
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(f\in \mc M(\Omega, \mc F, \R)\). Dann definieren wir
+	\[f^+ := \max\set{f,0}, \;\; f^- := \max\set{-f,0} \implies f = f^+ - f^- \text{ und } \ab{f} = f^+ + f^-\;.\]
+	Somit erhalten wir als Definition f\us r das Integral (f\us r integrierbare Funktionen, siehe Def. \ref{integrierbare_funkt}):
+	\[\int f d\mu : = \int f^+ d\mu - \int f^- d\mu\;.\]
+	Sei nun \(f\in \mc M(\Omega, \mc F,\C)\), dann folgt \(\Re(f), \Im(f) \in \mc M (\Omega, \mc F, \R)\). Somit k\os nnen wir definieren:
+	\[\int f d\mu := \int \Re(f) d\mu + i \cdot \int \Im(f) d\mu\;.\]
+\end{definition}
+\begin{definition}
+		\label{integrierbare_funkt}
+		Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Dann bezeichnen wir $f: \Omega \to \C$ als ($\mu$-)integrierbar, falls $f\in \p^1$, wobei gilt
+		\[\p^1(\Omega, \mc F, \mu, \C) := \set{f\in \mc M(\Omega,\mc F, \C)\Big\vert \int \ab{f} d\mu < \infty}\;.\]
+		Wir schreiben kurz auch \(\p^1(\Omega, \mc F, \mu)\).
+\end{definition}
+\begin{rem}
+	Analog definiert man \(\p^1(\Omega, \mc F, \mu, \R)\). Somit:
+	\[\int \cdot \;d\mu : \p^1(\Omega, \mc F, \mu, \R\;[\C]) \to \R \;[\C]\]
+\end{rem}
+\begin{rem}
+	F\us r \(f:\Omega \to \C\) gilt insbesondere \(\ab{f} \geq \Re(f)\), \(\ab{f} \geq \Im(f)\), d. h. das Integral ist wohldefiniert.
+\end{rem}
+\begin{theorem}
+	Seien \(f,g\in \mc \p^1(\Omega, \mc F, \mu)\) sowie eine Folge \(\seq fn, \forall n \in \N :f_n \in \p^1(\Omega, \mc F, \mu)\) sowie \(\lambda \in \C\). Dann gilt:
+	\begin{enumerate}
+		\item \(\ab{\int f d\mu} \leq \int \ab{f} d\mu\)
+		\item \(\int \lambda f + g d \mu = \lambda \int f d \mu + \int g d \mu\)
+		\item \(\mu\left(\set{\omega\in \Omega\vert f(\omega) \neq g(\omega)}\right) = 0 \implies \int f d\mu = \int g d \mu \implies \int \ab{f-g} d \mu = 0\)
+		\item \(\mu\left(\set{\omega\in \Omega\vert \ab{f(\omega)} = \infty}\right)\) = 0
+		\item \(\exists h: \Omega \to [0,\infty],\; h \in \p^1(\Omega, \mc F,\mu)\; \forall n \in \N: \ab{f_n} \leq h \text{ und } \li fn = f \implies \int f d \mu = \int \li fn d \mu = \lime n \int f_n d\mu\) \label{Lebesgue}
+	\end{enumerate}
+\end{theorem}
+\begin{rem}
+	\ref{Lebesgue}. ist auch als Satz von Lebesgue \us ber die majorisierte Konvergenz bekannt.
+\end{rem}
+

@@ -1,0 +1,260 @@
+\chapter{Metrische R\"aume}
+\section{Definitionen}
+
+\begin{definition} \label{def_metrik}
+	Eine Menge $T$, versehen mit einer Abbildung \(d: T \times T \to \R\) mit den Eigenschaften (\(s,t,u \in T\) beliebig)
+	\begin{enumerate}[noitemsep]
+		\item \(d(s,t)\geq 0\),
+		\item \(d(s,t) = d(t,s)\)
+		\item \(d(s,u) \leq d(s,t) + d(t,u)\)
+		\item \(d(s,t) = 0 \iff s = t\) \label{homogen_metrik}	\end{enumerate}
+	ist \textit{metrischer Raum} mit \textit{Metrik} $d$. Falls nur $(\Leftarrow)$ in \ref{homogen_metrik}. gilt, handelt es sich um eine \textit{Halbmetrik}. 
+\end{definition}
+
+\begin{ex}
+	\((\R, \ab \cdot)\) ist ein metrischer Raum.
+\end{ex}
+\begin{ex}
+\((\C, \ab \cdot )\) ist ein metrischer Raum. 
+\end{ex}
+\begin{ex}
+	\((\R^n, d_i)\) mit \(i \in \{1,2,\infty\}\) sind metrische R\as ume, wobei f\us r \(x,y \in \R\)
+	\[d_1 := \sqrt{\sum_{i=1}^n  (x_i -y_i) },\;\;\;\; d_2 := \sqrt{\sum_{i = 1}^n (x_i - y_i)^2}, \;\;\;\; d_\infty := \max \{\ab{x_i - y_i}\vert i: 1,\ldots, n\}\]
+\end{ex}
+\begin{definition}
+	Sei \(X,d\) ein metrischer Raum. Dann definieren wir die offene bzw. abschlossene Kugel um \(x\in X\)wie folgt.
+	\[K_\nu (x) := \{y \in X \vert d(x,y) \leq \nu\} \;\;\;\; \overline{K_\nu(x)} := \{y \in X \vert d(x,y) \leq \nu \}\]
+	Weiterhin ist \(U \text{ eine Umgebung von } x \iff \exists \nu > 0: K_\nu(x) \subseteq U\).
+\end{definition}
+
+\section{Konvergenz und Stetigkeit}
+\begin{definition}
+	Eine Folge \(\seq x n\)  in einem metrischen Raum $X$ hei\s t \textit{konvergent} gegen $x \in X$  (bez. $\li tn  = t$), falls 
+	\[\forall \varepsilon > 0 \;\exists N \in \N \forall n \geq N: d(x_n, x) \leq \varepsilon \;\;.\]
+\end{definition}
+\begin{theorem}
+	Der Limes einer konvergenten Folge ist eindeutig bestimmt. 
+\end{theorem}
+\begin{theorem}
+	Jede Teilfolge einer konvergenten Folge ist konvergent und hat den gleichen Grenzwert.
+\end{theorem}
+
+\begin{definition}
+	Sei \(f: (X_1, d_1) \to (X_2, d_2)\) eine Abbildung zwischen metrischen R\as umen. Dann hei\s t $f$ \textit{stetig an der Stelle} $x_0 \in X_1$, falls
+	\[\forall \varepsilon > 0\;\exists \delta > 0: d_1(x, x_0) < \delta \implies d_2(f(x), f(x_0)) < \varepsilon\]
+\end{definition}
+
+\begin{theorem}
+	Sei \(f: (X_1, d_1) \to (X_2, d_2)\) eine Abbildung zwischen metrischen R\as umen. Dann sind folgende Bedingungen \as quivalent:
+	\begin{enumerate}[noitemsep]
+		\item $f$ ist stetig an $x_0$
+		\item $\forall \seq x n \text{ mit }x_n \in X_1 \forall n \in \N : \li x n = x_0 \in X_1 \implies \lim_{n \to \infty} f(x_n) = f(x_0)$ 
+	\end{enumerate}
+\end{theorem}
+\begin{theorem}
+	Seien \(f: X_1 \to X_2\), \(g: X_2\to X_3\) stetige Abbildungen zwischen metrischen R\as umen. Dann ist die Verkn\us pfung \(g \circ f: X_1 \to X_3\) stetig. 
+\end{theorem}
+
+\section{Offene und abgeschlossene Mengen}
+\begin{definition}
+	Sei \((X,d)\) ein metrischer Raum, dann hei\s t 
+	\begin{enumerate}[noitemsep]
+		\item \(G \subseteq X \) offen \(:\iff \forall x \in G\; \exists \nu > 0: K_\nu(x) \subseteq G\)
+		\item \(F \subseteq X\) abgeschlossen \(:\iff \forall \seq x n \text{ mit } x_n \in F \;\forall n \in \N: \li xn = x \implies x \in F\)
+		\item $S \subseteq X$ liegt dicht in $X$ \(:\iff \forall x \in X \;\exists \seq  s n, s_n \in S: \li sn = x \)
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Ein metrischer Raum \((X, d)\) hei\s t \textit{separabel}, wenn es eine h\os chstens abz\as hlbare Teilmenge \(S\subseteq X\) gibt, die in diesem Raum dicht liegt.
+\end{definition}
+\begin{ex}
+	Der Banachraum 
+	\[l^\infty(\N) := \{\seq an \vert a_n \in \R, \seq a n \text { beschr\as nkt}\} \;\; \text{ mit } d_\infty(\seq an, \seq bn) = \sup_{n\in \N} \ab{a_n - b_n}\] 
+	ist nicht separabel.
+\end{ex}
+
+\begin{theorem}
+	\label{stetig_abb}Sei \(f: (X_1, d_1) \to (X_2, d_2)\) eine Abbildung zwischen metrischen R\as umen. Dann sind \as quivalent:
+	\begin{enumerate}[noitemsep]
+		\item $f$ ist stetig.
+		\item \(\forall G \subseteq X_2: G \text{ offen} \implies f^{-1}(G)\) offen.
+		\item \(\forall F \subseteq X_2: F \text{ abgeschlossen} \implies f^{-1}(F)\) abgeschlossen.
+	\end{enumerate}
+\end{theorem}
+
+\begin{rem}
+	Aus Satz \ref{stetig_abb} folgt: 
+	\(K_\varepsilon(x) \text{ offen, da } K_\varepsilon(x) = d(x, \cdot)^{-1}((-\infty, \varepsilon))\).
+\end{rem}
+
+\section{Vollst\as ndigkeit}
+
+\begin{definition}
+	Sei $(X,d)$ ein metrischer Raum, dann hei\s t $\seq xn$ mit $\forall n \in \N: x_n \in X$ \textit{Cauchyfolge}, falls:
+	\[\forall \varepsilon > 0 \; \exists N \in \N \; \forall n, m \geq N: d(x_n, x_m) < \varepsilon\]
+\end{definition}
+
+\begin{theorem}
+	Jede konvergente Folge $\seq x n$ in einem metrischen Raum $(X, d)$ ist eine Cauchy-Folge.
+\end{theorem}
+
+\begin{definition}
+	Ein metrischer Raum $(X, d)$ hei\s t vollst\as ndig, falls jede Cauchyfolge konvergiert.
+\end{definition}
+
+\begin{ex}
+	\((\R, \ab \cdot)\) und \(\C, \ab \cdot\) sind vollst\as ndige metrische R\as ume. 
+\end{ex}
+
+\begin{ex}
+	Die metrischen R\as ume  \((\R^n, f_p)\) mit \(p \in [1, \infty]\) sind vollst\as ndig.
+\end{ex}
+
+\begin{theorem}
+	Sei \((X, d)\) ein vollst\as ndiger metrischer Raum. Dann gilt: 
+	\[ Y \subseteq X \text{ vollst\as ndig} \iff Y \text{ abgeschlossen.}\]
+\end{theorem}
+
+\begin{theorem}
+	Sei \((X_1,d_1)\) ein metrischer Raum \((X_2, d_2)\) ein vollst\as ndiger metrischer Raum sowie \(\varphi: X_1 \to X_2\) isometrisch. Dann gibt es genau eine isometrisches \(\hat\varphi: X_1\to X_2\) mit \(\hat\varphi\vert_S = \varphi\).
+	\label{vollst_isometrie}
+\end{theorem}
+\begin{proof}
+	Sei \(x\in X_1\), dann gibt es eine Folge \(\seq xn\) mit \(\forall n \in \N: x_n \in S\) und \(\li xn = x\). Somit ist \(\seq xn\) insbesondere eine Cauchyfolge. Folglich ist auch \((\varphi(x_n))_{n\in\N}\) eine Cauchyfolge und mit der Vollst\as ndigkeit von $X_2$ gilt
+	\[\exists y\in X_2: \lime n \varphi(x_n) = y:= \hat\varphi(x)\;.\]
+	Wir setzen also f\us r solche Folgen \[\hat\varphi\left(\li x n\right) := \lime n \varphi(x_n)\;.\]
+	Zeige nun \(\hat \varphi\) ist wohldefiniert. Sei eine weitere Folge \(\seq yn\) gegeben mit \(\forall n \in \N: y_n \in S\) und \(\li yn = x\). Es folgt:
+	\[d_2(\varphi(x_n), \varphi(y_n)) = d_1(x_n, y_n) \overset{n\to\infty}{\longrightarrow} d_1(x,x) = 0 \implies \lime n \varphi(y_n) = y\;.\]
+	Somit ist $\hat\varphi$ in der Tat wohldefiniert. Weiterhin gilt \(\hat\varphi\vert_S = \varphi\), denn wir w\as hlen f\us r \(x \in S\) die Folge $\se x n$, somit gilt
+	\[ \hat \varphi\left(\li x n \right) = \hat\varphi(x) = \lime n \varphi(x_n) = \lime n \varphi(x) = \varphi(x)\;.\] 
+	Zeige nun \(\hat\varphi\) ist eine Isometrie. Seien dazu \(x,y\in X\) mit  $\seq xn$, $\seq yn$ Folgen in $S$, wobei $\li x n = x$, $\li y n = y$. Somit
+	\[d_2(\hat\varphi(x), \hat\varphi(y)) = \lime n d_2(\varphi(x_n), \varphi(y_n)) = \lime n d_1(x_n, y_n) = d(x,y) \;.\] 
+\end{proof}
+
+\begin{theorem}
+	Sei $(X,d)$ ein metrischer Raum. Dann gibt es einen vollst\as ndigen metrischen Raum $(\hat X, \hat d)$ (bez. Vervollst\as ndigung von $X$) und eine Isometrie \(\varphi: X \to \hat X\) (d. h. \(\forall x, y \in X: d(x,y) = \hat d (\varphi(x), \varphi(y))\)), sodass das Bild $\varphi(X)$ dicht in $\hat X$ ist. Haben $(\tilde X, \tilde d)$ und $\tilde \varphi$ die gleiche Eigenschaft, so gibt es eine Bijektion \(\psi: \hat X \to \tilde X\) mit \(\tilde \varphi = \psi \circ \varphi\).
+	\label{vervollst_mR}
+\end{theorem}
+\begin{proof}
+	Definiere die Menge aller Cauchyfolgen in $X$ durch 
+	\[\hat X_0 := \{\seq x n \vert \forall n \in \N: x_n \in X, \; \seq x n \text{ Cauchyfolge}\}.\]
+	Definiere weiterhin eine \As quivalenzrelation $\sim$ auf $\hat X_0$ mit 
+	\[\seq xn \sim \seq yn :\iff \lim_{n\to\infty} d(x_n, y_n) = 0\;.\]
+	Wir setzen $\hat X$ als die Menge aller \As quivalenzklassen an, d. h.
+	\[\hat X = \faktor{\hat X_0}{\sim} = \{\equ{\seq xn} \vert \seq xn \in \hat X_0\} \text { wobei } \equ{\seq xn} = \{\seq yn \vert \seq xn \sim \seq yn\}\;. \]
+	Nun konstruieren wir die Metrik $\hat d: \hat X \times \hat X \to  [0, \infty) $, wobei f\us r \(\equ{\seq xn}, \equ{\seq yn} \in \hat X\) gilt
+	\[\hat d(\equ{\seq xn}, \equ{\seq yn}) = \lim_{n, m\to \infty} d(x_n, y_m) \iff \forall \varepsilon > 0 \;\exists N, M \in \N\;\forall n \geq N \; \forall m \geq M: d(x_n, y_m) < \varepsilon\; . \]
+	Zeigen nun, dass $\hat d$ wohldefiniert. Seien $\seq {x'}{n}, \seq{y'}{n} \in \hat X_0$ mit \(\seq xn \sim \seq{x'}{n}, \seq yn \sim \seq{y'}{n}\), dann nach Definition
+	\[\lim_{n \to \infty}d(x_n, x'_n) = \lim_{n\to\infty}d(y_n, y'_n) = 0\;.\]
+	Anwenden der Dreiecksungleichung ergibt
+	\begin{align*}
+		& d(x_n, y_n) \leq d(x_n, x'_n) + d(x'_n, y'_n) + d(y'_n, y_n)\\
+		&d(x'_n, y'_n) \leq d(x'_n, x_n) + d(x_n, y_n) + d(y_n, y'_n) \; .
+	\end{align*}
+	Somit
+	\[\ab{d(x_n,y_n) - d(x'_n, y'_n)} \leq d(x_n, x'_n) + d(y_n, y'_n) \to 0\;.\]
+	Da $(d(x_n, y_n))$ und $(d(x'_n, y'_n))$ konvergent, folgt
+	\[\lim_{n, m\to\infty} d(x_n, y_m) = \lim_{n',m'\to\infty} d(x'_{n'}, y'_{m'})\]
+	und somit ist $\hat d$ wohldefiniert. Nun gilt nach Def. \ref{def_metrik} zu zeigen, dass $\hat d$ eine Metrik auf $\hat X$ ist. Wir zeigen hier nur die Dreiecksungleichung:
+	\begin{align*}
+		 \lim_{n, m \to \infty} d(x_n, y_m) &\leq \lim_{k\to\infty}\lim_{n,m \to\infty} d(x_n, z_k) + d(z_k, y_m) \iff \\
+		 \hat d(\equ{\seq xn},\equ{\seq yn}) &\leq \hat d(\equ{\seq xn}, \equ{\seq zk}) + \hat d(\equ{\seq zk}, \equ{\seq yn}) \;.
+	\end{align*}
+	Setze nun
+	\(\varphi: X \to \hat X, \;, x \mapsto \equ{(x)_{n\in\N}}\), dies ist offensichtlich eine Isometrie. Zeigen nun, dass $\varphi(X)$ dicht in $\hat X$. Sei $\equ{\seq xn} \in \hat X$. Nach Voraussetzung ist $\seq xn$ eine Cauchyfolge, d. h. $\exists N_0 \in \N$ sodass \(\forall m,n \geq  N_0: d(x_m, x_n) < \varepsilon \). Somit \(\hat x_{N_0} := \equ{(x_{N_0})_{n \in \N}} = \varphi(x_{N_0}) \in \varphi(X)\) und
+	\[\hat d\left (\equ{\seq xn}, \hat x_{N_0} \right) = \lim_{n\to\infty} d(x_n, x_{N_0})< \varepsilon\; .\]
+	Somit \(\hat x_{N_0} \in K_\varepsilon (\equ{\seq xn}) \cap \varphi(X)\) und folglich ist \(\varphi(X)\) dicht in $\hat X$.  Nun gilt zu zeigen, dass $(\hat X, \hat d)$ vollst\as ndig ist. Zeige daf\us r zun\as chst folgendes Lemma.
+	\begin{lemma}
+		Sei \(X,d\) metrischer Raum, $S\subseteq X$ dicht in $X$, sodass jede Cauchyfolge in $S$ in $X$ konvergiert. Dann ist X vollst\as ndig.\label{vervollst_lemma}
+	\end{lemma}
+	\begin{proof}
+		Sei $\seq xn$ eine Cauchyfolge in $X$. Da $S$ dicht in $X$ gilt
+		\[\forall n \in \N \;\exists y_n \in S: d(x_n, y_n) < \sfrac 1n \;.\]
+		Somit ist \(\seq yn\) auch eine Cauchyfolge in $S$, da
+		\[d(y_m, y_n) \leq d(y_m, x_m) + d(x_m, x_n) + d(x_n, y_n) < \sfrac 1m + d(x_m, x_n) + \sfrac 1n \;.\]
+		Nach Annahme existiert $\li yn =: x \in X$. Da
+		\[d(x_n, x) \leq d(x_n, y_n) + d(y_n, x) < \sfrac 1n + d(y_n, x)\]
+		folgt in der Tat \(\li xn = x\).
+	\end{proof}
+	Nach Lemma \ref{vervollst_lemma} g. z. z., dass jede Cauchyfolge in \(\varphi(X) \) in $\hat X$ konvergiert. Sei $\seq{\hat x}{k}$ Cauchyfolge in $\varphi(X)$, d. h. \(\hat x_k := (x_k, x_k,\ldots)\). Da $\varphi$ eine Isometrie, ist $\seq xk$ eine Cauchyfolge in $X$ durch 
+	\[\forall m, n \in \N: d(x_n, x_m) = \hat d(\hat x_n, \hat x_m) \;.\]
+	Somit \(\seq xk \in \hat X_0\), \(\equ{\seq xk} \in \hat X\). Sei $\varepsilon >0$, dann $\exists N \in \N$ mit \(\forall k, n \geq N: d(z_k, z_n) < \varepsilon\). Somit gilt \(\forall k \geq N\):
+	\[\hat d(\hat x_k, \hat x) = \lim_{n\to\infty} d(z_k, z_n) < \varepsilon \;.\]
+	Folglich konvergiert $\seq{\hat x}{k}$ gegen $\hat x \in \hat X$ und $\hat X$ ist vollst\as ndig.
+	Betrachte nun \((\tilde X, \tilde d)\) sowie \(\tilde \varphi\) mit den gleichen Eigenschaften. Wir definieren 
+	\[\psi_0: \varphi(X) \to \tilde X, \;\; \psi_0(\varphi(x)) = \tilde\varphi(x)\;.\]
+	Dies ist eine Isometrie, da f\us r $x,y \in X$ gilt 
+	\[\tilde d\left(\psi_0(\varphi(x)), \psi_0(\varphi(y))\right) = \tilde d(\tilde\varphi(x), \tilde\varphi(y)) = d(x,y) = \hat d(\varphi(x), \varphi(y))\;.\]
+	Nach Satz \ref{vollst_isometrie} existiert eine eindeutige Erweiterung \(\psi: \hat X \to \tilde X\) Isometrie mit \(\psi\vert_{\varphi(X)} = \psi_0\). Da $\psi_0$ als Isometrie injektiv ist, g. z. z. $\psi_0$ ist surjektiv. Sei also \(z \in \tilde X\), dann wegen der Dichtheit von $\tilde\varphi(X)$
+	\[\exists \seq xn, \; \forall n \in \N\; x_n \in X: \lime n \tilde\varphi(x_n) = z\;.\]
+	Somit  \( \seq xn\) Cauchyfolge \( \implies \se{\varphi(x_n)}{n} \) Cauchyfolge. Da $\hat X$ vollst\as ndig
+	\[\exists w \in \hat X: \lime n \varphi(x_n) = w\;.\]
+	Da $\psi$ eine Isometrie ist folgt schlie\s lich \(\lime n \psi(\varphi(x_n)) = \psi(w) = z\) und somit ist $\psi$ bijektiv.
+\end{proof}
+
+\section{Kompaktheit}
+\begin{definition}
+	Ein metrischer Raum \((X, d)\) hei\s t \textit{kompakt}, wenn jede offene \Us berdeckung eine endliche Teil\us berdeckung besitzt. D. h., wenn $(G_i)_{i\in I}$ eine Famile offener Mengen, mit \(X = \bigcup_{i\in I} G_i\), dann existieren endlich viele \(G_{i_1},\ldots, G_{i_n}\) mit \(X = \bigcup_{k=1}^n G_{i_k}\).
+\end{definition}
+\begin{theorem}
+	Sei \(X ,d\) metrischer Raum, \(K\subseteq X\) kompakt. Dann ist $K$ beschr\as nkt und abgeschlossen (Umkehrung gilt i. A.nicht).\label{kompakt_beschr_abg}
+\end{theorem}
+\begin{theorem}
+	Sei \(X,d\) metrischer Raum. Dann gilt
+	\[X \text{ kompakt}\iff \forall \seq xn \exists \left(x_{n_k}\right)_{k\in\N} \text{ Teilfolge } \exists y \in X: \lime k x_{n_k} = y\]
+\end{theorem}
+\begin{theorem}[Heine-Borel]
+	Betrachte die metrischen R\as ume \((\R^n, d_p)\) mit $p\in[1,\infty]$. Dann ist \(X\subseteq \R^n\) kompakt \(\iff X\) beschr\as nkt und abgeschlossen.
+\end{theorem}
+\begin{definition}
+	Sei \((X,d)\) metrischer Raum. Dann hei\s t \(Y\subseteq X\) totalbeschr\as nkt falls
+	\[\forall \varepsilon > 0 \;\exists M \in \N\;\exists x_1,\ldots, x_M \in Y: Y \subseteq \bigcup_{i=1}^M K_\varepsilon (x_i)\]
+\end{definition}
+\begin{theorem}
+	Sei \(X, d\) ein vollst\as ndiger metrischer Raum, \(Y\subseteq X\). Dann ist $Y$ kompakt $\iff Y$ abgeschlossen und total beschr\as nkt. 
+\end{theorem}
+\begin{proof}
+	 \((\Longrightarrow)\)\\
+	 Sei $Y$ kompakt. $Y$ abgeschlossen folgt aus Satz  \ref{kompakt_beschr_abg}. Zeige nun die totale Beschr\as nktheit, sei $\varepsilon>0$ daf\us r fixiert. Dann gilt offensichtlich
+	 \[Y \subseteq \bigcup_{y\in Y} K_\varepsilon(y) \overset{\text{$Y$ kompakt}}{\implies}\exists y_1,\ldots,y_M: Y \subseteq \bigcup_{i=1}^M K_\varepsilon(y_i)\]
+	 Somit ist $Y$ total beschr\as nkt. \\
+	 \((\Longleftarrow)\)\\
+	 Sei $Y\subseteq X$ abgeschlossen und total beschr\as nkt und sei \(\seq xn\) eine Folge aus $Y$. Es g. z. z., dass \(\seq xn\) eine in $Y$ konvergente Teilfolge besitzt. 
+	 Wir nutzen die totale Beschr\as nktheit zur Konstruktion der Teilfolge (TF).
+	 \begin{align*}
+	  \varepsilon = 1: \; &\exists \set{y^1_i}_{i = 1,\ldots, M_1}, \; Y \subseteq \bigcup_{i=1}^{M_1} K_1\left(y^1_i\right) \implies \exists \text{ TF } \se{x_{n^1_k}}{k} \exists i_1 \in \set{1,\ldots,M_1} \forall k \in \N: x_{n^1_k} \in K_1\left(y_{i_1}^1\right) \\
+	 	 \varepsilon = \frac{1}{2}: \; &\exists \set{y^2_i}_{i = 1,\ldots, M_2}, \; Y \subseteq \bigcup_{i=1}^{M_2} K_{\sfrac12}\left(y^2_i\right) \implies \exists \text{ TTF } \se{x_{n^2_k}}{k} \exists i_2 \in \set{1,\ldots,M_2}\\
+	 	 & \forall k \in \N: x_{n^2_k} \in K_1\left(y_{i_1}^1\right) \cap K_{\sfrac12}\left(y_{i_2}^2\right)
+	 \end{align*}
+	 Diese Konstruktion l\as sst sich nun auf $l$ Schritte erweitern.
+	 \begin{align*}
+	 	 \varepsilon = 2^{-l}: \; &\exists \set{y^l_i}_{i = 1,\ldots, M_l}, \; Y \subseteq \bigcup_{i=1}^{M_l} K_{2^{-l}}\left(y^l_i\right) \implies \exists \text{ TT\ldots TF } \se{x_{n^l_k}}{k} \exists i_l \in \set{1,\ldots,M_l}\\
+	 	& \forall k \in \N: x_{n^l_k} \in K_1\left(y_{i_1}^1\right) \cap K_{\sfrac12}\left(y_{i_2}^2\right) \cap \ldots \cap K_{2^{-(l-1)}}\left(y_{i_{l-1}}^{l-1}\right) \cap K_{2^{-l}}\left(y_{i_{l}}^l\right)
+	 	\end{align*}
+	 Nach Konstruktion ist \(\se{x_{n_k}^k}{k}\) Teilfolge von \(\seq xn\) und f\us r \(k, k'\geq l\) gilt
+	 \[x_{n_k}^k,\; x_{n_{k'}}^{k'} \in K_{2^{-l}}\left(y_{i_{l}}^l\right) \implies d\left(x_{n_k}^k, x_{n_{k'}}^{k'}\right) < 2^{-(l-1)}\;.\]
+	 Folglich ist \(\se{x_{n_k}^k}{k}\) eine Cauchyfolge und da $X$ nach Voraussetzung vollst\as ndig, gilt 
+	 \[\exists z\in X: \lime k x_{n_k}^k = z \;.\]
+	 Da $Y$ abgeschlossen, gilt insbesondere \(z\in Y\) und folglich $Y$ kompakt.
+	\end{proof}
+	 \begin{ex}[Noch NICHT verifiziert]
+	 	Betrachte 
+	 	\[C[0,1] := \set{f:[0,1] \to \R \;\vert\; f\text{ stetig}}, \;\; \norms\cdot , \text{ f\us r } f, g \in C[0,1]: d(f,g) = \max \set{\ab{f(t)- g(t)}\;\vert\; t\in[0,1]}\;\;\]
+	 	Dann gilt $Y\subseteq C[0,1]$ ist kompakt $\iff Y$punktweise beschr\as nkt, d. h. 
+	 	\[\exists c>0 \;\forall f \in Y \;\forall t \in [0,1]: \ab{f(t)} \leq c\]
+	 	und $Y$ gleichgradig stetig, d. h. 
+	 	\[\forall \varepsilon > 0\; \exists \delta > 0 \;\forall f \in Y\;\forall s, t \in [0,1]: \ab{t-s} < \delta \implies \ab{f(t) - f(s)} < \varepsilon \;.\]
+	 \end{ex} 
+	 
+	 \begin{theorem}
+	 	Sei \((X_1, d_1)\) ein kompakter metrischer Raum, \((X_2, d_2)\) ein metrischer Raum, sowie \(f:X_1 \to X_2\) stetig. Dann ist \(f(X_1)\) kompakt.
+	 \end{theorem}
+	 \begin{rem}[Noch NICHT verifiziert]
+	 	Falls $X_2 = \R$, dann existieren nach dem Satz von Weierstra\s{} \(x_+, x_- \in X_1\) mit \(f(x_+) = \sup f(X_1)\) und \(f(x_-) = \inf f(X_1)\).
+	 \end{rem}
+	 
+	 \begin{theorem}
+	 		Sei \((X_1, d_1)\) ein kompakter metrischer Raum, \((X_2, d_2)\) ein metrischer Raum, sowie \(f:X_1 \to X_2\) stetig. Dann ist $f$ gleichm\as \s ig stetig, d. h. 
+	 		\[\forall \varepsilon > 0 \;\exists \delta > 0 \;\forall x,y \in X_1: d_1(x,y) < \delta \implies d_2(f(x), f(y)) < \varepsilon\;.\]
+	 \end{theorem}
