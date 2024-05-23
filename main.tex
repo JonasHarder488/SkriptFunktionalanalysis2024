@@ -9,6 +9,7 @@
 \usepackage{xfrac}
 \usepackage{faktor}
 \usepackage{mathtools}
+\usepackage{mathrsfs}
 
 \geometry{a4paper, left = 20mm, right = 20mm, top = 30mm}
 
@@ -24,7 +25,6 @@
 \newcommand\norms[1]{\left\lVert#1\right\rVert_\infty}
 \newcommand\seq[2]{\left (#1_#2\right )_{#2\in \mathbb{N}}} %\se{f(x_n)}{n}
 \newcommand\ab[1]{\left\lvert #1 \right\rvert} 
-\newcommand\ser[2]{\sum_{#1=0}^\infty #2}
 \newcommand\li[2]{\lim_{#2 \to \infty} #1_#2} %\li xn
 \newcommand\lime[1]{\lim_{#1 \to\infty}} %\lime{f(x_k)}{k}
 \newcommand\se[2]{\left (#1\right )_{#2\in \mathbb{N}}}
@@ -33,7 +33,11 @@
 \newcommand\mc[1]{\mathcal{#1}}
 \newcommand{\p}{\mathcal{L}}
 \newcommand\ip[1]{\left\langle#1\right\rangle}
-
+%Neue commands Jonas
+%%%%%%%%%%%%%%%%%%%
+\newcommand\muq{\overset{\mu}{=}}
+\newcommand\ser[2]{\sum_{#2=0}^\infty #1}
+%%%%%%%%%%%%%%%%%%%
 \newcommand{\as}{{\"a}}
 \newcommand{\As}{{\"A}}
 \newcommand{\Os}{{\"O}}
@@ -58,9 +62,9 @@
 \begin{document}
 	\maketitle
 	\tableofcontents
-	\include{sections/1_MetricSpaces.tex}
-	\include{sections/2_MeasureTheory.tex}
-	\include{sections/3_NormedSpaces.tex}
-	\include{sections/4_HilbertSpaces.tex}
-	\include{sections/5_LinearOperators.tex}
+	\include{sections/1_MetricSpaces}
+	\include{sections/2_MeasureTheory}
+	\include{sections/3_NormedSpaces}
+	\include{sections/4_HilbertSpaces}
+	\include{sections/5_LinearOperators}
 \end{document}

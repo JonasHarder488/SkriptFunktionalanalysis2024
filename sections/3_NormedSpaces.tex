@@ -64,7 +64,7 @@
 
 \begin{definition}
 	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(p\in [1,\infty)\), dann definieren wir
-	\[\p^p(\Omega, \mc F, \mu) := \set{f:\Omega \to \mathbb{K} \vert f\in \mc M(\Omega, \mc F), \; \int \ab{f}^p < \infty}\;.\]
+	\[\p^p(\Omega, \mc F, \mu) := \set{f:\Omega \to \mathbb{K} \vert f\in \mc M(\Omega, \mc F), \; \int_\Omega \ab{f}^p < \infty}\;.\]
 	Wir schreiben kurz auch \(\p^p(\mu)\).
 \end{definition}
 \begin{rem}
@@ -72,11 +72,19 @@
 \end{rem}
 
 \begin{theorem}
-	\(\normn\cdot p: \p^p(\mu) \to \K, \; \normn fp := \left(\int \ab{f}^p d \mu\right)^{\sfrac{1}{p}}\) ist eine Halbnorm. \label{p_halbnorm}
+	\(\normn\cdot p: \p^p(\mu) \to \K, \; \normn fp := \left(\int_\Omega \ab{f}^p d \mu\right)^{\sfrac{1}{p}}\) ist eine Halbnorm. \label{p_halbnorm}
 \end{theorem}
 \begin{proof}
 	Siehe nach Satz \ref{Hoelder}.
 \end{proof}
+\begin{rem}
+	\(\normn\cdot p\) ist keine Norm.
+\end{rem}
+\begin{ex}
+	Betrachte \(\Omega = \R,\; f = 1_C \neq 0 ,\; \mu = l\), wobei $C$ die Cantormenge und $l$ das Lebesgue-Ma\s{} sind. Dann gilt:
+	\[\normn fp = \left(\int_\Omega (1_C)^p dl\right)^\frac 1p = l(C)^{\frac 1p} = 0\]
+	
+\end{ex}
 \begin{lemma}[Youngsche Ungleichung]
 	Seien \(u,v \in \R_{\geq 0}, \; p, q \in \R_{>1}, \; \frac{1}{p} + \frac{1}{q} = 1\). Dann gilt
 	\[u\cdot v \leq \frac{u^p}{p} + \frac{v^q}{q}\;.\]\label{Young}
@@ -88,11 +96,157 @@
 \end{theorem}
 \begin{proof}
 	Nehmen o B. d. A. an \(f,g \geq 0, \; \normn fp = \normn gq = 1\). Mit Lemma \ref{Young} gilt
-	\begin{multline*}\normn{fg}{1} = \int f(x) g(x) \mu(dx) \leq \int \frac{f(x)^p}{p} + \frac{g(x)^q}{q}\mu(dx) = \frac{1}{p} \int f(x)^p \mu(dx) + \frac{1}{q} \int g(x)^q \mu(dx) \\= \frac{1}{p} + \frac{1}{q} = 1 = \normn fp \cdot \normn gq
+	\begin{multline*}\normn{fg}{1} = \int_\Omega f(x) g(x) \mu(dx) \leq \int_\Omega \frac{f(x)^p}{p} + \frac{g(x)^q}{q}\mu(dx) = \frac{1}{p} \int_\Omega f(x)^p \mu(dx) + \frac{1}{q} \int_\Omega g(x)^q \mu(dx) \\= \frac{1}{p} + \frac{1}{q} = 1 = \normn fp \cdot \normn gq
 	\end{multline*}
 \end{proof}
 
 \begin{proof}[\textbf{Zu Satz \ref{p_halbnorm}}]
 	\ref{skalar_norm}. Eigenschaft ist trivial.
-	Zeige nun noch die Dreiecksungleichung. Seien daf\us r \(f,g \in \p^p(\mu)\).
+	Zeige nun noch die Dreiecksungleichung. Seien daf\us r \(f,g \in \p^p(\mu)\). Dann gilt auch die Absch\as tzung:
+	\[\ab{f+g}^p = \ab{f+g}^{p-1} \ab{f+g} \leq \ab{f+g}^{p-1} \ab{f} + \ab{f+g}^{p-1} \ab{g}  \;.\] 
+	Sei \(q \in \R\) so gew\as hlt, dass \(\frac{1}{p} + \frac{1}{q} = 1 \iff p+q = pq\). Dann gilt \(\ab{f+g}^{p-1} \in \p^q(\mu)\), da 
+	\[\left(\ab{f+g}^{p-1}\right)^q = \ab{f+g}^{pq - q} = \ab{f+g}^{p}\]
+	Dies ist in der Tat integrierbar, da \(\ab{f+g}^p \leq \ab{f}^p + \ab{g}^p\) und nach Voraussetzung \(f,g \in \p^p(\mu)\). Somit erhalten wir 
+		\[\normn{f+g}{p}^p = \int_\Omega \ab{f+g}^p  d\mu\leq  \int_\Omega  \ab{f+g}^{p-1} \ab{f} + \ab{f+g}^{p-1} \ab{g} d \mu = \normn{(f+g)^{p-1} f}{1} + \normn{(f+g)^{p-1} g}{1} \;.\]
+		Anwenden der H\os lder Ungleichung ergibt
+		\[\leq \normn{f+g}{q}\normn{f}{p} + \normn{f+g}{q}\normn{g}{p} = \left(\int_\Omega\ab{f+g}^{(p-1)q}\right)^\frac{1}{q} (\normn{f}{p}+\normn{g}{p}) =  \left(\int_\Omega\ab{f+g}^{p}\right)^\frac{1}{q} (\normn{f}{p}+\normn{g}{p})\;.\]
+		Sei o. B. d. A. \(f+g \neq 0\) fast \us berall (sonst Beh. trivial), dann gilt: 
+		\[\normn{f+g}{p}^p \leq \normn{f+g}{p}^{\sfrac{p}{q}}(\normn{f}{p}+\normn{g}{p}) \iff\normn{f+g}{p}^{p (1-\sfrac{1}{q})} \leq\normn{f}{p}+\normn{g}{p} \iff  \normn{f+g}{p} \leq \normn{f}{p}+\normn{g}{p}\]
 \end{proof}
+
+\begin{definition}
+	Sei \(\Omega, \mc F, \mu\) ein Ma\s raum sowie \(f, g: \Omega \to \K\). Dann definieren wir
+	\[f \muq g :\iff \mu(\set{\omega \in \Omega\vert f(\omega) \neq g(\omega)} =: \mu(\set{f\neq g}) = 0\;.\]
+	Man sagt auch \(f = g\) $\mu$-fast \us berall.
+\end{definition}
+\begin{rem}
+	Die Relation \(\muq\) ist eine \As quvialenzrelation.
+\end{rem}
+\begin{theorem}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum sowie \(f\in \p^p(\mu), \; g:\Omega \to \K\). Dann gilt
+	\[f \muq g \implies g \in \p^p(\mu) \text{ und } \normn fp = \normn gp\;.\]
+	\label{Lp_Norm_wohldef}
+\end{theorem}
+\begin{proof}
+	Gelte o. B. d. A. \(g \muq 0\).Betrachte hier \(g:\Omega \to \K \cup\set{-\infty, \infty}\), sei \(A:=\set{\omega \in \Omega\vert g(\omega) \neq 0}\). Nach Voraussetzung gilt \(\mu(A) = 0\) und somit
+	\[\ab{g} \leq \infty \cdot 1_A \implies \int_\Omega \ab{g}^p d\mu \leq \infty \cdot \int_\Omega 1_A d\mu = \infty\cdot 0 = 0\;.\]
+	Folglich gilt also in der Tat \(g\in \p^p\). Zeige nun \(\normn fp = \normn gp\). Dabei nutzen wir \(f\muq g \iff g-f \muq 0 \implies \normn{g-f}{p} = 0\). Es folgt
+	\[\normn gp = \normn{f+(g-f)}{p} \leq \normn fp + \normn{g-f}{p} = \normn fp\]
+	Analog erhalten wir \(\normn fp \leq \normn gp\) und somit in der Tat \(\normn fp = \normn gp\).
+\end{proof}
+
+\begin{theorem} Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, dann wird
+	\(\faktor{\p^p(\mu)}{\muq}\) mit \(\forall f \in \p^p(\mu): \;\normn{\equ f}{p} := \normn fp\) ein normierter Raum.
+\end{theorem}
+\begin{proof}
+	Die Wohldefiniertheit der Norm folgt aus Satz \ref{Lp_Norm_wohldef}. Weiterhin l\as ssen sich die Halbnormeigenschaften auf Satz \ref{p_halbnorm} zur\us ckf\us hren. Es g. z. z., dass \(\normn \cdot p\) auf \(\faktor{\p^p(\mu)}{\muq}\) definit ist. Angenommen f\us r \(\equ{f} \in \faktor{\p^p(\mu)}{\muq}\)  gilt \(\normn{\equ{f}}{p} = 0 \iff \int_\Omega \ab{f}^p = 0\). Nehme weiterhin an, dass \(f \overset{\mu}{\neq} 0\iff 0< \mu(\set{\ab{f}>0})\). Somit
+	\[0<\mu(\set{\ab{f}>0}) = \mu\left(\bigcup_{n\in\N}\set{\ab{f} > \frac{1}{n}}\right) = \lime n\mu \left(\ab{f}> \frac{1}{n}\right)\;.\]
+	Folglich \(\exists c>0: \mu(\set{\ab{f}\geq c}) > 0\). Damit erhalten wir mit \(A := \set{\ab{f}>c}\)
+	\[\ab{f}^p \geq c^p \cdot 1_A \implies \int \ab{f}^p \geq c^p \mu(A) > 0\;.\]
+	Dies ist ein Widerspruch und folglich gilt \(f\muq 0\).
+\end{proof}
+
+\begin{definition}
+	Sei (\(\Omega, \mc F, \mu\)) ein Ma\s raum, dann 
+	\[L^p(\mu) := L^p(\Omega,\mc F \mu) := \faktor{\p^p(\Omega, \mc F,\mu)}{\muq}\]
+	Wir schreiben meist \(L^p(\mu)\) f\us r \(\K = \R\) und \(L^p(\mu, \C)\) f\us r \(\K = \C\).
+\end{definition}
+ \begin{rem}
+ 	Statt \(\equ{f} \in L^p\) schreiben wir nur \(f\in L^p\).
+ \end{rem}
+\begin{definition}
+	\(f\in \mc M(\Omega, \mc F, \mu)\) hei\s t \textit{wesentlich beschr\as nkt} (\(:\iff f \in \p^\infty(\mu)\)), falls
+	\[\exists c \in \R_{>0} : \mu(\set{\omega \in\Omega\vert \ab{f(\omega)} > c}) = 0\;.\]
+	Dann definieren wir
+	\[\norms f := \inf\set{c\;\vert\;\mu(\set{\omega \in\Omega\vert \ab{f(\omega)} > c}) = 0}\;.\]
+\end{definition}
+
+\begin{theorem}
+	\(\norms\cdot\) ist eine Halbnorm und es gilt \(f\muq g \iff \norms{f-g} = 0\).
+\end{theorem}
+\begin{proof}
+	Die \ref{skalar_norm}. Eigenschaft und die zweite Aussage sind trivial, wir zeigen hier wieder nur die Dreiecksungleichung. Seien \(f,g \in \mc M(\Omega, \mc F, \mu)\) wesentlich beschr\as nkt, \(c,d > 0\) und \(A := \set{\omega \in \Omega\;\vert\; \ab{f(\omega)} > c}\), \(B : = \set{\omega\in\Omega\;\vert\;\ab{g(\omega)} > d}\). Somit 
+	\[\mu(A) = \mu(B) = 0 \implies \mu(A\cup B) \leq \mu(A) + \mu(B) = 0\;.\]
+	Es gilt 
+	\[D: = \set{\omega\in\Omega\;\vert\;\ab{f(\omega) + g(\omega)} > c+d} \subseteq A\cup B \]
+	 und somit auch \(\mu(D) = 0\).
+	Sei nun \(\omega \in (A\cup B)^C\), dann \[\ab{f(\omega)} \leq c \land \ab {g(\omega)} \leq d \implies \ab{f(\omega) + g(\omega)} \leq \ab{f(\omega)} + \ab{g(\omega)} \leq c+d\;.\]
+	D. h. \(f+g\) ist wesentlich durch \(c+d\) beschr\as nkt und somit folgt in der Tat
+	\[\norms{f+g} \leq c+d \leq \norms{f} + \norms{g}\;.\]
+\end{proof}
+
+\begin{theorem}
+	Sei \(\Omega, \mc F, \mu\) ein Ma\s raum. Dann ist \(\faktor{\p^\infty(\mu)}{\muq}\) mit \(\forall f \in \p^\infty(\mu): \norms{\equ{f}} = \norms{f}\) ein normierter Raum.
+\end{theorem}
+
+\begin{definition}
+	Sei \((\Omega,\mc F, \mu)\) ein Ma\s raum, dann 
+	\[L^\infty(\mu) := L^\infty(\Omega,\mc F, \mu) := \faktor{\p^\infty(\Omega, \mc F, \mu)}{\muq}\;.\]
+	Wir schreiben meist \(L^\infty(\mu)\) f\us r \(\K = \R\) und \(L^\infty(\mu, \C)\) f\us r \(\K = \C\).
+\end{definition}
+
+\begin{rem}
+	\(L^p(\mu)\) f\us r \(p \in [1,\infty]\) sind keine direkten Funktionenr\as ume.
+\end{rem}
+
+\begin{theorem}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, dann ist \((L^p(\mu), \normn \cdot p)\) ein Banachraum f\us r \(p \in [1,\infty]\).
+\end{theorem}
+\begin{proof}
+	Betrachte hier nur den Fall \(p = 1\). Sei \(\seq fn\) eine Cauchyfolge in \(L^p(\mu)\), d. h. 
+	\[\forall \varepsilon> 0 \;\exists N_0 \in \N \;\forall m,n \geq N_0: \normn{f_m - f_n}{p} < \varepsilon\;.\]
+	Daher gilt insbesondere
+	\[\forall k > 0 \; \exists n_k \;\forall m \geq n_k : \normn{f_m - f_{n_k}}{p} < 2^{-k}\;.\]
+	Somit k\os nnen wir solche \(n_k\) mit \(n_{k+1} > n_k\) w\as hlen und erhalten eine Teilfolge \(\se{f_{n_k}}{k}\) mit \( \normn{f_{n_{k+1}} - f_{n_k}}{p} < 2^{-k}\). F\us r \(p = 1 \) mit Beppo-Levi und \(g_k:= \ab{f_{n_{k+1}} - f_{n_k}}\):
+	\[\sum_{k\in\N} \normn{f_{n_{k+1}} - f_{n_k}}{1} = \sum_{k\in\N} \int_\Omega g_k d\mu = \int_\Omega \sum_{k\in\N} g_k d\mu < \infty\;.\]
+	Somit gilt insbesondere 
+	\[\mu\left(\set{\omega \in \Omega\Big\vert \sum_{k\in\N} g_k(\omega) = \infty}\right) = 0\;.\]
+	Nehmen hier o. B. d. A. an, dass \(\forall \omega \in \Omega: \sum_{k\in\N} g_k(\omega) <\infty\). Somit bildet \(\forall \omega\in\Omega\) die Folge \(\se{f_{n_k}}{k}\) eine Cauchyfolge und ist somit konvergent, d. h. \(\forall \omega \in \Omega: f(\omega) := \lime k f_{n_k}(\omega)\) existiert. Somit gilt 
+	\[\lime k f_{n_0}(\omega) - f_{n_k}(\omega) = f_{n_0}(\omega) - f(\omega)\;\]
+	Wir k\os nnen eine integrierbare Majorante f\us r die $f_{n_0}(\omega) - f_{n_k}(\omega)$ finden mit 
+	\[\ab{f_{n_0}(\omega) - f_{n_k}(\omega)} \leq \sum_{l=0}^{k-1}\ab{f_{n_l}(\omega) - f_{n_{l+1}}(\omega)} \leq \sum_{k\in\N} g_k(\omega) =: g(\omega) \text{ mit }\int_\Omega g d\mu < \infty\;.\]
+	Nach dem Satz von Lebesgue folgt somit, dass $f$ integrierbar (d. h. \(f\in L^1(\mu)\)) und 
+	\[\lime k \int_\Omega \ab{ f_{n_0}(\omega) - f_{n_k}(\omega) -( f_{n_0}(\omega) - f(\omega))} = 0 \iff \lime k \normn{f_{n_k} - f}{1} = 0 \;.\]
+	Also ist \(L^1(\mu)\) in der Tat vollst\as ndig.
+\end{proof}
+
+\section{Beispiele f\us r normierte R\as ume}
+
+\begin{ex}
+	Betrachte 
+	\[\Omega = \set{1,\ldots, n}, \; n\in\N_{>0} \;\text{ mit }\; \forall A \subseteq \Omega: \mu(A) = \ab{A}\;.\] 
+	Dann gilt wegen der Korrespondenz als Vektorraum
+	\[L^p(\mu) = \R^n \text{ und } L^p(\mu, \C) = \C^n\]
+	wegen der Korrespondenz 
+	\[f:\set{1,\ldots,n} \to \K \;\;\longleftrightarrow\;\; \begin{pmatrix}f(1)\\ \ldots \\ f(n)\end{pmatrix}\;.\]
+\end{ex}
+
+\begin{ex}[Folgenr\as ume]
+	Folgende Vektorr\as ume 
+	\begin{align*}
+		 c_0 &:= \set{\seq an \;\vert\; \forall n \in\N: a_n \in \K, \; \li an  = 0}\\
+		c &:= \set{\seq an \;\vert\; \forall n\in \N: a_n \in \K, \; \li an \text{ existiert}}\\
+	   \ell^\infty = \ell^\infty(\N) &:= \set{\seq an \;\vert\; \forall n\in \N: a_n \in \K,\; \exists c>0\;\forall n\in\N: \ab{a_n} \leq c}
+	\end{align*}
+	sind normierte Vektorr\as ume (insbesondere Banachr\as ume) mit  der Supremumsnorm 
+	\[\norms{\seq an} = \sup_{n\in\N}\ab{a_n}\;.\]
+	Betrachte weiterhin die Folgenr\as ume \(l^p\) mit \(p \in [1,\infty)\), wobei $\mu$ das Z\as hlma\s{}:
+	\[\ell_\K^p = L^p(\N, \mu,\K) = \set{\seq an \;\Big\vert\; \forall n\in \N: a_n \in \K, \sum_{n=1}^\infty \ab{t_n}^p < \infty}\]
+	mit der Norm \(\normn \cdot p\) definiert durch
+	\[\forall \seq an \in \ell^p: \normn{\seq an}{p} = \left(\sum_{n=1}^\infty \ab{t_n}^p\right)^\frac{1}{p}\;.\]
+	Dabei sind \((\ell^p, \normn \cdot p)\) f\us r \(p \in [1,\infty)\) Banachr\as ume. 
+\end{ex}
+
+\begin{ex}
+	Betrachte
+	\[\Omega = \R  \text{ bzw. } \Omega = \R^d\text{ mit Lebesgue-Ma\s{} } l \text{ bzw. } l^d\;.\]
+	mit den entsprechenden R\as umen \(L^p(l), \; L^p(l,\C)\) bzw. \(L^p(l^d)\) und den bekannten Normen.
+	Betrachte 
+	\[\Omega = [0,1] \text{ mit Lebesgue-Ma\s{} } l \]
+	dann ergibt sich 
+	\[L^p([0,1],l) \text{ mit } \forall f\in L^p([0,1],l): \normn fp = \int_0^1 \ab{f(x)}^p dx\]
+	Der normierte Raum \((C^0([0,1]), \norms \cdot)\) $\ldots$ 
+	\end{ex}
+	\begin{rem}
+		Es gibt eine Inklusion \(C^0([0,1])\xhookrightarrow{} L^p([0,1])\), da in jeder \As quivalenzklasse nur eine stetige Funktion ist.
+	\end{rem}
