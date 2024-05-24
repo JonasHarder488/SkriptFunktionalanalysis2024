@@ -1,1 +1,82 @@
 \chapter{Hilbertr\as ume}
+\section{Definitionen}
+\begin{definition}
+	Sei $H$ ein \(\K\)-Vektorraum. F\us r \(\K = \R\) hei\s t eine Abbildung \(\ip{\cdot,\cdot}: H \times H \to \R\) \textit{Skalarprodukt} (oder \textit{inneres Produkt}), falls
+	\begin{enumerate}[noitemsep]
+		\item \(\forall x \in H: \ip{x, \cdot},\; \ip{\cdot, x} : H \to \R\) sind linear
+		\item \(\forall x \in H: \ip{x,x}  \geq 0\)
+		\item \(\forall x \in H: \ip{x,x} = 0 \implies x = 0\)
+		\item \(\forall x, y \in H: \ip{x,y} = \ip{y,x}\)
+	\end{enumerate}
+	F\us r \(\K = \C\) muss gelten:
+	\begin{enumerate}[noitemsep]
+		\item \(\forall x \in H: \ip{x, \cdot}: H \to \C\) ist linear, \(\ip{\cdot,x}: H \to \C\) ist antilinear, d. h. 
+		\(\forall y, z \in H, \lambda \in \C: \ip{\lambda x + y, z} = \overline \lambda \ip{y,x} + \ip{z,x}\)
+		\item \(\forall x \in H: \ip{x,x}  \geq 0\)
+		\item \(\forall x \in H: \ip{x,x} = 0 \implies x = 0\)
+		\item \(\forall x, y \in H: \ip{x,y} = \overline{\ip{y,x}}\)
+	\end{enumerate}
+\end{definition}
+
+\begin{rem}
+	F\us r das Skalarprodukt \us ber $\C$ kann nur Sesquilinearit\as t und keine Bilinearit\as t gefordert werden, um die positive Deinitheit beizubehalten. Angenommen das Skalarprodukt \us ber $\C$ w\as re bilinear und positiv definit, dann 
+	\[\forall x \in H: \ip{x,x} \geq 0 \implies 0 \leq \ip{ix, ix} = - \ip{x,x} \leq 0 \implies \ip{x,x} = 0 \;.\]
+\end{rem}
+
+\begin{theorem}[Cauchy-Schwarzsche Ungleichung]
+	Sei $H$ ein \(\K\)-Vektorraum mit Skalarprodukt \(\ip{\cdot, \cdot}\), dann gilt
+	\[\forall x, y \in H: \ab{\ip{x,y}}^2 \leq \ip{x,x} \cdot \ip{y,y}\;.\]
+	\label{CauchySchwarz}
+\end{theorem}
+\begin{rem}
+	Mit Satz \ref{NormSP} schreibt man die Cauchy-Schwarzsche Ungleichung auch als 
+	\[\ab{\ip{x,y}} \leq \norm x \cdot \norm y\;.\]
+\end{rem}
+
+\begin{theorem}
+	Sei \((H, \ip{\cdot,\cdot})\) ein Raum mit Skalarprodukt. Dann ist \(\norm\cdot : H \to \R \geq 0 \) mit \( \norm x = \sqrt{\ip{x,x}}\) f\us r \(x \in H\) eine Norm auf $H$.
+	\label{NormSP}
+\end{theorem}
+\begin{proof}
+	Die \ref{skalar_norm}. und \ref{definit_norm}. Eigenschaft sind trivial, zeige hier nur die Dreiecksungleichung. Es gilt f\us r \(x,y \in H\)
+	\[\norm{x+y}^2 = \ip{x+y, x+y} = \ip{x,x} + \ip{x,y} + \ip{y,x} + \ip{y,y} = \norm{x}^2 + 2 \Re(\ip{x,y}) + \norm{y}^2 \;.
+	\]
+	Mit \(\Re(\ip{x,y}) \leq \ab{\ip{x,y}}\) und der Cauchy-Schwarz-Ungleichung erhalten wir in der Tat:
+	\[\norm{x+y}^2 \leq \norm{x}^2 + 2 \norm x \norm y + \norm{y}^2 = (\norm x + \norm y)^2 \;.\]
+\end{proof}
+
+\begin{definition}
+  Ein Raum \((H, \ip{\cdot, \cdot})\) mit Skalarprodukt hei\s t \textit{Hilbertraum}, wenn er bzgl. der vom Skalarprodukt induzierten Norm \(\norm \cdot\) vollst\as ndig ist.
+\end{definition}
+
+\begin{lemma}[Polarisationsformel]
+	Sei \((H, \ip{\cdot, \cdot})\) ein Raum mit Skalarprodukt und induzierter Norm \(\norm x = \sqrt{\ip{x,x}}\) f\us r \(x \in H\). Dann gilt f\us r \(\K = \R\): 
+	\[\ip{x,y} = \frac{1}{4} (\norm{x+y}^2 - \norm{x-y}^2)\]
+	und f\us r \(\K = \C\):
+	\[\ip{x,y} = \frac{1}{4}(\norm{x+y}^2 - \norm{x-y}^2 + i\norm{x+iy}^2 - i\norm{x-iy}^2)\;.\]
+	\label{Polarisation}
+\end{lemma}
+
+\begin{theorem}[Parallelogrammgleichung]
+	Ein normierter Raum \((V, \norm \cdot)\) (mit $V$ ein $\K$-Vektorraum) ist ein Raum mit Skalarprodukt \((V, \ip{\cdot, \cdot})\), wobei \(\ip{\cdot, \cdot}\) die Norm induziert, genau dann wenn 
+	\[\forall x, y \in V: \norm{x+y}^2 + \norm{x-y}^2 = 2(\norm{x}^2 + \norm{y}^2)\;.\]
+\end{theorem}
+\begin{proof}
+	\((\Longrightarrow)\) Es gilt: 
+	\begin{align*}
+		& \norm{x+y}^2 = \ip{x+y, x+y} = \ip{x,x} + \ip{x,y} + \ip{y,x} + \ip{y,y}\\
+		& \norm{x-y}^2 = \ip{x-y, x-y} = \ip{x,x} - \ip{x,y} - \ip{y,x} + \ip{y,y}\\
+		\implies & \norm{x+y}^2 -  \norm{x-y}^2  = 2 \ip{x,x} +  2 \ip{y,y}
+	\end{align*}
+	\((\Longleftarrow)\) Man setzt f\us r \(\K = \R \) bzw. \(\K = \R\) das Skalarprodukt gem\as \s{} der Polarisationsformeln nach Lemma \ref{Polarisation} an und zeigt unter Ausnutzung der Parallelogrammgleichung, dass dies die Eigenschaften eines Skalarprodukts empfiehlt (explizit im \textit{Werner} S. 222).
+\end{proof}
+
+\section{Beispiele}
+\begin{ex}
+	Betrachte \(\R^n\) und \(\C^n\). Diese sind mit den Standardskalarprodukten Hilbertr\as ume, wobei f\us r \(x, y \in \R^n,\; u,v \in \C^n\)
+	\[\ip{x,y} = \sum_{i=1}^n x_i y_i \;\text{ und }\; \ip{u,v} = \sum_{i=1}^n \overline{u_i}v_i\;\]
+\end{ex}
+\begin{ex}
+	\(\ell^2_\K\) ist ein Hilbertraum, wobei die Norm von folgendem Skalarprodukt induziert wird
+	\[\ip{\seq ai, \seq bi} = \sum_{i=1}^\infty a_i b_i\]
+\end{ex}
