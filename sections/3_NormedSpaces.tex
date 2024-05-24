@@ -238,6 +238,7 @@
 \end{ex}
 
 \begin{ex}
+	\label{norm_fkt_raueme}
 	Betrachte
 	\[\Omega = \R  \text{ bzw. } \Omega = \R^d\text{ mit Lebesgue-Ma\s{} } l \text{ bzw. } l^d\;.\]
 	mit den entsprechenden R\as umen \(L^p(l), \; L^p(l,\C)\) bzw. \(L^p(l^d)\) und den bekannten Normen.
@@ -245,8 +246,38 @@
 	\[\Omega = [0,1] \text{ mit Lebesgue-Ma\s{} } l \]
 	dann ergibt sich 
 	\[L^p([0,1],l) \text{ mit } \forall f\in L^p([0,1],l): \normn fp = \int_0^1 \ab{f(x)}^p dx\]
-	Der normierte Raum \((C^0([0,1]), \norms \cdot)\) $\ldots$ 
+	Der normierte Raum \((C^0([0,1]), \norms \cdot)\) ist ein Banachraum, wobei 
+	\[C^0([0,1]) := \set{f:[0,1]\to\K \;\vert\; f\text{ stetig}} \;\text{ und }\; \forall f \in C^0([0,1]) : \norms f = \sup\set{\ab{f(t)}\;\vert\;t\in[0,1]}\]
+	Hingegen ist \(C^0([0,1])\) nicht vollst\as ndig bzgl. der Norm \(\normn{f}{p} = \int_0^1\ab{f(t)}^p dt\).
+	Der Raum \((C^r([0,1]), \normn{\cdot}{k,\infty})\) 
+	\[C^r([0,1]) = \set{f \in C^0([0,1])\;\vert\; f \text{ $r$-mal stetig differenzierbar}} \;\text{ und }\; \forall f\in C^r([0,1]): \normn{f}{k, \infty} = \sum_{j=0}^r \norms{f^{(j)}}\]
+	 ist ein Banachraum. Man kann auch weitere Normen auf \(C^r([0,1])\) definieren, bspw. f\us r \(r=1\) und \(f\in C^1([0,1])\)
+	 \[\normn{\cdot}{1,p} = \normn fp + \normn{f'}{p} \;\text{ oder }\; \hnorm{f}_{1,p} = \left(\int_0^1 \ab{f'(x)}^p + \ab{f(x)}^p\right)\;.\]
 	\end{ex}
+	
 	\begin{rem}
 		Es gibt eine Inklusion \(C^0([0,1])\xhookrightarrow{} L^p([0,1])\), da in jeder \As quivalenzklasse nur eine stetige Funktion ist.
 	\end{rem}
+	
+	\section{\As quivalenz von Normen}
+	\begin{definition}
+		Sei $V$ ein $\K$-Vektorraum und \(\norm \cdot, \hnorm \cdot: V \to \R_{\geq 0}\) Normen. Diese hei\s en \as quivalent, falls
+		\[\exists 0 < c_1 < c_2 \; \forall x \in V : c_1 \norm{x} \leq \hnorm{x} \leq c_2 \norm{x}\;.\]
+	\end{definition}
+	
+	\begin{ex}
+		Betrachte \(\R^n\) mit den Normen (\(x\in\R^n\)): \(\norms x = \max\set{\ab{x_1},\ldots, \ab{x_n}}\) und \(\normn{x}{1} = \sum_{i=1}^n \ab{x_1}\), dann gilt \(\forall x\in \R^n\)
+		\[\norms x \leq \normn{x}{1} \leq n\cdot \norms{x}\]
+		d. h. \(\norms \cdot\) und \(\normn{\cdot}{1}\) sind \as quivalent.
+	\end{ex}
+	
+	\begin{ex}
+		Betrachte \(C^1([0,1])\) mit den Normen \(\norms \cdot \) und \(\normn{\cdot}{1,\infty}\), wie in Bsp. \ref{norm_fkt_raueme} definiert. Diese sind nicht \as quivalent. Definiere \(f_n(x) = x^n \in C^1([0,1])\), somit \(f_n'(x) = n \cdot x^{n-1}\). Folglich
+		\[\norms{f_n} = 1 \;\text { und }\; \normn{f_n}{1, \infty} = \norms{f_n} + \norms{f_n'} = 1 + n\] 
+		und es existieren offensichtlich keine Konstanten \(0<c_1<c_2\) mit 
+		\[\forall n \in \N: c_1 \leq n+1 \leq c_2\;.\]
+	\end{ex}
+	
+	\begin{theorem}
+		Sei $V$ ein $K$-Vektorraum mit \(\dim_\K V < \infty\). Dann sind alle Normen auf $V$ \as quivalent und jeder solche normierte Vektorraum ist ein Banachraum.
+	\end{theorem}
