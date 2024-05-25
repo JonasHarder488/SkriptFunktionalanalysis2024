@@ -78,5 +78,129 @@
 \end{ex}
 \begin{ex}
 	\(\ell^2_\K\) ist ein Hilbertraum, wobei die Norm von folgendem Skalarprodukt induziert wird
-	\[\ip{\seq ai, \seq bi} = \sum_{i=1}^\infty a_i b_i\]
+	\[\ip{\seq ai, \seq bi} = \sum_{i=1}^\infty a_i b_i\;.\]
 \end{ex}
+
+\begin{ex}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Dann ist \(L^2(\mu, \K)\) ein Ma\s raum mit dem Skalarprodukt (\(f,g \in L^2(\mu,\K)\))
+	\[ \ip{f,g} = \int_\Omega f g \;d\mu \;\text{ f\us r } \K = \R \;\text{ bzw. }\; \ip{f,g} = \int_\Omega \overline{f}g \;d\mu \;\text{ f\us r }\K = \C\;.\] 
+\end{ex}
+
+\begin{ex}
+	Betrachte \(C^0([0,1])\), dann ist f\us r \(f,g\in C^0([0,1])\)
+	\[ \ip{f,g} = \int_0^1 \overline{f(t)} g(t) \; dt\]
+	ein Skalarprodukt aber \((C^0([0,1]), \ip{\cdot,\cdot})\) kein Hilbertraum.
+	\end{ex}
+	
+\begin{ex}(Bergmanraum)
+	Sei \(\mathbb{D} = \set{z \in\C \vert \ab{z} < 1}\). Dann ist \((H, \ip{\cdot, \cdot})\) ein Hilbertraum, wobei mit \(f,g \in H\), \(x:= \Re(z)\), \(y:= \Im(z)\) gilt
+	\[H = \set{f:\mathbb{D} \to \C \;\Big\vert\; f \text{ holomorph, } \int_\mathbb{D} \ab{f(z)}^2 \;dxdy < \infty} \text{ und } \ip{f,g} = \int_\mathbb{D} \overline{f(z)} g(z)\; dx dy\;.\]
+\end{ex}
+\begin{rem}
+	Eine Funktion \(f: U \to \C\) mit \(U\subseteq \C\) offen  hei\s t holomorph, falls $f$ komplex differenzierbar an allen Punkten \(z_0 \in U\), d. h. falls folgender Grenzwert existiert 
+	\[f'(z_0) = \lim_{z\to z_0} \frac{f(z) - f(z_0)}{z-z_0}\;.\]
+\end{rem}
+
+\section{Orthogonalbasen}
+\begin{definition}
+	Sei \((H, \ip{\cdot, \cdot})\) ein Raum mit Skalarprodukt. Wir bezeichnen \(x,y \in H\) orthogonal, bzw. \(x\perp y\), falls \(\ip{x,y} = 0\). Zwei Teilmengen \(X, Y \subseteq H\) hei\s en orthogonal, bzw. \(X \perp Y\), falls \(\forall x \in X, y \in Y: \ip{x,y} = 0\).
+\end{definition}
+
+\begin{definition}
+	Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum. Eine Familie \((e_s)_{s\in S}\), \(\forall s \in S: e_s \in H\) hei\s t \textit{Orthonormalsystem}, falls
+	\[\forall s, t \in S: \ip{e_s, e_t} = \delta_{st}\;.\]
+	Eine Familie \((e_s)_{s\in S}\), \(\forall s \in S: e_s \in H\) hei\s t \textit{vollst\as ndig}, falls 
+	\[\forall y \in H: y \perp \set{e_s \;\vert\; s \in S} \implies y = 0\;.\]
+	Ein vollst\as ndiges Orthonormalsystem hei\s t \textit{Orthonormalbasis}.
+\end{definition}
+
+\begin{ex}
+	Betrachte den Hilbertraum \(l^2_\C(\R): = \set{(a_t)_{t\in\R} \;\vert\; \forall t\in \R: a_t \in \C, \sum_{t\in \R} \ab{a_n}^p < \infty}\). Dabei ist das Skalarprodukt definiert als
+	\[\forall (a_t)_{t\in\R}, (b_t)_{t\in\R} \in l^2_\C(\R): \ip{(a_t)_{t\in\R},(b_t)_{t\in\R}} = \sum_{t\in\R} \overline{a_t} b_t\;.\]
+	Definiere \(e_t = (\delta_{s,t})_{s\in\R}\in l^2_\C(\R)\). Dann ist \((e_t)_{t\in\R}\) eine Orthonormalbasis, da f\us r \(a:=(a_t)_{t\in\R} \in l^2_\C(\R)\)
+	\[a \perp \set{e_t\;\vert\;t\in\R} \iff \forall t \in \R: \ip{a,e_t} = \overline{a_t} = 0 \iff a = 0\;.\]
+\end{ex}
+
+\begin{ex}
+	Betrachte den Hilbertraum \(H = L^2([0,1], l, \C)\). Dann erhalten wir die (vollst\as ndige) Fourierbasis
+	\[(f_k(x))_{k\in\Z} \;\text{ mit }\; f_k(x) := \exp(2\pi i kx) \;.\]
+	Die Orthogonalit\as t kann man wie folgt zeigen (mit \(k, l \in \Z\))
+	\[\int_0^1 \exp(-2\pi i  k x)\exp(2\pi i l x)\;dx = \int_0^1 \exp(2\pi i (l-k)x) \;dx = \delta_{kl}\]
+\end{ex}
+
+\begin{theorem}
+\end{theorem}
+
+\begin{theorem}
+\end{theorem}
+
+\begin{theorem}
+\end{theorem}
+
+\section{Projektionen}
+\begin{theorem}
+	Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum, \(K \subseteq H\) nicht leer, konvex und abgeschlossen. Dann existiert f\us r jedes \(x \in H \) genau ein \(y \in K\) mit 
+	\[\norm{y-x} = \inf\set{ \norm{z-x}\;\vert\; z \in K} \;.\]
+	\label{Projektionssatz}
+\end{theorem}
+\begin{proof}
+	Nehmen o. B. d. A. an \(x\not\in K\) (sonst w\as hle \(y = x\)) und \(x = 0\) (sonst verschiebe um \(-x\)).\\
+	\textit{(Existenz)} Setze \(d:= \inf\set{\norm{z-x} \;\vert\; z\in K} = \inf\set{\norm{z}\;\vert\; z\in K} \). Dann existiert eine Folge \(\seq yn\), \(\forall n \in \N: y_n \in K\) mit
+	\[\forall n \in \N: \norm{y_n} < d + \frac{1}{n} \;\implies\; \lime n \norm{y_n} = d\;.\]
+	Wir zeigen nun, dass \(\seq yn\) eine Cauchyfolge ist. Mit der Parallelogrammgleichung gilt f\us r \(n,m\in\N\):
+	\[\norm{\frac{y_n + y_m}{2}}^2 + \norm{\frac{y_n - y_m}{2}}^2 = \frac{1}{2} (\norm{y_n}^2 + \norm{y_m}^2)\;.\]
+	Da \(K\) konvex, gilt \(\frac{1}{2}(y_n + y_m)\in K\) und folglich \(\norm{\frac{1}{2} (y_n + y_m)} \geq d^2\). Da 
+	\[\frac{1}{2} (\norm{y_n}^2 + \norm{y_m}^2) \leq \frac{1}{2}\left(\left(d+\frac{1}{n}\right)^2 + \left(d+\frac{1}{m}\right)^2\right) \overset{n,m\to \infty}{\longrightarrow} d^2 \]
+	folgt also \(\norm{y_n - y_m}\to 0\), d. h. \(\seq yn\) ist in der Tat eine Cauchyfolge und da $H$ ein Hilbertraum, existiert \(y:=\li yn \in H\). Da $K$ abgeschlossen ist, gilt \(y\in K\). Weiterhin gilt \(\norm{y} = d\), da
+	\[\norm{y} \geq d \text{ da } y\in K \;\text{ und }\; \norm{y} = \lime n \norm{y_n} \leq d+\frac{1}{n} \overset{n\to\infty}{\longrightarrow} d\;.\]
+	\textit{(Eindeutigkeit)} Angenommen f\us r \(y, \tilde y \in K\) gilt
+	\[\norm{y} = \norm{\tilde y} = \inf\set{\norm z \;\vert\; z \in K} = d\;.\]
+	Sei \(\lambda \in [0,1]\) wegen der Konvexit\as t von $K$ gilt 
+	\[\lambda y + (1-\lambda) \tilde y \in K \implies \norm{\lambda y + (1-\lambda) \tilde y} \geq d\;.\] 
+	Weiterhin gilt 
+	\[\norm{\lambda y + (1-\lambda) \tilde y} \leq \lambda \norm{y} + (1-\lambda) \norm{\tilde y} = d \]
+	und folglich \(\norm{\lambda y + (1-\lambda) \tilde y} = d\). Somit 
+	\begin{align*} 
+	d^2 &= \norm{\lambda y + (1-\lambda) \tilde y}^2 = \lambda^2 \ip{y,y}  + 2\lambda (1-\lambda) \Re(\ip{y,\tilde y}) + (1-\lambda)^2 \ip{\tilde y, \tilde y} \\ &=\lambda^2(\ip{y,y} -2 \Re(\ip{y,\tilde y}) + \ip{\tilde y, \tilde y}) + \ip{\tilde y, \tilde y} + 2 \lambda(\Re(\ip{y,\tilde y})-\ip{\tilde y, \tilde y})\\ 
+	&= \lambda^2 \norm{y-\tilde y}^2 + \ip{\tilde y, \tilde y} - \lambda \ip{\tilde y, \tilde y} + \lambda \ip{y, y} - \lambda (\ip {\tilde y, \tilde y} -2 \Re(\ip{y,\tilde y} + \ip{y,y})) \\
+	& = (\lambda^2 - \lambda) \norm{y-\tilde y}^2 + d^2 
+	\end{align*}
+	Dies muss insbesondere auch f\us r \(\lambda \in (0,1) \implies \lambda^2 \neq \lambda\) gelten und somit folgt in der Tat. \(\norm{y-\tilde y} = 0 \iff y = \tilde y\).
+	\end{proof}
+	
+	\begin{ex}
+		Betrachte \((\R^2, \norms \cdot)\) sowie \(x = (0,0)\) und \(K = \set{(y_1, y_2) \in \R^2\;\vert\; y_1 \geq 1}\). Dies ist kein Hilbertraum und die Projektion ist hier auch nicht eindeutig, da 
+		\[P = \set{(y_1, y_2) \in \R^2\;\vert\; y_1 = 1,\; y_2 \in [-1,1]} \implies \forall p \in P: \norms{x-p} = 1 = \inf\set{\norms{x-z} \;\vert\; z \in K}\;.\]
+	\end{ex}
+	
+	\begin{ex}
+		Betrachte \(\R^{2n},\normn \cdot 1\) sowie \[K = \set{\lambda \cdot \begin{pmatrix}1\\ \ldots\\1 \end{pmatrix} =: \lambda \cdot \hat y\in \R^{2n} \;\Big\vert\; \lambda \in \R},\; x : = \begin{pmatrix}x_1\\ \ldots\\ x_{2n}\end{pmatrix} \in \R^{2n}\;.\] 
+		Sei \(m : = \text{med}\set{x_1,\ldots,x_{2n}}\), d. h. 
+		\[m = \underset{a}{\text{argmin}} \sum_{i=1}^{2n}\ab{x_i -a} =  \underset{a}{\text{argmin}} \normn{x -a \hat y}{1}\;.\]
+		Dann gilt  \(\normn{x-m \hat y}{1} = \inf\set{\normn{x-z}{1}\vert \; z\in K}\).
+	\end{ex}
+	
+	\begin{definition}
+		Sei \(H, \ip{\cdot, \cdot}\) ein Raum mit Skalarprodukt und \(X\subseteq H\). Dann  hei\s t
+		\[X^\perp := \set{y\in H \;\vert\; \forall x \in X: x \perp y}\]
+		\textit{orthogonales Komplement} von $X$.
+	\end{definition}
+	
+	\begin{theorem}
+		Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum, \(U\subseteq H\) ein abgeschlossener Unterraum.  Dann gibt es f\us r alle \(x\in H\) eindeutig bestimmte \(y_1 \in U, y_2 \in U^\perp\) mit \(x = y_1 + y_2\).
+	\end{theorem}
+	\begin{proof}
+		\textit{(Existenz)} Da \(U\) ein Unterraum ist, ist $U$ insbesondere konvex und nichtleer. Somit w\as hlen wir \(y_1 \in U\) eindeutig (nach Satz \ref{Projektionssatz}) mit
+		\[\norm{y_1 -x} = \inf\set{\norm{x-u}\;\vert\; u \in U}\;.\]
+		Wir zeigen nun \(x-y_1 \in U^\perp\). Seien \(u\in U,\; \lambda \in \K\), dann 
+		\[\norm{x-y_1}^2 \leq \norm{x-y_1 -\lambda u}^2 = \norm{x-y_1}^2 -2 \lambda\Re(\ip{x-y_1, u}) + \ab{\lambda}^2 \norm{u}^2\]
+		Da \(\lambda, u\) beliebig, muss also in der Tat \(\ip{x-y_1,u} = 0\) gelten.\\
+		\textit{(Eindeutigkeit)} Angenommen \(x = \hat y_1 + \hat y_2\) mit \(\hat y_1 \in U,\; \hat y_2 \in U^\perp\). Sei \(u \in U\), dann gilt wegen der Orthogonalit\as t
+		\[\norm{x-(\hat y_1 +u)}^1 = \norm{x-\hat y_1}^2 + \norm{u}^2 \geq \norm{x-\hat y_1}^2\;.\]
+		Dies ist nur erf\us llt, wenn wir \(\hat y_1 = y_1\) nach Satz  \ref{Projektionssatz} w\as hlen, woraus die Eindeutigkeit folgt.
+	\end{proof}
+	
+	\begin{ex}
+		Betrachte \(L^2([0,1])\), dann ist \(U = C^0(S^1) = \set{u:[0,1]\to \K\;\vert\; u(0) = u(1)}\) dicht.
+	\end{ex}
+
