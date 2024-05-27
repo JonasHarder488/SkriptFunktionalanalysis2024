@@ -105,6 +105,10 @@
 \begin{definition}
 	Sei \((H, \ip{\cdot, \cdot})\) ein Raum mit Skalarprodukt. Wir bezeichnen \(x,y \in H\) orthogonal, bzw. \(x\perp y\), falls \(\ip{x,y} = 0\). Zwei Teilmengen \(X, Y \subseteq H\) hei\s en orthogonal, bzw. \(X \perp Y\), falls \(\forall x \in X, y \in Y: \ip{x,y} = 0\).
 \end{definition}
+\begin{lemma}[Satz des Pythagoras]
+	Sei \((H, \ip{\cdot, \cdot})\) ein Raum mit Skalarprodukt. Dann ergibt sich direkt aus der Definition f\us r \(x,y\in H\)
+	\[x \perp y \implies \norm{x}^2 + \norm{y}^2 = \norm{x+y}^2\;.\]
+\end{lemma}
 
 \begin{definition}
 	Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum. Eine Familie \((e_s)_{s\in S}\), \(\forall s \in S: e_s \in H\) hei\s t \textit{Orthonormalsystem}, falls
@@ -129,13 +133,60 @@
 \end{ex}
 
 \begin{theorem}
+	Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}, \forall s\in S: e_s \in H\) ein Orthonormalsystem. Dann existiert f\us r jedes \(\lambda := (\lambda_s)_{s\in S} \in \ell_\C^2(S) :=\set{(a_s)_{s\in S} \;\big\vert\; \forall s \in S: a_s \in \C, \sum_{s\in S} \ab{a_s}^2 < \infty}\) ein abz\as hlbares \(S_0 \subseteq S\) mit \(\ab{\lambda_s} > 0\implies s \in S_0\). Sei \(S_0 := \{s_n \;\vert\; n \in \N\}\) und \(x_n = \sum_{m=0}^n \lambda_{s_m} e_{s_m}\). Dann existiert ein \(x\in H\) mit \(\li xn = x\), wir schreiben \(x = \sum_{s\in S} \lambda_s e_s\).
+	\label{ONS_Satz1}
 \end{theorem}
+\begin{proof}
+	Wir zeigen hier nur den 2. Teil des Satzes (???). Da $H$ vollst\as ndig, g. z. z., dass \(\seq xn\) eine Cauchyfolge ist. Dabei ist bekannt (unter Ausnutzung von Teil 1 des Satzes)
+	\[\normn{\lambda}{\ell^2(S)}^2 = \sum_{m= 0}^\infty \ab{\lambda_{s_m}}^2 < \infty\;. \]
+	Sei \(\varepsilon > 0\), \(N \in \N\) hinreichend gro\s{}, sodass \(\sum_{m=N+1}^\infty \ab{\lambda_{s_m}}^2 < \varepsilon^2\). Seien nun \(n_1, n_2 \in \N\), \(n_1, n_2 \geq N\), \(n_1< n_2\). Dann
+	\[\norm{x_{n_2} - x_{n_1}}^2 = \norm{\sum_{m=n_1+1}^{n_2} \lambda_{s_m}\cdot e_{s_m}}\;.\]
+	Dabei gilt f\us r \(k, l\in \N, \; k \geq l\)
+	\[\norm{\sum_{i=l}^k \lambda_{s_i} e_{s_i}}^2= \ip{\sum_{i=l}^k \lambda_{s_i} e_{s_i}, \sum_{j=l}^k \lambda_{s_j} e_{s_j}} = \sum_{i,j=l}^k \overline{\lambda_i}\lambda_j \ip{e_i, e_j} = \sum_{i,j=l}^k \overline{\lambda_i}\lambda_j  \delta_{ij} = \sum_{i=l}^k \ab{\lambda_i}^2\;.\]
+	Somit  ergibt sich 
+	\[\norm{x_{n_2} - x_{n_1}}^2 = \sum_{m=n_1+1}^{n_2} \ab{\lambda_{s_m}}^2 < \varepsilon^2 \;.\ \]
+	Folglich ist \(\seq xn\) eine Cauchyfolge und \(x = \li xn \in H\) existiert.
+\end{proof}
+\begin{rem}[Motivation]
+	Falls \((e_s)_{s\in S}\) eine Orthonormalbasis von $H$. Dann ist die Abbildung \(F:H \to \ell^2_\C(S), \; x \mapsto (\ip{x, e_s})_{s\in S}\) ein unit\as rer Isomorphismus. In diesem Fall gibt es eine Korrespondenz zwischen \(\lambda \in \ell^2_\C(S)\) und den Koeffizienten von $x$ bzgl. der Orthonormalbasis \((e_s)_{s\in S}\). 
+\end{rem}
+
+\begin{lemma}[Besselsche Ungleichung]
+	Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_n)_{n\in\N}\) ein Orthonormalsystem und \(x\in H\). Dann gilt
+	\[\ser{\ab{\ip{x, e_n}}}{n}^2 \leq \norm{x}^2\;.\]
+	\label{Bessel_Ungleichung}
+\end{lemma}
+\begin{rem}
+	Mit Satz \ref{ONS_Satz1} folgt die allgemeine Besselsche Ungleichung f\us r Orthonormalsysteme. Sei \((e_s)_{s\in S}, \;\forall s \in S: e_s \in H\) ein Orthonormalsystem und \(x\in H\), dann 
+	\[\sum_{s\in S} \ab{\ip{x, e_s}}^2 \leq \norm{x}^2\;.\]
+\end{rem}
 
 \begin{theorem}
+Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonormalsystem. Dann ist \((e_s)_{s\in S}\) vollst\as ndig, genau dann wenn f\us r jedes \(x\in H\) ein \(\lambda := (\lambda_s)_{s\in S} \in \ell_\C^2(S)\) existiert mit \(x = \sum_{s\in S} \lambda_s e_s\). In diesem Fall ist \(\lambda\) eindeutig bestimmt.
 \end{theorem}
+\begin{proof}
+	\textit{(Eindeutigkeit)} Seien \(S_0 \subseteq S\) sowie \(x_n \in H\) wie in Satz \ref{ONS_Satz1}. Sei \(\hat s \in S\), dann
+	\[\ip{e_{\hat s}, x} = \lime n \ip{e_{\hat s}, x_n} = \lime n \ip{e_{\hat s}, \sum_{m=0}^n \lambda_{s_m} e_{s_m}}= \begin{cases}0 & \hat s\not\in S_0 \\ \lambda_{\hat s} & \hat s \in S_0\end{cases}\]
+	Somit folgt die Eindeutigkeit aus der Eindeutigkeit der Darstellung der \(x_n\).\\
+	\textit{(Existenz)}
+	Angenommen \((e_s)_{s\in S} \) ist vollst\as ndig und \(x\) ist nicht durch die Orthonormalbasis darstellbar. Bezeichne die Menge der darstellbaren Elemente in $H$ mit
+	\[H_0 = \set{\sum_{s\in S} \lambda_s e_s \;\vert\; (\lambda_s)_{s\in S} \in \ell^2_\C(S)}\;.\]	
+	F\us r eine Folge \(\seq yn,\; \forall n \in \N: y_n \in H_0\) gilt \(\li yn = y \implies y \in H_0\). Setze \(\mu_s = \ip{e_s, x}\). Sei \(S_0 \subseteq S\) h\os chstens abz\as hlbar, dann gilt mit Satz \ref{Bessel_Ungleichung}
+	\[\sum_{s\in S_0} \ab{\mu_s}^2 = \sum_{s\in S_0} \ab{\ip{e_s, x}}^2 \leq \norm{x}^2 < \infty\;.\]
+	F\us r \(t\in S_0\) gilt weiterhin
+	\[\ip{e_t\;, \;x - \sum_{s\in S_0} \mu_s e_s} = \ip{e_t,x} - \sum_{s\in S_0} \ip{e_t,\ip{e_s, x}e_s} = 0 \;. \]
+	[\(\ldots\)]
+\end{proof}
 
 \begin{theorem}
+	Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum. Dann existiert eine abz\as hlbare Orthonormalbasis, genau dann wenn $H$ separabel ist. 
 \end{theorem}
+\begin{proof}[Beweisidee]
+	Man wendet das Gram-Schmidt-Verfahren aus einer dichten Teilmenge an.
+\end{proof}
+\begin{rem}
+	Ein metrischer Raum \((X,d)\) hei\s t separabel, falls ein \(A \subseteq X\) existiert, sodass $A$ abz\as hlbar und $A$ dicht in $X$.
+\end{rem}
 
 \section{Projektionen}
 \begin{theorem}
@@ -181,7 +232,7 @@
 	\end{ex}
 	
 	\begin{definition}
-		Sei \(H, \ip{\cdot, \cdot}\) ein Raum mit Skalarprodukt und \(X\subseteq H\). Dann  hei\s t
+		Sei \((H, \ip{\cdot, \cdot})\) ein Raum mit Skalarprodukt und \(X\subseteq H\). Dann  hei\s t
 		\[X^\perp := \set{y\in H \;\vert\; \forall x \in X: x \perp y}\]
 		\textit{orthogonales Komplement} von $X$.
 	\end{definition}
@@ -197,7 +248,7 @@
 		Da \(\lambda, u\) beliebig, muss also in der Tat \(\ip{x-y_1,u} = 0\) gelten.\\
 		\textit{(Eindeutigkeit)} Angenommen \(x = \hat y_1 + \hat y_2\) mit \(\hat y_1 \in U,\; \hat y_2 \in U^\perp\). Sei \(u \in U\), dann gilt wegen der Orthogonalit\as t
 		\[\norm{x-(\hat y_1 +u)}^1 = \norm{x-\hat y_1}^2 + \norm{u}^2 \geq \norm{x-\hat y_1}^2\;.\]
-		Dies ist nur erf\us llt, wenn wir \(\hat y_1 = y_1\) nach Satz  \ref{Projektionssatz} w\as hlen, woraus die Eindeutigkeit folgt.
+		Dies ist nur erf\us llt, wenn wir \(\hat y_1 = y_1\) nach Satz  \ref{Projektionssatz} w\as hlen, woraus die Eindeutigkeit folgt. 
 	\end{proof}
 	
 	\begin{ex}

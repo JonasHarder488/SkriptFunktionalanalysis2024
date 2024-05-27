@@ -10,6 +10,7 @@
 \usepackage{faktor}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
+\usepackage{newclude} %no pagebreaks after \include* 
 
 \geometry{a4paper, left = 20mm, right = 20mm, top = 30mm}
 
@@ -38,6 +39,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\normn[2]{\left\lVert#1\right\rVert_{#2}}
+\newcommand{\forw}{\((\Longrightarrow)\)}
+\newcommand{\backw}{\((\Longleftarrow)\)}
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\as}{{\"a}}
@@ -69,4 +72,5 @@
 	\include{sections/3_NormedSpaces}
 	\include{sections/4_HilbertSpaces}
 	\include{sections/5_LinearOperators}
+	\include*{sections/5_HahnBanach}
 \end{document}

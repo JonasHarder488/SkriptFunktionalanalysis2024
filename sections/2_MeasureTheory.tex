@@ -7,7 +7,7 @@
 		\item \(\forall A \subseteq \mc P(\Omega): A\in \mc F \implies A^C \in \mc F\)
 		\item \(\forall \seq An,\; \forall n\in \N\; A_n \in \mc F: \bigcup_{n\in\N}\in\mc F\)
 	\end{enumerate}
-	Bezeichne \(\Omega, \mc F\) als messbaren Raum.
+	Bezeichne \((\Omega, \mc F)\) als messbaren Raum.
 \end{definition}
 \begin{rem}
 	Sei \((X, d)\) ein metrischer Raum, dann ist die $\sigma$-Algebra \(\mc B(X)\) der Borelmengen die kleinste $\sigma$-Algebra, die alle offenen Mengen von $X$ enth\as lt. Bez. \(\mc B(\R) =: \mc B\) und \(\mc B(\R^n) = \mc B^n\).
@@ -19,6 +19,14 @@
 		\item \(\forall \seq An, \; \forall n\in\N: A_n \in \mc F, \; \forall i, j \in \N, i\neq j: A_i\cap A_j = \emptyset: \mu\left( \cup_{n\in\N} A_n\right) = \sum_{n\in\N} \mu(A_n)\)
 	\end{enumerate}
 	Wir bezeichnen \((\Omega, \mc F, \mu)\) als Ma\s raum.
+\end{definition}
+\begin{definition}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Das Ma\s{} $\mu$ wird als $\sigma$-endlich bezeichnet, falls gilt
+	\[\exists A_1, A_2,\ldots \in \mc F,\; A_1\subseteq A_2\subseteq \ldots \;\text{ mit }\; \forall n \in \N: \mu(A_n) < \infty \text{ und } \bigcup_{n\in \N}A_n = \Omega\;.\]
+\end{definition}
+\begin{definition}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Ein Ma\s{} \(\nu: \mc F \to [0,\infty]\) hei\s t absolut stetig bzgl. \(\mu\) (bez. \(\nu \ll \mu\)), falls 
+	\[\forall A\in \mc F: \mu(A) = 0 \implies \nu(A) = 0\;.\]
 \end{definition}
 
 \begin{ex}
@@ -103,4 +111,10 @@
 \begin{rem}
 	\ref{Lebesgue}. ist auch als Satz von Lebesgue \us ber die majorisierte Konvergenz bekannt.
 \end{rem}
+\begin{definition}
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(\nu: \mc F \to [0,\infty]\) ein Ma\s{}. Dann besitzt $\nu$ eine Dichte bzgl. $\mu$, falls
+	\[\exists f:\Omega \to [0,\infty) \text{ messbar}: \forall A \in \mc F: \nu(A) = \int_A f d\mu\;.\]
+\end{definition}
+\begin{theorem}[Satz von Radon-Nikodym] Sei \((\Omega, \mc F, \mu)\) ein $\sigma$-endlicher Ma\s raum und \(\nu: \mc F \to [0,\infty]\) ein Ma\s{} mit \(\nu \ll\mu\). Dann besitzt \(\nu\) eine Dichte bzgl. $\mu$.
+\end{theorem}
 
