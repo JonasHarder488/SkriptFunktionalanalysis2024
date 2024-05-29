@@ -1,1 +1,234 @@
 \chapter{Lineare Operatoren}
+
+\section{Definitionen}
+\begin{definition}
+    Seien $(V_1, \norm{\cdot})$ und $(V_2, \norm{\cdot}')$ normierte Räume, dann heißt eine lineare Abbildung (Operator) $A: V_1 \to V_2$ beschränkt, wenn gilt: \[ \exists c \geq 0 \forall v \in V_1: \norm{Av}' \leq c \norm{v}\]
+\end{definition}
+
+\begin{rem}
+    $B(V_1, V_2) = \set{A: V_1 \to V_2| \text{ A linear beschränkt}}$
+\end{rem}
+
+\begin{theorem}
+    In dieser Situation sind äquivalent:
+    
+    \begin{enumerate}
+        \item $A \in B(V_1, V_2)$
+        \item $A$ ist stetig
+        \item $A$ ist gleichmäßig stetig
+        \item $A$ ist Lipschitz-stetig
+        \item $A$ ist stetig in $0$
+    \end{enumerate}
+    \begin{proof}[Beweis:] Siehe Analysis 2.
+    
+    \end{proof}
+\end{theorem}
+
+\unsure{???}
+
+\begin{theorem} 
+    Jedes lineare Funktional $A: \K^n \to \K^m$ ist beschränkt.
+    \begin{proof}[Beweis:] Dieser Beweis wurde in der Vorlesung übersprungen.
+    \end{proof}
+\end{theorem}
+
+\begin{ex} \label{Volterra_op}
+    Betrachte $C^0([0, 1]), \norms{A},$ wobei \[I: C^0([0, 1]) \to C^0([0, 1]), f(z) \mapsto \int_0^zf(x)dx.\] Dann gilt \[\ab{I(f(z)} = \ab{\int_0^zf(x)dx} = \norms{f}\cdot t \leq \norms{f}\]
+    und mit \[\norm{If} = \sup{\ab{If(z)}:t\in [0, 1]} \leq \norms{f}\]
+    ist die Operatornorm $\norm{I} \leq 1.$ Wähle nun $f_{[0, 1]}$, dann ist $If(t) = t$ und damit $\norm{I} = 1.$
+\end{ex}
+
+\begin{ex} \label{Differential_op}
+    Sei $V_1 = C^1([0, 1])$ mit $\norms{\cdot}$ und $V_2 = C^0([0, 1])$ mit $\norms{\cdot}$ sowie eine Abbildung \[D: V_1 \to V_2, f(t) \mapsto f'(t)\]
+    
+    Definiere $f_n(t) = t^n,$ dann ist $\norms{f_n} = 1$ und da $f_n'(t) = n \cdot t^{n-1}$ auch $\norm{Df_n} = n$
+    ??
+\end{ex}
+
+\begin{theorem}
+    Seien und $W, \norm{\cdot}_W$ normierte Räume mit $ A \in B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c}}\] Dann gilt:
+    \begin{enumerate}
+        \item $\norm{A} = \sup{\set{\norm{Av}_W: \norm{v}_V = 1}} = \sup{\set{\norm{Av}_w: \norm{v}_V \leq 1}} = \sup{\set{\frac{\norm{Av}_W}{\norm{v}_W}, v \in V, v \not=0}}$
+        \item $B \in B(V, W): \norm{A +B} = \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
+        \item Sei $(X, \norm{\cdot}_X)$ normierter Raum, $B \in B(W, X),$ dann gilt 
+        \[\norm{AB}_{V,X} \leq \norm{A}_{V,W}\cdot\norm{B}_{W,X}\]
+    \end{enumerate}
+    
+    \begin{proof}[Beweis:]
+    \begin{enumerate}
+        \item Sei $M := \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}, v\in V, v \not= 0}}.$ Für $v = 0,$ gilt $\norm{Av} = 0,$ für $v \not=0$ gilt:
+        \[\frac{\norm{Av}_w}{\norm{v}_V} \leq M \implies \norm{Av}_W \leq M \norm{v}_V \implies M \geq \norm{A}\]
+        Andererseits gilt für alle $v \not= 0:$
+        \[\frac{\norm{Av}_W}{\norm{v}_V} \leq \norm{A} \implies M \leq \norm A\]
+        \item Wir nutzen die Supremums- und Dreiecksungleichung aus:
+        
+        \begin{align*}
+        & \norm{A+B} = \sup{\set{\norm{(A+B)v}_W: \norm{v} = 1}} \leq \sup{\set{\norm{Av}_W+\norm{Bv}_W: \norm{v} = 1}} \\
+        & \leq \sup{\set{\norm{Av}_W: \norm{v} = 1}} + \sup{\set{\norm{Bv}_W: \norm{v} = 1}} = \norm{A}+ \norm{B}
+        \end{align*}
+        \item Gilt, da $\norm{BAv} \leq \norm{B}\cdot \norm{Av}_W \leq \norm{B} \norm{A} \norm{v}_V$
+        
+    \end{enumerate}
+    \end{proof}
+\end{theorem}
+
+\begin{ex} \label{Mult_op}
+    Sei $(\Omega, \mc F, \mu)$ ein Maßraum, $\phi \in L^2(\mu)$ und \[M_{\phi}: L^2(\mu) \to L^2(\mu), f \mapsto \phi \cdot f \text{ mit } M_{\phi} \cdot M_{\psi} = M_{\psi} \cdot M_{\phi} = M_{\phi \cdot \psi}\] Dann gilt:
+    \[\norm{M_{\phi}f}^2 = \int \ab{\phi(x)}^2 \ab{f(x)}^2dx \leq \int \norms{\phi}^2 \ab{f(x)}^2dx = \norms{\phi}^2\norm{f}^2 \leq \norms{\phi}^2 \text{ $\mu-$ fast überall}\]
+    
+    Wir haben also $M_{\phi} \in B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ 
+    
+    Gleichheit gilt tatsächlich für $\mu(\Omega) < \infty.$
+    
+    Sei $\alpha < \norms{\phi}$ und definiere
+    \[E = \set{x: \ab{\phi(x) > \alpha}}\]
+    dann ist $\mu(E)>0.$ Sei nun $f = 1_E,$ dann 
+    \[\norm{M_{\phi}f}^2 = \int_E \norm{\phi(x)}^2 \geq \alpha \mu(E) = \alpha \norm{1_E}^2\]
+\end{ex}
+
+\begin{rem}
+    Nach Konvention gilt $B(V, V) = B(V).$
+\end{rem}
+
+\begin{theorem}
+    Sei $(H, \ip{\cdot, \cdot})$ ein Hilbert Raum, $U \subseteq H$ abgeschlossener Unterraum, dann gibt es $P, Q \in B(H)$ so, dass:
+    
+    \begin{enumerate}
+        \item $\forall v \in H: Pv \in U$ und $Qv \in U^{\perp}$
+        \item $\forall v \in H: Pv + Qv = v$
+    \end{enumerate}
+    Außerdem gilt: 
+    \[\norm{P} = \begin{cases} 1 & U \not= \set{0} \\
+    0 & U = \set{0}
+    \end{cases}\]
+    
+    \begin{proof}[Beweis:] Da $U$ abgeschlossener Unterraum von $H,$ gibt es für jedes $v \in H$ eine eindeutige Zerlegung von $u \in U, u^{\perp} \in U^{\perp}$ mit $v = u + u^{\perp}.$ Wir verwenden die Definitionen $Pv = u, Qv = u^{\perp}$ mit $v, w \in H$ und $v = Pv + Qv, w = Pw + Qw.$ Betrachte: \[v + w = \underbrace{(Pv + Pw)}_{\in U} + \underbrace{(Qv + Qw)}_{\in U^{\perp}}\]
+    Folglich \[P(v + w) = Pv + Pw \text{ und } Q(v+w) = Qv + Qw.\] ($\lambda v$ geht analog.) Wir setzen für $v \in H$ nun 
+    \[\norm{v}^2 = \norm{Pv + Qv}^2 = \norm{Pv}^2 + \norm{Qv}^2 \text{ da } \ip{Pv, Qv} = 0\] Daraus folgt $\norm{Pv}^2 \leq \norm{v}^2$ und $\norm{P}, \norm{Q} \leq 1.$ Sei $v \in U, v \not= 0,$ dann $Pv = v$ und damit $\norm{Pv} = \norm{v},$ also $\norm{P} \geq 1.$
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    Sei $V$ ein normierter Raum, $W$ ein Banachraum, dann ist $B(V, W)$ ein Banachraum mit der Operatornorm.
+    
+    \begin{proof}[Beweis:] Sei $\seq{A}{n}$ eine Cauchy-Folge in $B(V, W),$ dann $\lime{n, m}{\norm{A_n - A_m}} = 0.$ Sei nun $v \in V,$ dann \[\lime{n, m}{\norm{A_nv- A_mv}} \leq \lime{n, m}{\norm{A_n - A_m}\norm{v}}\] und damit ist $(A_nv)_{n \in \N}$ eine Cauchy-Folge in $W.$ Somit ist $Av = \lim_{n \to \infty}{A_nv}$. Definiere $A: V \to W$ nun als Abbildung aus diesem Grenzwert. \\
+    \unsure{Hier gab es in der Vorlesung einen Nachtrag, allerdings sollte es so auch gehen.}
+    Damit gilt schon \[\norm{A - A_n} = \sup_{\norm{v} \leq 1}{\set{\norm{Av-A_nv}}} \xrightarrow{n \to \infty} 0\] \\
+    Sein nun $v, w \in V,$ dann sehen wir die Linearität wie folgt: \[A(v+w) = \lim_{n \to \infty}{A_n(v+w)} = \lim_{n \to \infty}{A_nv + A_nw} = \lim_{n \to \infty}{A_nv} + \lim_{n \to \infty}{A_nw} = Av + Aw \text{ (für $A(\lambda v)$ genauso)}\] \\
+    Zur Beschränktheit: \[\ab{\norm{A_n}-\norm{A_m}} \leq \norm{A_n - A_m} \xrightarrow{n, m \to \infty} 0 \implies \lim_{n \to \infty}{\norm{A_n}}=:c\] Betrachte nun: \[\norm{Av} = \lim_{n \to \infty}{\norm{A_nv}} \leq \lim_{n \to \infty}{\norm{A_n}\norm{v}} = c \norm{v}\] und damit $A \in B(V, W).$ \\
+    \end{proof}
+\end{theorem}
+ \begin{rem}
+     Es gibt soetwas wie eine Rückrichtung: Falls $B(V, W)$ ein Banachraum ist, wobei $V$ nicht der triviale Vektorraum ist, so ist auch $W$ ein Banachraum. (Wäre $V$ der Nullvektorraum, so gäbe es mit der Nullabbildung nur eine lineare Abbildung, damit wäre $B(V,W)$ immer vollständig.)
+ \end{rem}
+\section{Das Dual}
+
+\begin{definition}
+    Sei $(V, \norm{\cdot}_V)$ ein Banachraum. Dann wird $V' = B(V, \K)$ als Dualraum von $V$ bezeichnet. $\phi \in V'$ heißt auch linear beschränktes Funktional.
+\end{definition}
+\begin{definition}
+    
+\end{definition}
+
+\begin{ex}
+    Wir untersuchen den Dualraum von $V = L^p(\mu).$ Mittels der Hölderungleichung erhalten wir mit $f \in L^p(\mu), g \in L^q(\mu)$: \[\ab{\int fg d \mu} \leq (\int\ab{f}^p d \mu)^{\frac{1}{p}}(\int\ab{g}^q d \mu)^{\frac{1}{q}} \text{ mit } \frac{1}{p} + \frac{1}{q} = 1\] Sei nun $\varphi_g := \int \cdot g d \mu \in V'.$ Da \[\ab{\varphi_g} \leq \norm{f}_p \norm{g}_q\] ist $\varphi_g$ beschränkt und $\set{\varphi_g: g \in L^p} = (L^p(\mu))'$ und damit $L^p(\mu)'' \simeq L^P(\mu).$
+\end{ex}
+
+%%\begin{rem}
+%    Mit Hilfe des Satzen von Radon-Nikodym kann man zeigen, dass jedes beschränkte lineare Funktional auf $L^p(\mu)$ von dieser Form ist und dass für die Normen sogar Gleichheit gelten. Mit $1 < p < \infty$ ist $\varphi: L^q(\mu) \to L^p(\mu)', g \to \varphi_g$ sogar isometrisch isomorph 
+%\end{rem}
+
+\begin{theorem}\label{riez1} Jedes beschränkte   lineare Funktional $\varphi$ auf dem Hilberraum $(H, \ip{\cdot, \cdot})$ hat die Form $\varphi(x)= \ip{h_0,x}$ für ein eindeutiges $h_0 \in H$ und $\norm{\varphi}_{H'} = \norm{h_0}$ und $h_0 \to \varphi$ anti-linear.
+
+\begin{proof}[Beweis:]
+\textbf{Existenz}
+Sei O.b.d.A $\varphi \not= 0,$ d.h. $\ker \varphi = \set{x \in H | \varphi(x) = 0}$ ist ein echter abgeschlossener Teilraum. Dann muss aber auch $\ker{\varphi^{\perp}} \not= \set{0}.$ Sei $z \in \ker{\varphi}$ mit $\norm{z}>0$ und o.B.d.A $\varphi(z) = 1.$ Sei $h \in H$ beliebig, dann sehen wir \[ \varphi(\underbrace{\varphi(h)z-h}_{\in \ker\varphi \perp z}) = \varphi(h)\varphi(z)-\varphi(h) = 0.\] Damit ist $z \perp \varphi(h)z - h$ und äquivalent dazu \[0 = \ip{z, \varphi(h)z-h} = \varphi(h)\norm{z}^2-\ip{z,h} \text{ also } \varphi(h) = \ip{\frac{z}{\norm{z}^2}, h}.\] \\ \\\textbf{Eindeutigkeit} \\
+Nehmen wir an, dass $\ip{h_1, h} = \ip{h_2, h}$ mit $h = h_1 - h_2$ und sei \[0 = \ip{h_1 - h_2, h} = \norm{h_1 - h_2}^2 \implies h_1 = h_2.\] Über die CBS-Ungleichung gilt außerdem: \[\ab{\ip{h_0, h}} \leq \norm{h_0}\norm{h} \implies \norm{\varphi}_{H'} \leq \norm{h_0}.\] Da aber \[\ab{\varphi(h_0)} = \ip{h_0, h_0} = \norm{h_0}^2 = \norm{h_0}\norm{h_0} \implies \norm{\varphi} = \norm{h_0}.\]
+\end{proof}
+\end{theorem}
+
+\begin{ex}
+Sei $L^q(\mu) \subseteq L^p(\mu)'$ mit $\mu(\omega) < \infty$ und $\Omega = \cup_{n \in \N} \Omega_n$ und jeweils $\mu(\Omega_n) < \infty.$ Sei $\varphi = \varphi^+ - \varphi^-$ und $g \geq 0,$ dann $\varphi^{\pm}(g) \geq 0.$ \\
+Sei o.B.d.A $\varphi \geq 0.$ Dann ist $v_{\varphi}: \mc F \to [0, \infty], v_{\varphi}(E) = \varphi(1_E)$ ein Maß. Wenn $\varphi(E) = 0,$ dann $v_{\varphi}(E) = 0.$ Mit dem Satz von Radon-Nikodim (LABEL???) folgt, dass es ein $h \in \mc M(\Omega, \mathbb{R}_{\geq 0})$ mit \[\varphi(1_E) = v_{\varphi}(E) = \int1_E h d\mu\]
+Damit erhalten wir $\varphi(f) = \int fhd\mu$ und die Hölderungleichung.
+\end{ex}
+
+\begin{theorem} \label{riez2}
+Die Abbildung $\psi: H \to H', h \mapsto \ip{h, \cdot}$ ist eine (anti-lineare) isometrische Projektion.
+
+\begin{proof}[Beweis:] Wurde in der Vorlesung übersprungen.
+\end{proof}
+\end{theorem}
+
+
+\begin{rem}
+    In der Physik schreibt man auch:
+    \begin{align*}
+        & \langle u | := \ip{u, \cdot} \textit{bra} \\
+        & |h\rangle := h, \textit{ket} \\
+    \end{align*} Unter Ausnutzung von Notation gilt dann $\ip{u | h} := \ip{u, h}$
+\end{rem}
+
+\begin{definition} \label{sesq_bound}
+    Seien $H, K$ Hilberträume, dann heißt eine Sesquilinearform $u: H \times K \to \K$ beschränkt genau dann wenn \[\exists M > 0, \forall h \in H, k \in \K: \ab{u(h, k)} \leq M \norm{h}_H \norm{k}_K\]
+\end{definition}
+
+\begin{theorem}
+Ein Operator $u$ wie in \ref{sesq_bound} ist genau dann beschränkt, wenn \[\exists A \in B(K, H): \forall h \in H, \forall k \in K: u(h, k) = \ip{h, Ak}\]
+
+\begin{proof}[Beweis:] $(\Longrightarrow)$ \\
+Sei $k$ fixiert, $u(\cdot, k) \in H',$ da:
+\[\ab{u(h, k)} \leq M \norm{h}_H \norm{k}_K \leq (M \norm{k}_K)\norm{h}_H.\] Mit \ref{riez2} folgt:
+\[\exists!A(k) \in H: \overline{u(\cdot, k)} = \ip{A(k), \cdot} \text{ bzw. } \forall h \in H: u(h, k) = \ip{h, A(k)}\]
+Sei nun $k_1, k_2 \in K,$ dann haben wir:
+\[\ip{h, A(k_1 + k_2)} = u(h, k_1 + k_2) = u(h, k_1)+u(h, k_2) = \ip{h, A(k_1) + A(k_2)}\] Sei nun $\lambda \in \K, k \in K,$ so folgt: \[\ip{h, A(\lambda k)} = u(h, \lambda k)= \lambda u(h, k) = \lambda \ip{h, A(k)} = \ip{h, \lambda A(k)}\] Damit ist $A$ linear.\\ 
+Wir wissen für $\norm{h} \leq 1:$ \[\ab{\ip{h, Ak}} = \ab{u(h, k)} \leq M \norm{h}\norm{k} \leq M\norm{k}\] Damit folgt $\norm{Ak} \leq M \norm{k}$ also ist $A$ beschränkt. Folglich $A \in B(H, K).$ \\
+\\
+$(\Longleftarrow)$ \\
+Sei $A \in B(K, H),$ dann haben wir folgende Abschätzung mittels CBS-Ungleichung: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}\]
+\end{proof}
+\end{theorem}
+
+
+
+\begin{theorem}
+	Für alle $A \in B(K, H)$ gibt es $A^* \in B(H, K)$ mit der Eigenschaft \[\forall h \in H, k \in K: \ip{h, Ak} = \ip{A^*h, k}.\] Dieser adjungierte Operator hat folgende Eigenschaften:
+
+	\begin{enumerate}
+		\item $A \to A^*$ ist antilinear
+		\item $A^{**} = A$
+		\item $(AB)^{*} = B^*A^*$
+		\item $\norm{A^*} = \norm{A}$ und $\norm{A^*A} = \norm{A}^2 (C^*-Axiom)$
+	\end{enumerate}
+
+	\begin{proof}[Beweis:] \textbf{Existenz:} \\
+		Mittel der CBS-Ungleichung erhalten wir: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}.\] Aber es gilt $\ab{\ip{h, Ak}} = \ab{\ip{Ah, k}} $ Damit ist $u(k, h) := \ip{Ak, h}$ sesquilinear auf $K \times H.$ Damit gibt es aber ein eindeutiges $A^*$ mit \[\overline{\ip{Ak, h}} = \overline{u(h, k)} = \overline{\ip{k, A^*h}}\] \\
+\textit{zu 1:} Es gilt \(\ip{(\lambda A)^*h, k} = \ip{h, \lambda A k} = \lambda \ip{h, Ak}= \ip{\overline{\lambda}A^*h, k}\)\\
+\textit{zu 2:} \(\ip{A^{**}k, h} = \ip{k, A*h} = \overline{\ip{A^{*}h, k}} = \overline{{\ip{h, Ak}}} = \ip{Ak, h}\) mit $h = A^{**}-Ak.$ Dann: \[0 = \ip{A^{**}k, h} - \ip{Ak, h} = \ip{(A^{**}-A)k, (A^{**}-A)k} \implies \norm{A^{**}k - Ak} = 0\] Damit gilt dann die Gleichheit. \\
+	\textit{zu 3:} Sei $A \in B(K, H), B \in B(L, K)$ und $AB \in B(L, H)$. Außerdem gilt: $\norm{AB} \leq \norm{A}\norm{B}.$ Des Weiteren: \[\forall h \in H, l \in L: \ip{(AB)^*, l}= \ip{h, A(Bl)} = \ip{A^*l, Bl} = \ip{B^*A^*h, l}\] \\
+	\textit{zu 4:} Sei $k \in K$ mit $\norm{k} = 1.$ Dann gilt mit der CBS-Ungleichung \[\norm{Ak}^2 = \ip{Ak, Ak}) = \ip{A*Ak, k} \leq \norm{A^*A} \leq \norm{A^*} \norm{A}\]
+Auf der anderen Seite: \[ \sup_{\norm{k} \leq 1} \norm{Ak} = \norm{A}^2 \leq \norm{A^*} \norm{A} \implies \norm{A^*} \geq \norm{A}\] Aufgrund von 2. haben wir auch hier Gleichheit. Damit haben wir dann: \[\norm{A}^2 \leq \norm{A^*A} \leq \norm{A^*}\norm{A} = \norm{A}^2\]
+\end{proof}
+\end{theorem}
+
+\begin{ex} \label{bras_adj} \textit{„bra‘s adjoined“} \\ 
+    Sei nun $A := \langle v |: H \to \K$ und wir betrachten den dazu adjungierten Operator $A^*: \K \to H.$  Wir haben: \[\forall h \in H, \lambda \in \K: \ip{A^* \lambda, h} = \ip{\lambda, Ah}_{\K} = \ip{\lambda, Ah}_{\K} = \overline{\lambda}Ah = \overline{\lambda} \ip{v, h} = \lambda \ip{v, h}.\] Daraus folgt dann $A^*\lambda = \lambda v$ und damit $/lange v | = | v \rangle$
+\end{ex}
+
+\begin{ex} Sei $H$ ein Hilbertraum, $K \subseteq H$ ein abgeschlossener Unterraum.
+	Sei des Weiteren noch $P, Q \in B(H)$ mit $Ph \in K, Qh \in K^{\perp}, P + Q = I_H$ wobei $I_H$ der Identitätsoperator ist.  Gesucht ist nun $P^*.$ \\
+Betrachten wir dazu: \[\ip{P^*h, h‘} = \ip{h, Ph‘} = \ip{Ph, Ph} + \underbrace{\ip{Qh, Ph‘}}_{= 0} = \ip{P^*Ph, h‘}.\] Damit haben wir $P^* = P^{*}P$ und da \[P = (P^*P)^* = P^*P^{**} = P^*P = P^* \text{ und damit } P = P^* = P^2\] Des Weiteren haben wir $h-Ph \perp Ph$:
+\[\ip{h-Ph, Ph} = \ip{Ph}- \ip{h, P^*Ph} = 0\] (Für Q analog.)
+\end{ex}
+
+\begin{definition} Sei $A \in B(H),$ dann heißt A:
+	\begin{itemize}
+		\item selbstadjungiert, falls $A^* = A$
+		\item normal, falls $A^*A = AA^*$
+		\item unitär, falls $A^*A = \text{Id}_H = AA^*$
+	\end{itemize}
+\end{definition}
+
+\begin{ex}
+	Wir betrachten den $L^2(\mu)$ mit dem Multiplikationsoperator $M_{\varphi}f(x) = \varphi(x)f(x).$ Dann gilt: \[\ip{M_{\varphi}^*h, f} = \ip{h, M_{\varphi}f} = \int \bar h(x) \varphi(x)f(x)\mu(dx) = \int \overline{\bar \varphi(x) h(x)}f(x) \mu(dx) = \ip{M_{\bar \varphi}h, f}.\] Somit erhalten wir $M_{\varphi}^* = M_{\bar \varphi}.$ Falls außerdem $\text{Im} \varphi \subseteq \R,$ dann ist der Operator selbstadjungiert. Des Weiteren ist er normal, da: \[M_{\varphi}^*M_{\varphi} = M_{\bar \varphi}M_{\varphi} = M_{\ab{\varphi}^2} = M_{\varphi}M_{\varphi}^*\]
+\end{ex}
