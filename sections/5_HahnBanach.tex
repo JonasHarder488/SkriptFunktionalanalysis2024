@@ -13,10 +13,11 @@
 	\end{theorem}
 	
 	\begin{lemma}
-		Sei \((V,\norm\cdot)\) ein normierter Vektorraum, \(U\subseteq V\) ein Unterraum, \(z \in V\setminus U\) so, dass \(V = \text{span}\set{U \cup \set{z}}\) sowie \(\varphi_0 \in U'\). Dann gibt es \(\varphi \in V'\) mit \(\forall u \in U: \varphi(u) = \varphi_0(u)\) und \(\norm{\varphi} \geq \norm{\varphi_0}\).
+		Sei \((V,\norm\cdot)\) ein normierter Vektorraum, \(U\subseteq V\) ein Unterraum, \(z \in V\setminus U\) so, dass \(V = \text{span}\set{U \cup \set{z}}\) sowie \(\varphi_0 \in U'\). Dann gibt es \(\varphi \in V'\) mit \(\forall u \in U: \varphi(u) = \varphi_0(u)\) und \(\norm{\varphi} = \norm{\varphi_0}\).
+		\unsure{In der Vorlesung wurde im Lemma \(\norm{\varphi} \geq \norm{\varphi_0}\) angegeben, aber dies sollte direkt aus \(\varphi\vert_U = \varphi_0\) folgen und wir zeigen im Lemma \(\leq\) und somit Gleichheit, oder?}
 	\end{lemma}
 	\begin{proof}
-		Wir zeigen hier nur den Fall \(\K = \R\). Nehmen o. B. d. A. an, dass \(\varphi_0 \neq 0\) und \(\norm{\varphi_0} = 1\). Weiterhin gilt nach Voraussetzung
+		Wir zeigen hier nur den Fall \(\K = \R\). Nehmen o. B. d. A. an, dass \(\varphi_0 \neq 0\) (ansonsten setze \(\varphi = 0\)) und \(\norm{\varphi_0} = 1\). Weiterhin gilt nach Voraussetzung
 		\[V = \text{span}\set{U\cup\set{z}} = \set{u + \alpha z \;\vert\; u \in U, \alpha \in \R} = \set{\alpha z - u \;\vert\; u \in U, \alpha\in \R}\;.\]
 		Zeige nun, dass f\us r \(v = \alpha z - u \in V\) mit \(u\in U, \alpha \in \R\) eindeutig ist. Angenommen f\us r \(u_1, u_2 \in U, \alpha_1, \alpha_2 \in \R\) gilt \(v = u_1 + \alpha_1 z = u_2 + \alpha_2 z\), dann folgt
 		\[u_1 + \alpha_1 z = u_2 + \alpha_2 z \iff \overbrace{(\alpha_2 - \alpha_1)z}^{\not\in U} = \overbrace{u_1 - u_2}^{\in U}\implies \alpha_1 = \alpha_2 \implies u_1 = u_2\;.\]
@@ -28,7 +29,8 @@
 			\[\sup_{x\in U}\varphi_0(x) - \norm{x-z}\leq c \leq \inf_{y\in U} \varphi_0(y) + \norm{y-z}\;.\]
 			Damit k\os nnen wir nun die Forsetzung definieren, wobei f\us r \(v \in V\) (wie oben) gilt
 			\[\varphi(v) = \varphi(\alpha z - u) := \alpha c - \varphi_0(u)\;.\]
-			Wir pr\us fen nun die geforderten Eigenschaften. Es gilt offensichtlich \(\varphi\vert_U = \varphi_0\) (setzen \(\alpha = 0\) in eindeutiger Darstellung). Zeige nun die Normabsch\as tzung. Zun\as chst gilt  \(\forall\tilde u \in U\)
+			Wir pr\us fen nun die geforderten Eigenschaften. Es gilt offensichtlich \(\varphi\vert_U = \varphi_0\) (setzen \(\alpha = 0\) in eindeutiger Darstellung) und somit automatisch 
+			\(\norm{\varphi} \geq \norm{\varphi_0}\). Zeige nun die Normabsch\as tzung. Zun\as chst gilt  \(\forall\tilde u \in U\)
 			\begin{align*}
 			& \varphi_0(\tilde u) - \norm{\tilde u - z} \leq c \leq \varphi_0 (\tilde u) + \norm{\tilde u -z} \\
 			\iff & 	- \norm{\tilde u - z} \leq c - \varphi_0 (\tilde u) \leq \norm{\tilde u -z}	
@@ -37,9 +39,20 @@
 			\end{align*}
 			Somit erhalten wir \(\forall \alpha \in \R, \alpha \neq 0, u \in U\) (d.h. f\us r \(v\in V\setminus U\))
 			\[\ab{\varphi(\alpha z -u)} = \ab{\alpha} \ab{\varphi\left(z - \frac{u}{\alpha}\right)} = \ab{\alpha} \cdot \ab{c - \varphi_0\left(\frac{u}{\alpha}\right)} \leq \ab{\alpha}\norm{\frac{u}{\alpha}-z} = \norm{\alpha z -u}\;.\]
-			[...\textit{Was sagen die letzten beiden Schritte?, folgt Normabsch\as tzung nicht schon aus \(\varphi\vert_U = \varphi_0\)?}]
+			Folglich gilt 
+			\(\ab{\varphi(\alpha z -u)} \leq \norm{\varphi_0} \norm{az - u}\implies \norm{\varphi} \leq \norm{\varphi_0}\) und es folgt Normgleichheit.
 	\end{proof}
 	
 \begin{theorem}[Hahn-Banach]
-	Sei \(V,\norm\cdot\) ein normierter Vektorraum, \(U\leq V\) ein Unterraum und \(\varphi_0 \in U'\). Dann gibt es ein \(\varphi \in V'\) mit \(\varphi\vert_U = \varphi_0\) und \(\normn{\varphi}{V'} = \normn{\varphi_0}{U'}\). D. h. jedes beschr\as nkte, lineare Funktional kann normgleich fortgesetzt werden. 
+	Sei \(V,\norm\cdot\) ein normierter Vektorraum, \(U\subseteq V\) ein Unterraum und \(\varphi_0 \in U'\). Dann gibt es ein \(\varphi \in V'\) mit \(\varphi\vert_U = \varphi_0\) und \(\normn{\varphi}{V'} = \normn{\varphi_0}{U'}\). D. h. jedes beschr\as nkte, lineare Funktional kann normgleich fortgesetzt werden. 
 \end{theorem}
+\begin{proof}
+	Wir setzen 
+	\[Z := \set{(W,\psi)\;\big\vert\; U\subseteq W \subseteq V \text{ Unterraum, }\;\psi \in W',\; \psi\vert_U = \psi_0,\; \norm{\psi} = \norm{\varphi_0}}\;.\]
+	Definieren partielle Ordnung auf $Z$ \us ber
+	\[(W,\psi) \leq (\tilde W, \tilde \psi) : \iff W \subseteq \tilde W \text{ und } \tilde\psi \vert_W = \psi\;.\]
+	Sei nun $Z_0\subseteq Z$ eine total geordnete Teilmenge, womit wir $W^*\subseteq V$ wie folgt definieren
+	\[Z_0 := \set{(W_i,\psi_i)\;\vert\; i \in I}\;\text{ und }\; W^* := \bigcup_{i\in I} W_i\;.\]
+	Dabei ist $W^*$ ein Unterraum, da f\us r \(x,y \in W^*\) existieren \(i_1, i_2 \in I\), sodass \(x \in W_{i_1}\) und \(y\in W_{i_2}\). Sei o. B. d. A. \(i_2 \geq i_1\), dann gilt nach Voraussetzung auch \(x\in W_{i_2}\), dies ist ein Unterraum und somit \(x+y \in W^*\). Wir definieren nun ein lineares Funktional \(\psi^*\) auf \(W^*\).
+	
+\end{proof}

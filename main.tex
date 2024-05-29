@@ -11,6 +11,10 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{newclude} %no pagebreaks after \include* 
+\usepackage[textsize=tiny]{todonotes}
+\usepackage{xcolor}
+
+\newcommand\unsure[1]{\todo[inline,linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1}}
 
 \geometry{a4paper, left = 20mm, right = 20mm, top = 30mm}
 
@@ -66,6 +70,7 @@
 \date{Version vom \today} 
 \begin{document}
 	\maketitle
+	\listoftodos[Todo-Liste]
 	\tableofcontents
 	\include{sections/1_MetricSpaces}
 	\include{sections/2_MeasureTheory}
