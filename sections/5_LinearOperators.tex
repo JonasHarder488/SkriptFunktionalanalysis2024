@@ -11,7 +11,7 @@
 
 \begin{theorem}
     In dieser Situation sind äquivalent:
-    
+    \label{B(V,W)_equiv}
     \begin{enumerate}
         \item $A \in B(V_1, V_2)$
         \item $A$ ist stetig
@@ -110,7 +110,7 @@
 
 \begin{theorem}
     Sei $V$ ein normierter Raum, $W$ ein Banachraum, dann ist $B(V, W)$ ein Banachraum mit der Operatornorm.
-    
+    \label{B(V,W)_Banach}
     \begin{proof}[Beweis:] Sei $\seq{A}{n}$ eine Cauchy-Folge in $B(V, W),$ dann $\lime{n, m}{\norm{A_n - A_m}} = 0.$ Sei nun $v \in V,$ dann \[\lime{n, m}{\norm{A_nv- A_mv}} \leq \lime{n, m}{\norm{A_n - A_m}\norm{v}}\] und damit ist $(A_nv)_{n \in \N}$ eine Cauchy-Folge in $W.$ Somit ist $Av = \lim_{n \to \infty}{A_nv}$. Definiere $A: V \to W$ nun als Abbildung aus diesem Grenzwert. \\
     \unsure{Hier gab es in der Vorlesung einen Nachtrag, allerdings sollte es so auch gehen.}
     Damit gilt schon \[\norm{A - A_n} = \sup_{\norm{v} \leq 1}{\set{\norm{Av-A_nv}}} \xrightarrow{n \to \infty} 0\] \\

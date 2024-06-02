@@ -1,0 +1,117 @@
+\section{Das Prinzip der gleichm\as \s igen Beschr\as nktheit}
+[\textit{****Hier fehlt noch die Vorlesung vom 27.05.****}]
+
+%%%%%Vorlesung 30.05.2024%%%%%
+\begin{theorem}
+	Sei \((V,\normn\cdot V)\) ein normierter Raum und \(A\subseteq V\) eine Teilmenge mit
+	\[\forall \varphi \in V': \sup\set{\ab{\varphi(x)} \;\big\vert\; x\in A}<\infty\;.\]
+	Dann ist A beschr\as nkt.
+\end{theorem}
+\begin{proof}
+	Betrachte die kanonische Einbettung \(\Phi: V \to V'',\; \Phi(x)(\varphi) = \varphi(x)\). Diese ist isometrisch, wie in Satz \ref{Doppeldual_1} gezeigt. Sei nun 
+	\[\mc F = \Phi(A) = \set{\Phi(x)\;\vert\;x \in A} \subseteq V'' = B(V',\K)\;.\]
+	Damit gilt nun  f\us r alle \(\varphi\in V'\)
+	\begin{align*}
+		& \sup \set{\norm{Y(\varphi)} \;\big\vert\; Y\in \Phi(A)} = \sup \set{\ab{Y(\varphi)} \;\big\vert\; Y\in \Phi(A)} \\
+		 =& \sup \set{\ab{\varphi(\Phi^{-1}(Y))} \;\big\vert\; Y\in \Phi(A)} =  \sup \set{\ab{\varphi(x)} \;\big\vert\; x\in A} < \infty
+	\end{align*}
+	Dabei haben wir in der zweiten Zeile \(\Phi^{-1}(\Phi(A)) = A\) (da \(\Phi\) injektiv) ausgenutzt. Nach Satz \ref{B(V,W)_Banach} ist \(V'\) ein Banachraum, das hei\s t wir k\os nnen den Satz zur gleichm\as \s igen Beschr\as nktheit anwenden, mit \(\mc F \) wie oben definiert. Es gilt also
+	\begin{multline*} 
+		\sup \set{\norm{Y(\varphi)} \;\big\vert\; Y\in \Phi(A)} <\infty\implies  \\
+		\infty > \sup \set{\norm{Y}_{V''} \;\big\vert\; Y\in \Phi(A)} =  \sup \set{\norm{\Phi(x)}_{V''} \;\big\vert\; x\in A} =  \sup \set{\norm{x}_V \;\big\vert\; x\in A}\;.
+	\end{multline*}
+	Somit ist \(A\) in der Tat beschr\as nkt.
+\end{proof}
+\begin{rem}
+	Seien \(V, A\) wie im Satz. Wir bezeichnen die A als schwach beschr\as nkt, falls
+	\[\forall \varphi \in V': \sup\set{\ab{\varphi(x)} \;\big\vert\; x\in A}<\infty\;.\]
+	und als stark beschr\as nkt, falls
+	\[\sup \set{\norm{x}_V \;\big\vert\; x\in A} < \infty\;.\]
+	Wir zeigen hier tats\as chlich die \As quivalenz von starker und schwacher Beschr\as nktheit, die Gegenrichtung gilt ebenfalls. Die Konzepte stark (bzgl. \(\normn\cdot V\)) und schwach bzgl. aller \(\varphi\in V'\) lassen sich auch auf weitere Begriffe (z. B. Kompaktheit, Abgeschlossenheit) \us bertragen.
+\end{rem}
+
+\section{Der Satz von der offenen Abbildung}
+
+\begin{rem}[Motivation]
+	Seien \(V, W\) Banachr\as ume sowie \(T \in B(V,W)\), d. h. \(T: V\to W\) bijektiv, linear und beschr\as nkt. Somit existiert \(T^{-1}:W\to V\). Die Umkehrabbildung ist linear, da aus
+	\[T(T^{-1}(x+y)) = x +y \;\text{ und }\; T(T^{-1}(x) + T^{-1}(y)) = T(T^{-1}(x)) + T(T^{-1}(y)) = x + y\]
+	unter Ausnutzung der Injektivit\as t von T folgt, dass \(T^{-1}(x+y) = T^{-1}(x) + T^{-1}(y)\). Weiterhin stellt sich die Frage, ob \(T^{-1}\) auch beschr\as nkt ist. Nach Satz \ref{B(V,W)_equiv} g. z. z., dass \(T^{-1}\) stetig. Daf\us r ist folgende Bedingung notwendig
+	\[\forall G \subseteq V \text{ offen}: (T^{-1})^{-1} (G) = T(G) \subseteq W \text{ offen}\;.\]
+\end{rem}
+\begin{ex}
+	Betrachte die Banachr\as ume \(V= W = (C^0([0,1]), \norms \cdot)\). Dann ist \(T\in B(V,W)\)
+	\[\forall f \in C^0([0,1]): T(f) = \int_0^x f(y)dy\]
+	ein injektiver Operator. Dann k\os nnen wir \(\tilde T^{-1}\) definieren mit
+	\[\tilde T^{-1} (g(x)) = g'(x)\;.\]
+	Da \(T\) nicht bijektiv ist existiert in diesem Fall jedoch keine Umkehrabbildung.
+\end{ex}
+
+\begin{theorem}[Satz von der offenen Abbildung]
+	Seien \(V, W\) Banachr\as ume und \(T\in B(V,W)\). Falls \(T(V) = W\), dann ist f\us r alle \(G\subseteq V\) offen auch \(T(G)\) offen.
+	\label{Offene_Abb} \end{theorem}
+Wir zeigen zun\as chst zwei Lemmata.
+
+\begin{lemma}
+	Seien \(V,W\) Banachr\as ume und \(T\in B(V,W),\;T(V) = W\). Dann gibt es ein \(d> 0\) mit 
+	\[\forall \varepsilon > 0 \;\forall y\in W \;\exists x \in V: \norm{Tx-y} < \varepsilon \text{ und } \norm{x} < d^{-1}\norm{y}\;.\]
+	\label{lemma1_Offene_Abb}
+\end{lemma}
+\begin{proof}
+	Da T surjektiv ist, existiert f\us r \(y\in W\) beliebig ein \(\tilde x \in V\) mit \(T\tilde x = y\). Somit gilt
+	\[W = \bigcup_{m\in \N} T(K_m(0))\;.\] 
+	Da $W$ ein vollst\as ndiger metrischer Raum, k\os nnen wir die Kontraposition des Bairschen Kategorientheorems anwenden. Demnach existieren \(r\in \R_{>0},\;y_0 \in  W,\; m\in\N\) mit 
+	\[K_r(y_0) \subseteq \overline{T(K_m(0))}\;.\]
+	Falls f\us r \(\tilde y \in W: \norm{\tilde y}<r\), dann folgt \(y_0,\;y_0 + \tilde y \in K_r(y_0)\) und somit auch \(y_0,\;y_0 + \tilde y \in \overline{T(K_m(0))}\). Nach Definition des Abschluss existieren Folgen \(\seq{x^1}{n}, \;\seq{x^2}{n}\) in $V$ mit
+	\[\forall n\in \N, \;i\in\set{1,2}: \norm{x^i_n}< m \;\text{ und }\; \lime{n}{T\left(x^1_n\right)} = y_0,\; \lime{n}{T\left(x^2_n\right)} = y_0 + \tilde y\;.\]
+	Definiere nun die Folge \(\seq{x^3}{n}\) durch \(\forall n \in \N: x^3_n = x^2_n - x^1_n\). Damit gilt
+	\[\forall n \in \N \norm{x^3_n} \leq 2m \;\text{ und }\; \lime{n}{T\left(x^3_n\right)} = \tilde y\;.\]
+	Wir w\as hlen nun \(y\in W,\; y \neq 0\) (sonst \(x=0\)) und \(\varepsilon > 0\) fixiert. Wende nun obige Rechnung auf folgendes \(\tilde y\) an
+	\[\tilde y = \frac{r}{2} \frac{y}{\norm y} \implies \norm{\tilde y} < r \implies \exists \seq{x^3}{n},\;\forall n\in \N\; x^3_n\in V,\; \norm{x^3_n} \leq 2m \text{ und }\lime{n}{T(x^3_n)} = \tilde y\;.\]
+	Somit gilt 
+	\[\lime{n}{\frac{2\norm y}{r} x^3_n} = y \implies \exists n\in \N: \norm{T\left(\frac{2\norm y}{r} x^3_n\right)-y}< \varepsilon\;.\]
+	Setze nun \(d:=\frac{r}{4m}\), dann folgt
+	\[\norm{\frac{2\norm y}{r} x^3_n} < \frac{2\norm y}{r} 2m = \frac{4m}r \norm{y} = d^{-1} \norm y\;.\]
+	Dies war gerade zu zeigen.
+\end{proof}
+
+\begin{lemma}
+	Seien \(V,W\) Banachr\as ume und \(T\in B(V,W), T(V) = W\). Dann existiert ein \(\delta > 0\) mit 
+	\[K_\delta(0) \subseteq T(K_1(0)) \iff \forall y\in W \text{ mit }\norm{y}<\delta \;\exists x\in V \text{ mit } \norm{x} < 1 \text{ und } Tx = y\;.\]
+	\label{lemma2_Offene_Abb}
+\end{lemma}
+\begin{proof}
+	Wir erhalten die Behauptung durch iteratives Anwenden des vorhergehenden Lemmas. Setzen \(\delta = d\), wobei $d$ wie im vorherigen Lemma sei. Sei weiterhin \(y_0:=y\in K_d(0)\) fixiert sowie \(\varepsilon_0 = \frac{d}{2}\). Dann liefert Lemma \ref{lemma1_Offene_Abb}
+	\[\exists x_0 \in K_1(0): \norm{T(x_0) - y_0} < \frac{d}{2}\;.\]
+	Dabei braucht nicht der Abschluss \(\overline{K_1(0)}\) zu betrachtet werden, weil nach dem Lemma \(\norm{x_0} \leq d^{-1} \norm{y_0} < d^{-1} d =1\). Erneutes Anwenden des Lemmas auf \(y_1:= y_0 -T(x_0)\) und \(\varepsilon_1 = \frac{d}{4}\) liefert
+	\[\exists x_1 \in K_{\frac{1}{2}}(0): \norm{T(x_1) - y_1} = \norm{T(x_1) + T(x_0) - y} < \frac{d}{4}\]
+	Dabei gilt \(x_1 \in K_{\frac{1}{2}}(0)\), da
+	\[\norm{x_1} \leq d^{-1} \norm{y_1} = d^{-1} \norm{y_0 -T(x_0)} < \frac{d}{2d} = \frac{1}{2}\;.\]
+	Iteration f\us hrt zu der allgemeinen Form, dass f\us r \(y_{n+1} = y_0 - T(x_n) -T(x_{n-1})- \ldots - T(x_0)\) gilt
+	\[\exists x_{n+1} \in K_{2^{-(n+1)}}(0): \norm{T(x_{n+1})-y_{n+1}} =\norm{T(x_{n+1}) + T(x_n) + \ldots + T(x_0) - y} < d 2^{-(n+2)}\;.\]
+	Nach Konstruktion gilt \(\sum_{n=0}^\infty \norm{x_n} < \sum_{n=0}^{\infty} 2^{-n} = 2 < \infty\). Somit ist \(\se{\sum_{n=0}^m x_n}{m}\) eine Cauchyfolge, denn es gilt f\us r \(m,m'\in \N, m' > m\)
+	\[ \norm{\sum_{n=0}^{m'} x_n - \sum_{n=0}^{m} x_n} = \norm{\sum_{n=m+1}^{m'} x_n} \leq \sum_{n=m+1}^{m'} \norm{x_n} \overset{m\to\infty}{\longrightarrow} 0 \;.\]
+	Da V ein Banachraum ist, existiert \(x = \lime{m}{\sum_{n=0}^m x_n}\), wobei \(\norm{x} < 2\). Da \(T\in B(V,W)\) und somit insbesondere stetig, gilt auch \(\lime{m}{\sum_{n=0}^m T(x_n)} = T(x)\).
+	Somit gilt insbesondere
+	\[\lime{m}{y-\sum_{n=0}^m T(x_n)} = y - T(x)\;.\]
+	Nach der obigen iterativen Konstruktion gilt aber auch
+	\[\lime{m}\norm{y - \sum_{n=0}^m T(x_n)} = 0\;.\]
+	Daraus folgt also 
+	\[\forall y \in K_d(0) \;\exists x \in \overline{K_2(0)}: Tx = y\;.\]
+	Setzen wir nun \(\delta = \frac{d}{2}\), folgt die Behauptung.	
+\end{proof}
+
+\begin{proof}[Beweis von Satz \ref{Offene_Abb}]
+	Sei \(G\subseteq V\) offen und \(y\in T(G)\), d. h. es existiert \(x_0 \in G: y = T(x_0)\). F\us r Offenheit g. z. z., dass \(T(G)\) eine offene Kugel um \(y\) enth\as lt. Wir setzen
+	\[\tilde G : = G -x_0 = \set{g-x_0\;\vert\;g\in G} \overset{T\text{ linear}}{\Longrightarrow} T(\tilde G) = T(G) - y\;.\]
+ Somit g. z. z. \(\exists \tilde \delta > 0 : K_{\tilde \delta}(0)\subseteq T(\tilde G)\). Da \(\tilde G\) offen und \(0 \in \tilde G\), existiert \(\varepsilon > 0\) mit \(K_\varepsilon(0) \subseteq \tilde G\). Somit ergibt sich unter Ausnutzung der Linearit\as t von $T$ sowie mit  \(\delta\) wie in Lemma \ref{lemma2_Offene_Abb}
+ \[T(\tilde G) \supseteq T(K_\varepsilon(0)) = \varepsilon T(K_1(0)) \supseteq \varepsilon K_\delta(0) = K_{\varepsilon\delta}(0)\;. \]
+ Setzen also \(\tilde \delta = \varepsilon\delta\), dann gilt \(K_{\tilde \delta}(0) \subseteq T(\tilde G)\) \(\iff\) \(K_{\tilde \delta}(y) \subseteq T(G)\). Somit ist \(T(G)\) in der Tat offen.
+\end{proof}
+	
+\begin{theorem}[Schlussfolgerung] Ist zus\as tzlich zu den Voraussetzungen von Satz \ref{Offene_Abb} $T$ injektiv (d. h. \(T\) bijektiv), dann gilt \(T^{-1} \in B(W,V)\).
+\end{theorem}
+\begin{proof}
+	Wie bereits zuvor motiviert, g. z. z., dass \(T^{-1} \) beschr\as nkt und somit g. z. z., dass \(T^{-1}\) stetig. Es gilt 
+	\[T^{-1}: W\to V \text{ stetig} \iff \forall G \subseteq V \text{ offen}: (T^{-1})^{-1}(G) = T(G) \subseteq W \text{ offen}\;.\] 
+	Dies gilt nach Satz \ref{Offene_Abb} und somit ist \(T^{-1}\in B(W,V)\).
+\end{proof}
