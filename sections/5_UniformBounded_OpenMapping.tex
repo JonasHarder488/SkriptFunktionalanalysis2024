@@ -109,9 +109,110 @@ Wir zeigen zun\as chst zwei Lemmata.
 \end{proof}
 	
 \begin{theorem}[Schlussfolgerung] Ist zus\as tzlich zu den Voraussetzungen von Satz \ref{Offene_Abb} $T$ injektiv (d. h. \(T\) bijektiv), dann gilt \(T^{-1} \in B(W,V)\).
+	\label{Inverse_Mapping}
 \end{theorem}
 \begin{proof}
 	Wie bereits zuvor motiviert, g. z. z., dass \(T^{-1} \) beschr\as nkt und somit g. z. z., dass \(T^{-1}\) stetig. Es gilt 
 	\[T^{-1}: W\to V \text{ stetig} \iff \forall G \subseteq V \text{ offen}: (T^{-1})^{-1}(G) = T(G) \subseteq W \text{ offen}\;.\] 
 	Dies gilt nach Satz \ref{Offene_Abb} und somit ist \(T^{-1}\in B(W,V)\).
+\end{proof}
+
+
+
+\section{Der Satz vom abgeschlossenen Graphen}
+\begin{definition}
+	Seien $X$, $Y$ normierte Vektorr\as ume, \(f:X \to Y\) eine lineare Abbildung. Dann bezeichnen wir 
+	\[\Gamma_f = \set{(x,f(x)) \;\vert\; x \in X}\subseteq X\times Y\]
+	als den \textit{Graph} von $f$.
+\end{definition}
+
+\begin{theorem}
+	Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume. Dann wird \(V \times W\) unter eintragsweisen Operationen zu einem Vektorraum, d. h. 
+	f\us r alle \( x,x_1\in V, y,y_1 \in W, \lambda \in \K\) gilt
+	\[ \lambda(x, y) = (\lambda x, \lambda y) \;\text{ und }\;(x, y) + (x_1, y_1) = (x + x_1 , y+ y_1 )\;.\] 
+	Mit jeder der Normen
+	\[\normn{(x,y)}{1} := \normn xV + \normn yW ,\;\;\;\; \normn{(x,y)}{2} := \sqrt{\normn xV ^2 + \normn yW ^2},\;\;\;\; \normn{(x,y)}{3} := \max\set{\normn xV, \normn yW}\]
+	wird \(V\times W\) ein Banachraum.
+\end{theorem}
+\begin{proof}
+	Dass \(V\times W\) ein Vektorraum ist, ist aus der linearen Algebra bekannt. Zeige nun, dass \(\normn\cdot 1\) eine Norm ist. Es gilt \(\forall (x,y)\in V\times W\)
+	\[0 = \normn{(x,y)}{1} \iff \normn xV + \normn yW = 0 \iff \normn xV = 0 \land \normn yW = 0 \iff x = 0 \land y = 0\;.\]
+	Somit ist \(\normn\cdot 1\) definit. Die Homogenit\as t ist klar. Zeige nun die Dreiecksungleichung mit  
+	\[\normn{(x + x_1, y+ y_1 )}{1} = \normn{x+ x_1}{V} + \normn{y+y_1}{W} \leq \normn xV + \normn{x_1}{V} + \normn yW + \normn{y_1}{W} = \normn{(x,y)}{1} + \normn{(x_1, y_1)}{1}\;.\]
+	\(\normn\cdot 3\) ist offensichtlich eine Norm. F\us r \(\normn \cdot 2\) reicht es die Dreiecksungleichung zu zeigen, der Rest ist ebenfalls trivial. Es gilt
+	\begin{align*} 
+	\text{(i)}\;\normn{(x+x_1,y+y_1)}{2}^2& = \normn{x + x_1}{V}^2 + \normn{y + y_1}{W}^2 \leq (\normn xV + \normn{x_1}{V})^2 + (\normn yW  + \normn{y_1}{W})^2 \\
+	&= \normn{x}{V}^2 + 2 \normn{x}{V}\normn{x_1}{V} + \normn{x_1}{V}^2 + \normn{y}{W}^2 + 2\normn yW \normn{y_1}{W} + \normn{y_1}{W}^2 \\
+	\text{(ii)}\;(\normn{x,y}2 + \normn{x_1,y_1}2)^2 & = \left( \sqrt{\normn xV^2 + \normn yW^2} + \sqrt{\normn{x_1}V^2 + \normn{y_1}W^2}\right)^2 \\
+	&= \normn xV^2 + \normn yW^2	 + \normn{x_1}V^2 + \normn{y_1}W^2 + 2 \sqrt{(\normn xV^2 + \normn yW^2)(\normn{x_1}V^2 + \normn{y_1}W^2)} \;.
+	\end{align*}
+	Somit gilt 
+	\begin{align*}
+	\text{(i)} \leq \text{(ii)} &\iff\normn{x}{V}\normn{x_1}{V} + \normn yW \normn{y_1}{W} \leq \sqrt{(\normn xV^2 + \normn yW^2)(\normn{x_1}V^2 + \normn{y_1}W^2)}  \\
+	& \iff (\normn{x}{V}\normn{x_1}{V} + \normn yW \normn{y_1}{W})^2 \leq (\normn xV^2 + \normn yW^2)(\normn{x_1}V^2 + \normn{y_1}W^2) \\
+	&\iff 2 \normn{x}{V}\normn{x_1}{V} \normn yW \normn{y_1}{W} \leq \normn xV^2 \normn{y_1}W^2 + \normn yW^2 \normn{x_1}V^2\\ 
+	&\iff 0 \leq  (\normn xV \normn{y_1}W - \normn yW \normn{x_1}V)^2\;.
+	\end{align*}
+	Somit ist die Dreiecksungleichung in der Tat erf\us llt. Wir zeigen nun, Vollst\as ndigkeit bzgl. \(\normn\cdot 1\). Sei \(\se{(x_n, y_n)}{n},
+	\; \forall n\in \N: x_n \in V, y_n \in W\) eine Cauchyfolge in \(V\times W\). Dann sind nach Definition auch \(\seq xn\) in $V$ und \(\seq yn\) in $W$ Cauchyfolgen, d. h. 
+	\[\li xn := x \in V\text{ bzgl. } \normn\cdot V \;\;\text{ und }\;\;\li yn := y \in W\text{ bzgl. } \normn\cdot W \;\;\text{ existieren.}\]
+	Damit w\as hlen wir \((x,y) \in V\times W\) als Kandidaten f\us r den Grenzwert von \(\se{(x_n, y_n)}n\). In der Tat
+	\[\normn{(x_n, y_n) - (x,y)}1 = \normn{(x_n - x, y_n -y)}1 = \normn{x_n -x}V + \normn{y_n - y}W \overset{n\to\infty}{\longrightarrow} 0 \;.\]
+\end{proof}
+\begin{rem}
+	Die Normen \(\normn\cdot 1,\;\normn\cdot 2,\; \normn\cdot 3\) auf \(V\times W\) sind 
+	\as quivalent. Wir bezeichnen \(V\times W\) auch mit \(V\oplus W\).
+\end{rem}
+
+\begin{theorem}
+	Seien \((H_1, \ip{\cdot, \cdot}_1)\) und \((H_2, \ip{\cdot, \cdot}_2)\) Hilbertr\as ume. 
+	Dann ist \(H = H_1 \times H_2\) ein Hilbertraum mit dem Skalarprodukt
+	\[\ip{(x_1,y_1), (x_2,y_2)} = \ip{x_1,x_2}_1 + \ip{y_1,y_2}_2\;.\]
+\end{theorem}
+\begin{proof}
+	Man kann leicht einsehen, dass \(\ip{\cdot,\cdot}\) die Norm \(\normn\cdot 2 \) induziert. Der Rest folgt trivial.
+\end{proof}
+
+\begin{theorem}[Satz vom abgeschlossenen Graphen]
+Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W\) linear. Dann gilt
+\[T \in B(V,W) \iff \Gamma_T \text{ abgeschlossen in }(V\times W)\;.\]
+\label{closed_graph}
+\end{theorem}
+\begin{rem}
+	\(\Gamma_T\) ist ein Untervektorraum von \(V\times W\), da unter Ausnutzung der Linearit\as t von $T$ gilt f\us r \(\lambda \in \K,\; x, x_1, x_2 \in V\)
+	\begin{align*}
+		& \lambda (x, Tx) = (\lambda x, \lambda Tx) = (\lambda x, T(\lambda x)) \\
+		& (x_1, Tx_1) + (x_2, Tx_2) = (x_1 + x_2, Tx_1 + Tx_2) = (x_1 + x_2, T(x_1 + x_2))\;.
+	\end{align*}
+	Weiterhin ist \(\Gamma_T\) abgeschlossen, genau dann wenn 
+	\[\forall \se{(x_n, y_n)}{n},\;\forall n\in\N \;(x_n, y_n) \in \Gamma_T \text{ und } \lime{n} (x_n, y_n) =:(x,y) \in V\times W \text{ existiert } \implies (x,y) \in \Gamma_T\;.\]
+	Mit Satz \ref{B(V,W)_equiv} l\as sst sich dies \as quivalent umformulieren zu
+	\[\forall \seq xn \text{ mit }\;\forall n\in \N\; x_n \in V,\;\li xn =: x \in V  \text{ und } \lime n {Tx_n} = y \in W\text{ existieren } \implies y = T(x)\]
+\end{rem}
+\begin{proof}
+	\forw Sei \(T\in B(V,W)\) und sei \(\se{(x_n, Tx_n)}{n}, \forall n\in \N\; x_n \in V\) eine Folge in \(\Gamma_T\), mit \(\lime n (x_n, Tx_n) = (x,y) \in V\times W\).  Somit 
+	\[\lime n\normn{x_n - x}{V}  = 0 \text{ und } \lime n \normn{Tx_n - y}{W} = 0\;.\]
+	Aufgrund der Stetigkeit von $T$ folgt in der Tat \(T(x) = y\).\\
+	\backw Sei \(\Gamma_T\) abgeschlossen, dann ist \(\Gamma_T\) als Unterraum des Banachraums \((V\times W,\normn\cdot 1)\) ebenfalls ein Banachraum. Wir definieren die stetigen, linearen Abbildungen
+	\[P_1: \Gamma_T \to V,\; P_1(x,Tx) = x \;\;\text{ und }\;\; P_2: \Gamma_T\to W,\; P_2(x,Tx) = Tx\;.\]
+	Dabei gilt f\us r die Operatornorm $\norm{P_1}$
+	\begin{multline*}
+	\normn{P_1(x,Tx)}V = \normn xV \leq \normn xV + \normn{Tx}{W} = \normn{(x,Tx)}{1} \implies \\ \norm{P_1} = \sup \set{ \normn{P_1(x,Tx)}V\;\big\vert\;\normn{(x,Tx)}1 = 1}\leq 1\;.
+	\end{multline*}
+	Analog folgt \(\norm{P_2} \leq 1\). Weiterhin gilt \(P_1(\Gamma_T) = V\), d. h. $P_1$ injektiv. Au\s erdem ist $P_1$ injektiv, da
+	\[P_1(x,Tx) = 0 \iff x = 0 \iff x = 0 \text{ und } Tx = 0 \iff (x,Tx) = 0_{V\times W}\;.\]
+	Aus der Bijektivit\as t von $P_1$ folgt nun mit Satz \ref{Inverse_Mapping} \(P_1^{-1} \in B(V,\Gamma_T)\) und mit \(P_2 \in B(\Gamma_T, W)\) nach Definition erhalten wir in der Tat
+	\[T = P_2 \circ P_1^{-1} \in B(V,W)\;.\]
+\end{proof}
+
+\begin{theorem}
+	Sei $V$ ein Vektorraum mit zwei Normen \(\normn\cdot 1, \;\normn\cdot 2: V \to \R_{\geq 0}\), wobei \((V,\normn\cdot 1)\) und \((V,\normn\cdot 2)\) Banachr\as ume sind. Au\s erdem gilt 
+	\begin{multline*}
+	\forall \seq xn,\; \forall n \in \N\; x_n \in V:\big( \li xn := x\in V \text{ bzgl. }\normn\cdot 1 \text{ und } \\\li xn := y\in V \text{ bzgl. }\normn\cdot 2 \text{ existieren }\big)  \implies x = y\;.
+	\end{multline*}
+	Dann sind \(\normn\cdot 1\) und \(\normn\cdot 2\) \as quivalent.
+\end{theorem}
+
+\begin{proof}
+	Definiere \(I: (V,\normn\cdot1) \to (V,\normn\cdot 2)\) als die Identit\as tabbildung, welche linear ist. Wollen nun zeigen, dass \(\Gamma_T\) abgeschlossen. Sei daf\us r eine Folge \(\seq xn, \;\forall n \in \N\; x_n \in V\) gegeben mit \(\li xn =: x\) in \((V,\normn\cdot 1)\) sowie \(\lime n Tx_n = y\) in \(V,\normn\cdot 2\). Nach Voraussetzung folgt \(x = y\). Somit ist \(\Gamma_I\) abgeschlossen und mit Satz \ref{closed_graph} gilt \(I \in B(V,V)\). Nach Satz \ref{Inverse_Mapping} gilt auch \(I^{-1} \in B(V,V)\). Nach Definition der Beschr\as nktheit folgt die Behauptung.
 \end{proof}

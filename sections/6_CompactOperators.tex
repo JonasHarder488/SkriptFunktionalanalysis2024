@@ -1,0 +1,44 @@
+\chapter{Kompakte Operatoren}
+\begin{rem}[Motivation]
+	Die motivierende Idee des Kapitels ist es f\us r \((V,\normn\cdot V),(W,\normn\cdot W)\) Banachr\as ume einen Unterraum von \(B(V,W)\) zu finden, der aus Operatoren besteht, welche sich wie lineare Abbildungen auf endlichdimensionalen R\as umen verhalten.
+\end{rem}
+
+\section{Definitionen und Eigenschaften}
+\begin{definition}
+	Seien \((V,\normn\cdot V), (W,\normn\cdot W)\) Banachr\as ume und \(T: V\to W\) linear. Dann hei\s t $T$ \textit{kompakt} (bez. \(T\in \mc K(V,W)\)), falls f\us r alle beschr\as nkten Folgen \(\seq xn,\; \forall n\in \N: x_n \in V\) eine Teilfolge \(\se{x_{n_k}}{k}\) existiert, sodass \(\se{Tx_{n_k}}{k}\) in $W$ konvergiert. $T$ ist also kompakt, wenn das Bild jeder beschr\as nkten Folge eine in $W$ konvergente Teilfolge enth\as lt.
+\end{definition}
+
+\begin{rem}
+  Obige Definition ist \as quivalent zur Forderung, dass das Bild jeder beschr\as nkten Menge $E$ in $V$ unter $T$ einen kompakten Abschluss besitzt.	
+\end{rem}
+
+\begin{theorem}
+	Seien \((V,\normn\cdot V),\;(W,\normn\cdot W)\) Banachr\as ume und \(T\in\mc K(V,W)\). Dann ist $T$ beschr\as nkt.
+\end{theorem}
+\begin{proof}
+	Angenommen $T\in \mc K(V,W)$ ist nicht beschr\as nkt. Dann gilt nach Definition 
+	\[\sup\set{\normn{Tx}W \;\big\vert\; \normn xV \leq 1} = \infty\;.\]
+	Somit finden wir \(\forall n\in\N\) ein \(x_n\in V\) mit \(\normn{x_n}V \leq 1\) und \(\normn{Tx_n}{W}\geq n\). Da $T$ kompakt ist, gilt f\us r die somit konstruierte Folge \(\seq xn\):
+	\[\exists \se{x_{n_k}}{k}, \; y\in W,\; \lime k Tx_{n_k} = y\]
+	Daraus folgt aber sofort \(\lime k \normn{Tx_{n_k}}W = \normn yW\). Dies ist ein Widerspruch zur Konstruktion von \(\seq xn\). Somit ist $T$ also beschr\as nkt.
+	\end{proof}
+
+\begin{ex}
+	Wir betrachten den in Beispiel \ref{Volterra_op} eingef\us hrten Volterra-Operator \(T: C^0([0,1])\to C^0([0,1])\), wobei wir \((C^0([0,1]),\norms\cdot)\) betrachten mit 
+	\[Tf(x) = \int_0^x f(t) \; dt\;.\]
+	Wir zeigen nun, dass der Volterra-Operator kompakt ist. Sei \(\seq fn,\; \forall n \in \N: f_n \in C^0([0,1])\) beschr\as nkt, d. h. \(\sup_{n\in \N} \norms{f_n} =: c < \infty\). Wir wenden den Satz von Arzel\`a-Ascoli Arzel\`a-Ascoli nach Bem. \ref{Arzela_Ascoli} an. Bezeichne dabei \(g_n := Tf_n\), dann ist \(F:=\set{g_n \;\vert\; n\in \N}\subseteq C^0([0,1])\) punktweise beschr\as nkt, da
+	\[\forall x \in [0,1]: \ab{Tf_n(x)} = \int_0^x f_n(t)\; dt \leq \norms{f_n} \leq c < \infty\;.\]
+	Weiterhin ist $F$ gleichgradig stetig, da f\us r \(n\in\N\)
+	\[\forall x, y \in [0,1]: \ab{Tf_n(x) - Tf_n(y)} = \ab{\int_x^y f_n(t)\;dt} \leq \norms{f_n} \ab{x-y}\;.\]
+	Somit leistet \(\delta := \frac{\varepsilon}{c}\) das Verlangte. Anwenden des Satzes ergibt, dass \(\seq gn = \se{Tf_n}n\) eine in \(C^0([0,1])\) konvergente Teilfolge besitzt. Damit ist $T$ ein kompakter Operator.
+\end{ex}
+\begin{rem}[Satz von Arzel\`a-Ascoli]
+	\label{Arzela_Ascoli}
+	Sei $K$ ein kompakter metrischer Raum und \(F \subseteq C^0(K)\) eine Teilmenge. Dann ist $F$ genau dann \textit{relativ kompakt} in \((C^0(K), \norms\cdot)\) genau dann wenn
+	\begin{enumerate}[noitemsep]
+		\item $F$ \textit{punktweise beschr\as nkt}, d. h:  \(\forall f \in F\;\forall t\in \K: \ab{g(t)} < \infty\) \;\;  und 
+		\item $F$ \textit{gleichgradig stetig}, d. h.: \(\forall t \in K\;\forall \varepsilon > 0 \; \exists \delta > 0 \;\forall f\in F \; \forall s \in K: d(s,t) < 
+		\delta \implies \ab{f(s) - f(t)} < \varepsilon\)\;. 
+	\end{enumerate}
+	Dabei bezeichnen wir $F$ als relativ kompakt in $C^0(K)$, wenn $\overline{F}$ in $C^0(K)$ kompakt ist. Weiterhin ist $F$ genau dann relativ kompakt, falls jede Folge in $F$ eine in $C^0(K)$ konvergente Teilfolge hat. 
+\end{rem}

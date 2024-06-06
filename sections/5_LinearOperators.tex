@@ -32,7 +32,7 @@
     \end{proof}
 \end{theorem}
 
-\begin{ex} \label{Volterra_op}
+\begin{ex}[Volterra-Operator] \label{Volterra_op}
     Betrachte $C^0([0, 1]), \norms{A},$ wobei \[I: C^0([0, 1]) \to C^0([0, 1]), f(z) \mapsto \int_0^zf(x)dx.\] Dann gilt \[\ab{I(f(z)} = \ab{\int_0^zf(x)dx} = \norms{f}\cdot t \leq \norms{f}\]
     und mit \[\norm{If} = \sup{\ab{If(z)}:t\in [0, 1]} \leq \norms{f}\]
     ist die Operatornorm $\norm{I} \leq 1.$ Wähle nun $f_{[0, 1]}$, dann ist $If(t) = t$ und damit $\norm{I} = 1.$
@@ -211,8 +211,8 @@ Auf der anderen Seite: \[ \sup_{\norm{k} \leq 1} \norm{Ak} = \norm{A}^2 \leq \no
 \end{proof}
 \end{theorem}
 
-\begin{ex} \label{bras_adj} \textit{„bra‘s adjoined“} \\ 
-    Sei nun $A := \langle v |: H \to \K$ und wir betrachten den dazu adjungierten Operator $A^*: \K \to H.$  Wir haben: \[\forall h \in H, \lambda \in \K: \ip{A^* \lambda, h} = \ip{\lambda, Ah}_{\K} = \ip{\lambda, Ah}_{\K} = \overline{\lambda}Ah = \overline{\lambda} \ip{v, h} = \lambda \ip{v, h}.\] Daraus folgt dann $A^*\lambda = \lambda v$ und damit $/lange v | = | v \rangle$
+\begin{ex} \label{bras_adj} \textit{„bra‘s adjoint“} \\ 
+    Sei nun $A := \langle v |: H \to \K$ und wir betrachten den dazu adjungierten Operator $A^*: \K \to H.$  Wir haben: \[\forall h \in H, \lambda \in \K: \ip{A^* \lambda, h} = \ip{\lambda, Ah}_{\K} = \overline{\lambda}Ah = \overline{\lambda} \ip{v, h} = \lambda \ip{v, h}.\] Daraus folgt dann $A^*\lambda = \lambda v$ und damit $\langle v |^* = | v \rangle$
 \end{ex}
 
 \begin{ex} Sei $H$ ein Hilbertraum, $K \subseteq H$ ein abgeschlossener Unterraum.

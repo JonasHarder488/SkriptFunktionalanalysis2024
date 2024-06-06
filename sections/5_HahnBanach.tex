@@ -20,7 +20,7 @@
 	\begin{proof}
 		Wir zeigen hier nur den Fall \(\K = \R\). Nehmen o. B. d. A. an, dass \(\varphi_0 \neq 0\) (ansonsten setze \(\varphi = 0\)) und \(\norm{\varphi_0} = 1\). Weiterhin gilt nach Voraussetzung
 		\[V = \text{span}\set{U\cup\set{z}} = \set{u + \alpha z \;\vert\; u \in U, \alpha \in \R} = \set{\alpha z - u \;\vert\; u \in U, \alpha\in \R}\;.\]
-		Zeige nun, dass f\us r \(v = \alpha z - u \in V\) mit \(u\in U, \alpha \in \R\) eindeutig ist. Angenommen f\us r \(u_1, u_2 \in U, \alpha_1, \alpha_2 \in \R\) gilt \(v = u_1 + \alpha_1 z = u_2 + \alpha_2 z\), dann folgt
+		Zeige nun, dass die Darstellung \(v = \alpha z - u \in V\) durch \(u\in U, \alpha \in \R\) eindeutig ist. Angenommen f\us r \(u_1, u_2 \in U, \alpha_1, \alpha_2 \in \R\) gilt \(v = u_1 + \alpha_1 z = u_2 + \alpha_2 z\), dann folgt
 		\[u_1 + \alpha_1 z = u_2 + \alpha_2 z \iff \overbrace{(\alpha_2 - \alpha_1)z}^{\not\in U} = \overbrace{u_1 - u_2}^{\in U}\implies \alpha_1 = \alpha_2 \implies u_1 = u_2\;.\]
 		Betrachte nun \(x,y \in U\), dann gilt (mit \(\norm{\varphi_0} = 1\))
 		\begin{align*}&\overbrace{\varphi_0(x) -\varphi_0(y)}^{\in \R} \leq \ab{\varphi_0(x) -\varphi_0(y)} = \ab{\varphi_0(x) -\varphi_0(y)} \\= &\ab{\varphi_0(x-y)} \leq \norm{\varphi_0} \norm{x-y}  
@@ -45,7 +45,7 @@
 	\end{proof}
 	
 \begin{theorem}[Hahn-Banach]
-	Sei \(V,\norm\cdot\) ein normierter Vektorraum, \(U\subseteq V\) ein Unterraum und \(\varphi_0 \in U'\). Dann gibt es ein \(\varphi \in V'\) mit \(\varphi\vert_U = \varphi_0\) und \(\normn{\varphi}{V'} = \normn{\varphi_0}{U'}\). D. h. jedes beschr\as nkte, lineare Funktional kann normgleich fortgesetzt werden. 
+	Sei \((V,\norm\cdot)\) ein normierter Vektorraum, \(U\subseteq V\) ein Unterraum und \(\varphi_0 \in U'\). Dann gibt es ein \(\varphi \in V'\) mit \(\varphi\vert_U = \varphi_0\) und \(\normn{\varphi}{V'} = \normn{\varphi_0}{U'}\). D. h. jedes beschr\as nkte, lineare Funktional kann normgleich fortgesetzt werden. 
 \end{theorem}
 \begin{proof}
 	O. B. d. A \(\norm{\varphi_0} = 1\). Wir setzen

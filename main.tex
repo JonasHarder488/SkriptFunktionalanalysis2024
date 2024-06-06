@@ -13,6 +13,12 @@
 \usepackage{newclude} %no pagebreaks after \include* 
 \usepackage[textsize=tiny]{todonotes}
 \usepackage{xcolor}
+\usepackage{wasysym} %smileys fuer Kurzbeweise
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+%%%% Smiley QED
+\newcommand{\happy}{\renewcommand{\qedsymbol}{\small\boxed{\smiley}}}
 
 \newcommand\unsure[1]{\todo[inline,linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1}}
 
@@ -79,4 +85,5 @@
 	\include{sections/5_LinearOperators}
 	\include*{sections/5_HahnBanach}
 	\include*{sections/5_UniformBounded_OpenMapping}
+	\include{sections/6_CompactOperators}
 \end{document}
