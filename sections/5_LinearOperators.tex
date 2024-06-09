@@ -131,14 +131,14 @@
 \end{definition}
 
 \begin{ex}
-    Wir untersuchen den Dualraum von $V = L^p(\mu).$ Mittels der Hölderungleichung erhalten wir mit $f \in L^p(\mu), g \in L^q(\mu)$: \[\ab{\int fg d \mu} \leq (\int\ab{f}^p d \mu)^{\frac{1}{p}}(\int\ab{g}^q d \mu)^{\frac{1}{q}} \text{ mit } \frac{1}{p} + \frac{1}{q} = 1\] Sei nun $\varphi_g := \int \cdot g d \mu \in V'.$ Da \[\ab{\varphi_g} \leq \norm{f}_p \norm{g}_q\] ist $\varphi_g$ beschränkt und $\set{\varphi_g: g \in L^p} = (L^p(\mu))'$ und damit $L^p(\mu)'' \simeq L^P(\mu).$
+    Wir untersuchen den Dualraum von $V = L^p(\mu).$ Mittels der Hölderungleichung erhalten wir mit $f \in L^p(\mu), g \in L^q(\mu)$: \[\ab{\int fg d \mu} \leq (\int\ab{f}^p d \mu)^{\frac{1}{p}}(\int\ab{g}^q d \mu)^{\frac{1}{q}} \text{ mit } \frac{1}{p} + \frac{1}{q} = 1\] Sei nun $\varphi_g := \int \cdot g d \mu \in V'.$ Da \[\ab{\varphi_g} \leq \norm{f}_p \norm{g}_q\] ist $\varphi_g$ beschränkt und $\set{\varphi_g: g \in L^q} = (L^p(\mu))'$ und damit $L^p(\mu)'' \simeq L^p(\mu).$
 \end{ex}
 
 %%\begin{rem}
 %    Mit Hilfe des Satzen von Radon-Nikodym kann man zeigen, dass jedes beschränkte lineare Funktional auf $L^p(\mu)$ von dieser Form ist und dass für die Normen sogar Gleichheit gelten. Mit $1 < p < \infty$ ist $\varphi: L^q(\mu) \to L^p(\mu)', g \to \varphi_g$ sogar isometrisch isomorph 
 %\end{rem}
 
-\begin{theorem}\label{riez1} Jedes beschränkte   lineare Funktional $\varphi$ auf dem Hilberraum $(H, \ip{\cdot, \cdot})$ hat die Form $\varphi(x)= \ip{h_0,x}$ für ein eindeutiges $h_0 \in H$ und $\norm{\varphi}_{H'} = \norm{h_0}$ und $h_0 \to \varphi$ anti-linear.
+\begin{theorem}[Darstellungssatz von Riesz]\label{riez1} Jedes beschränkte   lineare Funktional $\varphi$ auf dem Hilberraum $(H, \ip{\cdot, \cdot})$ hat die Form $\varphi(x)= \ip{h_0,x}$ für ein eindeutiges $h_0 \in H$ und $\norm{\varphi}_{H'} = \norm{h_0}$ und $h_0 \to \varphi$ anti-linear.
 
 \begin{proof}[Beweis:]
 \textbf{Existenz}
@@ -149,7 +149,7 @@ Nehmen wir an, dass $\ip{h_1, h} = \ip{h_2, h}$ mit $h = h_1 - h_2$ und sei \[0 
 
 \begin{ex}
 Sei $L^q(\mu) \subseteq L^p(\mu)'$ mit $\mu(\omega) < \infty$ und $\Omega = \cup_{n \in \N} \Omega_n$ und jeweils $\mu(\Omega_n) < \infty.$ Sei $\varphi = \varphi^+ - \varphi^-$ und $g \geq 0,$ dann $\varphi^{\pm}(g) \geq 0.$ \\
-Sei o.B.d.A $\varphi \geq 0.$ Dann ist $v_{\varphi}: \mc F \to [0, \infty], v_{\varphi}(E) = \varphi(1_E)$ ein Maß. Wenn $\varphi(E) = 0,$ dann $v_{\varphi}(E) = 0.$ Mit dem Satz von Radon-Nikodim (LABEL???) folgt, dass es ein $h \in \mc M(\Omega, \mathbb{R}_{\geq 0})$ mit \[\varphi(1_E) = v_{\varphi}(E) = \int1_E h d\mu\]
+Sei o.B.d.A $\varphi \geq 0.$ Dann ist $v_{\varphi}: \mc F \to [0, \infty], v_{\varphi}(E) = \varphi(1_E)$ ein Maß. Wenn $\varphi(E) = 0,$ dann $v_{\varphi}(E) = 0.$ Mit dem Satz von Radon-Nikodym (Satz \ref{radon_nikodym})) folgt, dass es ein $h \in \mc M(\Omega, \mathbb{R}_{\geq 0})$ mit \[\varphi(1_E) = v_{\varphi}(E) = \int1_E h d\mu\]
 Damit erhalten wir $\varphi(f) = \int fhd\mu$ und die Hölderungleichung.
 \end{ex}
 
