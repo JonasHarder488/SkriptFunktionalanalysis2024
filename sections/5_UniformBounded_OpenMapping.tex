@@ -1,6 +1,137 @@
-\section{Das Prinzip der gleichm\as \s igen Beschr\as nktheit}
-[\textit{****Hier fehlt noch die Vorlesung vom 27.05.****}]
+\begin{definition} \label{nat_einb} 
+	%%%Vorlesung vom 27.5%%%
+	Sei $V$ ein Vektorraum über dem Körper $\K$, $V^{'}$ der Dualraum und $V^{''}$ der Bidualraum. Dann ist die natürliche Einbettung $\iota$ definiert durch: 
+	\[
+	\iota: V \to V^{''}, \iota(v)(\varphi) = \varphi(v) \text{ für alle } v \in V, \varphi \in V'
+	\]
+	Außerdem ist $\iota$ per Definition injektiv und linear. Des Weiteren erhält $\iota$ die Norm:
+	\[
+	\norm{\iota(v)}_{V^{'}} = \norm{v}_V
+	\]
+\end{definition}
 
+\begin{definition} 
+	Ein normierter Raum $X$ heißt reflexiv, wenn die natürliche Einbettung $X \to X^{''}$ bijektiv (bzw. surjektiv) ist.
+\end{definition}
+
+\begin{rem} 
+	Sei $X'' = (X')'$ ein Banachraum, dann ist $X$ ein Banachraum. Es gibt damit keine nichtvollständigen reflexiven Räume.
+\end{rem}
+
+\begin{ex} 
+	Sei $1 < p < \infty$ und $\frac{1}{p}+\frac{1}{q} = 1$, dann gilt $L^p(\mu)' = L^q(\mu)$ für $\sigma$-endliche Maße. Wir sehen aber ebenfalls $L^q(\mu)' = L^p(\mu)$, also ist $L^p(\mu)$ tatsächlich reflexiv.
+	
+	Am einfachsten ist $p = q = 2$. Also ist $L^2(\mu)$ ein Selbstdual.
+\end{ex}
+
+\begin{rem} 
+	Wir haben also meistens eine von beiden Ketten:
+	\begin{align*}
+		& X \xrightarrow{\iota} X' \xrightarrow{\iota'} X'' \simeq X \\
+		& X \xrightarrow{\iota} X' \simeq X
+	\end{align*}
+	Tatsächlich kann es sonst nur unendlich lange Ketten geben. Betrachte das folgende Beispiel:
+\end{rem}
+
+\begin{ex} 
+	Wir untersuchen nun die Dualkette von 
+	\[
+	c_0 = \left\{ \{a_n\}_{n \in \mathbb{N}} : a_n \in \mathbb{R}, \lim_{n \to \infty} a_n = 0 \right\}
+	\]
+	Es stellt sich heraus, dass $c_0' = \ell^1$. Außerdem stellt sich heraus, dass $(\ell^1)' = \ell^{\infty}$ und wiederum $(\ell^{\infty})' = \left\{ \mu : 2^{\mathbb{N}} \to \mathbb{R}, \text{ $\mu $ ist endlich additiv} \right\}$. Bei $\mu$ handelt es sich nicht nur um Maße, sondern um Inhalte. Diese Kette zieht sich so fort.
+\end{ex}
+
+\section{Das Prinzip der gleichmäßigen Beschränktheit}
+\begin{definition}
+	Sei $(X, \rho)$ ein Maßraum, dann heißt $S \subset X$ nirgends dicht, wenn die Vervollständigung $\bar{S}$ keine Kugel enthält. Mit 
+	\[
+	\bar{S} = \left\{ x \in X : \forall n \in \mathbb{N} \exists x_n \in S: x_n \xrightarrow{n \to \infty} x \right\} \text{ und } \bar{S} = S \cup \partial S.
+	\] 
+	Das Innere ist definiert als 
+	\[
+	S^{\mathrm{o}} = \left\{ x \in X \mid \exists \varepsilon > 0: K_{\varepsilon}(X) \subseteq S \right\}.
+	\] 
+	$S$ ist genau dann nirgends dicht, wenn $\bar{S}^{\mathrm{o}} = \emptyset$.
+\end{definition}
+
+\begin{definition}
+	Sei $Y \subset X$, $\{S_n\}_{n \in \mathbb{N}}$ eine abzählbare Familie nirgends dichter Mengen, dann heißt $Y$ mager genau dann, wenn $Y = \bigcup_{n \in \mathbb{N}} S_n$.
+\end{definition}
+
+\begin{ex}
+	Sei $X = \mathbb{R}$. 
+	\begin{enumerate}
+		\item Die Cantormenge $C$ ist nirgends dicht.
+		\item $\mathbb{Q}$ ist nirgends dicht.
+	\end{enumerate}
+\end{ex}
+
+\begin{lemma} \label{lemma_glm_beschr}
+	Seien $(V, \norm{\cdot}_V)$ sowie $(W, \norm{\cdot}_W)$ normierte Räume, $T: V \to W$ eine lineare Abbildung. Sei $r, \varepsilon > 0$, $x_0 \in V$ mit $\overline{K_{\varepsilon}(x_0)} \subset T^{-1}(\overline{K_r(0)})$, dann ist $T$ beschränkt und $\norm{T} \leq \frac{2r}{\varepsilon}$.
+	
+	\begin{proof}[Beweis:] 
+		Sei $y \in V$ und $\norm{y} \leq \varepsilon$, dann $x_0, x_0 + y \in T^{-1}(\overline{K_r(0)})$, also $\norm{Tx_0} \leq r$ und $\norm{T(x_0 + y)} \leq r$. Mit der Dreiecksungleichung folgt: 
+		\[
+		\norm{Ty} = \norm{T(x_0 + y) - T(x_0)} \leq 2r.
+		\] 
+		Sei nun $x \in V$, $\norm{x}_V \leq 1$, dann sehen wir 
+		\[
+		\norm{Tx} = \frac{1}{\varepsilon} \norm{T(\varepsilon x)} \leq 2 \frac{r}{\varepsilon}
+		\]
+	\end{proof}
+\end{lemma}
+
+\begin{rem} Die Kategorien sind wie folgt definiert: 
+	\begin{enumerate} 
+		\item Eine Menge $M$ heißt von \textit{Kategorie 1}, wenn es eine Folge $\{S_n\}_{n \in \mathbb{N}}$ nirgends dichter Mengen gibt mit $M = \bigcup_{n \in \mathbb{N}} S_n$.
+		\item Eine Menge $M$ heißt von \textit{Kategorie 2}, wenn $M$ nicht von Kategorie 1 ist.
+	\end{enumerate}
+\end{rem}
+
+\begin{theorem}[Cantor'scher Schnitt] \label{Cantor} 
+	Sei $(X, d)$ ein vollständiger metrischer Raum, $\{K_n\}_{n \in \mathbb{N}}$ eine absteigende Folge nichtleerer abgeschlossener Mengen in $X$, mit $K_{n+1} \subset K_n$ für alle $n \in \mathbb{N}$. Sei außerdem $\lim_{n \to \infty} \text{diam}(K_n) = 0$, dann gibt es $x \in X$ mit $\bigcap_{n = 1}^{\infty} K_n = \{x\}$.
+\end{theorem}
+
+\begin{theorem} \label{baire_kat}
+	Sei $(X, \rho)$ ein vollständiger metrischer Raum und $\{S_n\}_{n \in \mathbb{N}}$ eine Folge nirgends dichter Mengen, dann gibt es $x \in X$ mit $x \notin \bigcup_{n \in \mathbb{N}} S_n$.
+	
+	\begin{proof}[Beweis:] 
+		Da $S_n$ nirgends dicht ist, ist $S_n^{\mathrm{o}} = \emptyset$. Nach Definition gibt es zu jedem $S_n$ und jeder offenen Menge $U \subseteq X$ eine Menge $B \subseteq U$ mit $\bar{B} \cap S_n = \emptyset$. Sei $B_1$ nun eine beliebige nicht-leere offene Teilmenge von $X$. Da $S_1$ nirgends dicht ist, gibt es $B_2 \subset B_1$ mit $\bar{B}_2 \cap S_1 = \emptyset$. So definiere man sich eine Folge absteigend nicht-leerer offener Mengen $\{B_n\}_{n \in \mathbb{N}}$ wobei $B_{n+1} \subseteq B_n$ und $\bar{B}_{n+1} \cap S_n = \emptyset$. Da $X$ vollständig ist, garantiert der Satz von Cantor, dass der Durchschnitt der abgeschlossenen Mengen $\bar{B}_n$ nicht leer ist, also $\bigcap_{n = 1}^{\infty} \bar{B}_n \not= \emptyset$. 
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}[Gleichmäßige Beschränktheit] \label{glm_beschr} \\
+	Seien $(V, \norm{\cdot}_V)$ und $(W, \norm{\cdot}_W)$ normierte Räume und $\mathcal{F}$ eine Familie von Operatoren mit $\mathcal{F} \subseteq B(V, W)$ mit 
+	\[
+	\forall x \in V: \sup{\left\{\norm{Tx}_W: T \in \mathcal{F}\right\}} < \infty,
+	\] 
+	dann gilt $\sup{\left\{\norm{T}_{V, W}: T \in \mathcal{F}\right\}} < \infty.$
+	
+	\begin{proof}[Beweis:] 
+		Wir zerlegen $V$ zunächst in abzählbare Mengen mit 
+		\[
+		S_n := \left\{ x \in V: \forall T \in \mathcal{F}, \norm{Tx} \leq n \right\} 
+		\]
+		und $V = \bigcup_{n \in \mathbb{N}} S_n$. Aufgrund von \ref{baire_kat} hat $\bar{S}_n$ ein nichtleeres Inneres für ein beliebiges $n \in \mathbb{N}$. $S_n$ ist abgeschlossen: Sei $x_m \in S_n$ mit $m = 1, 2, \ldots$ und $x_m \to x$. Dann gilt für alle $T \in \mathcal{F}$, dass $\norm{Tx_m} \leq n$, mit Stetigkeit aber $\norm{Tx_m} \to \norm{Tx}$. Also $\norm{Tx} \leq n$ für alle $T \in \mathcal{F}$.
+		
+		Sei nun $n \in \mathbb{N}$ fixiert, dann hat $S_n$ einen inneren Punkt $x_0$. Sei $\varepsilon > 0$ so gewählt, dass 
+		\[
+		\overline{K_{\varepsilon}(x_0)} \subseteq S_n \subseteq \left\{ x \in V: \norm{Tx} \leq n, T \in \mathcal{F} \right\},
+		\]
+		dann folgt mit \ref{lemma_glm_beschr} $\norm{T} \leq \frac{2n}{\varepsilon}$.
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}[Banach-Steinhaus] \\
+	Sei $\{T_n\}$ eine Folge beschränkter linearer Operatoren mit $T_n \in B(X, Y)$ für alle $n \in \mathbb{N}$. Außerdem existiere für alle $x \in X$ auch $\lim_{n \to \infty} T_n x$. Definiere $T: X \to Y$ durch $Tx = \lim_{n \to \infty} T_n x$. Dann ist $T \in B(X, Y).$
+	
+	\begin{proof}[Beweis:] 
+		$T$ ist offensichtlich linear. Sei $x \in X$, dann ist $\sup_{n}{\norm{T_n x}} < \infty$, da $\{T_n x\}$ nach Voraussetzung konvergiert und konvergente Folgen in metrischen Räumen beschränkt sind. \ref{glm_beschr} liefert uns nun, dass $\sup{\norm{T_n}} = M < \infty$. Damit folgt über die CBS-Ungleichung für alle $x \in X, n \in \mathbb{N}$, dass $\norm{T_n x} \leq M \norm{x}$.
+	\end{proof}
+\end{theorem}
+
+
+\section{Das Prinzip der gleichm\as \s igen Beschr\as nktheit}
 %%%%%Vorlesung 30.05.2024%%%%%
 \begin{theorem}
 	Sei \((V,\normn\cdot V)\) ein normierter Raum und \(A\subseteq V\) eine Teilmenge mit
