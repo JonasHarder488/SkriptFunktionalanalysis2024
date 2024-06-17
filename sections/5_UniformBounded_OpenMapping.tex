@@ -301,7 +301,8 @@ Wir zeigen zun\as chst zwei Lemmata.
 	\[\ip{(x_1,y_1), (x_2,y_2)} = \ip{x_1,x_2}_1 + \ip{y_1,y_2}_2\;.\]
 \end{theorem}
 \begin{proof}
-	Man kann leicht einsehen, dass \(\ip{\cdot,\cdot}\) die Norm \(\normn\cdot 2 \) induziert. Der Rest folgt trivial.
+	\happybegin
+	Man kann leicht einsehen, dass \(\ip{\cdot,\cdot}\) die Norm \(\normn\cdot 2 \) induziert. Der Rest folgt trivial.\happyend
 \end{proof}
 
 \begin{theorem}[Satz vom abgeschlossenen Graphen]
@@ -321,6 +322,7 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	\[\forall \seq xn \text{ mit }\;\forall n\in \N\; x_n \in V,\;\li xn =: x \in V  \text{ und } \lime n {Tx_n} = y \in W\text{ existieren } \implies y = T(x)\]
 \end{rem}
 \begin{proof}
+	\happybegin
 	\forw Sei \(T\in \B(V,W)\) und sei \(\se{(x_n, Tx_n)}{n}, \forall n\in \N\; x_n \in V\) eine Folge in \(\Gamma_T\), mit \(\lime n (x_n, Tx_n) = (x,y) \in V\times W\).  Somit 
 	\[\lime n\normn{x_n - x}{V}  = 0 \text{ und } \lime n \normn{Tx_n - y}{W} = 0\;.\]
 	Aufgrund der Stetigkeit von $T$ folgt in der Tat \(T(x) = y\).\\
@@ -332,8 +334,9 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	\end{multline*}
 	Analog folgt \(\norm{P_2} \leq 1\). Weiterhin gilt \(P_1(\Gamma_T) = V\), d. h. $P_1$ injektiv. Au\s erdem ist $P_1$ injektiv, da
 	\[P_1(x,Tx) = 0 \iff x = 0 \iff x = 0 \text{ und } Tx = 0 \iff (x,Tx) = 0_{V\times W}\;.\]
-	Aus der Bijektivit\as t von $P_1$ folgt nun mit Satz \ref{Inverse_Mapping} \(P_1^{-1} \in \B(V,\Gamma_T)\) und mit \(P_2 \in \B(\Gamma_T, W)\) nach Definition erhalten wir in der Tat
+	Aus der Bijektivit\as t von $P_1$ folgt nun mit Satz \ref{Inverse_Mapping} \(P_1^{-1} \in \B(V,\Gamma_T)\) und mit \(P_2 \in \B(\Gamma_T, W)\) nach Definition erhalten wir 
 	\[T = P_2 \circ P_1^{-1} \in \B(V,W)\;.\]
+	Dies war  gerade zu zeigen \happyend.
 \end{proof}
 
 \begin{theorem}

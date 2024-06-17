@@ -13,12 +13,18 @@
 \usepackage{newclude} %no pagebreaks after \include* 
 \usepackage[textsize=tiny]{todonotes}
 \usepackage{xcolor}
-\usepackage{wasysym} %smileys fuer Kurzbeweise
+
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
+% happy proof
+\usepackage{svg}
+\usepackage[export]{adjustbox}
 
-%%%% Smiley QED
-\newcommand{\happy}{\renewcommand{\qedsymbol}{\small\boxed{\smiley}}}
+%%%% happy proof
+% \happybegin for removing usual qued symbol
+% \happyend to insert happy-qued instead
+\newcommand\happybegin{\renewcommand{\qedsymbol}{}}
+\newcommand\happyend{\hfill\includegraphics[width=1em]{smiley.pdf}}
 
 \newcommand\unsure[1]{\todo[inline,linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1}}
 
