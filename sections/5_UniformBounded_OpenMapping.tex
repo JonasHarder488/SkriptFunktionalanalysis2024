@@ -101,7 +101,7 @@
 \end{theorem}
 
 \begin{theorem}[Gleichmäßige Beschränktheit] \label{glm_beschr} \\
-	Seien $(V, \norm{\cdot}_V)$ und $(W, \norm{\cdot}_W)$ normierte Räume und $\mathcal{F}$ eine Familie von Operatoren mit $\mathcal{F} \subseteq B(V, W)$ mit 
+	Seien $(V, \norm{\cdot}_V)$ und $(W, \norm{\cdot}_W)$ normierte Räume und $\mathcal{F}$ eine Familie von Operatoren mit $\mathcal{F} \subseteq \B(V, W)$ mit 
 	\[
 	\forall x \in V: \sup{\left\{\norm{Tx}_W: T \in \mathcal{F}\right\}} < \infty,
 	\] 
@@ -123,7 +123,7 @@
 \end{theorem}
 
 \begin{theorem}[Banach-Steinhaus] \\
-	Sei $\{T_n\}$ eine Folge beschränkter linearer Operatoren mit $T_n \in B(X, Y)$ für alle $n \in \mathbb{N}$. Außerdem existiere für alle $x \in X$ auch $\lim_{n \to \infty} T_n x$. Definiere $T: X \to Y$ durch $Tx = \lim_{n \to \infty} T_n x$. Dann ist $T \in B(X, Y).$
+	Sei $\{T_n\}$ eine Folge beschränkter linearer Operatoren mit $T_n \in \B(X, Y)$ für alle $n \in \mathbb{N}$. Außerdem existiere für alle $x \in X$ auch $\lim_{n \to \infty} T_n x$. Definiere $T: X \to Y$ durch $Tx = \lim_{n \to \infty} T_n x$. Dann ist $T \in \B(X, Y).$
 	
 	\begin{proof}[Beweis:] 
 		$T$ ist offensichtlich linear. Sei $x \in X$, dann ist $\sup_{n}{\norm{T_n x}} < \infty$, da $\{T_n x\}$ nach Voraussetzung konvergiert und konvergente Folgen in metrischen Räumen beschränkt sind. \ref{glm_beschr} liefert uns nun, dass $\sup{\norm{T_n}} = M < \infty$. Damit folgt über die CBS-Ungleichung für alle $x \in X, n \in \mathbb{N}$, dass $\norm{T_n x} \leq M \norm{x}$.
@@ -140,7 +140,7 @@
 \end{theorem}
 \begin{proof}
 	Betrachte die kanonische Einbettung \(\Phi: V \to V'',\; \Phi(x)(\varphi) = \varphi(x)\). Diese ist isometrisch, wie in Satz \ref{Doppeldual_1} gezeigt. Sei nun 
-	\[\mc F = \Phi(A) = \set{\Phi(x)\;\vert\;x \in A} \subseteq V'' = B(V',\K)\;.\]
+	\[\mc F = \Phi(A) = \set{\Phi(x)\;\vert\;x \in A} \subseteq V'' = \B(V',\K)\;.\]
 	Damit gilt nun  f\us r alle \(\varphi\in V'\)
 	\begin{align*}
 		& \sup \set{\norm{Y(\varphi)} \;\big\vert\; Y\in \Phi(A)} = \sup \set{\ab{Y(\varphi)} \;\big\vert\; Y\in \Phi(A)} \\
@@ -164,13 +164,13 @@
 \section{Der Satz von der offenen Abbildung}
 
 \begin{rem}[Motivation]
-	Seien \(V, W\) Banachr\as ume sowie \(T \in B(V,W)\), d. h. \(T: V\to W\) bijektiv, linear und beschr\as nkt. Somit existiert \(T^{-1}:W\to V\). Die Umkehrabbildung ist linear, da aus
+	Seien \(V, W\) Banachr\as ume sowie \(T \in \B(V,W)\), d. h. \(T: V\to W\) bijektiv, linear und beschr\as nkt. Somit existiert \(T^{-1}:W\to V\). Die Umkehrabbildung ist linear, da aus
 	\[T(T^{-1}(x+y)) = x +y \;\text{ und }\; T(T^{-1}(x) + T^{-1}(y)) = T(T^{-1}(x)) + T(T^{-1}(y)) = x + y\]
 	unter Ausnutzung der Injektivit\as t von T folgt, dass \(T^{-1}(x+y) = T^{-1}(x) + T^{-1}(y)\). Weiterhin stellt sich die Frage, ob \(T^{-1}\) auch beschr\as nkt ist. Nach Satz \ref{B(V,W)_equiv} g. z. z., dass \(T^{-1}\) stetig. Daf\us r ist folgende Bedingung notwendig
 	\[\forall G \subseteq V \text{ offen}: (T^{-1})^{-1} (G) = T(G) \subseteq W \text{ offen}\;.\]
 \end{rem}
 \begin{ex}
-	Betrachte die Banachr\as ume \(V= W = (C^0([0,1]), \norms \cdot)\). Dann ist \(T\in B(V,W)\)
+	Betrachte die Banachr\as ume \(V= W = (C^0([0,1]), \norms \cdot)\). Dann ist \(T\in \B(V,W)\)
 	\[\forall f \in C^0([0,1]): T(f) = \int_0^x f(y)dy\]
 	ein injektiver Operator. Dann k\os nnen wir \(\tilde T^{-1}\) definieren mit
 	\[\tilde T^{-1} (g(x)) = g'(x)\;.\]
@@ -178,12 +178,12 @@
 \end{ex}
 
 \begin{theorem}[Satz von der offenen Abbildung]
-	Seien \(V, W\) Banachr\as ume und \(T\in B(V,W)\). Falls \(T(V) = W\), dann ist f\us r alle \(G\subseteq V\) offen auch \(T(G)\) offen.
+	Seien \(V, W\) Banachr\as ume und \(T\in \B(V,W)\). Falls \(T(V) = W\), dann ist f\us r alle \(G\subseteq V\) offen auch \(T(G)\) offen.
 	\label{Offene_Abb} \end{theorem}
 Wir zeigen zun\as chst zwei Lemmata.
 
 \begin{lemma}
-	Seien \(V,W\) Banachr\as ume und \(T\in B(V,W),\;T(V) = W\). Dann gibt es ein \(d> 0\) mit 
+	Seien \(V,W\) Banachr\as ume und \(T\in \B(V,W),\;T(V) = W\). Dann gibt es ein \(d> 0\) mit 
 	\[\forall \varepsilon > 0 \;\forall y\in W \;\exists x \in V: \norm{Tx-y} < \varepsilon \text{ und } \norm{x} < d^{-1}\norm{y}\;.\]
 	\label{lemma1_Offene_Abb}
 \end{lemma}
@@ -206,7 +206,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 \end{proof}
 
 \begin{lemma}
-	Seien \(V,W\) Banachr\as ume und \(T\in B(V,W), T(V) = W\). Dann existiert ein \(\delta > 0\) mit 
+	Seien \(V,W\) Banachr\as ume und \(T\in \B(V,W), T(V) = W\). Dann existiert ein \(\delta > 0\) mit 
 	\[K_\delta(0) \subseteq T(K_1(0)) \iff \forall y\in W \text{ mit }\norm{y}<\delta \;\exists x\in V \text{ mit } \norm{x} < 1 \text{ und } Tx = y\;.\]
 	\label{lemma2_Offene_Abb}
 \end{lemma}
@@ -221,7 +221,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 	\[\exists x_{n+1} \in K_{2^{-(n+1)}}(0): \norm{T(x_{n+1})-y_{n+1}} =\norm{T(x_{n+1}) + T(x_n) + \ldots + T(x_0) - y} < d 2^{-(n+2)}\;.\]
 	Nach Konstruktion gilt \(\sum_{n=0}^\infty \norm{x_n} < \sum_{n=0}^{\infty} 2^{-n} = 2 < \infty\). Somit ist \(\se{\sum_{n=0}^m x_n}{m}\) eine Cauchyfolge, denn es gilt f\us r \(m,m'\in \N, m' > m\)
 	\[ \norm{\sum_{n=0}^{m'} x_n - \sum_{n=0}^{m} x_n} = \norm{\sum_{n=m+1}^{m'} x_n} \leq \sum_{n=m+1}^{m'} \norm{x_n} \overset{m\to\infty}{\longrightarrow} 0 \;.\]
-	Da V ein Banachraum ist, existiert \(x = \lime{m}{\sum_{n=0}^m x_n}\), wobei \(\norm{x} < 2\). Da \(T\in B(V,W)\) und somit insbesondere stetig, gilt auch \(\lime{m}{\sum_{n=0}^m T(x_n)} = T(x)\).
+	Da V ein Banachraum ist, existiert \(x = \lime{m}{\sum_{n=0}^m x_n}\), wobei \(\norm{x} < 2\). Da \(T\in \B(V,W)\) und somit insbesondere stetig, gilt auch \(\lime{m}{\sum_{n=0}^m T(x_n)} = T(x)\).
 	Somit gilt insbesondere
 	\[\lime{m}{y-\sum_{n=0}^m T(x_n)} = y - T(x)\;.\]
 	Nach der obigen iterativen Konstruktion gilt aber auch
@@ -239,13 +239,13 @@ Wir zeigen zun\as chst zwei Lemmata.
  Setzen also \(\tilde \delta = \varepsilon\delta\), dann gilt \(K_{\tilde \delta}(0) \subseteq T(\tilde G)\) \(\iff\) \(K_{\tilde \delta}(y) \subseteq T(G)\). Somit ist \(T(G)\) in der Tat offen.
 \end{proof}
 	
-\begin{theorem}[Schlussfolgerung] Ist zus\as tzlich zu den Voraussetzungen von Satz \ref{Offene_Abb} $T$ injektiv (d. h. \(T\) bijektiv), dann gilt \(T^{-1} \in B(W,V)\).
+\begin{theorem}[Schlussfolgerung] Ist zus\as tzlich zu den Voraussetzungen von Satz \ref{Offene_Abb} $T$ injektiv (d. h. \(T\) bijektiv), dann gilt \(T^{-1} \in \B(W,V)\).
 	\label{Inverse_Mapping}
 \end{theorem}
 \begin{proof}
 	Wie bereits zuvor motiviert, g. z. z., dass \(T^{-1} \) beschr\as nkt und somit g. z. z., dass \(T^{-1}\) stetig. Es gilt 
 	\[T^{-1}: W\to V \text{ stetig} \iff \forall G \subseteq V \text{ offen}: (T^{-1})^{-1}(G) = T(G) \subseteq W \text{ offen}\;.\] 
-	Dies gilt nach Satz \ref{Offene_Abb} und somit ist \(T^{-1}\in B(W,V)\).
+	Dies gilt nach Satz \ref{Offene_Abb} und somit ist \(T^{-1}\in \B(W,V)\).
 \end{proof}
 
 
@@ -306,7 +306,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 
 \begin{theorem}[Satz vom abgeschlossenen Graphen]
 Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W\) linear. Dann gilt
-\[T \in B(V,W) \iff \Gamma_T \text{ abgeschlossen in }(V\times W)\;.\]
+\[T \in \B(V,W) \iff \Gamma_T \text{ abgeschlossen in }(V\times W)\;.\]
 \label{closed_graph}
 \end{theorem}
 \begin{rem}
@@ -321,7 +321,7 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	\[\forall \seq xn \text{ mit }\;\forall n\in \N\; x_n \in V,\;\li xn =: x \in V  \text{ und } \lime n {Tx_n} = y \in W\text{ existieren } \implies y = T(x)\]
 \end{rem}
 \begin{proof}
-	\forw Sei \(T\in B(V,W)\) und sei \(\se{(x_n, Tx_n)}{n}, \forall n\in \N\; x_n \in V\) eine Folge in \(\Gamma_T\), mit \(\lime n (x_n, Tx_n) = (x,y) \in V\times W\).  Somit 
+	\forw Sei \(T\in \B(V,W)\) und sei \(\se{(x_n, Tx_n)}{n}, \forall n\in \N\; x_n \in V\) eine Folge in \(\Gamma_T\), mit \(\lime n (x_n, Tx_n) = (x,y) \in V\times W\).  Somit 
 	\[\lime n\normn{x_n - x}{V}  = 0 \text{ und } \lime n \normn{Tx_n - y}{W} = 0\;.\]
 	Aufgrund der Stetigkeit von $T$ folgt in der Tat \(T(x) = y\).\\
 	\backw Sei \(\Gamma_T\) abgeschlossen, dann ist \(\Gamma_T\) als Unterraum des Banachraums \((V\times W,\normn\cdot 1)\) ebenfalls ein Banachraum. Wir definieren die stetigen, linearen Abbildungen
@@ -332,8 +332,8 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	\end{multline*}
 	Analog folgt \(\norm{P_2} \leq 1\). Weiterhin gilt \(P_1(\Gamma_T) = V\), d. h. $P_1$ injektiv. Au\s erdem ist $P_1$ injektiv, da
 	\[P_1(x,Tx) = 0 \iff x = 0 \iff x = 0 \text{ und } Tx = 0 \iff (x,Tx) = 0_{V\times W}\;.\]
-	Aus der Bijektivit\as t von $P_1$ folgt nun mit Satz \ref{Inverse_Mapping} \(P_1^{-1} \in B(V,\Gamma_T)\) und mit \(P_2 \in B(\Gamma_T, W)\) nach Definition erhalten wir in der Tat
-	\[T = P_2 \circ P_1^{-1} \in B(V,W)\;.\]
+	Aus der Bijektivit\as t von $P_1$ folgt nun mit Satz \ref{Inverse_Mapping} \(P_1^{-1} \in \B(V,\Gamma_T)\) und mit \(P_2 \in \B(\Gamma_T, W)\) nach Definition erhalten wir in der Tat
+	\[T = P_2 \circ P_1^{-1} \in \B(V,W)\;.\]
 \end{proof}
 
 \begin{theorem}
@@ -345,5 +345,5 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 \end{theorem}
 
 \begin{proof}
-	Definiere \(I: (V,\normn\cdot1) \to (V,\normn\cdot 2)\) als die Identit\as tabbildung, welche linear ist. Wollen nun zeigen, dass \(\Gamma_T\) abgeschlossen. Sei daf\us r eine Folge \(\seq xn, \;\forall n \in \N\; x_n \in V\) gegeben mit \(\li xn =: x\) in \((V,\normn\cdot 1)\) sowie \(\lime n Tx_n = y\) in \(V,\normn\cdot 2\). Nach Voraussetzung folgt \(x = y\). Somit ist \(\Gamma_I\) abgeschlossen und mit Satz \ref{closed_graph} gilt \(I \in B(V,V)\). Nach Satz \ref{Inverse_Mapping} gilt auch \(I^{-1} \in B(V,V)\). Nach Definition der Beschr\as nktheit folgt die Behauptung.
+	Definiere \(I: (V,\normn\cdot1) \to (V,\normn\cdot 2)\) als die Identit\as tabbildung, welche linear ist. Wollen nun zeigen, dass \(\Gamma_T\) abgeschlossen. Sei daf\us r eine Folge \(\seq xn, \;\forall n \in \N\; x_n \in V\) gegeben mit \(\li xn =: x\) in \((V,\normn\cdot 1)\) sowie \(\lime n Tx_n = y\) in \(V,\normn\cdot 2\). Nach Voraussetzung folgt \(x = y\). Somit ist \(\Gamma_I\) abgeschlossen und mit Satz \ref{closed_graph} gilt \(I \in \B(V,V)\). Nach Satz \ref{Inverse_Mapping} gilt auch \(I^{-1} \in \B(V,V)\). Nach Definition der Beschr\as nktheit folgt die Behauptung.
 \end{proof}

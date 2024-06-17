@@ -111,10 +111,32 @@
 \begin{rem}
 	\ref{Lebesgue}. ist auch als Satz von Lebesgue \us ber die majorisierte Konvergenz bekannt.
 \end{rem}
+
+\begin{definition}
+	Seien \((\Omega_1, \mc A)\), \((\Omega_2, \mc B)\) Ma\s r\as ume. Dann hei\s t die kleinste \(\sigma\)-Algebra auf \(\Omega_1 \times \Omega_2\), die die Menge 
+	\[\set{A\times B \;\vert\; A\in \mc A,\; B\in\mc B}\]
+	enth\as lt, Produkt-$\sigma$-Algebra. Wir bezeichnen diese mit \(\mc A \otimes \mc B\).
+\end{definition}
+
+\begin{theorem}[Produktma\s]
+	Seien \((\Omega_1, \mc A, \mu)\) und \((\Omega_2, \mc B, \nu)\) $\sigma$-endliche Ma\s r\as ume. Dann existiert genau ein Ma\s{} \(\mu\otimes\nu: A\otimes B \to [0,\infty]\) mit 
+	\[\forall A \in \mc A, B\in\mc B: (\mu \otimes \nu)(A\times B) = \mu(A) \nu(B)\;.\]
+	Dabei ist \(\mu\otimes \nu\) $\sigma$-endlich und wir bezeichnen dies als Produktma\s{} von \(\mu\) und \(\nu\).
+\end{theorem}
+
+\begin{theorem}[Satz von Fubini]
+	\label{Fubini}
+	Seien die Ma\s r\as ume wie f\us r das Produktma\s{} definiert. Sei weiterhin \(f\in \mc L^1(\mu\otimes \nu)\), dann gilt
+	\[\int_{\Omega_1\times \Omega_2} f(x,y) \mu \otimes \nu(d(x,y)) = \int_{\Omega_2}\left(\int_{\Omega_1} f(x,y) \mu (dx)\right) \nu(dy) = \int_{\Omega_1}\left(\int_{\Omega_2} f(x,y) \nu (dy)\right) \mu(dx)\;.\]
+\end{theorem}
+
 \begin{definition}
 	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(\nu: \mc F \to [0,\infty]\) ein Ma\s{}. Dann besitzt $\nu$ eine Dichte bzgl. $\mu$, falls
 	\[\exists f:\Omega \to [0,\infty) \text{ messbar}: \forall A \in \mc F: \nu(A) = \int_A f d\mu\;.\]
 \end{definition}
+
 \begin{theorem}[Satz von Radon-Nikodym] \label{radon_nikodym} Sei \((\Omega, \mc F, \mu)\) ein $\sigma$-endlicher Ma\s raum und \(\nu: \mc F \to [0,\infty]\) ein Ma\s{} mit \(\nu \ll\mu\). Dann besitzt \(\nu\) eine Dichte bzgl. $\mu$.
 \end{theorem}
+
+
 

@@ -1,0 +1,122 @@
+ult\section{Hilbert-Schmidt-Operatoren}
+
+\begin{rem}[Motivation]
+	Betrachte eine Matrix \(A\in \C^{n\times n}\), d. h. im Fall des endlichdimensionalen Vektorraums \(\C^n\). Dann sind die Determinante \(\det(A)\) und die Spur \(\tr(A)\) definiert. Sei nun \(H\) ein Hilbertraum, \(\seq en \in H^\N\) eine Orthonormalbasis und \(T\in B(H)\). Wir k\os nnen nun versuchen lineare Operatoren als unendliche Matrizen aufzufassen, mit (f\us r \(S,T\in B(H)\))
+	\[T_{nm} := \ip{e_n, Te_m},\;\;\;\; T \longleftrightarrow (T_{nm})_{n,m\in\N},\;\;\;\; (ST)_{nm} = \sum_{k\in\N} S_{nk}T_{km}\;.\]
+	Nun stellt sich die Frage, ob sich damit eine Spur f\us r beschr\as nkte lineare Operatoren definieren l\as sst, mit 
+	\[\tr(T^*T) \;``= "\; \sum_{n\in\N} \ip{e_n, T^*T e_n} = \sum_{n\in\N}\ip{T e_n, T e_n} = \sum_{n\in\N} \norm{T e_n}^2\;. \]
+	Dies ist jedoch i. A. nicht konvergent und folglich nicht wohldefiniert. Dies motiviert folgende Definition.
+\end{rem}
+
+\begin{definition}
+	Sei \(H\) ein Hilbertraum, \((e_s)_{s\in S}\in H^S\) eine Orthonormalbasis und \(T\in B(H)\). Dann ist \(T\) ein \textit{Hilbert-Schmidt-Operator}, falls 
+	\[\sum_{s\in S} \norm{T e_s}^2 < \infty\;.\] 
+\end{definition}
+\begin{rem}
+	F\us r die Wohldefiniertheit muss vorausgesetzt werden, dass \(\set{s\in S \;\vert\; \norm{Te_s} > 0}\) abz\as hlbar ist. Hier nehmen wir o. B. d. A. an, dass $S$ abz\as hlbar und $H$ separabel ist. 
+\end{rem}
+
+\begin{theorem}
+	Sei $H$ ein (separabler) Hilbertraum, \(T\in \B(H)\) und \(\seq en\) eine Orthonormalbasis von $H$. Sei \(\seq fn\) eine weitere Orthonormalbasis von $H$. Dann gilt
+	\[\sum_{n\in\N} \norm{Te_n}^2 < \infty\implies \sum_{n\in \N} \norm{T f_n}^2 < \infty \text{ und } \sum_{n\in\N}\norm{Tf_n}^2 = \sum_{n\in\N}\norm{T e_n}^2\;.\]
+	\label{HS_wohldef}
+\end{theorem}
+\begin{proof}
+	Da \(\seq en\) und \(\seq fn\) Orthonormalbasen sind, gilt 
+	\[\forall x \in H: x = \sum_{n\in\N}  \ip{e_n,x} e_n  = \sum_{n\in\N}  \ip{f_n,x} f_n ,\;\; \;\norm x^2 =  \sum_{n\in\N}\ab{\ip{e_n, x}}^2   =  \sum_{n\in\N}\ab{\ip{f_n, x}}^2 \;.\]
+	\unsure{In der Literatur wird f\us r diese Identit\as ten die Parseval-Gleichung ben\os tigt, welche wir nicht explizit in der Vorlesung gezeigt haben. Oder gibt es eine \as quivalente Aussage dazu?}
+	Somit gilt insbesondere f\us r alle \(n, j \in \N\)
+	\[\norm{Te_n}^2 = \sum_{j\in \N} \ab{\ip{f_j, Te_n}}^2,\;\; \norm{T^*f_j}^2 = \sum_{n\in \N} \ab{\ip{e_n, T^* f_j}}^2 =  \sum_{n\in \N} \ab{\ip{f_n, T^* f_j}}^2 \;.\]
+	Weiterhin gilt damit
+	\[\sum_{n\in\N} \norm{Tf_n}^2 = \sum_{n\in\N}\sum_{j\in\N} \ab{\ip{f_j, Tf_n}}^2 = \sum_{n\in\N}\sum_{j\in\N} \ab{\ip{f_n, T^*f_j}}^2 = \sum_{j\in\N} \norm{T^*f_j}^2\;.\]
+	Dies k\os nnen wir nun ausnutzen mit 
+	\[\infty > \sum_{n\in\N} \norm{T e_n}^2 = \sum_{j\in\N}\sum_{n\in\N} \ab{\ip{f_j, Te_n}}^2 = \sum_{j\in\N}\sum_{n\in\N} \ab{\ip{e_n, T^*f_j}}^2 = \sum_{j\in\N} \norm{T^* f_j}^2\;.\]
+	Dabei folgt die Vertauschbarkeit der Summen aus der vorausgesetzten Konvergenz der Reihe. Mit der Rechnung davor folgt also in der Tat 
+	\[\sum_{n\in\N} \norm{T e_n}^2  = \sum_{n\in\N} \norm{T f_n}^2 \;.\]
+\end{proof}
+\begin{rem}
+	Die Aussage entspricht im endlichdimensionalen Fall der Invarianz der Spur unter Koordinatentransformationen.
+\end{rem}
+
+\begin{definition}
+	Sei \(H\) ein separabler Hilbertraum mit Orthonormalbasis \(\seq en \in H^\N\), \(T\in B(H)\) Hilbert-Schmidt. Dann definiert 
+	\[\normn{T}{HS} := \sqrt{\sum_{n\in\N}\norm{Te_n}^2}\;.\]
+	eine Norm, die \textit{Hilbert-Schmidt-Norm}. Die Wohldefiniertheit folgt aus Satz \ref{HS_wohldef}.
+\end{definition}
+ \begin{rem}
+ 	F\us r einen separablen Hilbertraum $H$ mit einer Orthonormalbasis \(\seq en \subseteq H^\N\) ist der Raum der Hilbert-Schmidt-Operatoren \(HS(H)\) mit \(\normn\cdot{HS}\) ebenfalls ein Hilbertraum, wobei die Norm von folgendem Skalarprodukt induziert wird:
+ 	\[\forall A,B \in HS(H): \ip{A,B}_{HS}:= \sum_{n\in \N}\ip{Ae_n, Be_n}\;.\]
+ \end{rem}
+
+\begin{theorem}
+	Sei \(H\) ein separabler Hilbert-Raum (mit Norm \(\normn\cdot H\) ). Seien \(T_1, \;T_2\in \B(H) \) Hilbert-Schmidt und \(S\in \B(H)\). Dann sind auch \(T_1 + T_2,\; ST_1,\; T_1S,\; T^*\) Hilbert-Schmidt.
+\end{theorem}
+\begin{proof}
+	Sei \(\seq en \in H^\N\) eine Orthonormalbasis von $H$.
+	Der Beweis f\us r \(T^*\) ist trivial. Betrachte nun \(ST\), dann gilt unter Verwendung der Eigenschaften der Operatornorm \(\norm\cdot\) und mit der Beschr\as nktheit von $S$
+	\[\sum_{n\in\N} \normn{STe_n}H^2 \leq \sum_{n\in\N} \norm{S}^2  \normn{Te_n}H^2 < \infty \;.\]
+	Somit ist \(ST\) in der Tat Hilbert-Schmidt. Weiterhin gilt \(TS = (S^* T^*)^*\), woraus die Behauptung f\us r $TS$ analog folgt. Betrachte nun die \(T_1 + T_2\), dann gilt mit \(\normn{T_1 e_n}H \normn{T_2 e_n}H \leq \normn{T_1}H^2 + \normn{T_2}H^2\)
+	\[\sum_{n\in\N} \normn{(T_1 + T_2)e_n}H^2 \leq \sum_{n\in\N} (\normn{T_1 e_n}H + \normn{T_2 e_n}H)^2 \leq 2 \left(\sum_{n\in\N} \normn{T_1 e_n}H^2 + \normn{T_2 e_n}H^2\right) < \infty\;.\]
+	Somit ist auch die Summe von Hilbert-Schmidt-Operatoren wieder Hilbert-Schmidt.
+\end{proof}
+
+\begin{theorem}
+	Jeder Hilbert-Schmidt-Operator auf einem separablen Hilbertraum $H$ ist kompakt.
+\end{theorem}
+\begin{proof}
+	Sei \(\seq en\) eine fixe Orthonormalbasis von $H$ und \(A\in \B(H)\) Hilbert-Schmidt. Wir stellen im Folgenden \(A\) als Limes von kompakten Operatoren dar, womit dann aus Satz \ref{limit_compact_op_is_compact} die Behauptung folgt. 
+	Bezeichne mit \(P_n\) die orthogonale Projektion auf den Unterraum \(\text{span}\set{e_1,\ldots,e_n}\). Setze nun \(A_n = A P_n\). D. h. es gilt \(\forall h \in H\):
+	\[P_n h = \sum_{j=0}^n \ip{e_j, h} e_j \implies A_n h = \sum_{j=0}^n \ip{e_j, h} Ae_j\;.\]
+	Offensichtlich ist \(A_n\) linear. Weiterhin gilt
+	\[A_n H \subseteq \text{span}\set{Ae_1,\ldots,Ae_n} \implies \dim A_n H < \infty\;.\]
+	Nach Beispiel [...] ist \(A_n\) folglich ein kompakter Operator.
+	\unsure{Label fehlt (Verweis auf Bsp. 7.2 in der Vorlesung)}
+	Mit \(\forall h \in H: (A-A_n)h = \sum_{j>n}\ip{e_j, h}Ae_j\) und unter Verwendung der Cauchy-Schwarz-Ungleichung (bzgl. \(\normn\cdot 2\)) gilt weiterhin
+	\[\normn{(A-A_n)h}H = \normn{\sum_{j>n}\ip{e_j, h}Ae_j}H \leq \sum_{j>n} \ab{\ip{e_j, h}} \normn{Ae_j}H \leq \sqrt{\sum_{j>n} \ab{\ip{e_j, h}}^2} \sqrt{\sum_{j>n}\normn{Ae_j}H^2}\;.\]
+	Dabei gilt \(\lime n  \sqrt{\sum_{j>n}\normn{Ae_j}H^2} = 0\), da $A$ Hilbert-Schmidt ist. Folglich gilt auch
+	\[\lime n \norm{A-A_n} = 0\;.\]
+	Somit ist $A$ in der Tat kompakt.
+\end{proof}
+\begin{rem}
+	Die Gegenrichtung des Satzes gilt nicht.
+\end{rem}
+
+\begin{ex}
+	Betrachte den Hilbertraum \(H = \ell^2(\N)\) mit der Standardbasis \(\seq en \subseteq H^\N\), sowie dem Multiplikationsoperator (siehe Bsp. \ref{Mult_op}) \(T = M_\lambda\) f\us r \(\lambda := \seq \lambda n \in \K^\N\), d. h. 
+	\[T e_n = \lambda_n e_n\;.\]
+	Dann gilt, dass $T$ ein Hilbert-Schmidt-Operator ist, genau dann wenn
+	\[\sum_{n\in\N}\norm{Te_n}^2 < \infty \iff \sum_{n\in\N}\ab{\lambda_n}^2 < \infty \iff \lambda \in l^2(\N)\;.\]
+\end{ex}
+
+\begin{theorem}
+	Sei \((\Omega, \Sigma, \mu)\) ein \(\sigma\)-endlicher Ma\s raum, \(L^2(\mu)\) separabel und \(k(x,y)\in \mc L^2(\mu\otimes \mu)\). Dann definiert 
+	\[K f(x) := \int_\Omega k(x,y) f(y) \mu (dy)\]
+	einen Hilbert-Schmidt-Operator \(K\in \B(L^2(\mu))\).
+\end{theorem}
+\begin{proof}
+	Wir zeigen zun\as chst, dass \(K\in \B(L^2(\mu))\), insbesondere zuerst, dass \(K: L^2(\mu) \to L^2(\mu)\). Sei \(f \in \mc L^2(\mu)\), \(f \muq 0\) (d. h. \(\equ{f} = \equ{0}\) in \(L^2(\mu)\)). Damit gilt in der Tat
+	\[\forall x \in \Omega: k(x,y) f(y) = 0 \text{ f\us r $\mu$-fast alle }y\in \Omega \implies \forall x \in \Omega: Kf(x) = \int_\Omega k(x,y)f(y)\mu(dy) = 0\;.\]
+	Nach Voraussetzung gilt \(k(x,y)\in \mc L^2(\mu\otimes \mu)\), d. h. es gilt mit dem Satz von Fubini (Satz \ref{Fubini})
+	\[\infty >\int_{\Omega\times\Omega} \ab{k(x,y)}^2 \mu\otimes \mu(d(x,y)) = \int_\Omega \int_\Omega \ab{k(x,y)}^2\mu(dy)\mu(dx)\;.\]
+	Folglich gilt 
+	\[\int_\Omega \ab{k(x,y)}^2 \mu(dy) < \infty \text{ f\us r $\mu$-fast alle \(x\in\Omega\)} \iff k(x,\cdot) \in L^2(\mu)\;.\]
+	Sei nun \(f\in L^2(\mu)\). Wir wenden die H\os lder-Ungleichung mit \(p = q = 2\) an und erhalten 
+	\[\forall x\in \Omega: \norm{k(x,\cdot) f}_1 = \int_\Omega \ab{k(x,y) f(y)} \mu(dy)  < \norm{k(x,\cdot)}_2 \normn f2 < \infty\;.\]
+	\unsure{Hier wurde nur gezeigt, dass \(Kf(x) \in L^1(\mu)\), woraus folgt dann, dass \(Kf(x) \in L^2(\mu)\)?}
+	Nun zeigen wir, dass $K$ beschr\as nkt ist. Sei \(f\in L^2(\mu)\), dann gilt mit Cauchy-Schwarz
+	\begin{align*}
+		\normn{Kf}2^2 &= \int_\Omega \ab{Kf(x)}^2 \mu(dx) = \int_\Omega \ab{\int_\Omega k(x,y) f(y) \mu(dy)}^2\mu(dx) = \int_\Omega \ab{\int_\Omega \overline{k(x,y)} f(y) \mu(dy)}^2\mu(dx) \\& \leq \int_\Omega\int_\Omega \ab{k(x,y)}^2\mu(dy) \int_\Omega \ab{f(z)}^2 \mu(dz) \mu(dx) \leq \norm{k}^2_{L^2(\mu\otimes\mu)}\norm{f}_2^2\;.
+	\end{align*}
+	Somit \(K\in\B(L^2(\mu))\). Zeigen nun die Hilbert-Schmidt-Eigenschaft. Da \(L^2(\mu)\) separabel nach Voraussetzung, sei \(\seq en \subseteq L^2(\mu)^\N\) eine Orthonormalbasis. Dann gilt
+	\[\normn{Ke_n}2^2 = \int_\Omega\ab{\int_\Omega k(x,y) e_n(y) \mu(dy)}^2 \mu(dx) = \int_\Omega\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2 \mu(dx)\;.\]
+	Wir wenden nun Beppo-Levi an und erhalten
+	\[\sum_{n\in\N} \normn{Ke_n}2^2 = \sum_{n\in\N} \int_\Omega\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2 \mu(dx) = \int_\Omega\sum_{n\in\N}\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2\mu(dx)\;.\]
+	Es ist leicht einzusehen, dass \((\overline{e_n})_{n\in\N}\) ebenfalls eine Orthonormalbasis von \(L^2(\mu)\) ist. Somit 
+	\[\sum_{n\in\N}\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2 = \normn{k(x,\cdot)}2^2\;.\]
+	Insgesamt erhalten wir also 
+	\begin{align*}
+	\sum_{n\in\N} \normn{Ke_n}2^2  &= \int_\Omega \normn{k(x,\cdot)}2^2 \mu(dx) = \int_\Omega\left(\int_\Omega \ab{k(x,y)}^2 \mu(dy)\right)\mu(dx) \\
+	&= \int_{\Omega \times \Omega}\ab{k(x,y)}^2 \mu\otimes\mu(d(x,y))<\infty\;.
+	\end{align*}
+	Dabei haben wir im letzen Schritt \(k\in \mc L^2(\mu\otimes \mu)\) ausgenutzt. Somit ist $K$ in der Tat Hilbert-Schmidt.
+\end{proof}

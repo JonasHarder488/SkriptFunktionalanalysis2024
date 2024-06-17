@@ -6,14 +6,14 @@
 \end{definition}
 
 \begin{rem}
-    $B(V_1, V_2) = \set{A: V_1 \to V_2| \text{ A linear beschränkt}}$
+    $\B(V_1, V_2) = \set{A: V_1 \to V_2| \text{ A linear beschränkt}}$
 \end{rem}
 
 \begin{theorem}
     In dieser Situation sind äquivalent:
     \label{B(V,W)_equiv}
     \begin{enumerate}
-        \item $A \in B(V_1, V_2)$
+        \item $A \in \B(V_1, V_2)$
         \item $A$ ist stetig
         \item $A$ ist gleichmäßig stetig
         \item $A$ ist Lipschitz-stetig
@@ -46,11 +46,11 @@
 \end{ex}
 
 \begin{theorem}
-    Seien und $W, \norm{\cdot}_W$ normierte Räume mit $ A \in B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c}}\] Dann gilt:
+    Seien und $W, \norm{\cdot}_W$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c}}\] Dann gilt:
     \begin{enumerate}
         \item $\norm{A} = \sup{\set{\norm{Av}_W: \norm{v}_V = 1}} = \sup{\set{\norm{Av}_w: \norm{v}_V \leq 1}} = \sup{\set{\frac{\norm{Av}_W}{\norm{v}_W}, v \in V, v \not=0}}$
-        \item $B \in B(V, W): \norm{A +B} = \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
-        \item Sei $(X, \norm{\cdot}_X)$ normierter Raum, $B \in B(W, X),$ dann gilt 
+        \item $B \in \B(V, W): \norm{A +B} = \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
+        \item Sei $(X, \norm{\cdot}_X)$ normierter Raum, $B \in \B(W, X),$ dann gilt 
         \[\norm{AB}_{V,X} \leq \norm{A}_{V,W}\cdot\norm{B}_{W,X}\]
     \end{enumerate}
     
@@ -72,11 +72,11 @@
     \end{proof}
 \end{theorem}
 
-\begin{ex} \label{Mult_op}
+\begin{ex}[Multiplikationsoperatoren] \label{Mult_op}
     Sei $(\Omega, \mc F, \mu)$ ein Maßraum, $\phi \in L^2(\mu)$ und \[M_{\phi}: L^2(\mu) \to L^2(\mu), f \mapsto \phi \cdot f \text{ mit } M_{\phi} \cdot M_{\psi} = M_{\psi} \cdot M_{\phi} = M_{\phi \cdot \psi}\] Dann gilt:
     \[\norm{M_{\phi}f}^2 = \int \ab{\phi(x)}^2 \ab{f(x)}^2dx \leq \int \norms{\phi}^2 \ab{f(x)}^2dx = \norms{\phi}^2\norm{f}^2 \leq \norms{\phi}^2 \text{ $\mu-$ fast überall}\]
     
-    Wir haben also $M_{\phi} \in B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ 
+    Wir haben also $M_{\phi} \in \B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ 
     
     Gleichheit gilt tatsächlich für $\mu(\Omega) < \infty.$
     
@@ -87,11 +87,11 @@
 \end{ex}
 
 \begin{rem}
-    Nach Konvention gilt $B(V, V) = B(V).$
+    Nach Konvention gilt $\B(V, V) = \B(V).$
 \end{rem}
 
 \begin{theorem}
-    Sei $(H, \ip{\cdot, \cdot})$ ein Hilbert Raum, $U \subseteq H$ abgeschlossener Unterraum, dann gibt es $P, Q \in B(H)$ so, dass:
+    Sei $(H, \ip{\cdot, \cdot})$ ein Hilbert Raum, $U \subseteq H$ abgeschlossener Unterraum, dann gibt es $P, Q \in \B(H)$ so, dass:
     
     \begin{enumerate}
         \item $\forall v \in H: Pv \in U$ und $Qv \in U^{\perp}$
@@ -109,22 +109,22 @@
 \end{theorem}
 
 \begin{theorem}
-    Sei $V$ ein normierter Raum, $W$ ein Banachraum, dann ist $B(V, W)$ ein Banachraum mit der Operatornorm.
+    Sei $V$ ein normierter Raum, $W$ ein Banachraum, dann ist $\B(V, W)$ ein Banachraum mit der Operatornorm.
     \label{B(V,W)_Banach}
-    \begin{proof}[Beweis:] Sei $\seq{A}{n}$ eine Cauchy-Folge in $B(V, W),$ dann $\lime{n, m}{\norm{A_n - A_m}} = 0.$ Sei nun $v \in V,$ dann \[\lime{n, m}{\norm{A_nv- A_mv}} \leq \lime{n, m}{\norm{A_n - A_m}\norm{v}}\] und damit ist $(A_nv)_{n \in \N}$ eine Cauchy-Folge in $W.$ Somit ist $Av = \lim_{n \to \infty}{A_nv}$. Definiere $A: V \to W$ nun als Abbildung aus diesem Grenzwert. \\
+    \begin{proof}[Beweis:] Sei $\seq{A}{n}$ eine Cauchy-Folge in $\B(V, W),$ dann $\lime{n, m}{\norm{A_n - A_m}} = 0.$ Sei nun $v \in V,$ dann \[\lime{n, m}{\norm{A_nv- A_mv}} \leq \lime{n, m}{\norm{A_n - A_m}\norm{v}}\] und damit ist $(A_nv)_{n \in \N}$ eine Cauchy-Folge in $W.$ Somit ist $Av = \lim_{n \to \infty}{A_nv}$. Definiere $A: V \to W$ nun als Abbildung aus diesem Grenzwert. \\
     \unsure{Hier gab es in der Vorlesung einen Nachtrag, allerdings sollte es so auch gehen.}
     Damit gilt schon \[\norm{A - A_n} = \sup_{\norm{v} \leq 1}{\set{\norm{Av-A_nv}}} \xrightarrow{n \to \infty} 0\] \\
     Sein nun $v, w \in V,$ dann sehen wir die Linearität wie folgt: \[A(v+w) = \lim_{n \to \infty}{A_n(v+w)} = \lim_{n \to \infty}{A_nv + A_nw} = \lim_{n \to \infty}{A_nv} + \lim_{n \to \infty}{A_nw} = Av + Aw \text{ (für $A(\lambda v)$ genauso)}\] \\
-    Zur Beschränktheit: \[\ab{\norm{A_n}-\norm{A_m}} \leq \norm{A_n - A_m} \xrightarrow{n, m \to \infty} 0 \implies \lim_{n \to \infty}{\norm{A_n}}=:c\] Betrachte nun: \[\norm{Av} = \lim_{n \to \infty}{\norm{A_nv}} \leq \lim_{n \to \infty}{\norm{A_n}\norm{v}} = c \norm{v}\] und damit $A \in B(V, W).$ \\
+    Zur Beschränktheit: \[\ab{\norm{A_n}-\norm{A_m}} \leq \norm{A_n - A_m} \xrightarrow{n, m \to \infty} 0 \implies \lim_{n \to \infty}{\norm{A_n}}=:c\] Betrachte nun: \[\norm{Av} = \lim_{n \to \infty}{\norm{A_nv}} \leq \lim_{n \to \infty}{\norm{A_n}\norm{v}} = c \norm{v}\] und damit $A \in \B(V, W).$ \\
     \end{proof}
 \end{theorem}
  \begin{rem}
-     Es gibt soetwas wie eine Rückrichtung: Falls $B(V, W)$ ein Banachraum ist, wobei $V$ nicht der triviale Vektorraum ist, so ist auch $W$ ein Banachraum. (Wäre $V$ der Nullvektorraum, so gäbe es mit der Nullabbildung nur eine lineare Abbildung, damit wäre $B(V,W)$ immer vollständig.)
+     Es gibt soetwas wie eine Rückrichtung: Falls $\B(V, W)$ ein Banachraum ist, wobei $V$ nicht der triviale Vektorraum ist, so ist auch $W$ ein Banachraum. (Wäre $V$ der Nullvektorraum, so gäbe es mit der Nullabbildung nur eine lineare Abbildung, damit wäre $\B(V,W)$ immer vollständig.)
  \end{rem}
 \section{Das Dual}
 
 \begin{definition}
-    Sei $(V, \norm{\cdot}_V)$ ein Banachraum. Dann wird $V' = B(V, \K)$ als Dualraum von $V$ bezeichnet. $\phi \in V'$ heißt auch linear beschränktes Funktional.
+    Sei $(V, \norm{\cdot}_V)$ ein Banachraum. Dann wird $V' = \B(V, \K)$ als Dualraum von $V$ bezeichnet. $\phi \in V'$ heißt auch linear beschränktes Funktional.
 \end{definition}
 \begin{definition}
     
@@ -174,7 +174,7 @@ Die Abbildung $\psi: H \to H', h \mapsto \ip{h, \cdot}$ ist eine (anti-lineare) 
 \end{definition}
 
 \begin{theorem}
-Ein Operator $u$ wie in \ref{sesq_bound} ist genau dann beschränkt, wenn \[\exists A \in B(K, H): \forall h \in H, \forall k \in K: u(h, k) = \ip{h, Ak}\]
+Ein Operator $u$ wie in \ref{sesq_bound} ist genau dann beschränkt, wenn \[\exists A \in \B(K, H): \forall h \in H, \forall k \in K: u(h, k) = \ip{h, Ak}\]
 
 \begin{proof}[Beweis:] $(\Longrightarrow)$ \\
 Sei $k$ fixiert, $u(\cdot, k) \in H',$ da:
@@ -182,17 +182,17 @@ Sei $k$ fixiert, $u(\cdot, k) \in H',$ da:
 \[\exists!A(k) \in H: \overline{u(\cdot, k)} = \ip{A(k), \cdot} \text{ bzw. } \forall h \in H: u(h, k) = \ip{h, A(k)}\]
 Sei nun $k_1, k_2 \in K,$ dann haben wir:
 \[\ip{h, A(k_1 + k_2)} = u(h, k_1 + k_2) = u(h, k_1)+u(h, k_2) = \ip{h, A(k_1) + A(k_2)}\] Sei nun $\lambda \in \K, k \in K,$ so folgt: \[\ip{h, A(\lambda k)} = u(h, \lambda k)= \lambda u(h, k) = \lambda \ip{h, A(k)} = \ip{h, \lambda A(k)}\] Damit ist $A$ linear.\\ 
-Wir wissen für $\norm{h} \leq 1:$ \[\ab{\ip{h, Ak}} = \ab{u(h, k)} \leq M \norm{h}\norm{k} \leq M\norm{k}\] Damit folgt $\norm{Ak} \leq M \norm{k}$ also ist $A$ beschränkt. Folglich $A \in B(H, K).$ \\
+Wir wissen für $\norm{h} \leq 1:$ \[\ab{\ip{h, Ak}} = \ab{u(h, k)} \leq M \norm{h}\norm{k} \leq M\norm{k}\] Damit folgt $\norm{Ak} \leq M \norm{k}$ also ist $A$ beschränkt. Folglich $A \in \B(H, K).$ \\
 \\
 $(\Longleftarrow)$ \\
-Sei $A \in B(K, H),$ dann haben wir folgende Abschätzung mittels CBS-Ungleichung: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}\]
+Sei $A \in \B(K, H),$ dann haben wir folgende Abschätzung mittels CBS-Ungleichung: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}\]
 \end{proof}
 \end{theorem}
 
 
 
 \begin{theorem}
-	Für alle $A \in B(K, H)$ gibt es $A^* \in B(H, K)$ mit der Eigenschaft \[\forall h \in H, k \in K: \ip{h, Ak} = \ip{A^*h, k}.\] Dieser adjungierte Operator hat folgende Eigenschaften:
+	Für alle $A \in \B(K, H)$ gibt es $A^* \in \B(H, K)$ mit der Eigenschaft \[\forall h \in H, k \in K: \ip{h, Ak} = \ip{A^*h, k}.\] Dieser adjungierte Operator hat folgende Eigenschaften:
 
 	\begin{enumerate}
 		\item $A \to A^*$ ist antilinear
@@ -205,7 +205,7 @@ Sei $A \in B(K, H),$ dann haben wir folgende Abschätzung mittels CBS-Ungleichun
 		Mittel der CBS-Ungleichung erhalten wir: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}.\] Aber es gilt $\ab{\ip{h, Ak}} = \ab{\ip{Ah, k}} $ Damit ist $u(k, h) := \ip{Ak, h}$ sesquilinear auf $K \times H.$ Damit gibt es aber ein eindeutiges $A^*$ mit \[\overline{\ip{Ak, h}} = \overline{u(h, k)} = \overline{\ip{k, A^*h}}\] \\
 \textit{zu 1:} Es gilt \(\ip{(\lambda A)^*h, k} = \ip{h, \lambda A k} = \lambda \ip{h, Ak}= \ip{\overline{\lambda}A^*h, k}\)\\
 \textit{zu 2:} \(\ip{A^{**}k, h} = \ip{k, A*h} = \overline{\ip{A^{*}h, k}} = \overline{{\ip{h, Ak}}} = \ip{Ak, h}\) mit $h = A^{**}-Ak.$ Dann: \[0 = \ip{A^{**}k, h} - \ip{Ak, h} = \ip{(A^{**}-A)k, (A^{**}-A)k} \implies \norm{A^{**}k - Ak} = 0\] Damit gilt dann die Gleichheit. \\
-	\textit{zu 3:} Sei $A \in B(K, H), B \in B(L, K)$ und $AB \in B(L, H)$. Außerdem gilt: $\norm{AB} \leq \norm{A}\norm{B}.$ Des Weiteren: \[\forall h \in H, l \in L: \ip{(AB)^*, l}= \ip{h, A(Bl)} = \ip{A^*l, Bl} = \ip{B^*A^*h, l}\] \\
+	\textit{zu 3:} Sei $A \in \B(K, H), B \in \B(L, K)$ und $AB \in \B(L, H)$. Außerdem gilt: $\norm{AB} \leq \norm{A}\norm{B}.$ Des Weiteren: \[\forall h \in H, l \in L: \ip{(AB)^*, l}= \ip{h, A(Bl)} = \ip{A^*l, Bl} = \ip{B^*A^*h, l}\] \\
 	\textit{zu 4:} Sei $k \in K$ mit $\norm{k} = 1.$ Dann gilt mit der CBS-Ungleichung \[\norm{Ak}^2 = \ip{Ak, Ak}) = \ip{A*Ak, k} \leq \norm{A^*A} \leq \norm{A^*} \norm{A}\]
 Auf der anderen Seite: \[ \sup_{\norm{k} \leq 1} \norm{Ak} = \norm{A}^2 \leq \norm{A^*} \norm{A} \implies \norm{A^*} \geq \norm{A}\] Aufgrund von 2. haben wir auch hier Gleichheit. Damit haben wir dann: \[\norm{A}^2 \leq \norm{A^*A} \leq \norm{A^*}\norm{A} = \norm{A}^2\]
 \end{proof}
@@ -216,12 +216,12 @@ Auf der anderen Seite: \[ \sup_{\norm{k} \leq 1} \norm{Ak} = \norm{A}^2 \leq \no
 \end{ex}
 
 \begin{ex} Sei $H$ ein Hilbertraum, $K \subseteq H$ ein abgeschlossener Unterraum.
-	Sei des Weiteren noch $P, Q \in B(H)$ mit $Ph \in K, Qh \in K^{\perp}, P + Q = I_H$ wobei $I_H$ der Identitätsoperator ist.  Gesucht ist nun $P^*.$ \\
+	Sei des Weiteren noch $P, Q \in \B(H)$ mit $Ph \in K, Qh \in K^{\perp}, P + Q = I_H$ wobei $I_H$ der Identitätsoperator ist.  Gesucht ist nun $P^*.$ \\
 Betrachten wir dazu: \[\ip{P^*h, h‘} = \ip{h, Ph‘} = \ip{Ph, Ph} + \underbrace{\ip{Qh, Ph‘}}_{= 0} = \ip{P^*Ph, h‘}.\] Damit haben wir $P^* = P^{*}P$ und da \[P = (P^*P)^* = P^*P^{**} = P^*P = P^* \text{ und damit } P = P^* = P^2\] Des Weiteren haben wir $h-Ph \perp Ph$:
 \[\ip{h-Ph, Ph} = \ip{Ph}- \ip{h, P^*Ph} = 0\] (Für Q analog.)
 \end{ex}
 
-\begin{definition} Sei $A \in B(H),$ dann heißt A:
+\begin{definition} Sei $A \in \B(H),$ dann heißt A:
 	\begin{itemize}
 		\item selbstadjungiert, falls $A^* = A$
 		\item normal, falls $A^*A = AA^*$
