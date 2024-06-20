@@ -1,5 +1,5 @@
-\textit{[*****Hier fehlt noch der 1. Teil der Vorlesung vom 06.06.*****]}
 \begin{theorem}
+	\label{composition_compact_bounded}
 	Seien \(V,W, U, X\) Banachr\as ume und  \(S_1\in B(W,X)\), \(S_2\in B(U,V)\), \;\(\alpha \in \K\) sowie \(T_1, T_2\in \mc K(V,W)\). Dann sind \(T_1 + T_2, \alpha T_1 \in \mc K(V,W)\) und \(S_1 T_1\in \mc K(V,X)\), \(T_1S_2\in \mc K(U,W)\). D. h. die Addition kompakter Operatoren und deren Multiplikation mit Skalaren ergibt wieder einen kompakten Operator. Weiterhin ist die beidseitige Komposition eines beschr\as nkten mit einem kompakten Operator wieder kompakt.
 \end{theorem}
 \begin{proof}
@@ -9,7 +9,7 @@
 	\[\exists\text{ TTF } \se {x_{n_{k_l}}}l:  \se { T_2 x_{n_{k_l}}}l \text{ und } \se {T_ 1x_{n_{k_l}}}l \text{ konvergieren in }W \;.\]
 	Damit konvergiert aber auch die Folge
 	\[\se {(T_1 + T_2) x_{n_{k_l}}}l = \se { T_2 x_{n_{k_l}}}l + \se {T_ 1x_{n_{k_l}}}l \]
-	in W. Somit ist \(T_1 + T_2 \in \mc K(V,W)\). \(\alpha T_1 \in \mc K(V,W)\) ist trivial. Betrachte nun \(S_1 T_1\). Nach Satz \textit{[...]} \unsure{Label fehlt} gen\us gt zu zeigen, dass \(S_1 T_1 \overline{K_1^V(0)}\) totalbeschr\as nkt ist. Da $T_1$ ein kompakter Operator ist, gilt (mit Definition der Folgenkompaktheit), dass \(\overline{T_1\overline{K_1^V(0)}}\) kompakt ist. Da stetige Abbildungen Kompaktheit erhalten, ist also auch \(S_1 \overline{T_1\overline{K_1^V(0)}}\) kompakt, d. h. insbesondere totalbeschr\as nkt. Somit gilt (unter Ausnutzung von Bem. \ref{totally_bounded}).
+	in W. Somit ist \(T_1 + T_2 \in \mc K(V,W)\). \(\alpha T_1 \in \mc K(V,W)\) ist trivial. Betrachte nun \(S_1 T_1\). Nach Satz \ref{kmp_gdw_tot}  gen\us gt zu zeigen, dass \(S_1 T_1 \overline{K_1^V(0)}\) totalbeschr\as nkt ist. Da $T_1$ ein kompakter Operator ist, gilt (mit Definition der Folgenkompaktheit), dass \(\overline{T_1\overline{K_1^V(0)}}\) kompakt ist. Da stetige Abbildungen Kompaktheit erhalten, ist also auch \(S_1 \overline{T_1\overline{K_1^V(0)}}\) kompakt, d. h. insbesondere totalbeschr\as nkt. Somit gilt (unter Ausnutzung von Bem. \ref{totally_bounded}).
 	\[S_1 T_1 \overline{K_1^V(0)} \subseteq S_1\overline{T_1\overline{K_1^V(0)}} \text{ ist totalbeschr\as nkt.}\]
 	Betrachte nun \(T_1S_2\), auch hier gen\us gt zu zeigen, dass \(T_1S_2 \overline{K_1^U(0)}\) totalbeschr\as nkt ist. Mit \(\norm {S_2 u} \leq \norm{S_2}\norm{u}\) f\us r alle \(u\in U\) gilt
 	\[S_2 \overline{K_1^U(0)} \subseteq \overline{K_{\norm{S_2}}^V(0)} = \norm{S_2} \overline{K_1^V(0)}\;.\]

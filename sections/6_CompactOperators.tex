@@ -26,7 +26,7 @@
 \begin{ex}
 	Wir betrachten den in Beispiel \ref{Volterra_op} eingef\us hrten Volterra-Operator \(T: C^0([0,1])\to C^0([0,1])\), wobei wir \((C^0([0,1]),\norms\cdot)\) betrachten mit 
 	\[Tf(x) = \int_0^x f(t) \; dt\;.\]
-	Wir zeigen nun, dass der Volterra-Operator kompakt ist. Sei \(\seq fn,\; \forall n \in \N: f_n \in C^0([0,1])\) beschr\as nkt, d. h. \(\sup_{n\in \N} \norms{f_n} =: c < \infty\). Wir wenden den Satz von Arzel\`a-Ascoli Arzel\`a-Ascoli nach Bem. \ref{Arzela_Ascoli} an. Bezeichne dabei \(g_n := Tf_n\), dann ist \(F:=\set{g_n \;\vert\; n\in \N}\subseteq C^0([0,1])\) punktweise beschr\as nkt, da
+	Wir zeigen nun, dass der Volterra-Operator kompakt ist. Sei \(\seq fn,\; \forall n \in \N: f_n \in C^0([0,1])\) beschr\as nkt, d. h. \(\sup_{n\in \N} \norms{f_n} =: c < \infty\). Wir wenden den Satz von Arzel\`a-Ascoli nach Bem. \ref{Arzela_Ascoli} an. Bezeichne dabei \(g_n := Tf_n\), dann ist \(F:=\set{g_n \;\vert\; n\in \N}\subseteq C^0([0,1])\) punktweise beschr\as nkt, da
 	\[\forall x \in [0,1]: \ab{Tf_n(x)} = \int_0^x f_n(t)\; dt \leq \norms{f_n} \leq c < \infty\;.\]
 	Weiterhin ist $F$ gleichgradig stetig, da f\us r \(n\in\N\)
 	\[\forall x, y \in [0,1]: \ab{Tf_n(x) - Tf_n(y)} = \ab{\int_x^y f_n(t)\;dt} \leq \norms{f_n} \ab{x-y}\;.\]

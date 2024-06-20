@@ -1,4 +1,4 @@
-ult\section{Hilbert-Schmidt-Operatoren}
+\section{Hilbert-Schmidt-Operatoren}
 
 \begin{rem}[Motivation]
 	Betrachte eine Matrix \(A\in \C^{n\times n}\), d. h. im Fall des endlichdimensionalen Vektorraums \(\C^n\). Dann sind die Determinante \(\det(A)\) und die Spur \(\tr(A)\) definiert. Sei nun \(H\) ein Hilbertraum, \(\seq en \in H^\N\) eine Orthonormalbasis und \(T\in B(H)\). Wir k\os nnen nun versuchen lineare Operatoren als unendliche Matrizen aufzufassen, mit (f\us r \(S,T\in B(H)\))
@@ -69,8 +69,7 @@ ult\section{Hilbert-Schmidt-Operatoren}
 	\[P_n h = \sum_{j=0}^n \ip{e_j, h} e_j \implies A_n h = \sum_{j=0}^n \ip{e_j, h} Ae_j\;.\]
 	Offensichtlich ist \(A_n\) linear. Weiterhin gilt
 	\[A_n H \subseteq \text{span}\set{Ae_1,\ldots,Ae_n} \implies \dim A_n H < \infty\;.\]
-	Nach Beispiel [...] ist \(A_n\) folglich ein kompakter Operator.
-	\unsure{Label fehlt (Verweis auf Bsp. 7.2 in der Vorlesung)}
+	Nach Beispiel \ref{finite_rank_compakt} ist \(A_n\) folglich ein kompakter Operator.
 	Mit \(\forall h \in H: (A-A_n)h = \sum_{j>n}\ip{e_j, h}Ae_j\) und unter Verwendung der Cauchy-Schwarz-Ungleichung (bzgl. \(\normn\cdot 2\)) gilt weiterhin
 	\[\normn{(A-A_n)h}H = \normn{\sum_{j>n}\ip{e_j, h}Ae_j}H \leq \sum_{j>n} \ab{\ip{e_j, h}} \normn{Ae_j}H \leq \sqrt{\sum_{j>n} \ab{\ip{e_j, h}}^2} \sqrt{\sum_{j>n}\normn{Ae_j}H^2}\;.\]
 	Dabei gilt \(\lime n  \sqrt{\sum_{j>n}\normn{Ae_j}H^2} = 0\), da $A$ Hilbert-Schmidt ist. Folglich gilt auch

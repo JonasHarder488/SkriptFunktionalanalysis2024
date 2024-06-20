@@ -1,0 +1,47 @@
+\begin{theorem} \label{kmp_gdw_tot} Sei $T \in B(V, B)$ ist genau dann kompakt, wenn $\overline{TK_1^V(0)}$ totalbeschränkt. (Siehe \ref{totally_bounded})
+	
+	
+	\begin{proof}[Proof:] $(\Rightarrow)$ \\
+		Sei $T$ kompakt, sei $y_n \in \overline{TK_1(0)}$ für alle $n \in \N,$ dann gibt es \[\forall \in \N \exists \tilde y_n \in TK_1(0): \norm{y_n - \tilde y_n} < \frac{1}{n}.\] Also gibt es ein $x_n \in K_1(0): \norm{y_n -Tx_n} < \frac{1}{n}.$ Da $T$ kompakt ist, gibt es eine Teilfolge $(x_n)_{k \in \N}$ mit $Tx_{n_k} \xrightarrow{k \to \infty} z.$ Damit gilt dann aber auch $\tilde y_{n_k} \xrightarrow{k \to \infty} z$ und damit $y_{n_k} \xrightarrow{k \to \infty} z.$ Also ist $z \in \overline{T\overline{K^V_1{0}}}$ kompakt und damit ist $\overline{T\overline{K^V_1{0}}}$ total beschränkt. \\ \\
+		$(\Leftarrow)$ \\
+		Sei $T\overline{K_1^V(0)}$ totalbeschränkt und $(x_n)_{n \in \N}$ mit $x_n \in V $ für alle $n \in \N.$ Sei nun $c := \sup{\set{\norm{x_n}| n \in \N}} < \infty$ und sein nun o.B.d.A $c > 0.$ Sei $\tilde x_n = \frac{x_n}{c} \in \overline{K_1^V(0)},$ dann \[T\tilde x_n \in T\overline{k_1^V(0)} \subseteq \overline{T\overline{K_1^V(0)}} \text{ ist kompakt}\] \\
+		Damit gibt es eine Teilfolge $(T \tilde x_{n_k})_{k \in \N}, z \in \overline{T\overline{K_1^V(0)}} \text{ und } T\tilde x_{n_k} \xrightarrow{k \to \infty} z.$ Folglich $Tx_{n_k} \xrightarrow{k \to \infty} c \cdot z.$
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{rem} Sei $V$ ein endlich-dimensionaler normierter Raum über $\R$ oder $\mathbb{C},$ dann ist $V$ ein Banachraum. 
+	
+\end{rem}
+
+
+\begin{ex}\label{finite_rank_compakt} Sei $T \in B(V, W)$ beschränkt und $\text{dim}{TV} < \infty,$ dann ist $T$ kompakt insbesondere ist $TV$ ein endlichdimensionaler Banchraum. Dies ist eine direkte Konsequenz aus dem Satz von Heine-Borel. Es gilt nun:
+	
+	%\unsure{Hier war in unseren Mitschriften noch eine Inklusion, die aber falsch und obsolet schien.}
+	
+	\[T\overline{K_1(0)} \subseteq \overline{K^{TV}_{\norm{T}}(0)}\]
+	Mit Heine-Borel ist $\overline{K^{TV}_{\norm{T}}(0)}$ kompakt, also total beschränkt.  Jede Teilmenge einer totalbeschränkten Menge ist totalbeschränkt, also ist $T\overline{K_1(0)}$ totalbeschränkt. Mit \ref{kmp_gdw_tot} folgt die Behauptung.
+	
+\end{ex}
+
+
+\begin{ex} Sei $H$ ein Hilbertraum, $u \in H, v \in H',$ dann 
+	
+\end{ex}
+
+
+\begin{theorem} Sei $(V, \norm{\cdot})$ ein normierter Raum. Wir definieren \[\text{dist}(Y, W) = \inf{\set{\norm{y-w}, w \in W}}.\] Dann ist $Y \subset V$ totalbeschränkt, genau dann wenn $Y$ beschränkt und \[\forall \varepsilon >0 \exists W \subset V, W \text{ endl. dim. } \forall y \in Y: \text{dist}(Y, W) < \varepsilon. (*)\]
+	
+	\begin{proof}[Proof:] $(\Rightarrow)$ \\
+		
+		Sei $Y$ totalbeschränkt, dann ist $y$ beschränkt. Fixiere ein $\varepsilon > 0.$ Dann gibt es \[y_1, \ldots, y_m \in Y \text{ mit } Y \subseteq \cup_{i = 1}^m K_{\varepsilon}(y_i)\] und damit \[\forall y \in Y \exists i: \norm{y- y_i} < \varepsilon.\] \\
+		Setzen wir nun $W = \text{span}\set{y_i | i = 1, \ldots, m}$ und wir sind fertig. \\ \\ \\
+		$(\Leftarrow)$ \\
+		Sei $Y$ beschränkt und gelte (*), $\varepsilon > 0, W$ gemäß (*) mit $\frac{\varepsilon}{2}.$ Mit $M = \text{sup}{\set{\norm{y}: y \in Y}} < \infty.$ Sei $Z\subseteq \overline{K_{m + \varepsilon}(0)} \cap W.$ Dann ist $Z$ totalbeschränkt, d.h. \[\exists z_1, \ldots, z_m \in Z \subseteq \cup_{i = 1}^m K_{\frac{\varepsilon}{2}}(z_i)\] \\ \\
+		Sei nun $y \in Y,$ dann gibt es ein $w \in W$ mit $\norm{y - w} < \frac{\varepsilon}{2}$ und damit \[\norm{w} \leq \frac{\varepsilon}{2} + \norm{y} \leq M + \frac{\varepsilon}{2}\] und damit $w \in Z.$ Damit \[\exists i: \norm{w - z_i} \leq \frac{\varepsilon}{2} \implies \norm{y-z_i} < \varepsilon.\] \\ D.h. konkret: \\
+		\[Y \subseteq \cup_{i = 1}^m K_{\varepsilon}(z_i) \implies \exists y_1, \ldots, y_m \in Y: Y \subseteq \cup_{i = 1}^m K_{2 \varepsilon}(y_i).\]
+	\end{proof}
+	
+\end{theorem}

@@ -1,0 +1,141 @@
+\begin{theorem}
+	Sei $H$ ein Hilbertraum, \(T\in \B(H)\) ein kompakter, selbstadjungierter Operator. Dann ist 
+	\[\Sigma(T):= \set{\lambda \in \C\setminus \set{0} \;\vert\; \exists x \in H\setminus\set{0}: Tx = \lambda x}\]
+	eine endliche oder abz\as hlbar unendliche Teilmenge von \(\R\). Im letzteren Fall gibt es eine Teilfolge \(\seq \lambda n \), \(\forall n\neq m: \lambda_n \neq \lambda_m\), wobei \(\Sigma(T) := \set{\lambda_n \;\vert\; n\in\N }\) mit \(\li \lambda n = 0\).
+	\label{spec_comp_pre_1}
+\end{theorem}
+\unsure{Wieso schlie\s{}en wir $0$ als Eigenwert aus? }
+\begin{proof}
+	\happybegin
+	Die Behauptung \(\Sigma(T) \subseteq \R\) folgt aus Satz \ref{real_ev}.
+	Falls \(\Sigma(T)\) endlich ist, dann sind wir fertig. Nehmen wir also an, dass \(\Sigma(T)\) unendlich ist. Sei \(\varepsilon > 0\). Zeigen nun per Widerspruch, dass \[M := \set{\lambda_n\in \Sigma(T)\;\vert\; \ab{\lambda_n} > \varepsilon}\] endlich ist. Angenommen $M$ ist unendlich, d. h. 
+	\[\exists \seq \lambda n\text{ mit }\;\forall n\neq m: \lambda_n \neq \lambda_m,\;\forall n\in\N: \ab{\lambda_n}> \varepsilon, \lambda_n \in \Sigma(T)\;.\]
+	Damit gibt es Eigenvektoren
+	\[\seq xn \text{ mit } \forall n\in\N: x_n \in H\setminus\set{0}, Tx_n = \lambda_n x_n\;.\]
+	Dabei nehmen wir o. B. d. A. an, dass \(\forall n\in\N: \norm{x_n} = 1\).  Nach Satz \textit{[...]} gilt \(\forall n \in N: \ab{\lambda_n} \leq \norm{T}\), d. h. $\seq xn$ ist beschr\as nkt. Da $T$ kompakt ist, existiert  ein \(y\in H\) sowie eine Teilfolge 
+	\[\se{x_{n_k}}{k} \text{ mit } \lime k Tx_{n_k} = y \;.\]
+	Insbesondere ist \(\se{Tx_{n_k}}{k}\) eine Cauchyfolge. Weiterhin gilt
+	\[\forall k,l\in\N,\; k\neq l: x_{n_k} \perp x_{n_l}\implies Tx_{n_k}  = \lambda_{n_k} x_{n_k}\perp \lambda_{n_l} x_{n_l} = Tx_{n_l}\;.\]
+	Somit folgt 
+	\[\norm{Tx_{n_k} - Tx_{n_l}}^2 = \norm{Tx_{n_k}}^2 + \norm{Tx_{n_l}}^2 =  \lambda_{n_k}^2 + \norm{x_{n_k}}^2+ \lambda_{n_l}^2 \norm{x_{n_l}}^2  > 2\varepsilon^2\;.\]
+	Dies ist ein Wiederspruch zur Definition der Cauchyfolge. Damit ist 
+	\[\forall \varepsilon > 0: \set{\lambda \in \Sigma(T)\;\vert\; \ab{\lambda}> \varepsilon} \text{ endlich.}\]
+	Folglich ist \(\Sigma(T)\) abz\as hlbar, da insbesondere 
+	\[\forall n \in \N: \set{\lambda \in \Sigma(T)\;\Big\vert\; \ab{\lambda}> \frac{1}{n}} \text{ endlich.} \]
+	Au\s erdem folgt daraus, dass die Eigenwerte im abz\as hlbar unendlichen Fall eine Nullfolge bilden. \happyend
+\end{proof}
+\begin{rem}
+	Die Separabilit\as t des Hilbertraums $H$ ist keine notwendige Voraussetzung. 
+\end{rem}
+
+\begin{theorem}
+	Sei $H$ ein Hilbertraum, \(\seq \lambda n \subseteq \C^\N\), \(\li \lambda n = 0\) und \(\seq Pn\) orthogonale Projektionen, d. h. 
+	\[\forall n\in\N: P_n \in \B(H), \;P_n = P^*_n = P_n^2\;.\]
+	Gelte weiterhin \(\forall n\neq m: P_n P_m = P_m P_n = 0\).
+	Dann existiert \(T = \sum_{n\in\N} \lambda_n P_n\) in Operatornorm.
+	\label{spec_comp_pre_2}
+\end{theorem}
+\begin{proof}
+	Es g. z. z., dass \(\seq TN\) mit \(T_N := \sum_{n=0}^N \lambda_n P_n\) eine Cauchyfolge bzgl. der Operatornorm \(\norm\cdot\) ist (da \(\B(H)\) insbesondere ein Banachraum). Sei \(x\in H\), dann gilt
+	\begin{align*}
+		\normn{T_Nx}H^2 &= \ip{\sum_{n=0}^N \lambda_n P_n x, \sum_{m=0}^N \lambda_m P_m x} = \sum_{n,m=0}^N \overline{\lambda_n}\lambda_m \ip{P_n x, P_m x} =  \sum_{n,m=0}^N \overline{\lambda_n}\lambda_m \overbrace{\ip{x, P_nP_mx}}^{=0\text{ f\us r } n\neq m} \\
+		& = \sum_{n=0}^N \ab{\lambda_n}^2 \normn{P_nx}H^2 \leq \max\set{\ab{\lambda_n}\;\vert\; 0 \leq n \leq N}^2 \sum_{n=0}^N \normn{P_nx}H^2 \\
+		& \leq  \max\set{\ab{\lambda_n} \;\vert\; 0 \leq n \leq N}^2  \normn xH^2
+	\end{align*}
+	Wir begr\us nden nun die letzte Absch\as tzung \(\sum_{n=0}^N \normn{P_nx}H^2 \leq \normn xH^2\). Wegen der paarweisen Orthogonalit\as t der Unterr\as ume, auf die projiziert wird, gilt
+	\[\normn{\left(\sum_{n=0}^N P_n\right)x}H^2 =  \ip{\sum_{n=0}^N P_n x, \sum_{n=0}^N P_n x} = \sum_{n=0}^N \normn{P_nx}H^2\;.\]
+	Au\s erdem ist mit dieser Voraussetzung auch \(P:= \sum_{n=0}^N P_n\) wieder eine orthogonale Projektion. \(P^* = P\) ist klar und \(P^2 = P\) folgt aus der Orthogonalit\as tsbedingung f\us r die Unterr\as ume (d. h. \(\forall n\neq m: P_n P_m = P_m P_n = 0\)). Es gilt also 
+	\[\sum_{n=0}^N\normn{P_nx}H^2 = \normn{Px}H^2\;.\]
+	Weiterhin gilt  \(\norm{P} \leq 1\). Sei n\as mlich \(\norm{P} > 0 \) (sonst fertig), dann gilt f\us r \(x\in H\) mit Cauchy-Schwarz
+	\begin{align*}
+	\normn{Px}H^2 &= \ab{\ip{Px, Px}} = \ab{\ip{x, PPx}} = \ab{\ip{x, Px}} \leq \normn{x}H \normn{Px}H \\&\implies \frac{\normn{Px}H}{\normn xH} \leq 1 \implies \norm{P} \leq 1\;.
+	\end{align*}
+	Wir erhalten also insgesamt
+	\[\norm{T_N} = \norm{\sum_{n=0}^N \lambda_n P_n} \leq \max\set{\ab{\lambda_n}\;\vert\; 0 \leq n\leq N}\;.\]
+	Sei nun \(\varepsilon > 0\) fixiert und \(N_0 \in N\) so gro\s{}, dass \(\forall n \geq N_0: \ab{\lambda_n}<\varepsilon\). Dann gilt f\us r \(N, M \geq N_0\), o. B. d. A. \(N \leq M\) 
+	\[\norm{\sum_{n=0}^M \lambda_n P_n - \sum_{n=0}^N \lambda_n P_n} = \norm{\sum_{N+1}^M \lambda_n P_n} \leq  \max\set{\ab{\lambda_n}\;\vert\; N+1 \leq n \leq M} < \varepsilon\;.\]
+	
+\end{proof}
+
+\begin{theorem}[Spektralsatz f\us r kompakte Operatoren]
+	\label{spec_comp}
+	Sei $H$ ein Hilbertraum und \(T\neq 0, \; T\in \mc K(H)\) selbstadjungiert. Bezeichne hier  \[\Sigma(T) := \set{\lambda \in \C \;\vert\; \exists x \in H\setminus \set{0}: Tx = \lambda x} =: \set{\lambda_n\;\vert\; n\in\N} \;\text{ und }\; N(\lambda) := \ker(T - \lambda I)\;.\]
+	Dabei gilt nach Satz \ref{spec_comp_pre_1} \(\li \lambda n = 0\).
+	Dann gilt in Operatornorm (wobei \(P_{N(\lambda)}\) die Projektion auf den Eigenraum zu $\lambda$ bezeichnet)
+	\[T = \sum_{n\in\N} \lambda_n P_{N(\lambda_n)}\;.\;\;(*)\]
+	Speziell gibt es ein ONS \(\seq en\) sowie \(\seq \lambda n\) mit \(\Sigma(T) = \set{\lambda_n\;\vert\;n\in\N}\), sodass bzgl. der Operatornorm gilt
+	\[T = \sum_{n\in\N} \lambda_n \vert e_n \rangle \langle e_n\vert = \sum_{n\in\N} \lambda_n P_{\C e_n}\;.\;\;(**)\]
+	\begin{rem}
+		In der Bra-Ket-Notation gilt
+		\[\forall x \in H : (\vert e_n \rangle \langle e_n\vert)(x) =  \langle e_n \vert x \rangle \;\vert e_n \rangle\;.\]
+	\end{rem}
+	\begin{proof}
+		Bei den Eigenr\as umen handelt es sich um paarweise orthogonale Unterr\as ume, d. h. es gilt 
+		\[\forall \lambda_n, \lambda_m \in \Sigma(T): \lambda_n \neq \lambda_m \implies N(\lambda_n) \perp N(\lambda_m)\;.\]
+		Somit erf\us llen die Projektionen auf die Eigenr\as ume gerade die Voraussetzungen von Satz \ref{spec_comp_pre_2}, d. h. die rechte Seite von \((*)\) existiert.  Bezeichne nun 
+		\[S = \sum_{n\in\N} \lambda_n P_{N(\lambda_n)} \in \B(H)\;\text{ und } \; L = \overline{\text{span}\set{x \in N(\lambda)\;\vert\; \lambda \in \Sigma(T)}}\;.\]
+		Dabei gilt nun 
+		\[\forall \lambda \in \Sigma(T) \;\forall x\in N(\lambda): Tx = \lambda x \in N(\lambda) \implies TL \subseteq L\;.\]
+		Au\s erdem haben wir bereits gezeigt \(TL^\perp \subseteq L^\perp\).
+		Da $L$ ein abgeschlossener Unterraum ist, k\os nnen wir Satz \ref{PQ_Zerlegung} anwenden, d. h. es existieren \(P, Q \in \B(H)\) mit 
+		\[\forall x \in H: Px \in L,\; Qx \in L^\perp \text{ und } Px + Qx = x \;.\]
+		Dabei ist bekannt, dass \(H\cong L \oplus L^\perp\) sowie \(P = P_L\) und \(Q = P_{L^\perp}\), d. h. wir k\os nnen schreiben \(T = TP + TQ\). Es gilt insbesondere $PTP = P$ (analog f\us r $Q$). Insgesamt erhalten wir damit die Darstellung
+		\[ T = PTP + QTQ\;.\]
+		Aufgrund der Definition von $S$ ist klar, dass gilt
+		\[SL \subseteq L,\; SL^\perp \subseteq L^\perp, \; S = S^* \text{ und }  S\vert_{L^\perp} = 0\]
+		Analog gilt also 
+		\[S = PSP + \overbrace{QSQ}^{ = 0} = PSP\;.\]
+		Sei nun \(x \in N(\lambda_n)\subseteq L\) (d. h. \(Tx  = \lambda_n x\)), dann gilt
+		\[Sx = \sum_{m\in \N} \lambda_m \overbrace{P_{N(\lambda_m )} x}^{=0 \text{ f\us r } m\neq n} = \lambda_n x = Tx = PTP x\;.\]
+		F\us r \(x \in L^\perp\) gilt offensichtlich ebenfalls \(Sx = PTPx\), d. h. es gilt
+		\[S = PTP\;.\]
+		Nach Satz \ref{composition_compact_bounded} gilt \(QTQ \in \mc K(H)\). Angenommen es gelte \(\norm{QTQ} > 0\). Nach Satz \ref{operatornorm_ev} folgt dann, dass \(\norm{QTQ}\) oder \(-\norm{QTQ}\) ist Eigenwert von \(QTQ\), bezeichne diesen Eigenwert hier mit \(\lambda\). Folglich gilt (unter Verwendung von \(\forall y\in L^\perp: Q y = P_{L^\perp} y = y\))
+	\[\exists x \in L^\perp\text{ mit } Qx = x \neq 0: TQ x = QTQ x = \lambda x = \lambda Qx \implies \lambda \in \Sigma(T)\;.\]
+	Dies ist jedoch ein Widerspruch zu \(x\in L^\perp\), d. h. es muss \(\norm{QTQ = 0} \implies QTQ = 0\) gelten. Daraus folgt sofort \(T = S\), womit \((*)\) gezeigt ist. Betrachte nun die zweite Identit\as t. Sei dazu
+	\[ (e_{nm})_{m=1}^{\dim(N(\lambda_n))} \text{ eine ONB von } N(\lambda_n)\;.\]
+	Dann ist 
+	\[\set{e_{nm}\;\vert\; n\in\N,\; m = 1,\ldots, \dim(N(\lambda_n))}  \text{ ein ONS mit } P_{N(\lambda_n)} = \sum_{m=1}^{\dim(N(\lambda_n))} \vert e_{nm}\rangle \;\langle e_{nm} \vert\;. \]
+	\end{proof}
+	Durch Aufz\as hlen entsteht der geforderte Ausdruck \((**)\).
+\end{theorem}
+
+\section{Kompakte Operatoren und Operatoren von endlichem Rang}
+\begin{definition}
+	Sei $H$ ein Hilbertraum. Dann hat \(T\in \B(H)\) \textit{endlichen Rang}, falls \(\dim TH< \infty\).
+\end{definition}
+\begin{rem}
+	Wir haben bereits gezeigt, dass aus \(T \in \B(H)\) endlicher Rang auch \(T\in\mc K(H)\) folgt. Falls andersherum \(T \in \K(H)\) selbstadjungiert ist, gilt bez\us glich der Operatornorm
+	\[\lim_{\varepsilon\to 0} \sum_{n\in\N,\;\ab{\lambda_n} > \varepsilon} \lambda_n P_{N(\lambda_n)} = T\;.\]
+	F\us r jedes \(\varepsilon > 0\) ist \(\dim P_{N(\lambda_n)}<\infty\) und auch die Summe endlich, wodurch $T$ dann endlichen Rang hat.
+\end{rem}
+
+\begin{theorem}
+	\label{compact_ons}
+	Sei $H$ ein Hilbertraum, \(T\in\mc K(H)\). Dann gibt es \(\seq \lambda n \subseteq \C^\N\) mit \(\li \lambda n = 0\) und \(\seq en\) mit \(\forall n \in\N: \norm{e_n} = 1\), sodass bez\us glich der Operatornorm gilt
+	\[T = \sum_{n\in\N} \lambda_n \vert e_n\rangle \;\langle e_n\vert\;.\]
+\end{theorem}
+\begin{rem}
+	Hier ist \(\seq en\) kein Orthonormalsystem!
+\end{rem}
+\begin{proof} 
+	Wir definieren 
+	\[\Re(T) := \frac{1}{2}(T + T^*)\;\text{ und } \; \Im(T) := \frac{1}{2i} (T-T^*)\;.\]
+	Diese Operatoren sind offensichtlich selbstadjungiert und kompakt. Nach Satz \ref{spec_comp} existieren somit Orthonormalsysteme \(\seq{e^1} n\), \(\seq{e^2}n\subseteq H^\N\) sowie \(\seq{\lambda^1}n\), \(\seq{\lambda^2}n \subseteq \C^n\) mit 
+	\[\Re(T) = \sum_{n\in\N} \lambda^1_n \;\vert e^1_n\rangle \;\langle e^1_n\vert\;\text{ und }\; \Im(T) = \sum_{n\in\N} \lambda^2_n \;\vert e^2_n\rangle \;\langle e^2_n\vert\;.\]
+	Folglich gilt in der Tat
+	\[T = \Re(T) + i  \Im(T) = \sum_{n\in\N} \lambda^1_n \;\vert e^1_n\rangle \;\langle e^1_n\vert + \sum_{n\in\N} i\lambda^2_n \;\vert e^2_n\rangle \;\langle e^2_n\vert\;.\]
+\end{proof}
+
+\begin{theorem}
+	Sei $H$ ein Hilbertraum, \(T\in \K(H)\). Dann existiert eine Folge \(\seq Tn\), mit \(\forall n\in\N: T_n \in \B(H)\) endlichen Rang und \(\li Tn = T\) bez\us glich der Operatornorm.
+\end{theorem}
+\begin{proof}
+	Die Behauptung folgt aus Satz \ref{compact_ons}, wobei wir
+	\[T_n := \sum_{m=0}^n \lambda_m \;\vert e_m\rangle \;\langle e_m \vert\]
+	setzen, was endlichen Rang hat.
+	\end{proof}
+	\begin{rem}
+		Der Satz gilt nicht auf allgemeinen Banachr\as umen.
+	\end{rem}
+
+

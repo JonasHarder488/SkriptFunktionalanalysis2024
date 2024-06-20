@@ -1,0 +1,174 @@
+\section{Eigenwerte und Vektoren von kompakten Operatoren}
+
+In diesem Kapitel sei $H$ immer ein Hilbertraum.
+
+
+\begin{definition}
+	
+	Sei $H$ ein Hilbertraum, $\K = \C$ und $T \in \mc B(H)$. Dann heißen $\lambda \in \C$ Eigenwert und $x \in H \setminus \set{0}$ zugehöriger Eigenvektor von $T$, wenn $Tx = \lambda x$.
+	
+\end{definition}
+
+
+\begin{rem}
+	
+	Es stellt sich die Frage, ob sich der Raum durch die Eigenvektoren aufspannen lässt. Im Allgemeinen hat aber nicht einmal jeder Operator einen Eigenwert. Betrachte dazu das folgende Beispiel:
+	
+\end{rem}
+
+
+\begin{ex}
+	
+	Sei $H = L^2([0, 1])$, $T = M_{\text{id}}$, d.h. $Tf(x) = xf(x)$. Sei nun $f \not= 0$, und nehme an, es gäbe einen Eigenwert, dann
+	
+	\[ xf(x) = Tf(x) = \lambda f(x) \implies \forall x \in H: f(x)(\lambda - x) = 0 \implies f = 0. \]
+	
+	Damit erhalten wir einen Widerspruch.
+	
+\end{ex}
+
+
+\begin{theorem}
+	\label{real_ev}
+	Sei $T \in \mc B(H)$ selbstadjungiert und $\lambda$ Eigenwert, (dann gilt $\lambda \in \mathbb{R}$), sei $x$ ein Eigenvektor zu $\lambda$, $\mu$ Eigenwert zu $y \in H$ mit $\lambda \not= \mu$, dann $x \perp y$.
+	
+	\begin{proof}[Beweis:]
+		
+		Betrachte:
+		
+		\[ \lambda \norm{x}^2 =\lambda \ip{x, x} = \ip{x, Tx} = \ip{Tx, x} = \ip{\lambda x, x} = \bar\lambda \ip{x, x} = \bar\lambda \norm{x}^2 \]
+		
+		
+		Damit sind $\lambda, \mu \in \R$. Betrachte nun weiterhin:
+		
+		\[ \mu \ip{x, y} = \ip{x, Ty} = \ip{Tx, y} = \lambda ip{x, y} \implies \ip{x, y} = 0. \]
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{theorem}
+	
+	Sei $\lambda$ ein Eigenwert von $T \in \mc B(H)$, dann $\ab{\lambda} \leq \norm{T}$.
+	
+	\begin{proof}[Beweis:]
+		
+		Betrachte:
+		
+		\[ \ab{\lambda} \norm{x} = \norm{\lambda x} = \norm{Tx} \leq \norm{T} \norm{x} \]
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{theorem}
+	
+	Sei $T \in \mc K(H)$, dann ist für alle $0 \not= \lambda \in \C$, $\text{dim}(\text{Kern}(T - \lambda \text{id})) < \infty$.
+	
+	\begin{proof}[Beweis:]
+		
+		Nehme an $\text{dim}(\text{Kern}(T - \lambda \text{id})) = \infty$, d.h. wir haben ein Orthonormalsystem $(\ell_n)_{n \in \N}$ in $\text{Kern}(T - \lambda)$ mit $\norm{\ell} \leq 1$, dann betrachte:
+		
+		\[ \norm{T\ell_n - T\ell_m} = \norm{\lambda - \ell_n - \lambda \ell_m} = \ab{\lambda} \norm{\ell_n - \ell_m} = \ab{\lambda}\sqrt{2}. \]
+		
+		Damit ist $(T \ell_n)_{n \in \N}$ keine Cauchy-Folge. Damit gibt es kein $y \in H$ mit $T \ell_n \xrightarrow{n \to \infty} y$. Damit ist $T \notin \mc K(H)$.
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{rem}
+	
+	Falls $T \in \mc B(H)$, dann gilt
+	
+	\begin{enumerate}
+		
+		\item $\norm{T} = \sup{\set{\norm{Ty}:\norm{y} \leq 1}}$,
+		
+		\item $\norm{z} = \sup{\set{\ab{\ip{x, z}}: \norm{x} \leq 1}}$,
+		
+		\item Wir wissen also: $\norm{T} = \sup{\set{\ab{\ip{x, Ty}}: \norm{x} \leq 1, \norm{y} \leq 1}}$.
+		
+	\end{enumerate}
+	
+\end{rem}
+
+
+\begin{theorem}
+	
+	Sei $T \in \mc B(H)$ selbstadjungiert, dann $\norm{T} = \sup{\set{\ab{\ip{x, Tx}}: \norm{x} \leq 1}}$.
+	
+	\begin{proof}[Beweis:]
+		
+		Sei $M := \sup{\set{\ab{\ip{x, Tx}}: \norm{x} = 1}}$. Für alle $x \in H \setminus \set{0}$ gilt nun $\norm{\frac{x}{\norm{x}}} = 1$. Damit folgt (auch für $x = 0$):
+		
+		\[ \ab{\ip{x, Tx}} = \norm{x}^2 \ab{\ip{\frac{x}{\norm{x}}, T \frac{x}{\norm{x}}}} \leq \norm{x}^2 M. \]
+		
+		
+		Für alle $x \in H$ mit $\norm{x} = 1$ gilt mit der CBS-Ungleichung:
+		
+		\[ \ab{\ip{x, Tx}} \leq \norm{x} \norm{Tx} \leq \norm{x}^2 \norm{T} = \norm{T} \implies M \leq \norm{T}. \]
+		
+		Sei nun $f, g \in H$, dann können wir ausrechnen:
+		
+		\[ \ip{f+g, T(f+g)} - \ip{f-g, T(f-g)} = 2\ip{f, Tg} + 2\ip{g, Tf} = 2 \ip{f, Tg} + 2 \ip{Tg, f} = 4 \text{Re}\set{\ip{f, Tg}}. \]
+		
+		Seien nun $x, y \in H$, dann können wir ausrechnen:
+		
+		\[ \ip{x, Tg} - \ip{y, Ty} \leq \ab{\ip{x, Tx}} + \ab{\ip{y, Ty}} \leq M (\norm{x}^2 + \norm{y}^2) = \frac{M}{2} (\norm{x-y}^2 + \norm{x+y}^2). \]
+		
+		Sei nun $v \in H$ mit $\norm{v} \leq 1$, $Tv \not= 0$, $g = v$ und $f = \frac{1}{\norm{Tv}}Tv$. Definieren wir uns nun
+		
+		\begin{itemize}
+			
+			\item $x = f+g = v + \frac{1}{\norm{Tv}}Tv$,
+			
+			\item $y = f-g = -v + \frac{1}{\norm{Tv}}Tv$.
+			
+		\end{itemize}
+		
+		so, dass $\norm{x}, \norm{y} \leq 2$, dann können wir abschätzen:
+		
+		\[ \norm{x, Tx} - \norm{y, Ty} \leq \frac{M}{2} (\norm{x-y}^2 + \norm{x+y}^2) = 4M. \]
+		
+		Wenn wir nun alle Puzzelteile zusammensetzen erhalten wir unser Ergebis:
+		
+		\[ 4 \norm{Tv} = 4 \text{Re}\ip{\frac{1}{\norm{Tv}}Tv, Tv} = \ip{x, Tx} - \ip{y, Ty} \leq 4M \implies \norm{T} \leq M. \]
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{theorem}
+	\label{operatornorm_ev}
+	Sei $T \in \mc K(H)$ selbstadjungiert, dann ist $\norm{T}$ oder $-\norm{T}$ ein Eigenwert.
+	
+	\begin{proof}[Beweis:]
+		
+		Sei o.B.d.A $\norm{T} \not= 0$. Sei $(x_n)_{n \in \N}$ und $\norm{x_n} = 1$ mit $\ab{\ip{x_n, Tx_n}} \xrightarrow{n \to \infty} \norm{T}$. Damit gibt es $\lambda \in \set{\norm{T}, -\norm{T}}$ und eine Teilfolge $(x_{n_k})_{k \in \N}$ mit $\ip{x_{n_k}, Tx_{n_k}} \xrightarrow{k \to \infty} \lambda$. Da $T$ kompakt ist, gibt es eine Teilfolge $(x_{n_{k_l}})_{l \in \N}$ und ein $y \in H$ mit $x_{n_{k_l}} \xrightarrow{l \to \infty} y$. Betrachte nun:
+		
+		\[ \norm{Tx_{n_{k_l}} - \lambda x_{n_{k_l}}}^2 = \underbrace{\norm{T x_{n_{k_l}}}^2}_{\leq \norm{T}^2 = \lambda^2} - 2 \lambda \underbrace{\ip{x_{n_{k_l}}, T x_{n_{k_l}}}}_{\xrightarrow{l \to \infty} \lambda} + \lambda^2 \norm{x_{n_{k_l}}}^2 \xrightarrow{l \to \infty} 0. \]
+		
+		
+		Da $T$ stetig ist, folgt mit \[T x_{n_{k_l}} \xrightarrow{l \to \infty} Ty \implies \lambda x_{n_{k_l}} \xrightarrow{l \to \infty} Ty.\] Da $T$ kompakt und der Grenzwert eindeutig ist, folgt: \[\lambda x_{n_{k_l}} \xrightarrow{l \to \infty} \lambda y = Ty.\] Wobei $\norm{x_{n_{k_l}}} = 1$ und damit $\norm{y} = 1$, also $\norm{y} \not= 0$. Folglich $Ty = \lambda y$ und $y$ ist ein Eigenvektor zu $\lambda$ von $T$.
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{theorem}
+	
+	Sei $T \in \mc B(H)$ und $L \subseteq H$ abgeschlossen, dann gilt \[TL^{\perp} \subseteq L^{\perp} = \set{v \in H: \forall w \in L, v \perp w}.\]
+	
+	\begin{proof}[Beweis:]
+		
+		Sei $v \in L^{\perp}$ und für alle $w \in L: \ip{v, w} = 0$. Sei $w \in L$ beliebig, $\ip{Tv, w} = \ip{v, Tw} = 0$.
+		
+	\end{proof}
+	
+\end{theorem}
