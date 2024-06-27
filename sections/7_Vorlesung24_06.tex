@@ -1,0 +1,165 @@
+\chapter{Der Spektralsatz und Funktionalkalk\us le}
+\section{Der analytische Funktionalkalk\us l}
+\section{Das Spektrum eines Operators}
+[\textit{***** Hier fehlt noch die Vorlesung vom 20.06. *****}]
+
+\begin{ex}
+	Betrachte den Hilbertraum \(H = L^2([0,1])\) mit dem Multiplikationsoperator \(T = M_\text{Id}\). Dieser hat das Spektrum und kontinuierliche Spektrum
+	\[\sigma(T) =\sigma_c(T)= [0,1]\;.\] 
+	Betrachte bspw. \(\lambda = \frac{1}{2} \in [0,1]\), dann gilt
+	\[T - \frac{1}{2}\text{Id} = M_{x-\frac 12}\;.\]
+	Dabei ist \(T-\frac{1}{2}\text{Id}\) injektiv, da \(\ker(M_{x-\frac 12}) = 0\), wobei \(\forall f\in L^2([0,1])\) gilt
+	\[\forall x \in [0,1]: \left(x-\frac12\right)f(x) = 0 \implies f = 0\;.\]
+	\(M_{x-\frac 12}\) ist jedoch nicht surjektiv. Betrachte die Funktion \(g\in L^2[0,1], \forall x \in [0,1]: g(x) = 1\), dann
+	\[\forall x \in [0,1]\setminus\set{\sfrac{1}{2}}: \left(x-\frac 12\right) f(x) = 1 \implies f(x) = \frac{1}{x - \frac 12} \not\in L^2([0,1]) \implies \text{im}(M_{x-\frac12}) \neq H\;.\]
+	Analog erh\as lt man dies f\us r alle \(\lambda \in [0,1]\). Wir wissen jedoch auch, dass \(\forall \;0< \varepsilon < \frac12\)
+	\[g_1 := g\vert_{L^2([0,\sfrac 12 - \varepsilon))} \in L^2([0, \sfrac12 - \varepsilon)) \text{ und } g_2 := g\vert_{L^2((\sfrac 12 + \varepsilon,1]} \in L^2((\sfrac 12 + \varepsilon,1]\;.\]
+	Damit liegt \(\text{im}(M_{x-\sfrac 12})\) also dicht in $H$, d. h. \(\frac 12 \in \sigma_c(T)\). Analog folgt dies f\us r alle \(\lambda  \in [0,1]\).
+\end{ex}
+
+\begin{ex}
+	Betrachte den Banachraum \(V = C^0([0,1])\), sowie den Volterra-Operator \(T\in \B(H)\), d. h. f\us r \(f \in V\)
+	\[(Tf)(x) = \int_0^x f(t) \;dt\;.\]
+	Dann gilt 
+	\[\sigma(T) = \sigma_r(T) = \set{0}\;.\]
+	Betrachte hier nur \(\lambda = 0\) (wir zeigen hier nicht die gesamte Aussage). Dann ist $T$ injektiv nach dem Hauptsatz von Differential- und Integralrechnung, da 
+	\[f(t) = (Tf)'(t) \text{ und } f \in V \implies \ker(T) = {0}\;.\]  
+	$T$ hat kein dichtes Bild, da gilt
+	\[\forall f \in V: (Tf)(0) = 0 \implies \text{im}(T) \set{g \in C^0([0,1])\;\vert\; g \text{ differenzierbar}, \;g(0) = 0} \;.\]
+\end{ex}
+
+\begin{theorem}
+	Sei $H$ ein Hilbertraum. Dann ist \( M:= \set{S \in \B(H) \;\vert\; S^{-1} \text{ existiert}}\) offen in \(\B(H)\). \label{invertible_bounded_operators_open}
+\end{theorem}
+\begin{proof}
+	Es g. z. z. 
+	\[\forall S \in M \;\exists \varepsilon > 0: K_\varepsilon(S) \subseteq M\;.\]
+	Sei also $S\in M$, d. h. \(S^{-1}\) existiert. Setze \(\varepsilon = \frac{1}{\norm{S^{-1}}}\). Sei \(T\in \B(H)\) mit \(\norm{T-S} < \varepsilon\).
+	Dann gilt
+	\[T = S + (T-S) = S (I + S^{-1}(T-S))\;.\]
+	Dabei gilt 
+	\[\norm{S^{-1}(T-S)} \leq \norm{S^{-1}}\norm{T-S} < \frac 1\varepsilon\cdot \varepsilon =1.\]
+	Damit ist \(T\in M\), da $T$ invertierbar nach Satz [...] \unsure{Label fehlt (Satz 8.2 in Vorlesung)}
+	Weiterhin erhalten wir die Normabsch\as tzung
+	\[\norm{T^{-1} - S^{-1}} \leq \frac{\norm{S^{-1}}^2\norm{T-S}}{1-\norm{S^{-1}}\norm{T-S}}\]
+	\us ber die folgende Rechnung. Es gilt 
+	\[T^{-1} - S^{-1} = ((\text{Id} +S^{-1}(T-S))^{-1}-\text{Id})S^{-1}\;.\]
+	Somit folgt f\us r die Normen
+	\begin{align*}
+	 	\norm{T^{-1} - S^{-1}} = &\norm{((\text{Id} +S^{-1}(T-S))^{-1}-\text{Id})S^{-1}} \leq \norm{S^{-1}} \norm{(\text{Id} +S^{-1}(T-S))^{-1}-\text{Id}} \\
+	 	\leq &\norm{S^{-1}} \norm{(\text{Id} +S^{-1}(T-S))^{-1}} \norm{\text{Id} - (\text{Id} +S^{-1}(T-S))}\\
+	 	= & \norm{S^{-1}} \norm{(\text{Id} +S^{-1}(T-S))^{-1}} \norm{S^{-1}(T-S)}\\
+	 	\leq &  \norm{S^{-1}}^2 \norm{T-S} \lVert (\text{Id} +\underbrace{S^{-1}(T-S)}_{\norm\cdot < 1})^{-1}\rVert \;.
+	\end{align*}
+		Unter Ausnutzung von Satz \textit{[\ldots]} folgt dann sofort die Behauptung.
+		\unsure{Label fehlt (Satz 8.2 in der Vorlesung).}	
+	\end{proof}
+	
+	\begin{theorem}
+		Sei $H$ ein Hilbertraum, \(T \in \B(H)\). Dann gilt 
+		\[\sigma(T^*) = \overline{\sigma(T)} := \set{\overline{\lambda}\;\vert\; \lambda \in \sigma(T)}\;.\]
+	\end{theorem}
+	\begin{proof}
+		Es g. z. z. \(\varrho(T^*) = \overline{\varrho(T)}\). Sei \(\lambda \in \C\) so, dass \(T^*-\lambda\text{Id}\) existiert, dann
+		\[(T^* - \lambda \text{Id})^{-1} = ((T-\overline{\lambda}\text{Id})^*)^{-1} = \left((T-\overline{\lambda}\text{Id})^{-1}\right)^*\;. \]
+		Dann existiert auch \((T-\overline{\lambda}\text{Id})^{-1}\), d. h. \(\varrho(T^*) = \overline{\varrho(T)}\), woraus die Behauptung folgt.
+	\end{proof}
+	
+	\begin{theorem}
+		Sei $H$ ein Hilbertraum \us ber $\C$ und \(T\in \B(H)\), dann gilt
+		\label{Spektren}
+		\begin{enumerate}
+			\item \label{Spektren_1}\(\varrho(T)\) ist offen (\(\implies \sigma(T)\) ist abgeschlossen).
+			\item \label{Spektren_2}Die \textit{Resolventenabbildung} \(\varrho(T) \to \B(H),\;\lambda \mapsto (T-\lambda \text{Id})^{-1}\) ist analytisch.
+			\item \label{Spektren_3}\(\sigma(T)\) ist kompakt und es gilt \(\sigma(T) \subseteq \overline{K_{\norm T}}(0) \subseteq \C\).
+			\item \label{Spektren_4}\(\sigma(T) \neq \emptyset\).
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		\textbf{Zu \ref{Spektren_1}.:} Es gilt
+		\[\varrho(T) = \{\lambda \in \C\;\vert\; (T-\lambda \text{Id}) \in \overbrace{\set{S \in \B(H)\;\vert\;S^{-1} \text{ existiert}}}^{=:M}\} \]
+		Die Abbildung \(\eta:\C \to \B(H),\; \lambda \mapsto T-\lambda \text{Id}\) ist stetig und somit gilt 
+		\[\varrho(T) = \eta^{-1}(M)\;.\]
+		Da $M$ nach Satz \ref{invertible_bounded_operators_open} offen ist, ist also auch \(\varrho(T)\) offen.\\
+		\textbf{Zu \ref{Spektren_2}.:} Sei \(\lambda_0 \in \varrho(T)\) und \(\lambda \in \C\), dann  
+		\[\lambda\text{Id} - T = (\lambda_0\text{Id} -T) + (\lambda - \lambda_0)\text{Id} = (\lambda_0\text{Id}-T)(\text{Id} - (\lambda_0 - \lambda)(\lambda_0 \text{Id}-T)^{-1})\;.\]
+		Fordere nun  \(\ab{\lambda - \lambda_0} < \norm{(\lambda_0\text{Id} -T)^{-1}}^{-1}\). Dann gilt \(\norm{(\lambda_0 - \lambda)(\lambda_0\text{Id}-T)^{-1}}< 1\), d. h. wir erhalten \((T-\lambda\text{Id})^{-1}\)  lokal f\us r \(\lambda\) wie oben angegeben \us ber die konvergente Neumann-Reihe wie folgt
+		\[(T-\lambda\text{Id})^{-1} = (T-\lambda_0\text{Id})\left(\sum_{n=0}^\infty ((\lambda_0 - \lambda)(T-\lambda_0 \text{Id} )^{-1})^n\right) = \sum_{n=0}^\infty (\lambda_0 - \lambda)((T-\lambda_0 \text{Id} )^{-1})^{n+1}\;.\]
+		\textbf{Zu \ref{Spektren_3}.:} Nach \ref{Spektren_1}. ist \(\sigma(T)\) abgeschlossen. Nach Heine-Borel g. z. z., dass \(\sigma(T)\) beschr\as nkt ist. Sei \(\lambda \in \C\) mit \(\ab{\lambda} > \norm{T}\). Dann ist \((\lambda \text{Id} - T)\) invertierbar (d. h. \(\lambda \not\in \sigma(T)\)) nach Satz \textit{[\ldots]}, da
+		\unsure{Label fehlt (Satz 8.2 in Vorlesung)}
+		\[(\lambda\text{Id} - T)^{-1} = \lambda^{-1} \left(\text{Id} -\frac{T}{\lambda}\right)^{-1} = \lambda^{-1} \sum_{n=0}^\infty \lambda^{-n} T^n\;.\]
+		Folglich gilt also \(\sigma(T)\subseteq \overline{K_{\norm{T}}}(0)\), wie behauptet. \\
+		\textbf{Zu \ref{Spektren_4}.:} Angenommen \(\sigma(T) = \emptyset\), d. h. \(\varrho(T) = \C\). Wir wissen, dass die (analytische) Abbildung \(\eta: \lambda \mapsto (T - \lambda\text{Id})^{-1}\) stetig ist (existiert auf ganz $\C$ nach Voraussetzung). Daher ist $\eta$ beschr\as nkt auf der kompakten Menge \(\overline{K_{2\norm T}}(0)\). Weiterhin ist $\eta$ auch auf \(K_{2\norm T}(0)^C\) beschr\as nkt, da mit \ref{Spektren_3}. gilt 
+		\[\ab{\lambda} \geq 2 \norm T \implies \norm{\frac T \lambda} \leq \frac 12 \implies \norm{T-\lambda\text{Id}}^{-1} \leq \frac{1}{\ab{\lambda}}\sum_{n\in\N}\frac{\norm T^n}{\norm \lambda ^n} \leq \frac{2}{\ab{\lambda}} \leq\frac{1}{\norm T}\;. \] 
+		Seien nun \(x,y\in H\) fixiert, dann definiere \(f:\C \to \C\) durch 
+		\[\forall \lambda \in \C: f(\lambda) = \ip{x, (T-\lambda \text{Id})^{-1}y}\;.\]
+		Durch die Eigenschaften von $\eta$ ist $f$ offensichtlich ebenfalls analytisch und beschr\as nkt und folglich nach dem Satz von Liouville (Bem. \ref{Liouville}) konstant. Da wir insbesondere \(\lambda = 0\) w\as hlen k\o nnen, gilt also 
+		\[\forall x, y\in H\;\forall \lambda \in \C: f(\lambda) = \ip{x, (T-\lambda \text{Id})^{-1}y} = \ip {x, T^{-1}y} = f(0)\;.\]
+		Somit folgt jedoch 
+		\[\forall \lambda \in \C: T-\lambda \text{Id})^{-1} = T^{-1} \implies T - \lambda\text{Id} = T\;.\]
+		Dies ist ein Widerspruch, folglich ist \(\sigma(T) \neq \emptyset\).
+	\end{proof}
+	\begin{rem}[Satz von Liouville] \label{Liouville}
+		Ist \(f:\C \to \C\) beschr\as nkt und analytisch, so ist $f$ konstant. Dabei bezeichnen wir $f$ als \textit{analytisch}, wenn $f$ in jedem Punkt lokal durch eine konvergente Potenzreihe gegeben ist.
+	\end{rem}
+	
+	\begin{definition}
+		Sei \(T\in \B(H)\). Dann wird 
+		\[r(T) := \max\set{\ab{\lambda}\;\vert\; \lambda \in \sigma(T)}\]
+		als \textit{Spektralradius} von $T$ bezeichnet. 
+	\end{definition}
+	
+	\begin{lemma}
+		\label{Lemma_Spektralradius}
+		Sei \(\seq an \subseteq \R^\N\) mit \(\forall n,m\in\N: 0 \leq a_{n+m} \leq a_n a_m\). Dann konvergiert die Folge \(\se{\sqrt[n]{a_n}}{n}\) wobei f\us r den Grenzwert gilt
+		\[\lime n \sqrt[n]{a_n} = \inf_{n\in\N} \sqrt[n]{a_n}=: b\;.\]
+	\end{lemma}
+	\begin{proof}
+		Sei \(\varepsilon > 0\) und \(N\in\N\) hinreichend gro\s{}, sodass \(a_N < (b+\varepsilon)^N\). Setze
+		\[c = c(\varepsilon) = \max\set{a_1,\ldots, a_N}\;.\]
+		Schreibe nun \(n\in \N\) in der Form \(n = kN + r\) mit \(1\leq r \leq N\). Folglich gilt:
+		\begin{align*}
+			\sqrt[n]{a_n} &= (a_{kN+r})^{\sfrac 1n} \leq (a_{kN} \cdot a_r)^{\sfrac 1n} \leq (a_{N}^k \cdot a_r)^{\sfrac 1n} \leq ((b+\varepsilon)^{Nk} \cdot c)^{\sfrac 1n}\\
+			&= (b + \varepsilon)^{\sfrac{Nk}{n}} c^{\sfrac 1n} = (b+\varepsilon)(b+\varepsilon)^{-\sfrac rn}c ^{\sfrac 1n} \overset{n\to\infty}{\longrightarrow} b + \varepsilon\;.
+		\end{align*}
+		Daraus folgt sofort die Behauptung.
+	\end{proof}
+	
+	\begin{theorem}
+		Sei \(T\in\B(H)\). Dann gilt \(r(T) = \lime n \sqrt[n]{\norm{T^n}}\).
+	\end{theorem}
+	\begin{proof}
+		\happybegin
+		Nach Definition des Spektralradius gilt 
+		\[\forall \lambda \in \C: \ab{\lambda} > r(T) \implies \lambda \in \varrho(T)\;.\]
+		Wir zeigen hier beide Inklusionen.\\
+		\((r(T) \geq \lime n \sqrt[n]{\norm{T^n}})\): Analog zum Beweis von \ref{Spektren}, (\ref{Spektren_3}) wissen wir, dass die Abbildung 
+		\[\C \to \B(H),\; z \mapsto (\text{Id} - z T)^{-1}\]
+		analytisch ist in \(K_{\frac{1}{\ab\lambda}}(0)\) f\us r \(\lambda > r(T)\), d. h. 
+		\[\sum_{n\in\N} T^n z^n \;\text{ konvergiert f\us r }\; \ab{z} < \frac{1}{r(T)}\;.\]
+		Somit gilt f\us r alle \(x,y \in H\) 
+		\[\sum_{n\in\N} \ip{x, z^n T^ny} \text{ konvergiert }\implies  \sup_{n\in\N}\ab{\ip{x, \left(\frac{T}{r(T)}\right)^n y}} < \infty \text{ f\us r } \norm x, \norm y \leq 1\;.\]
+		Mit dem Satz von Banach-Steinhaus (\ref{Banach_Steinhaus}) gilt also \[\lim\sup_{n\in\N}\frac{\norm{T^n}}{r(T)^n} =: c < \infty\;.\]
+		Somit erhalten wir
+		\[\norm{T^n} \leq 2c \cdot r(T)^n \implies \limsup_{n\in\N}\sqrt[n]{\norm{T^n}} \leq r(T)\;.\]
+			Nun k\os nnen wir Lemma \ref{Lemma_Spektralradius} anwenden auf \(\se{ \sqrt[n]{\norm{T^n}}}{n}\) und bekommen somit die Behauptung
+		\[\limsup_{n\in\N}\sqrt[n]{\norm{T^n}} = \lime n \sqrt[n]{\norm{T^n}} = \inf\set{\sqrt[n]{\norm{T^n}}\;\big\vert\; n\in \N}\;.\]
+		\((r(T) \leq \lim_{n\to\infty} \sqrt[n]{\norm{T^n}})\): Aus obiger Rechnung wissen wir, dass f\us r \(\lambda \in \C\) mit \(\ab{\lambda} > \sqrt[n]{\norm{T^n}}\) f\us r ein \(n\in\N\) gilt
+		\[\limsup_{n\in\N} \sqrt[n]{\norm{\frac{T^n}{\lambda^n}}} < 1\implies \sum_{n\in\N} \frac{T^n}{\lambda^n}\text{ konvergiert bzgl. $\norm\cdot$ }\;.\]
+		Folglich existiert \((T-\lambda\text{Id})^{-1}\), d. h. \(\lambda \in \varrho(T)\) und somit \(\lambda > r(T)\), woraus die Behauptung folgt.\happyend
+	\end{proof}
+	
+	
+	\begin{theorem}
+		Sei $H$ ein Hilbertraum und \(T \in \B(H)\) normal (d. h. \(TT^* = T^*T\)). Dann gilt \(r(T) = \norm{T}\).
+	\end{theorem}
+	\begin{proof}
+		F\us r normale Operatoren gilt \(\norm{T}^2 = \norm{TT^*} = \norm{T^*T}\). Somit erhalten wir:
+		\[\norm{T^2}^2 = \norm{(T^*)^2 T^2} = \norm{T^*TT^*T} = \lVert(\overbrace{T^*T}^{\text{normal}})^2\rVert = \norm{T^*T}^2 = \norm T^4\;.\]
+		Somit gilt also \(\norm{T^2} = \norm T^2\). Da f\us r alle \(n\in\N\) $T^n$ normal sind, gilt  
+		\[\forall k\in\N: \norm{T}^{2k} = \norm{T^{2k}}\;.\]
+		Somit erhalten wir in der Tat 
+		\[r(T) = \lime n \norm{T^n}^{\sfrac 1n} = \lime k \norm{T^{2^k}}^{\sfrac{1}{2^k}} = \norm{T}\;. \]
+		
+	\end{proof}
