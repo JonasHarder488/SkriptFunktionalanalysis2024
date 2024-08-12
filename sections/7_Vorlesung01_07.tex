@@ -1,0 +1,48 @@
+\textit{[***** Hier fehlt noch die Vorlesung vom 28.06.****]}
+
+\section{Der stetige Funktionalkalk\us l}
+\begin{theorem}[Stetiger Funktionalkalk\us l]
+	Sei $H$ ein Hilbertraum, \(T\in \B(H)\) selbstadjungiert. Dann existiert genau eine Isometrie 
+	\[\varphi_T: C^0(\sigma(T),\C) \to \B(H)\]
+	mit den folgenden Eigenschaften:
+	\begin{enumerate}
+		\item $\varphi_T$ ist ein involutiver Algebrenmorphismus, d. h. die Abbildung ist
+		\begin{itemize}
+		\item linear:\;\; \(\forall f, g \in C^0(\sigma(T)), \;\lambda \in \C: \varphi_T( \lambda f+g)  = \lambda \varphi_T(f) + \varphi_T(g)\)
+		\item multiplikativ: \;\;\(\forall f, g \in C^0(\sigma(T)): \varphi_T(f\cdot g) = \varphi_T(f)\cdot\varphi_T(g) = \varphi_T(g) \cdot \varphi_T(f)\)
+		\item involutiv: \;\; \(\forall f \in C^0(\sigma(T)): \varphi_T(\overline{f}) = \varphi_T(f)^*\)
+		\end{itemize}
+		\item \(\varphi_T(1) = \I\) und \(\varphi_T(\text{id}) = T\), wobei \(\text{id}(x) = x\), \(1(x) = 1\).
+	\end{enumerate}
+\end{theorem}
+
+\begin{rem}
+	Wir schreiben \(f(T) := \varphi_T(f)\).
+\end{rem}
+
+\begin{proof}
+	\textbf{Schritt 1:} Wir definieren:
+	\[A_0 := \set{f \in C^0(\sigma(T)) \;\Big\vert\; \exists p \in \C[X]: f(x) = p(x):= \sum_{n=0}^N a_n \cdot X^n \;\forall x \in \sigma(T) }\;.\]
+	Somit k\os nnen wir f\us r alle  \(f \in A_0:\) \(\varphi_0 (f) = p(T)\) sowie \(\varphi_0(f)^* = \overline{p}(T)\) setzen (mit $p$ zu $f$ wie in der Definition), wobei:
+	\[p(T) := \sum_{n=0}^N a_n T^n\; \text{ und }\;\overline{p}(X) := \sum_{n=0}^N \overline{a_n}X^n \;.\]
+	Dabei nutzen wir \((T^n)^* = (T^*)^n = T^n\) aus.\\
+	\textbf{Schritt 2:} Nach Satz \textit{[\ldots]} ist $A_0$ nach Konstruktion dicht in \(C^0(\sigma(T))\).\\
+	\unsure{Label fehlt (Satz 8.11 in Vorlesung)}
+	\textbf{Schritt 3:} Es gilt f\us r alle \(f, g \in A_0\) mit $p, q$ wie in der Definition
+	\[ \varphi_0(fg) = pq(T) =  p(T) q(T) = \varphi_0(f)\varphi_0(g)\;.\]
+	Weiterhin ist die Linearit\as t offensichtich erf\us llt. \\
+	\textbf{Schritt 4:} Folglich gilt f\us r alle $f \in A_0$ mit $p$ wie in der Definition:
+	\begin{align*}
+	\norm{\varphi_0(f)}^2 &= \norm{\varphi_0(f)^* \varphi_0(f)} = \norm{\varphi_0(p \overline{p})} \overset{(*)}{=} r(\varphi_0(\overline p p )) = \sup\set{\ab{\lambda} \;\vert\; \lambda \in \sigma(\varphi_0(\overline p p ))} \\
+	&  = \sup\set{\ab{\lambda} \;\vert\; \lambda \in \sigma(\overline p p (T))} \overline{(**)}{=} \sup\set{\ab{\lambda} \;\vert\; \lambda \in \overline p p (\sigma(T))}\\& = \sup\set{\ab{p(\lambda)}^2 \;\vert\; \lambda \in \sigma(T)}  = \norms p ^2
+	\end{align*}
+	Dabei haben wir im Schritt \((*)\) ausgenutzt, dass \(\varphi_0(\overline p p )\) selbstadjungiert ist und im Schritt \((**)\) Satz \textit{[...]}. Somit ist $\varphi_0$ in der Tat eine Isometrie. \\
+	\unsure{Label fehlt.}
+	\textbf{Schritt 5:} Sei \(f\in C^0(\sigma(T))\). Nach dem Satz von Weierstra\ss{} existiert eine Folge von Polynomen \(p_n \in A_0\) mit \(\li pn = f\) (bzgl. \(\norms\cdot\)). Folglich ist \(\seq pn \) eine Cauchyfolge und aufgrund der Isometrieeigenschaft auch \((\varphi_0(p_n))_{n\in\N}\). Somit konvergiert letztere Folge und wir setzen \(\varphi_T(f)\) auf den Grenzwert.\\
+	\textbf{Schritt 6:} (Linearit\as t) Seien \(f,g \in C^0(\sigma(T))\), mit entsprechenden Polynomfolgen in $A_0$: 
+	\[\li pn = f,\; \li qn = g \;\text{(bzgl. $\norms\cdot$)}\;.\]
+	Es gilt \(\lime{n}{p_n + q_n}= f+g\) und folglich
+	\[\varphi_T(f+g) = \lime{n}{\varphi_0(p_n + q_n)} = \lime{n}{\varphi_0(p_n)} + \lime{n}{\varphi_0(q_n)} = \varphi_T(f) + \varphi_T(g)\;.\]
+	\textbf{Schritt 7:} (Wohldefiniertheit) Sei \(f\in C^0(\sigma(T)))\) mit \(\li pn = f\) bzgl. \(\norms\cdot\). Dann gilt 
+	\[\norm{\varphi_T(f)} = \norm{\lime{n}{\varphi_T(p_n)}} = \lime{n}{\norm{\varphi_0(p_n)}} = \lime{n}{\norms{p_n}} \]
+	\end{proof}

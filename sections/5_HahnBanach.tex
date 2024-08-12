@@ -49,7 +49,7 @@
 \end{theorem}
 \begin{proof}
 	O. B. d. A \(\norm{\varphi_0} = 1\). Wir setzen
-	\[Z := \set{(W,\psi)\;\big\vert\; U\subseteq W \subseteq V \text{ Unterraum, }\;\psi \in W',\; \psi\vert_U = \psi_0,\; \norm{\psi} = \norm{\varphi_0} = 1}\;.\]
+	\[Z := \set{(W,\psi)\;\big\vert\; U\subseteq W \subseteq V \text{ Unterraum, }\;\psi \in W',\; \psi\vert_U = \varphi_0,\; \norm{\psi} = \norm{\varphi_0} = 1}\;.\]
 	Definieren partielle Ordnung auf $Z$ \us ber
 	\[(W,\psi) \leq (\tilde W, \tilde \psi) : \iff W \subseteq \tilde W \text{ und } \tilde\psi \vert_W = \psi\;.\]
 	Sei nun $Z_0\subseteq Z$ eine total geordnete Teilmenge, womit wir $W^*\subseteq V$ wie folgt definieren
@@ -62,7 +62,7 @@
 	Da offensichtlich \(\norm{\psi^*} \geq \norm{\varphi_0}\) (wegen \(\psi^*\vert_U = \varphi_0\)), folgt \(\norm{\psi^*} = 1\).
 	Somit \((W^*, \psi^*)\in Z\) und f\us r \((W,\psi) \in Z_0\) beliebig gilt nach Konstruktion 
 	\[W \subseteq W^* \text{ und } \forall w \in W: \psi^*(w) = \psi(w) \implies (W,\psi) \leq (W^*, \psi^*)\;.\]
-	Somit ist \((W^*, \psi^*)\) eine obere Schranke von $Z_0$. Nach dem Lemma von Zorn hat $Z_0$ also ein Maximum, bez. dieses mit \((W_0,\psi_0)\). Angenommen \(W_0 \neq V\). Dann k\os nnen wir f\us r \(z \in V \setminus W_0\) Lemma \ref{Lemma_Hahn_Banach} anwenden auf \(W_1:= \text{span}\set{W_0\cup\set{z}}\), d. h.
+	Somit ist \((W^*, \psi^*)\) eine obere Schranke von $Z_0$. Nach dem Lemma von Zorn hat $Z$ also ein Maximum, bez. dieses mit \((W_0,\psi_0)\). Angenommen \(W_0 \neq V\). Dann k\os nnen wir f\us r \(z \in V \setminus W_0\) Lemma \ref{Lemma_Hahn_Banach} anwenden auf \(W_1:= \text{span}\set{W_0\cup\set{z}}\), d. h.
 	\[\exists \eta \in W_1' :\; \eta\vert_{W_0} = \psi_0 \text{ und } \norm{\eta} = \norm{\psi_0} = \norm{\varphi_0}\;.\]
 	Dann folgt jedoch \((W_1,\eta) \in Z\) mit \((W_1,\eta) > (W_0,\psi_0)\), was ein Widerspruch dazu ist, dass \((W_0, \psi_0)\) eine obere Schranke ist. Somit leistet \(W_0 = V\) und \(\varphi:= \psi_0\) das Verlangte.
 \end{proof}

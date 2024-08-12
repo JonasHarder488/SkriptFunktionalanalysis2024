@@ -142,7 +142,7 @@
 
 \begin{proof}[Beweis:]
 \textbf{Existenz}
-Sei O.b.d.A $\varphi \not= 0,$ d.h. $\ker \varphi = \set{x \in H | \varphi(x) = 0}$ ist ein echter abgeschlossener Teilraum. Dann muss aber auch $\ker{\varphi^{\perp}} \not= \set{0}.$ Sei $z \in \ker{\varphi}$ mit $\norm{z}>0$ und o.B.d.A $\varphi(z) = 1.$ Sei $h \in H$ beliebig, dann sehen wir \[ \varphi(\underbrace{\varphi(h)z-h}_{\in \ker\varphi \perp z}) = \varphi(h)\varphi(z)-\varphi(h) = 0.\] Damit ist $z \perp \varphi(h)z - h$ und äquivalent dazu \[0 = \ip{z, \varphi(h)z-h} = \varphi(h)\norm{z}^2-\ip{z,h} \text{ also } \varphi(h) = \ip{\frac{z}{\norm{z}^2}, h}.\] \\ \\\textbf{Eindeutigkeit} \\
+Sei O.b.d.A $\varphi \not= 0,$ d.h. $\ker \varphi = \set{x \in H | \varphi(x) = 0}$ ist ein echter abgeschlossener Teilraum. Dann muss aber auch $\ker{\varphi^{\perp}} \not= \set{0}.$ Sei $z \in \ker{\varphi}^\perp$ mit $\norm{z}>0$ und o.B.d.A $\varphi(z) = 1.$ Sei $h \in H$ beliebig, dann sehen wir \[ \varphi(\underbrace{\varphi(h)z-h}_{\in \ker\varphi }) = \varphi(h)\varphi(z)-\varphi(h) = 0.\] Damit ist $z \perp \varphi(h)z - h$ und äquivalent dazu \[0 = \ip{z, \varphi(h)z-h} = \varphi(h)\norm{z}^2-\ip{z,h} \text{ also } \varphi(h) = \ip{\frac{z}{\norm{z}^2}, h}.\] \\ \\\textbf{Eindeutigkeit} \\
 Nehmen wir an, dass $\ip{h_1, h} = \ip{h_2, h}$ mit $h = h_1 - h_2$ und sei \[0 = \ip{h_1 - h_2, h} = \norm{h_1 - h_2}^2 \implies h_1 = h_2.\] Über die CBS-Ungleichung gilt außerdem: \[\ab{\ip{h_0, h}} \leq \norm{h_0}\norm{h} \implies \norm{\varphi}_{H'} \leq \norm{h_0}.\] Da aber \[\ab{\varphi(h_0)} = \ip{h_0, h_0} = \norm{h_0}^2 = \norm{h_0}\norm{h_0} \implies \norm{\varphi} = \norm{h_0}.\]
 \end{proof}
 \end{theorem}
