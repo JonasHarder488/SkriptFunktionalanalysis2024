@@ -1,7 +1,70 @@
 \chapter{Der Spektralsatz und Funktionalkalk\us le}
 \section{Der analytische Funktionalkalk\us l}
+\begin{rem}
+	
+	Die Spektraltheorie versucht die Eigenwerttheorie für Matrizen auf Operatoren auf unendlichdimensionalen Banachräumen zu verallgemeinern. Im endlichdimensionalen waren Eigenwerte dadurch charakterisiert, dass $\lambda \text{Id} - T$ nicht subjektiv (bzw, äquivalent dazu nicht injektiv ist). Dieses Konzept funktioniert im unendlichdimensionalen leider nicht mehr.
+	
+\end{rem}
+
+
+\begin{rem}
+	
+	Wir erinnern uns: Eine Potenzreihe $f(z) = \sum_{n \in \N} a_n(z-z_0)^n$ mit $\forall n \in \N: a_n, z_0, z \in \C$ konvergiert absolut für \[z \in \set{\xi \in \C: \ab{\xi-z_0}< \rho(a) := \overline{\lim_{n \to \infty}}} \frac{1}{\sqrt[n]{\ab{a_n}}} \]
+	
+\end{rem}
+
+
+\begin{theorem} Sei $H$ ein Hilbertraum (über $\C$,) $T \in \mc B(H),$ dann \[\norm{T-z_0I}< \rho(a) \text{ dann konvergiert } f(T) = \sum_{n \in \N} a_n(T-z_0I)^n\] in der Norm. (Mit der Konvention $A^0 = \text{Id}$)Außerdem gilt \[f(T)g(T) = fg(T) \text{ und } f(g(T)) = f \circ g(T).\]
+	
+	\begin{proof}[Beweis:] Betrachte folgende Abschätzung: \[\sum_{n \in \N} \norm{a_n(T-z_0\text{Id})^n} \leq \sum_{n \in \N} \ab{a_n}\norm{(T-z_0\text{Id})^n} \leq \sum_{n \in \N} \ab{a_n}\norm{(T-z_0\text{Id})}^n < \infty\]
+		
+		Damit ist \[(\sum_{n \in \N} a_n(T-z_0 \text{Id})^n)_{N \in \N}\]
+		
+		
+		\unsure{Wieso genau folgt jetzt die Komposition? Warum genau ist der letzte Term kleiner unendlich?}
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{ex} Betrachte die Reihe $\exp(z) = \sum_{n \in \N} \frac{z^2}{n!}$ Dann ist $\rho(a) = \infty,$ also konvergiert $\exp(T) = \sum_{n\in \N} \frac{T^n}{n!}$ für alle $T \in \mc B(H)$
+	
+\end{ex}
+
+
+\begin{ex} Sei $T \in \mc B(H), \norm{T} < 1.$ Dann ist $T - \text{Id}$ invertierbar und $(T- \text{Id})^{-1} = -\sum_{n \in \N} T^n$
+	
+	
+	\begin{proof}[Beweis:] Sei $s_N = \sum_{n = 0}^N T^n,$ betrachte \[ s_N(T- \text{Id}) = \sum_{n = 0}^N T^n (T- \text{Id}) = \sum_{n = 0}^N T^{n+1} - T^n = T^{N+1}- \text{Id} \xrightarrow{N \to \infty} - \text{Id}.\]
+		
+		
+		Die rechte Seite ist klar. 
+		
+	\end{proof}
+	
+\end{ex}
+
+
 \section{Das Spektrum eines Operators}
-[\textit{***** Hier fehlt noch die Vorlesung vom 20.06. *****}]
+
+\begin{definition} Sei $H$ ein Hilbertraum, $T \in \mc B(H).$ Wir definieren
+	
+	\begin{enumerate}
+		
+		\item das Spektrum durch $\sigma(T) = \set{z \in \C: T-z \text{Id nicht invertierbar}}$
+		
+		\item die Resolventenmenge durch $\rho(T) = \set{z \in \C: (T-z \text{Id})^{-1} \text{ exit }}.$
+		
+		\item das Punktespektrum durch $\sigma_p(T) = \set{\lambda \in \C: \text{Ker}(T-\lambda\text{Id}) \not= \set{0}}$
+		
+		\item das kontinuierliche Spektrum $\sigma_C(T) = \set{\lambda \in \C: \text{Ker}(T-\lambda \text{Id}), \text{Im}(T- \lambda \text{Id}) \text{ nicht dicht}}$
+		
+		\item das Residualspektrum durch $\sigma_V(T) = \set{\lambda \in \C: \text{Ker}(T- \lambda \text{Id}) = \set{0}, \text{Im}(T- \lambda \text{Id}) \text{ nicht dicht}}$
+		
+	\end{enumerate}
+	
+\end{definition}
 
 \begin{ex}
 	Betrachte den Hilbertraum \(H = L^2([0,1])\) mit dem Multiplikationsoperator \(T = M_\text{Id}\). Dieser hat das Spektrum und kontinuierliche Spektrum

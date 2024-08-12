@@ -1,4 +1,147 @@
-\textit{[***** Hier fehlt noch die Vorlesung vom 28.06.****]}
+asdf
+\begin{lemma} Sei $S, T, U \in \mc B(H),$ mit $H$ als Hilbertraum und $T = SU = US.$ Dann existiert $T^{-1}$ genau dann, wenn $S^{-1}$ und $U^{-1}$ existieren. 
+	
+	
+	\begin{proof}[Beweis] $(\Leftarrow)$ Ist klar, da \[T^{-1} = S^{-1}U^{-1} = (US)^{-1} = U^{-1}S^{-1}\] \\ \\
+		
+		$(\Rightarrow)$ Wir zeigen dies über die Kontraposition. Nehme an $S^{-1}$ existiere nicht. \\ \\
+		
+		\textbf{Fall 1:} Sei \[\ker{S} \not= \set{0}, T = US \implies \ker{T} \supseteq \ker{S} \not= \set{0}\] \\
+		
+		\textbf{Fall 2:} Sei $\ker{S} = \set{0}.$ Dann kann $S$ aber nicht surjektiv sein. Betrachte:
+		
+		\[(TH)^{\perp} = (SUH)^{\perp} \supset (SH)^{\perp} \not= \set{0}\] 
+		
+		\unsure{Weil $H = TH + TH^{perp}???$}
+		
+	\end{proof}
+	
+\end{lemma}
+
+
+\begin{theorem} \label{lem_inv} Für $T \in \mc B(H), H$ Hilbertraum, gilt für $p \in \C[X]: \sigma(p(T))= p(\sigma(T))$
+	
+	
+	\begin{proof}[Beweis:] $(\subseteq)$ Sei $\mu \not= \sigma(p(T)),$ also $p(T)-\mu$ nicht invertierbar. Nach dem Fundamentalsatz der Algebra gibt es ein $c \not= 0, \lambda_1, …, \lambda_n \in \C$ mit \[p(x)- \mu = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_n) \implies p(T)-\mu = c(T-\lambda_1) \cdot … \cdot (T- \lambda_n)\]
+		
+		Damit gibt es $\lambda_i (T), i = 1, …, n$ mit $(T- \lambda_i)$ existiert nicht, also $\lambda_i \in \sigma(T).$ Aber $p(\lambda_i)- \mu = 0 \implies \mu = p(\lambda_i).$ \\ \\
+		
+		$(\supseteq)$ Sei $\lambda \in \sigma(T).$ Es gibt ein $c \not= 0, \lambda_1, …, \lambda_n: p(x)-p(\lambda) = c(x-\lambda_1)\cdot \dots \cdot (x- \lambda_n).$ Sei $x \not= \lambda_i, i = 1, \dots,j, \dots, n,$ dann folgt aus \[0 = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_j) \cdot \dots \cdot (x- \lambda_n) \implies x= \lambda_j\]
+		
+		Dann \[p(T)-p(\lambda_j)\text{Id} = cc(x- \lambda_1)\cdot \dots \cdot (x- \lambda_j) \cdot \dots \cdot (x- \lambda_n) = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_{j+1}) \cdot \dots \cdot (x- \lambda_n) (x- \lambda_j).\] Da aber $(T-\lambda_j)$ nicht existiert existiert durch \ref{lem_inv} auch $(P(T)-p(\lambda)\text{Id})^{-1}$ nicht. Damit $p(\lambda_j \in \sigma(p(T))).$
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{definition} Sei $T \in \mc B(H), H$ ein Hilbertraum, dann ist der numerische Wertebereich definiert als $W(T) := \set{\ip{x, Tx}: \norm{x} = 1}.$ 
+	
+\end{definition}
+
+
+\begin{theorem} Sei $T \in \mc B(H),$ dann ist $\sigma{T} \subseteq \overline{W(T)}$
+	
+\end{theorem}
+
+
+\begin{theorem} \label{num_spec} Sei $T \in \mc B(H),$ dann $\sigma(T) \subseteq \overline{W(T)}.$
+	
+	\begin{proof}[Beweis:] Wir zeigen dies über die Kontraposition. Sei also $\lambda \notin \overline{W(T)},$ dann ist zu zeigen $(T-\lambda\text{Id})^{-1}$ existiert. Damit $d := \text{dist}(\lambda, \overline{w(T)}) > 0$ und $\overline{W(T)} \subseteq \overline{K_{\norm{T}}(0)}$ also folgt Kompaktheit. \\ \\
+		
+		Sei nun $\norm{x} = 1,$ dann:
+		
+		\[d \leq \ab{\lambda - \ip{x, Tx}} = \ab{\lambda \ip{x, x} - \ip{x, Tx}} = \ab{\ip{x, (T-\lambda \text{Id})x}} \leq \underbrace{\norm{x}}_{= 1} \norm{(T-\lambda{text{Id}})x}\]
+		
+		Also gilt für alle $x \in H$ mit $norm{x} = 1.$ Damit aber auch für alle $x \in H\setminus \set{0}$ (Für $\set{0}$ trivialerweise.): \[\]
+		
+		\[\norm{(T-\lambda \text{Id})x} = \norm{x} \norm{(T-\lambda \text{Id})\frac{x}{\norm{x}}} \geq d \norm{x} \implies \ker{T - \lambda \text{Id}} = \set{0}\] Damit haben wir die Injektivität. \unsure{Wie geht es weiter???}%
+		
+		Außerdem ist $(T- \lambda \text{Id})H$ abgeschlossen \unsure{Warum?}.
+		
+		Sei nun $y_n = (T-\lambda \text{Id}x_n) \xrightarrow{n \to \infty} y.$ Wenn $(y_n)_{n \in \N}$ eine Cauchy-Folge ist, so auch $(x_n)_{n \in \N}.$ \\ \\
+		
+		Sei nun $(T- \lambda \text{Id})H$ nicht dicht, d.h es gibt $0 \not= x \in ((T-\lambda \text{Id})H)^{\perp}, \norm{x} = 0.$ Dann folgt: \[0 = \ip{x, (T- \lambda \text{Id})x} = \ip{x, Tx}-\lambda \implies \lambda \in \overline{W(T)}\]
+		
+		und damit ein Widerspruch. 
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{theorem} Sei $T \in \mc B(H)$ selbstadjungiert mit $T = T^*,$ dann ist $\sigma(T) \subseteq [- \norm{T}, \norm{T}] \subseteq \R.$
+	
+	
+	\begin{proof}[Beweis:] Es gilt mit \ref{num_spec} $\sigma{T} \subseteq \overline{W(T)} \subseteq [-\norm{T}, \norm{T}] \subseteq \R,$ da $\ip{x, Tx} = \ip{Tx, x} = \overline{x, Tx} \in \R.$ Des Weiteren mit $\norm{x} = 1:$ \[\ab{\ip{x, Tx}} \leq \norm{T}\norm{x}^2 = \norm{T}\]
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\section{Der Satz von Stone-Weierstraß}
+
+\begin{theorem} Sei $f \in C^0_{\R}[a, b]$ dann gibt es eine Folge von Polynomen $(p_n)_{n \in \N}, p_n \in \R[X]$ mit $p_n \xrightarrow{\norm{\cdot}_{\infty}, n \to \infty}f.$
+	
+	\begin{proof}[Beweis:] Ohne Beweis.
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{theorem} \label{algebraquatsch} Sei $\emptyset \not= K$ kompakt, $\mc A \subseteq C^0(K, \R)$ mit 
+	
+	\begin{enumerate}
+		
+		\item $\forall f, g \in \mc A, \lambda \in \C: \lambda f +g \in \mc A, fg \in \mc A$
+		
+		\item $\mc A$ abgeschlossen
+		
+		\item $\forall s \not= t \in K \exists f \in \mc A: f(s) \not= f(t)$
+		
+		\item $1 \in \mc A$
+		
+	\end{enumerate}
+	
+	Dann ist $\mc A = C^0[K, \R]$
+	
+	\begin{proof}[Beweis:] Wir zeigen $f \in \mc A, 0 \leq f \implies \sqrt{f} \in \mc A.$ Sei o.B.d.A $f \leq 1,$ dann existiert $g_n := \sqrt{\frac{1}{n}+(1- \frac{1}{n})f}$ für alle $n \in \N.$
+		
+		\unsure{Warum gilt hier Gleichheit?} Und dies ist gleich \[g_n = \frac{1}{n}+ (1- \frac{1}{n})f \leq \frac{1}{n}+(1- \frac{1}{n}) = 1 \implies \norm{g_n}_{infty} = \sqrt{1} = 1\] Aufgrund der Abgeschlossenheit haben wir nun: \[\lim_{n \to \infty} g_n = \sqrt{f} \in \mc A.\] \\ \\
+		
+		Wir erhalten nun folgendes geschenkt:
+		
+		\begin{enumerate}
+			
+			\item $\forall f \in \mc A: \ab{f} = \sqrt{f^2} \in \mc A.$
+			\item $\forall f, g \in \mc A: f \lor g = \max(f, g) = \frac{1}{2}(f+g+ \ab{f-g}) \in \mc A$
+			\item $\forall f, g \in \mc A: f \land g = \min(f, g) = \max{\set{-f, -g}}$
+			
+		\end{enumerate}
+		
+		Sei nun $f \in C^0(K, \R), \varepsilon > 0.$ Für alle $s \not= t \in \mc A$ gibt es ein $h \in h(s) \not= h(t),$ sei nun \[f_{s, t}: K \to \R, f_s,t(v) = f(t)+(f(s)+f(t))\frac{h(v)-h(t)}{h(s)-h(t)} \implies f_{s, t} \in \mc A\] Außerdem $f_{s, t}(s) = f(s), f_{s, t}(t) = f(t).$ \\ \\
+		
+		Definiere nun $U_t = \set{v \in K: f_{s, t}(v) < f(v)+\varepsilon}.$ Dann ist $U_t$ offen. Setze nun $s \in K$ fix. Aufgrund der Kompaktheit gilt: \[\exists I = \set{t_1, …, t_m}: \Cup_{t \in I}U_t = K\] 
+		
+		Wir setzen $h_s := \cap_{t \in I}f_{s, t} \in \mc A$ (und schneiden damit nur über endlich viele.) Wir wissen $h_s(s)=f(s)$ und $\forall v \in K: h_s(v) \subset f(v)+\varepsilon.$
+		
+		Für alle $s \in K$ ist $v_s = \set{v \in K, f(v)- \varepsilon \subset h_s(v)}$ offen. Es folgt mit Kompaktheit wieder $K = \cup_{j=1}^n v_{s_j},$ und setzte $g_i = \cup_{j=1}^n h_{s_j} \in \mc A$ (wieder nur endlich viele), also gilt für alle $v \in K: g(v) < f(v)+\varepsilon$ und $g(v) > f(v) -\varepsilon.$ Folglich $\norm{g-f}_{\infty} < \varepsilon.$ Damit haben wir die Dichtheit gewonnen. Da alle Grenzwerte aufgrund der Abgeschlossenheit in $\mc A$ enthalten sind, erhalten wir die Behauptung.
+		
+	\end{proof}
+	
+\end{theorem}
+
+
+\begin{ex} Sei $K = [a, b]$ und betrachte $\mc A = \overline{\R[X]}.$ Dann folgt mit \ref{algebraquatsch} der Satz von Weierstraß. 
+	
+\end{ex}
+
+
+\begin{ex} Sei $K = S^1, C^0(S^1) = \set{f: \R \to \R \text{ stetig, }2\pi \text{ periodisch}}$ und $\mc A = \overline{\varepsilon_0 + \sum_{n = 1}^{\infty}a_n \sin{(nx)} + b_n \cos{(nx)}}$
+	
+\end{ex}
 
 \section{Der stetige Funktionalkalk\us l}
 \begin{theorem}[Stetiger Funktionalkalk\us l]

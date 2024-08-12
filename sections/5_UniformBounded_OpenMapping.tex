@@ -2,7 +2,7 @@
 	%%%Vorlesung vom 27.5%%%
 	Sei $V$ ein Vektorraum über dem Körper $\K$, $V^{'}$ der Dualraum und $V^{''}$ der Bidualraum. Dann ist die natürliche Einbettung $\iota$ definiert durch: 
 	\[
-	\iota: V \to V^{''}, \iota(v)(\varphi) = \varphi(v) \text{ für alle } v \in V, \varphi \in V'
+	\iota: V \to V^{'}, \iota(v)(\varphi) = \varphi(v) \text{ für alle } v \in V, \varphi \in V'
 	\]
 	Außerdem ist $\iota$ per Definition injektiv und linear. Des Weiteren erhält $\iota$ die Norm:
 	\[
@@ -83,7 +83,7 @@
 
 \begin{rem} Die Kategorien sind wie folgt definiert: 
 	\begin{enumerate} 
-		\item Eine Menge $M$ heißt von \textit{Kategorie 1}, wenn es eine Folge $\{S_n\}_{n \in \mathbb{N}}$ nirgends dichter Mengen gibt mit $M = \bigcup_{n \in \mathbb{N}} S_n$.
+		\item Eine Menge $M$ heißt von \textit{Kategorie 1}, wenn sie mager ist. (Wenn es eine Folge $\{S_n\}_{n \in \mathbb{N}}$ nirgends dichter Mengen gibt mit $M = \bigcup_{n \in \mathbb{N}} S_n$).
 		\item Eine Menge $M$ heißt von \textit{Kategorie 2}, wenn $M$ nicht von Kategorie 1 ist.
 	\end{enumerate}
 \end{rem}
@@ -92,7 +92,7 @@
 	Sei $(X, d)$ ein vollständiger metrischer Raum, $\{K_n\}_{n \in \mathbb{N}}$ eine absteigende Folge nichtleerer abgeschlossener Mengen in $X$, mit $K_{n+1} \subset K_n$ für alle $n \in \mathbb{N}$. Sei außerdem $\lim_{n \to \infty} \text{diam}(K_n) = 0$, dann gibt es $x \in X$ mit $\bigcap_{n = 1}^{\infty} K_n = \{x\}$.
 \end{theorem}
 
-\begin{theorem} \label{baire_kat}
+\begin{theorem}[Baire'sches Kategorientheorem] \label{baire_kat}
 	Sei $(X, \rho)$ ein vollständiger metrischer Raum und $\{S_n\}_{n \in \mathbb{N}}$ eine Folge nirgends dichter Mengen, dann gibt es $x \in X$ mit $x \notin \bigcup_{n \in \mathbb{N}} S_n$.
 	
 	\begin{proof}[Beweis:] 

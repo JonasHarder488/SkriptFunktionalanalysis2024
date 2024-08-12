@@ -74,13 +74,7 @@
 
 \begin{ex}[Multiplikationsoperatoren] \label{Mult_op}
     Sei $(\Omega, \mc F, \mu)$ ein Maßraum, $\phi \in L^2(\mu)$ und \[M_{\phi}: L^2(\mu) \to L^2(\mu), f \mapsto \phi \cdot f \text{ mit } M_{\phi} \cdot M_{\psi} = M_{\psi} \cdot M_{\phi} = M_{\phi \cdot \psi}\] Dann gilt:
-    \[\norm{M_{\phi}f}^2 = \int \ab{\phi(x)}^2 \ab{f(x)}^2dx \leq \int \norms{\phi}^2 \ab{f(x)}^2dx = \norms{\phi}^2\norm{f}^2 \leq \norms{\phi}^2 \text{ $\mu-$ fast überall}\]
-    
-    Wir haben also $M_{\phi} \in \B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ 
-    
-    Gleichheit gilt tatsächlich für $\mu(\Omega) < \infty.$
-    
-    Sei $\alpha < \norms{\phi}$ und definiere
+    \[\norm{M_{\phi}f}^2 = \int \ab{\phi(x)}^2 \ab{f(x)}^2dx \leq \int \norms{\phi}^2 \ab{f(x)}^2dx = \norms{\phi}^2\norm{f}^2 \leq \norms{\phi}^2 \text{ $\mu-$ fast überall}\] \\ Wir haben also $M_{\phi} \in \B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ Gleichheit gilt tatsächlich für $\mu(\Omega) < \infty.$ Sei $\alpha < \norms{\phi}$ und definiere
     \[E = \set{x: \ab{\phi(x) > \alpha}}\]
     dann ist $\mu(E)>0.$ Sei nun $f = 1_E,$ dann 
     \[\norm{M_{\phi}f}^2 = \int_E \norm{\phi(x)}^2 \geq \alpha \mu(E) = \alpha \norm{1_E}^2\]
@@ -170,7 +164,7 @@ Die Abbildung $\psi: H \to H', h \mapsto \ip{h, \cdot}$ ist eine (anti-lineare) 
 \end{rem}
 
 \begin{definition} \label{sesq_bound}
-    Seien $H, K$ Hilberträume, dann heißt eine Sesquilinearform $u: H \times K \to \K$ beschränkt genau dann wenn \[\exists M > 0, \forall h \in H, k \in \K: \ab{u(h, k)} \leq M \norm{h}_H \norm{k}_K\]
+    Seien $H, K$ Hilberträume, dann heißt eine Sesquilinearform $u: H \times K \to \K$ beschränkt genau dann wenn \[\exists M > 0, \forall h \in H, k \in K: \ab{u(h, k)} \leq M \norm{h}_H \norm{k}_K\]
 \end{definition}
 
 \begin{theorem}
