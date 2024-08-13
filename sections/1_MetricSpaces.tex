@@ -19,7 +19,7 @@
 \end{ex}
 \begin{ex}
 	\((\R^n, d_i)\) mit \(i \in \{1,2,\infty\}\) sind metrische R\as ume, wobei f\us r \(x,y \in \R\)
-	\[d_1 := \sqrt{\sum_{i=1}^n  (x_i -y_i) },\;\;\;\; d_2 := \sqrt{\sum_{i = 1}^n (x_i - y_i)^2}, \;\;\;\; d_\infty := \max \{\ab{x_i - y_i}\vert i: 1,\ldots, n\}\]
+	\[d_1 := \sum_{i=1}^n  \ab{x_i -y_i },\;\;\;\; d_2 := \sqrt{\sum_{i = 1}^n (x_i - y_i)^2}, \;\;\;\; d_\infty := \max \{\ab{x_i - y_i}\vert i: 1,\ldots, n\}\]
 \end{ex}
 \begin{definition}
 	Sei \(X,d\) ein metrischer Raum. Dann definieren wir die offene bzw. abschlossene Kugel um \(x\in X\)wie folgt.
@@ -117,7 +117,7 @@
 \end{theorem}
 
 \begin{theorem}
-	Sei \((X_1,d_1)\) ein metrischer Raum \((X_2, d_2)\) ein vollst\as ndiger metrischer Raum sowie \(\varphi: X_1 \to X_2\) isometrisch. Dann gibt es genau eine isometrisches \(\hat\varphi: X_1\to X_2\) mit \(\hat\varphi\vert_S = \varphi\).
+	Sei \((X_1,d_1)\) ein metrischer Raum, \(S\subseteq X_1\) dicht und \((X_2, d_2)\) ein vollst\as ndiger metrischer Raum sowie \(\varphi: S \to X_2\) isometrisch. Dann gibt es genau eine isometrisches \(\hat\varphi: X_1\to X_2\) mit \(\hat\varphi\vert_S = \varphi\).
 	\label{vollst_isometrie}
 \end{theorem}
 \begin{proof}

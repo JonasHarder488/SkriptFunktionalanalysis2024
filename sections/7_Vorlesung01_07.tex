@@ -1,4 +1,4 @@
-asdf
+
 \begin{lemma} Sei $S, T, U \in \mc B(H),$ mit $H$ als Hilbertraum und $T = SU = US.$ Dann existiert $T^{-1}$ genau dann, wenn $S^{-1}$ und $U^{-1}$ existieren. 
 	
 	
@@ -12,7 +12,7 @@ asdf
 		
 		\[(TH)^{\perp} = (SUH)^{\perp} \supset (SH)^{\perp} \not= \set{0}\] 
 		
-		\unsure{Weil $H = TH + TH^{perp}???$}
+		\unsure{Weil $H = TH + TH^{\perp}???$}
 		
 	\end{proof}
 	
@@ -139,12 +139,13 @@ asdf
 \end{ex}
 
 
-\begin{ex} Sei $K = S^1, C^0(S^1) = \set{f: \R \to \R \text{ stetig, }2\pi \text{ periodisch}}$ und $\mc A = \overline{\varepsilon_0 + \sum_{n = 1}^{\infty}a_n \sin{(nx)} + b_n \cos{(nx)}}$
+\begin{ex} Sei $K = S^1, C^0(S^1) = \set{f: \R \to \R \text{ stetig, }2\pi \text{ periodisch}}$ und \\\(\mc A = \overline{\varepsilon_0 + \sum_{n = 1}^{\infty}a_n \sin{(nx)} + b_n \cos{(nx)}}\)
 	
 \end{ex}
 
 \section{Der stetige Funktionalkalk\us l}
 \begin{theorem}[Stetiger Funktionalkalk\us l]
+	\label{stetiger_kalkuel}
 	Sei $H$ ein Hilbertraum, \(T\in \B(H)\) selbstadjungiert. Dann existiert genau eine Isometrie 
 	\[\varphi_T: C^0(\sigma(T),\C) \to \B(H)\]
 	mit den folgenden Eigenschaften:
@@ -188,4 +189,97 @@ asdf
 	\[\varphi_T(f+g) = \lime{n}{\varphi_0(p_n + q_n)} = \lime{n}{\varphi_0(p_n)} + \lime{n}{\varphi_0(q_n)} = \varphi_T(f) + \varphi_T(g)\;.\]
 	\textbf{Schritt 7:} (Wohldefiniertheit) Sei \(f\in C^0(\sigma(T)))\) mit \(\li pn = f\) bzgl. \(\norms\cdot\). Dann gilt 
 	\[\norm{\varphi_T(f)} = \norm{\lime{n}{\varphi_T(p_n)}} = \lime{n}{\norm{\varphi_0(p_n)}} = \lime{n}{\norms{p_n}} \]
+	\textbf{Schritt 8:} (Eindeutigkeit) Sei \(\tilde\varphi\) eine andere Isometrie mit den obigen Eigenschaften. Dann gilt \(\forall f \in A_0\) (mit $p$ wie in der Definition):
+	\[\tilde \varphi(f) = \varphi_0(f) = p(T) = \varphi_T(f)\;.\]
+	Betrachte nun allgemein \(g \in C^0(\sigma(T))\) mit entsprechender Polynomfolge \(\li qn = g\) (bzgl. $\norms\cdot$). Dann gilt
+	\[\lime{n}{\varphi_0(q_n)} = \tilde\varphi(g) \;\text{ und }\; \lime{n}{\varphi_0(q_n)} =\varphi_T(g) \implies \tilde\varphi(g) = \varphi_T(g)\;.\]
+	\end{proof}
+	\begin{rem}[Stetiger Funktionalkalk\us l f\us r normale Operatoren]
+	  Der Beweis l\as sst sich analog f\us r normale Operatoren durchf\us hren. Dabei betrachten wir in der Definition von $A_0$ jedoch 
+	  \[\C[X, \overline X] \;\text{ und somit z. B. }\; A_0 \ni p(X, \overline X) = X\overline X = \overline X X \implies \varphi_T(p) = TT^* = T^*T\;.\]
+	  F\us r normale Operatoren besitzt die Isometrie die zus\as tzliche Eigenschaft
+	  \(\varphi_T(\overline {\text{id}}) = T^*\;.\)
+	\begin{lemma}
+		\label{spektrum_normal}
+		Sei \(T\in \B(H)\) normal, \(\lambda \in \sigma(T)\). Dann existiert \(\seq xn \subseteq H^\N\) mit 
+		\[\forall n \in \N: \; \norm{x_n} = 1 \;\text{ und }\;  \lime{n}{\norm{Tx_n - \lambda x_n}} = 0\;.\]
+	\end{lemma}
+	\begin{proof}
+		Wir benutzen Kontraposition. Angenommen
+		\[\exists \delta > 0 \;\forall x \in H, \norm x = 1: \norm{Tx - \lambda x } \geq \delta\;.\]
+		Somit folgt
+		\[\forall x \in H: \norm{(T-\lambda \I)x} \geq \delta \norm x \implies  T -\lambda \I \;\text{ injektiv} \implies (T-\lambda\I)H \;\text{ abgeschlossen}\;.\]
+		Dabei erhalten wir die letzte Folgerung aus Satz \ref{Offene_Abb}.\\
+		Sei nun \(H \ni u \perp (T-\lambda\I)H\), d. h. 
+		\[\forall x\in H\setminus\set{0}:\; 0 = \ip{u, (T-\lambda\I)x} \iff 0  = \ip{(T^* - \overline\lambda \I)u,x}  \implies  (T^* -\overline \lambda I) u = 0\;.\]
+		Dabei haben wir ausgenutzt, dass gilt:
+		\[ \ip{u, (T-\lambda\I)x}  = \ip{u,Tx} - \lambda \ip{u,x} = \ip{T^* u, x} - \ip{\overline\lambda u,x}\;. \]
+		Folglich gilt:
+		\begin{align*}0 &= \ip{(T^* -\overline \lambda I) u,(T^* -\overline \lambda I) u} = \ip{u, (T-\lambda\I)(T^* -\overline \lambda I) u} = \ip{u, (T^* -\overline \lambda I)(T-\lambda\I) u} \\
+		&= \norm{(T-\lambda\I)u}^2 \implies u=0 \implies \lambda \in \varrho(T)\;.
+		\end{align*}
+		Dabei haben wir \(u=0\) aus der Injektivit\as t von \(T-\lambda\I\) gefolgert. Damit ist \(T-\lambda\I\) auch surjektiv und es folgt die Behauptung.
+	\end{proof}
+	
+	\begin{theorem}\label{eigenschaften_stetiger_kalkuel}
+		Sei $H$ ein Hilbertraum, \(T\in \B(H)\) normal.  Dann gilt f\us r \(f\in C^0(\varrho(T))\):
+		\begin{enumerate}
+			\item \(\norm{f(T)}_{\B(H)} = \norms{f} = \sup\set{\ab{f(\lambda)}\;\vert\;\lambda \in \sigma(T)}\) \label{eigenschaften_stetiger_kalkuel_1}
+			\item Falls \(x\in H\setminus\set{0}\), \(T\) selbstadjungiert sowie \(\lambda \in \R\) die Eigenwertgleichung \(Tx = \lambda x\) erf\us llen, so gilt \(f(T)x = f(\lambda)x\)\;.
+			\item Spektralabbildungssatz: Es gilt \(\sigma(f(T)) = f(\sigma(T)) = \set{f(\lambda)\;\vert\;\lambda \in \sigma(T)}\).
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		\textbf{Zu 1.)} Dies folgt sofort aus Schritt 4, Satz \ref{stetiger_kalkuel}.\\
+		\textbf{Zu 2.)} Nach Konstruktion im Beweis von Satz \ref{stetiger_kalkuel} ist bekannt:
+		\[\forall p \in \C[X]: p(T)x = p(\lambda)x\;.\]
+		Sei nun eine Polynomfolge \(\seq pn\) gegeben mit \(\li pn = f\) (bzgl. \(\norms\cdot\)). Mit \ref{eigenschaften_stetiger_kalkuel_1} folgt:
+		\begin{align*}
+		&\lime{n}{p_n(T)} = f(T)\;\text{ (bzgl. $\norm{\cdot}_{\B(H)}$)} \implies \lime{n}{p_n(T)x} = f(T)x \;\text{ bzgl. $\norm{\cdot}_{H}$} \\
+		& \text{ mit }\lime{n}{p_n(T)x} = \lime{n}{p_n(\lambda)x} = f(\lambda)x \implies f(T)x = f(\lambda)x\;.
+		\end{align*}
+		\textbf{Zu 3.)} \textbf{($\subseteq$)} Es g. z. z. 
+		\[\forall \mu \in \sigma(f(T)) \;\exists \lambda \in \sigma(T): \mu = f(\lambda)\;.\]
+		Wir benutzen Kontraposition. Angenommen \(\mu \not\in f(\sigma(T))\). Dann folgt
+		\[g := \frac{1}{f-\mu} \in C^0(\sigma(T)) \;\text{ und }\; g(f-\mu) = (f-\mu)g = 1 \in C^0(\sigma(T))\;.\]
+		Nach Satz \ref{stetiger_kalkuel} gilt somit
+		\[g(T)(f(T) -\mu\I) = (f(T) -\mu\I)g(T) = \I \implies (f(T) -\mu\I)^{-1}\;\text{ existiert.}\]
+		Somit gilt in der Tat \(\mu\not\in \sigma(f(T))\).\\
+		\textbf{($\subseteq$)} Sei \(\mu = f(\lambda)\) f\us r ein \(\lambda \in \sigma(T)\). W\as hle Polynomfolge \(\seq gn \subseteq \C[X,\overline X]^\N\) mit \(\norms{f - g_n} \leq \frac1n\). Somit gilt insbesondere \(\ab{f(\lambda) - g_n(\lambda)} \leq \frac 1n\). Unter Ausnutzung von \(\sigma(g_n(T)) = g_n(\sigma(T))\) (Bew. von Satz \ref{stetiger_kalkuel}) existiert also (nach Lemma \ref{spektrum_normal}) \(\seq xn \subseteq H^\N\) mit 
+		\[\forall n\in\N: \norm{x_n} = 1 \;\text{ und } \; \norm{(g_n(T) - g_n(\lambda)\I)(x_n)}\leq \frac 1n\;.\]
+		Damit gilt
+		\begin{align*}
+			\norm{(f(T) -\mu\I) x_n} &\leq \norm{(f(T) - g_n(T))x_n} + \norm{(g_n(T) - g_n(\lambda)\I)x_n} \\
+			&+ \norm{(g_n(\lambda)\I - f(\lambda)\I)x_n} \overset{n\to\infty}{\longrightarrow} 0\;.
+			\end{align*}
+			Somit gilt in der Tat \(\mu\in\sigma(f(T))\).
+	\end{proof}
+	
+	\section{Positive Operatoren und die Spurklasse}
+	
+	\begin{definition}
+		Sei $H$ ein Hilbertraum, dann bez. \(T\in\B(H)\) \textit{positiv} \(:\iff T = T^*\) und \(\sigma(T) \geq 0\) (d. h. \(\sigma(T) \subseteq [0,\infty)\)). Wir schreiben dann auch \(T \geq 0\).
+	\end{definition}
+	
+	\begin{theorem}
+		Sei \(T\in\B(H)\) selbstadjungiert, dann gilt
+		\begin{enumerate}
+			\item \(\ab{T} \geq 0\)
+			\item \(T\geq 0 \implies \exists S \geq 0: T = S^2\) ($S = \sqrt{T}$)
+		\end{enumerate}
+		\begin{proof}
+			Dies folgt aus den S\as tzen \ref{stetiger_kalkuel} und \ref{eigenschaften_stetiger_kalkuel}, da \(\ab\cdot\) und \(\sqrt\cdot\) stetige Funktionen sind.
+		\end{proof}
+	\end{theorem}
+	
+	\begin{theorem}
+		Sei \(T\in \B(H)\), wobei $H$ ein Hilbertraum \us ber $\C$. Dann gilt
+		\[T \geq 0 \iff \forall x \in H: \ip{x,Tx} \geq 0 \;.\]
+	\end{theorem}
+	\begin{proof}
+		\textbf{($\Longrightarrow$)} Es gilt
+		\[\ip{x,Tx} = \ip{x,\sqrt{T}\sqrt{T} x} = \ip{\sqrt{T}x, \sqrt{T}x} \geq 0\;.\]
+		\textbf{($\Longleftarrow$)}
+		Nach Definition des numerischen Wertebereichs gilt
+		\[\sigma(T) \subseteq \overline{W(T)} = \overline{\set{\ip{x, Tx}\;\vert\;\norm{x} = 1}} \subseteq [0,\infty)\;.\]
 	\end{proof}
