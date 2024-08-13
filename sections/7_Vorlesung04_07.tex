@@ -1,0 +1,25 @@
+\textit{[*** Hier fehlt noch der erste Teil der Vorlesung vom 04.07.***]}
+\begin{theorem}
+	Jeder Spurklasseoperator auf einem Hilbertraum $H$ ist kompakt. Weiterhin gilt f\us r $T$ Spurklasse sowie \(S \in B(H)\) auch \(TS, ST\) Spurklasse und \(\tr (ST) = \tr(TS)\).
+\end{theorem}
+\begin{proof}
+	Sei also \(S\in \B(H)\) und $T$ Spurklassse.  Da die Isometrie nach Satz \ref{stetiger_kalkuel} involutorisch ist, gilt
+	\[\ab{ST} = \sqrt{(ST)^*ST} = \sqrt{T^*S^*ST}\;.\]
+	Weiterhin gilt mit Satz \unsure{Label fehlt (Satz 8.19 in Vorlesung)}
+	\[S^*S = \ab{S}^2  \leq \norm{S}^2 \I \implies T^* S^* ST \leq T^*T\norm S^2 \;.\]
+	Somit folgt
+	\[\sqrt{T^*S^*ST} \leq \norm{S} \sqrt{T^*T} = \norm S \ab T\;.\]	
+	Dies ergibt f\us r eine ONB \((e_s)_{s\in S}\) von $H$
+	\[\sum_{s\in S}\ip{e_s, \ab{ST} e_s} \leq \sum_{s\in S} \norm{S} \ip{e_s, \ab{T}e_s} < \infty\;.\]
+	Die Behauptung f\us r $ST$ erhalten wir \us ber \(TS = (S^*T^*)^*\). Weiterhin gilt
+	\begin{align*}\tr(ST) &= \sum_{s\in S} \ip{e_s, ST e_s} = \sum_{s\in S} \ip {S^* e_s, T e_s} = \sum_{s, s' \in S}\ip{S^* e_s, e_{s'}}\ip{e_{s'}, Te_s} \\
+		&= \sum_{s, s' \in S}\ip{T^* e_{s'}, e_s}\ip{e_s, Se_{s'}} = \sum_{s'\in S} \ip{T^* e_{s'}, S e_{s'}} = \sum_{s'\in S} \ip {e_{s'}, TS e_{s'}}\;.
+		\end{align*}
+\end{proof}
+\begin{theorem}
+	Sei \(T\geq 0\) Spurklasse auf einem Hilbertraum $H$. Dann existiert eine Folge \(\seq \lambda n \subseteq \R^\N\) mit \( \forall n\in\N: \lambda_n \geq 0, \sum_{n\in\N} \lambda_n <\infty\) sowie ein ONS \(\seq en \subseteq H^\N\) sodass gilt
+	\[ T = \sum_{n\in\N} \lambda_n|e_n\rangle \langle e_n|\;.\]
+\end{theorem}
+\begin{proof}
+	Die Behauptung folgt daraus, dass \(\sum_{n\in\N} \lambda_n = \tr(T)\) gilt.
+\end{proof}

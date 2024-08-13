@@ -1,0 +1,22 @@
+\begin{definition}
+	Sei $H$ ein Hilbertraum sowie \(H_1, H_2\) Unterhilbertr\as ume. Dann bez. \(U\in \B(H)\) \textit{partielle Isometrie} von $H_1$ nach $H_2$, wenn 
+	\[U^*U = \text{Pr}_{H_1} \;\text{ und }\; UU^* = \text{Pr}_{H_2}\;.\]
+	Das hei\ss{}t konkret:
+	\begin{align*}&\forall x\in H_1: \norm{Ux} = \norm{x},\;\;\forall x \in H_2: \norm{U^*x} = \norm{x},\\
+		&\forall x \in H_1^{\perp}: Ux = 0,\;\; \forall x \in H_2^\perp: U^*x = 0\;.\end{align*}
+\end{definition}
+\begin{theorem}
+	Sei $H$ ein Hilbertraum, \(A\in \B(H)\). Dann existiert eine partielle Isometrie von \(\ker(A)^\perp = \ker(\ab A)\) nach \(\text{im}(A)\), sodass \(A = U\cdot \ab{A}\).
+\end{theorem}
+\unsure{Wieso gilt \(\ker(\ab{A} = \ker (A)^\perp\)?}
+\begin{rem}
+	Dies ist analog zur Polarzerlegung bei komplexen Zahlen, jedoch gilt i. A. 
+	\[\C\ni z = \ab z \exp(i\varphi(z))\implies \ab{\overline z} = \ab z \;\text{ vs }\; T \in \B(H) \implies \ab{T^*} = \sqrt{TT^*} \neq \sqrt{T^*T} = \ab{T}\;.\]
+\end{rem}
+\begin{proof}
+	Es gilt f\us r alle \(x\in H\)
+	\[\norm{Ax}^2 = \ip{Ax, Ax} = \ip{x, A^*Ax} = \ip{x, \ab{A}^2 x} = \ip{\ab{A}x, \ab{A}x} = \norm{\ab{A}x}^2\;.\]
+	Damit ist \(K:=\ker(A)^\perp\) ein Hilbertraum mit Norm 
+	\[\norm x_A := \norm {\ab{A}x}^2\]
+	und \(\ab{A}: K\to H\) ist eine Isometrie.\ldots
+\end{proof}
