@@ -6,9 +6,10 @@
 		&\forall x \in H_1^{\perp}: Ux = 0,\;\; \forall x \in H_2^\perp: U^*x = 0\;.\end{align*}
 \end{definition}
 \begin{theorem}
-	Sei $H$ ein Hilbertraum, \(A\in \B(H)\). Dann existiert eine partielle Isometrie von \(\ker(A)^\perp = \ker(\ab A)\) nach \(\text{im}(A)\), sodass \(A = U\cdot \ab{A}\).
+	Sei $H$ ein Hilbertraum, \(A\in \B(H)\). Dann existiert eine partielle Isometrie \(U\in \B(H)\) von \(\ker(A)^\perp \) nach \(\text{im}(A)\), sodass \(A = U \ab{A}\).
+	\label{part_isom}
 \end{theorem}
-\unsure{Wieso gilt \(\ker(\ab{A} = \ker (A)^\perp\)?}
+\unsure{In der Vorlesung war \(\ker(\ab{A}) = \ker (A)^\perp\) gegeben, ist dies richtig? (Werner S. 297: \(\ker(\ab{A}) = (\text{im}(\ab{A})^\perp)\))}
 \begin{rem}
 	Dies ist analog zur Polarzerlegung bei komplexen Zahlen, jedoch gilt i. A. 
 	\[\C\ni z = \ab z \exp(i\varphi(z))\implies \ab{\overline z} = \ab z \;\text{ vs }\; T \in \B(H) \implies \ab{T^*} = \sqrt{TT^*} \neq \sqrt{T^*T} = \ab{T}\;.\]
@@ -18,5 +19,96 @@
 	\[\norm{Ax}^2 = \ip{Ax, Ax} = \ip{x, A^*Ax} = \ip{x, \ab{A}^2 x} = \ip{\ab{A}x, \ab{A}x} = \norm{\ab{A}x}^2\;.\]
 	Damit ist \(K:=\ker(A)^\perp\) ein Hilbertraum mit Norm 
 	\[\norm x_A := \norm {\ab{A}x}^2\]
-	und \(\ab{A}: K\to H\) ist eine Isometrie.\ldots
+	und \(\ab{A}: K\to H\) ist eine Isometrie. Wir definieren
+	\[U: \text{im}(\ab A) = \ker(\ab A)^\perp \to \text{im} (A),\;\; U(\ab A x ) := Ax\;.\]
+	Damit gilt
+	\[\ab A x = \ab A y \implies (x-y) \in \ker \ab A \implies x-y \in \ker A \implies Ax = Ay\;.\]
+	Dabei haben wir ausgenutzt, dass wegen $\ab A$ selbstadjungiert \(\ker(\ab A) = \ker(A)\) \us ber
+	\[\norm{\ab A x}^2 = \ip{x, \ab A^2 x} = \ip{x, A^*Ax}= \norm{Ax}^2\;. \]
+	Setze weiterhin f\us r \(y\in \ker(\ab A)\)  \(U(y):=0\) und damit ist $U$ wohldefiniert und eine partielle Isometrie.
+\end{proof}
+
+\begin{theorem}
+	Sei $T$ Spurklasse-Operator auf einem Hilbertraum $H$. Dan ist auch $T^*$ ein Spurklasse-Operator. Au\ss{}erdem gilt \(\tr(T^*) = \overline{\tr(T)}\).
+\end{theorem}
+\begin{proof}
+	Nach Satz \ref{part_isom} existiert eine partielle Isometrie \(U\in\B(H): \ker(T)^\perp = \text{im}(\ab T) \to \text{im}(T)\) mit
+	\[T = U\ab{T} \implies T^* = \ab{T}U^*\;.\]
+	Somit gilt 
+	\[TT^* = U\ab{T}^2 U^* = U\underbrace{\ab{T}\overbrace{U^* U}^{=\text{Pr}_{\text{im}(\ab{T})}} \ab{T}}_{=\ab{T}^2} U^* \implies \ab{T^*} = U\ab{T} U^*\;.\]
+	Dabei erhalten wir die letzte Folgerung \us ber: 
+	\[\ab{T}^2 = \ab T U^* U \ab{T} \implies \ab{T^*}^2 = U\ab{T}\ab{T}U^* = (U\ab{T}U^*)^2\;.\]
+	Wir w\as hlen nun eine ONB \(\seq en\), sodass \(\forall n \in\N:\) \(U^* e_n = f_n\) oder \(U^* e_n = 0\). Somit gilt
+	\[\ip{f_n, f_m} = \ip{U^* e_n, U^* e_m} = \ip{e_n, e_m} \;.\]
+	Dies macht also auch \(\seq f n\) zu einem ONS, sei \(((f_n)_{n\in\N\cup S})\) ONB. Dabei haben wir ausgenutzt, dass mit \(U^*:  \text{im}(T) \to \ker(T)^\perp\) nach Definition \(UU^* = \text{Pr}_{\text{im}(T)}\) gilt.\\
+	\unsure{M\us sste f\us r die Definition von $U^*$ nicht \(H = \text{im}(T) \oplus \text{im}(T)^\perp\) gelten? Dies gilt aber nur f\us r \(\text{im}(T)\) abgeschlossen, was i. A. nicht gilt.}
+	Damit ergibt sich nun:
+	\[\sum_{n\in\N}\ip{e_n, \ab{T^*} e_n} = \sum_{n\in\N}\ip{e_n, U\ab T U^* e_n} = \sum_{n\in\N}\ip{U^* e_n, \ab T U^* e_n} \leq \sum_{n\in\N\cup S} \ip{f_n, \ab T f_n} < \infty\;.\]
+	Somit ist \(T^*\) in der Tat ein Spurklasse-Operator. Weiterhin gilt
+	\[\tr(T^*) = \sum_{n\in\N} \ip{e_n, T^* e_n} = \sum_{n\in\N}\ip{T e_n, e_n} = \sum_{n\in\N}\ip{Te_n, e_n} = \sum_{n\in\N} \overline{\ip{e_n, T e_n}} = \overline{\sum_{n\in\N}\ip{e_n, Te_n}} = \overline{\tr(T)}\;.\]
+\end{proof}
+
+\begin{rem}
+	Sei \(\varrho\in \B(H)_{\geq 0}\) mit \(\tr(\varrho)<\infty\). Dann gilt f\us r alle \(T \in \B(H)\), dass \(T\varrho\) ein Spurklasse-Operator ist, d. h. die Abbildung \(T\mapsto \tr(T\varrho)\) ist ein lineares Funktional.
+\end{rem}
+
+\begin{theorem}
+	Sei $H$ ein Hilbertraum, \(\varrho \in \B(H)_{\geq 0}\) mit \(\tr(\varrho) < \infty\). Dann gilt
+	\[\forall T\in \B(H): \ab{\tr(T\varrho)} \leq \tr(\varrho) \norm{T}\;.\]
+	Sei weiterin \(\seq Tn \subseteq \B(H)^\N\) mit \(0\leq T_n\leq T_{n+1} \leq T\in \B(H)\) gegeben, dann gilt
+	\[\tr\left(\left(\sup_{n\in\N}T_n\right)\varrho\right) = \sup_{n\in\N} \tr(T_n\varrho)\;.\] 
+\end{theorem}
+
+\begin{proof}
+	Nach Satz \ref{spurklasse_geq0_Folge} existiert \(\seq \lambda n \subseteq \R^\N\) mit 
+	\[\varrho = \sum_{n\in\N} \lambda_n | e_n \rangle \langle e_n |, \;\; \forall n\in\N: \lambda_n \geq 0, \;\;\sum_{n\in\N} \lambda_n = \tr(\varrho) < \infty\;.\]
+	Damit gilt
+	\[T\varrho = \sum_{n\in\N} \lambda_n T | e_n \rangle \langle e_n | = \sum_{n\in\N} \lambda_n | Te_n \rangle \langle e_n | \;.\]
+	Somit erhalten wir die erste Behauptung
+	\[\tr(T\varrho) = \sum_{n\in\N} \langle e_n | T\varrho | e_n \rangle = \sum_{n\in\N} \lambda_n \ip{e_n, Te_n} \implies \ab{\tr(T\varrho)} \leq \sum_{n\in\N} \lambda_n \ab{\ip{e_n, Te_n}} \leq \sum_{n\in\N} \lambda_n\norm T\;.\]
+	Sei nun \(\seq Tm\) wie oben angegeben, \(T_m \overset{m\to\infty}{\longrightarrow} \sup_{m\in\N}T_m\). Mit Satz \textit{[...]} folgt:
+	\unsure{Label fehlt (Satz 8.20 in Vorlesung)}
+	\[\ip{e_n, T_m e_n} \overset{m\to\infty}{\longrightarrow} \ip{e_n, \sup_{m\in\N} T_m e_n}\;.\]
+	Anwendung des Satzes von Beppo-Levi liefert die zweite Behauptung:
+	\[\tr(T_m\varrho)\overset{m\to\infty}{\longrightarrow}  \sum_{n\in\N} \lambda_n\ip{e_n, \sup_{m\in\N} T_m e_n}\;.\]
+\end{proof}
+\begin{rem}
+	Es besteht eine Analogie zwischen dem zweiten Teil des Satzes sowie der $\sigma$-Additivit\as t nichtkommutativer Ma\ss{}e. 
+\end{rem}
+
+\section{Der Spektralsatz und der messbare Funktionalkalk\us l}
+\begin{rem}
+	Ziel des messbaren Kalk\us ls ist es eine funktionalanalytische Beziehung zwischen stetigen Funktionen und der Ma\ss{}- und Integrationstheorie herzustellen.
+\end{rem}
+
+\begin{theorem}[Riesz-Markov-Kakutani]
+	Sei $K$ ein kompakter metrischer Raum, $\Sigma$ die Borelmengen auf $K$. Dann gibt es eine Bijektion zwischen $C^0(K)$ und 
+	\[M(K) := \set{\mu:\Sigma \to \C\;\vert\; \mu \text{ (endliches) signiertes Ma\ss{}}}\]
+	mittels \(\mu(f):= \int f d\mu\). Weiterhin ist $\mu$ endliches Ma\ss{} \(\iff \forall f \geq 0 : \mu(f) \geq 0\).
+\end{theorem}
+
+\begin{theorem}
+	Sei $K$ ein kompakter metrischer Raum, $\Sigma$ die Borelmengen auf $K$ sowie \(L^\infty(K):= \set{f: K\to\C\;\vert\; f \text{ messbar, beschr\as nkt}}\). Sei weiterhin \(V\subseteq L^\infty(K)\) mit den Eigenschaften
+	\begin{enumerate}
+		\item \(C^0(K)\subseteq V\)
+		\item F\us r alle \(\seq fn \subseteq V^\N\) mit \(\forall t \in K: \li fn(t) := f(t)\) existiert sowie  \(\sup_{n\in\N}\norms{f_n} < \infty\) gilt \(f\in V\). \label{lemma_mess_kalk_2}
+	\end{enumerate}
+	Dann gilt \(V = L^\infty(K)\).
+\end{theorem}
+
+\begin{proof}
+	Wir definieren f\us r \(f\in L^\infty(K)\)
+	\[V_f := \set{g\in L^\infty(K)\;\vert\; f+g \in V}.\]
+	Sei \(f\in C^0(K)\), dann \(C^0(K)\subseteq V_f\). Sei weiterhin eine Folge \(\seq gn \subseteq V_f^\N\) gegeben, mit \(\sup_{n\in\N} \norms{g_n} < \infty\) und einem existierenden punktweisen Grenzwert \(\li gn = g\). Damit folgt sofort \(g\in V_f\). Somit \(V_f = V\), also 
+	\[f \in C^0(K), g\in V \implies f_0 + g \in V\;.\]
+	Sei nun \(f\in V\), dann gilt ebenfalls \(C^0(K) \subseteq V_f\) und wir folgern analog \(V_f = V\), also 
+	\[f\in V, g\in V \implies f + g \in V\;.\] 
+	Somit ist $V$ also abgeschlossen bzgl. der Addition. Genauso l\as sst sich \[\alpha \in \C, g\in V \implies \alpha g \in V\] zeigen, was $V$ zu einem \(\C\)-Vektorraum macht.
+	Sei nun \(G\subseteq K\) offen, 
+	\[1_G(x) := \lime{n} \overbrace{\min(1,n\cdot \text{dist}(x, G^C))}^{\in C^0(K)} \implies 1_G \in V\;.\]
+	Man kann leicht zeigen:
+	\[\seq An,\;\; A_n \in \Sigma \text{ paarweise disjunkt} \implies 1_{\bigcup_{n\in\N} A_n} = \sum_{n\in\N} 1_{A_n}\]
+	Weiterhin gilt
+	\[1_A\in V \implies 1_{A^C} = \overbrace{1}^{\in C^0(K)}-1_A\]
+	Aus letzteren beiden Relationen folgt: \(\set{A\in \Sigma \;\vert\; 1_A\in V} = \Sigma\). Mit Eigenschaft \ref{lemma_mess_kalk_2} folgt dann die Behauptung.
 \end{proof}
