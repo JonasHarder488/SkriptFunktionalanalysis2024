@@ -88,7 +88,7 @@
 \end{theorem}
 
 \begin{theorem}
-	Sei $K$ ein kompakter metrischer Raum, $\Sigma$ die Borelmengen auf $K$ sowie \(L^\infty(K):= \set{f: K\to\C\;\vert\; f \text{ messbar, beschr\as nkt}}\). Sei weiterhin \(V\subseteq L^\infty(K)\) mit den Eigenschaften
+	Sei $K$ ein kompakter metrischer Raum, $\Sigma$ die Borelmengen auf $K$ sowie \(L^\infty(K):= \set{f: K\to\C\;\vert\; f \text{ messbar, beschr\as nkt}}\). Sei weiterhin \(V\subseteq L^\infty(K)\) mit den Eigenschaften \label{lemma_mess_kalk}
 	\begin{enumerate}
 		\item \(C^0(K)\subseteq V\)
 		\item F\us r alle \(\seq fn \subseteq V^\N\) mit \(\forall t \in K: \li fn(t) := f(t)\) existiert sowie  \(\sup_{n\in\N}\norms{f_n} < \infty\) gilt \(f\in V\). \label{lemma_mess_kalk_2}
@@ -111,4 +111,35 @@
 	Weiterhin gilt
 	\[1_A\in V \implies 1_{A^C} = \overbrace{1}^{\in C^0(K)}-1_A\]
 	Aus letzteren beiden Relationen folgt: \(\set{A\in \Sigma \;\vert\; 1_A\in V} = \Sigma\). Mit Eigenschaft \ref{lemma_mess_kalk_2} folgt dann die Behauptung.
+\end{proof}
+
+\begin{rem}[Erweiterung Funktionalkalk\us l]
+	Sei \(T\in \B(H)\) selbstadjungiert, \(f\in C^0(\sigma(T))\) sowie \(x,y \in H\) mit $H$ Hilbertraum. Definiere:
+	\[l_{x,y}(f):= \ip{f(T)x,y}\]
+	Damit ist \(l_{x,y}:C^0(\sigma(T)) \to \C\) linear und stetig mit
+	\[\ab{l_{x,y}(f)} \leq \norm{f(T)} \norm x\norm y = \norms f \norm x \norm y\;.\]
+	Dann existiert genau ein Ma\ss{} $\mu_{x,y}$ auf \(\sigma(T)\) mit 
+	\[\forall f \in C(\sigma(T)): \ip{f(T)x,y} = \int_{\sigma(T)} f \;d\mu_{x,y}\;\;(*)\;.\]
+	Weiterhin gilt \(\norm{\mu_{x,y}}_{TV} \leq \norm x\norm y\) wobei $\normn{\cdot}{TV}$ die \textit{Totalvariationsnorm}:
+	\[\normn{\mu}{TV} = \sup\set{\ab{\int fd\mu}\;\Big\vert\; \forall x \in K: \ab{f(x)} \leq 1, \;f \in L^\infty(K)[\text{bzw.} f\in C^0(K)]}\;.\]
+	Die rechte Seite von $(*)$ ist auch f\us r $f\in L^\infty(\sigma(T))$ sinnvoll, wodurch wir auch f\us r solche $f$ ein $f(T)$ definieren wollen (messbarer Kalk\us l).
+	\label{rem_mess_kalk}
+\end{rem}
+
+\begin{theorem}[Messbarer Funktionalkalk\us l]
+	Sei \(T\in \B(H)\) normal. Dann gibt es genau eine Abbildung \(\varphi:L^\infty(\sigma(T)) \to \B(H)\) mit
+	\begin{enumerate}
+		\item \(\varphi(\text{id}) = T\), \(\varphi(1) = \I\), wobei \(\forall x\in \sigma(T): \; \text{id}(x) = x, \;1(x) = 1\)
+		\item \(\forall f\in L^\infty(\sigma(T)): \varphi(\overline f) = \varphi(f)^*\)
+		\item \(\forall f, g \in L^\infty(\sigma(T))\;\forall \lambda \in \C: \varphi(\lambda f + g) = \lambda \varphi(f) + \varphi(g)\)\; und \; \(\varphi(fg) = \varphi(f) \varphi(g)\)
+		\item \(\forall f\in L^\infty(\sigma(T)): \norm{\varphi(f)} = \norms f\)
+		\item Falls \(\forall n\in\N: f_n \in L^\infty(\sigma(T)),\;\exists c>0: \norms{f_n} \leq c\) und \(\forall t \in \sigma(T): \lime{n}{f_n(t)} = f(t)\), so gilt \(\forall x \in H: \lime{n}{\varphi(f_n)x} = \varphi(f)x\). \label{eigenschaft_mess_kalk_5}
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\textbf{Schritt 1} (Eindeutigkeit) Sei \(\tilde\varphi\) eine weitere solche Abbildung. Wir nutzen Satz \ref{lemma_mess_kalk} mit
+	\[V = \set{f\in L^\infty(\sigma(T))\;\vert\; \varphi(f) = \tilde\varphi(f)}\;.\]
+	Nach Voraussetung wissen wir, dass \(\text{id} \in V,\; 1 \in V\). Aufgrund der Eindeutigkeit des stetigen Funktionalkalk\us ls gilt \(C^0(\sigma(T)) \subseteq V\). Wegen Eigenschaft \ref{eigenschaft_mess_kalk_5} ist Satz \ref{lemma_mess_kalk} anwendbar und wir erhalten \(V = L^\infty(\sigma(T)) \iff \varphi = \tilde \varphi\).\\
+	\textbf{Schritt 2} (Existenz) 
 \end{proof}
