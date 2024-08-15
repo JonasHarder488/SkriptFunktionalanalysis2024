@@ -4,16 +4,16 @@
 	Sei \(\Omega \neq \emptyset\). Dann hei\s t \(\mc F \subseteq \mc P (\Omega)\)  $\sigma$-Algebra, falls
 	\begin{enumerate}[noitemsep]
 		\item \(\Omega \in \mc F\)
-		\item \(\forall A \subseteq \mc P(\Omega): A\in \mc F \implies A^C \in \mc F\)
-		\item \(\forall \seq An,\; \forall n\in \N\; A_n \in \mc F: \bigcup_{n\in\N}\in\mc F\)
+		\item \(\forall A \in \mc P(\Omega): A\in \mc F \implies A^C \in \mc F\)
+		\item \(\forall \seq An,\; \forall n\in \N\; A_n \in \mc F: \bigcup_{n\in\N}A_n\in\mc F\)
 	\end{enumerate}
 	Bezeichne \((\Omega, \mc F)\) als messbaren Raum.
 \end{definition}
 \begin{rem}
-	Sei \((X, d)\) ein metrischer Raum, dann ist die $\sigma$-Algebra \(\mc B(X)\) der Borelmengen die kleinste $\sigma$-Algebra, die alle offenen Mengen von $X$ enth\as lt. Bez. \(\mc B(\R) =: \mc B\) und \(\mc B(\R^n) = \mc B^n\).
+	Sei \((X, d)\) ein metrischer Raum, dann ist die $\sigma$-Algebra \(\mc B(X)\) der Borelmengen die kleinste $\sigma$-Algebra, die alle offenen Teilmengen von $X$ enth\as lt. Bez. \(\mc B(\R) =: \mc B\) und \(\mc B(\R^n) = \mc B^n\).
 \end{rem}
 \begin{definition}
-	Sei \(\Omega, \mc F\) ein messbarer Raum. Dann ist \(\mu: \mc F \to [0,\infty]\) ein Ma\s{}, falls
+	Sei \((\Omega, \mc F)\) ein messbarer Raum. Dann ist \(\mu: \mc F \to [0,\infty]\) ein Ma\s{}, falls
 	\begin{enumerate}[noitemsep]
 		\item \(\mu(\emptyset) = 0\)
 		\item \(\forall \seq An, \; \forall n\in\N: A_n \in \mc F, \; \forall i, j \in \N, i\neq j: A_i\cap A_j = \emptyset: \mu\left( \cup_{n\in\N} A_n\right) = \sum_{n\in\N} \mu(A_n)\)

@@ -18,18 +18,18 @@
 \((\C, \ab \cdot )\) ist ein metrischer Raum. 
 \end{ex}
 \begin{ex}
-	\((\R^n, d_i)\) mit \(i \in \{1,2,\infty\}\) sind metrische R\as ume, wobei f\us r \(x,y \in \R\)
-	\[d_1 := \sum_{i=1}^n  \ab{x_i -y_i },\;\;\;\; d_2 := \sqrt{\sum_{i = 1}^n (x_i - y_i)^2}, \;\;\;\; d_\infty := \max \{\ab{x_i - y_i}\vert i: 1,\ldots, n\}\]
+	\((\R^n, d_i)\) mit \(i \in \{1,2,\infty\}\) sind metrische R\as ume, wobei f\us r \(x,y \in \R^n\)
+	\[d_1(x,y) := \sum_{i=1}^n  \ab{x_i -y_i },\;\;\;\; d_2(x,y) := \sqrt{\sum_{i = 1}^n (x_i - y_i)^2}, \;\;\;\; d_\infty(x,y) := \max \{\ab{x_i - y_i}\;\vert\; i\in \set{1,\ldots, n}\}\]
 \end{ex}
 \begin{definition}
 	Sei \(X,d\) ein metrischer Raum. Dann definieren wir die offene bzw. abschlossene Kugel um \(x\in X\)wie folgt.
-	\[K_\nu (x) := \{y \in X \vert d(x,y) \leq \nu\} \;\;\;\; \overline{K_\nu(x)} := \{y \in X \vert d(x,y) \leq \nu \}\]
+	\[K_\nu (x) := \{y \in X \vert d(x,y) < \nu\} \;\;\;\; \overline{K_\nu(x)} := \{y \in X \vert d(x,y) \leq \nu \}\]
 	Weiterhin ist \(U \text{ eine Umgebung von } x \iff \exists \nu > 0: K_\nu(x) \subseteq U\).
 \end{definition}
 
 \section{Konvergenz und Stetigkeit}
 \begin{definition}
-	Eine Folge \(\seq x n\)  in einem metrischen Raum $X$ hei\s t \textit{konvergent} gegen $x \in X$  (bez. $\li tn  = t$), falls 
+	Eine Folge \(\seq x n\)  in einem metrischen Raum $X$ hei\s t \textit{konvergent} gegen $x \in X$  (bez. $\li xn  = x$), falls 
 	\[\forall \varepsilon > 0 \;\exists N \in \N \forall n \geq N: d(x_n, x) \leq \varepsilon \;\;.\]
 \end{definition}
 \begin{theorem}
@@ -48,7 +48,7 @@
 	Sei \(f: (X_1, d_1) \to (X_2, d_2)\) eine Abbildung zwischen metrischen R\as umen. Dann sind folgende Bedingungen \as quivalent:
 	\begin{enumerate}[noitemsep]
 		\item $f$ ist stetig an $x_0$
-		\item $\forall \seq x n \text{ mit }x_n \in X_1 \forall n \in \N : \li x n = x_0 \in X_1 \implies \lim_{n \to \infty} f(x_n) = f(x_0)$ 
+		\item $\forall \seq x n \subseteq X_1^\N : \li x n = x_0 \in X_1 \implies \lim_{n \to \infty} f(x_n) = f(x_0)$ 
 	\end{enumerate}
 \end{theorem}
 \begin{theorem}
@@ -60,8 +60,8 @@
 	Sei \((X,d)\) ein metrischer Raum, dann hei\s t 
 	\begin{enumerate}[noitemsep]
 		\item \(G \subseteq X \) offen \(:\iff \forall x \in G\; \exists \nu > 0: K_\nu(x) \subseteq G\)
-		\item \(F \subseteq X\) abgeschlossen \(:\iff \forall \seq x n \text{ mit } x_n \in F \;\forall n \in \N: \li xn = x \implies x \in F\)
-		\item $S \subseteq X$ liegt dicht in $X$ \(:\iff \forall x \in X \;\exists \seq  s n, s_n \in S: \li sn = x \)
+		\item \(F \subseteq X\) abgeschlossen \(:\iff \forall \seq xn \subseteq F^\N: \li xn = x \implies x \in F\)
+		\item $S \subseteq X$ liegt dicht in $X$ \(:\iff \forall x \in X \;\exists \seq  s n \subseteq S^\N: \li sn = x \)
 	\end{enumerate}
 \end{definition}
 
@@ -91,7 +91,7 @@
 \section{Vollst\as ndigkeit}
 
 \begin{definition}
-	Sei $(X,d)$ ein metrischer Raum, dann hei\s t $\seq xn$ mit $\forall n \in \N: x_n \in X$ \textit{Cauchyfolge}, falls:
+	Sei $(X,d)$ ein metrischer Raum, dann hei\s t $\seq xn \subseteq X^\N$ \textit{Cauchyfolge}, falls:
 	\[\forall \varepsilon > 0 \; \exists N \in \N \; \forall n, m \geq N: d(x_n, x_m) < \varepsilon\]
 \end{definition}
 
@@ -108,7 +108,7 @@
 \end{ex}
 
 \begin{ex}
-	Die metrischen R\as ume  \((\R^n, f_p)\) mit \(p \in [1, \infty]\) sind vollst\as ndig.
+	Die metrischen R\as ume  \((\R^n, d_p)\) mit \(p \in [1, \infty]\) sind vollst\as ndig.
 \end{ex}
 
 \begin{theorem}
@@ -166,7 +166,7 @@
 	\[\hat d\left (\equ{\seq xn}, \hat x_{N_0} \right) = \lim_{n\to\infty} d(x_n, x_{N_0})< \varepsilon\; .\]
 	Somit \(\hat x_{N_0} \in K_\varepsilon (\equ{\seq xn}) \cap \varphi(X)\) und folglich ist \(\varphi(X)\) dicht in $\hat X$.  Nun gilt zu zeigen, dass $(\hat X, \hat d)$ vollst\as ndig ist. Zeige daf\us r zun\as chst folgendes Lemma.
 	\begin{lemma}
-		Sei \(X,d\) metrischer Raum, $S\subseteq X$ dicht in $X$, sodass jede Cauchyfolge in $S$ in $X$ konvergiert. Dann ist X vollst\as ndig.\label{vervollst_lemma}
+		Sei \((X,d)\) metrischer Raum, $S\subseteq X$ dicht in $X$, sodass jede Cauchyfolge in $S$ in $X$ konvergiert. Dann ist X vollst\as ndig.\label{vervollst_lemma}
 	\end{lemma}
 	\begin{proof}
 		Sei $\seq xn$ eine Cauchyfolge in $X$. Da $S$ dicht in $X$ gilt
@@ -179,8 +179,8 @@
 	\end{proof}
 	Nach Lemma \ref{vervollst_lemma} g. z. z., dass jede Cauchyfolge in \(\varphi(X) \) in $\hat X$ konvergiert. Sei $\seq{\hat x}{k}$ Cauchyfolge in $\varphi(X)$, d. h. \(\hat x_k := (x_k, x_k,\ldots)\). Da $\varphi$ eine Isometrie, ist $\seq xk$ eine Cauchyfolge in $X$ durch 
 	\[\forall m, n \in \N: d(x_n, x_m) = \hat d(\hat x_n, \hat x_m) \;.\]
-	Somit \(\seq xk \in \hat X_0\), \(\equ{\seq xk} \in \hat X\). Sei $\varepsilon >0$, dann $\exists N \in \N$ mit \(\forall k, n \geq N: d(z_k, z_n) < \varepsilon\). Somit gilt \(\forall k \geq N\):
-	\[\hat d(\hat x_k, \hat x) = \lim_{n\to\infty} d(z_k, z_n) < \varepsilon \;.\]
+	Somit \(\seq xk \in \hat X_0\), \(\hat x :=\equ{\seq xk} \in \hat X\). Sei $\varepsilon >0$, dann $\exists N \in \N$ mit \(\forall k, n \geq N: d(x_k, x_n) < \varepsilon\). Somit gilt \(\forall k \geq N\):
+	\[\hat d(\hat x_k, \hat x) = \lim_{n\to\infty} d(x_k, x_n) < \varepsilon \;.\]
 	Folglich konvergiert $\seq{\hat x}{k}$ gegen $\hat x \in \hat X$ und $\hat X$ ist vollst\as ndig.
 	Betrachte nun \((\tilde X, \tilde d)\) sowie \(\tilde \varphi\) mit den gleichen Eigenschaften. Wir definieren 
 	\[\psi_0: \varphi(X) \to \tilde X, \;\; \psi_0(\varphi(x)) = \tilde\varphi(x)\;.\]
@@ -198,10 +198,10 @@
 	Ein metrischer Raum \((X, d)\) hei\s t \textit{kompakt}, wenn jede offene \Us berdeckung eine endliche Teil\us berdeckung besitzt. D. h., wenn $(G_i)_{i\in I}$ eine Famile offener Mengen, mit \(X = \bigcup_{i\in I} G_i\), dann existieren endlich viele \(G_{i_1},\ldots, G_{i_n}\) mit \(X = \bigcup_{k=1}^n G_{i_k}\).
 \end{definition}
 \begin{theorem}
-	Sei \(X ,d\) metrischer Raum, \(K\subseteq X\) kompakt. Dann ist $K$ beschr\as nkt und abgeschlossen (Umkehrung gilt i. A.nicht).\label{kompakt_beschr_abg}
+	Sei \((X ,d)\) metrischer Raum, \(K\subseteq X\) kompakt. Dann ist $K$ beschr\as nkt und abgeschlossen (Umkehrung gilt i. A.nicht).\label{kompakt_beschr_abg}
 \end{theorem}
 \begin{theorem}
-	Sei \(X,d\) metrischer Raum. Dann gilt
+	Sei \((X,d)\) metrischer Raum. Dann gilt
 	\[X \text{ kompakt}\iff \forall \seq xn \exists \left(x_{n_k}\right)_{k\in\N} \text{ Teilfolge } \exists y \in X: \lime k x_{n_k} = y\]
 \end{theorem}
 \begin{theorem}[Heine-Borel]
@@ -212,7 +212,7 @@
 	\[\forall \varepsilon > 0 \;\exists M \in \N\;\exists x_1,\ldots, x_M \in Y: Y \subseteq \bigcup_{i=1}^M K_\varepsilon (x_i)\]
 \end{definition}
 \begin{theorem}
-	Sei \(X, d\) ein vollst\as ndiger metrischer Raum, \(Y\subseteq X\). Dann ist $Y$ kompakt $\iff Y$ abgeschlossen und total beschr\as nkt. 
+	Sei \((X, d)\) ein vollst\as ndiger metrischer Raum, \(Y\subseteq X\). Dann ist $Y$ kompakt $\iff Y$ abgeschlossen und total beschr\as nkt. 
 \end{theorem}
 \begin{proof}
 	 \((\Longrightarrow)\)\\
