@@ -1,7 +1,7 @@
 \begin{theorem} \label{kmp_gdw_tot} Sei $T \in B(V, B)$ ist genau dann kompakt, wenn $\overline{TK_1^V(0)}$ totalbeschränkt. (Siehe \ref{totally_bounded})
 	
 	
-	\begin{proof}[Proof:] $(\Rightarrow)$ \\
+	\begin{proof} $(\Rightarrow)$ \\
 		Sei $T$ kompakt, sei $y_n \in \overline{TK_1(0)}$ für alle $n \in \N,$ dann gibt es \[\forall \in \N \exists \tilde y_n \in TK_1(0): \norm{y_n - \tilde y_n} < \frac{1}{n}.\] Also gibt es ein $x_n \in K_1(0): \norm{y_n -Tx_n} < \frac{1}{n}.$ Da $T$ kompakt ist, gibt es eine Teilfolge $(x_n)_{k \in \N}$ mit $Tx_{n_k} \xrightarrow{k \to \infty} z.$ Damit gilt dann aber auch $\tilde y_{n_k} \xrightarrow{k \to \infty} z$ und damit $y_{n_k} \xrightarrow{k \to \infty} z.$ Also ist $z \in \overline{T\overline{K^V_1{0}}}$ kompakt und damit ist $\overline{T\overline{K^V_1{0}}}$ total beschränkt. \\ \\
 		$(\Leftarrow)$ \\
 		Sei $T\overline{K_1^V(0)}$ totalbeschränkt und $(x_n)_{n \in \N}$ mit $x_n \in V $ für alle $n \in \N.$ Sei nun $c := \sup{\set{\norm{x_n}| n \in \N}} < \infty$ und sein nun o.B.d.A $c > 0.$ Sei $\tilde x_n = \frac{x_n}{c} \in \overline{K_1^V(0)},$ dann \[T\tilde x_n \in T\overline{k_1^V(0)} \subseteq \overline{T\overline{K_1^V(0)}} \text{ ist kompakt}\] \\
@@ -34,7 +34,7 @@
 
 \begin{theorem} Sei $(V, \norm{\cdot})$ ein normierter Raum. Wir definieren \[\text{dist}(Y, W) = \inf{\set{\norm{y-w}, w \in W}}.\] Dann ist $Y \subset V$ totalbeschränkt, genau dann wenn $Y$ beschränkt und \[\forall \varepsilon >0 \exists W \subset V, W \text{ endl. dim. } \forall y \in Y: \text{dist}(Y, W) < \varepsilon. (*)\]
 	
-	\begin{proof}[Proof:] $(\Rightarrow)$ \\
+	\begin{proof} $(\Rightarrow)$ \\
 		
 		Sei $Y$ totalbeschränkt, dann ist $y$ beschränkt. Fixiere ein $\varepsilon > 0.$ Dann gibt es \[y_1, \ldots, y_m \in Y \text{ mit } Y \subseteq \cup_{i = 1}^m K_{\varepsilon}(y_i)\] und damit \[\forall y \in Y \exists i: \norm{y- y_i} < \varepsilon.\] \\
 		Setzen wir nun $W = \text{span}\set{y_i | i = 1, \ldots, m}$ und wir sind fertig. \\ \\ \\

@@ -119,7 +119,7 @@
 	Damit ist \(l_{x,y}:C^0(\sigma(T)) \to \C\) linear und stetig mit
 	\[\ab{l_{x,y}(f)} \leq \norm{f(T)} \norm x\norm y = \norms f \norm x \norm y\;.\]
 	Dann existiert genau ein Ma\ss{} $\mu_{x,y}$ auf \(\sigma(T)\) mit 
-	\[\forall f \in C(\sigma(T)): \ip{f(T)x,y} = \int_{\sigma(T)} f \;d\mu_{x,y}\;\;(*)\;.\]
+	\[\forall f \in C(\sigma(T)): \ip{f(T)x,y} = \int_{\sigma(T)} f(z) \;\mu_{x,y}(dz)\;\;(*)\;.\]
 	Weiterhin gilt \(\norm{\mu_{x,y}}_{TV} \leq \norm x\norm y\) wobei $\normn{\cdot}{TV}$ die \textit{Totalvariationsnorm}:
 	\[\normn{\mu}{TV} = \sup\set{\ab{\int fd\mu}\;\Big\vert\; \forall x \in K: \ab{f(x)} \leq 1, \;f \in L^\infty(K)[\text{bzw.} f\in C^0(K)]}\;.\]
 	Die rechte Seite von $(*)$ ist auch f\us r $f\in L^\infty(\sigma(T))$ sinnvoll, wodurch wir auch f\us r solche $f$ ein $f(T)$ definieren wollen (messbarer Kalk\us l).
@@ -127,13 +127,13 @@
 \end{rem}
 
 \begin{theorem}[Messbarer Funktionalkalk\us l]
-	Sei \(T\in \B(H)\) normal. Dann gibt es genau eine Abbildung \(\varphi:L^\infty(\sigma(T)) \to \B(H)\) mit
+	Sei \(T\in \B(H)\) normal. Dann gibt es genau eine Abbildung \(\varphi:L^\infty(\sigma(T)) \to \B(H)\) mit \label{messb_kalk}
 	\begin{enumerate}
 		\item \(\varphi(\text{id}) = T\), \(\varphi(1) = \I\), wobei \(\forall x\in \sigma(T): \; \text{id}(x) = x, \;1(x) = 1\)
-		\item \(\forall f\in L^\infty(\sigma(T)): \varphi(\overline f) = \varphi(f)^*\)
-		\item \(\forall f, g \in L^\infty(\sigma(T))\;\forall \lambda \in \C: \varphi(\lambda f + g) = \lambda \varphi(f) + \varphi(g)\)\; und \; \(\varphi(fg) = \varphi(f) \varphi(g)\)
-		\item \(\forall f\in L^\infty(\sigma(T)): \norm{\varphi(f)} = \norms f\)
-		\item Falls \(\forall n\in\N: f_n \in L^\infty(\sigma(T)),\;\exists c>0: \norms{f_n} \leq c\) und \(\forall t \in \sigma(T): \lime{n}{f_n(t)} = f(t)\), so gilt \(\forall x \in H: \lime{n}{\varphi(f_n)x} = \varphi(f)x\). \label{eigenschaft_mess_kalk_5}
+		\item \(\forall f\in L^\infty(\sigma(T)): \varphi(\overline f) = \varphi(f)^*\) \label{eigenschaft_mess_kalk_2}
+		\item \(\forall f, g \in L^\infty(\sigma(T))\;\forall \lambda \in \C: \varphi(\lambda f + g) = \lambda \varphi(f) + \varphi(g)\)\; und \; \(\varphi(fg) = \varphi(f) \varphi(g)\)\label{eigenschaft_mess_kalk_3}
+		\item \(\forall f\in L^\infty(\sigma(T)): \norm{\varphi(f)} = \norms f\) \label{eigenschaft_mess_kalk_4}
+		\item Falls \(\forall n\in\N: f_n \in L^\infty(\sigma(T)),\;\exists c>0\;\forall n\in\N: \norms{f_n} \leq c\) und \(\forall t \in \sigma(T): \lime{n}{f_n(t)} = f(t)\), so gilt \(\forall x \in H: \lime{n}{\varphi(f_n)x} = \varphi(f)x\). \label{eigenschaft_mess_kalk_5}
 	\end{enumerate}
 \end{theorem}
 
@@ -141,5 +141,128 @@
 	\textbf{Schritt 1} (Eindeutigkeit) Sei \(\tilde\varphi\) eine weitere solche Abbildung. Wir nutzen Satz \ref{lemma_mess_kalk} mit
 	\[V = \set{f\in L^\infty(\sigma(T))\;\vert\; \varphi(f) = \tilde\varphi(f)}\;.\]
 	Nach Voraussetung wissen wir, dass \(\text{id} \in V,\; 1 \in V\). Aufgrund der Eindeutigkeit des stetigen Funktionalkalk\us ls gilt \(C^0(\sigma(T)) \subseteq V\). Wegen Eigenschaft \ref{eigenschaft_mess_kalk_5} ist Satz \ref{lemma_mess_kalk} anwendbar und wir erhalten \(V = L^\infty(\sigma(T)) \iff \varphi = \tilde \varphi\).\\
-	\textbf{Schritt 2} (Existenz) 
+	\textbf{Schritt 2} (Existenz) Analog zu Bem. \ref{rem_mess_kalk} definieren wir f\us r \(f\in L^\infty(\sigma(T))\) die stetige Sesquilinearform
+	\[u: H\times H \to \C,\;\; u(x,y) = \int_{\sigma(T)} f(z) \mu_{x,y}(dz)\;.\]
+	Damit ist $u$ insbesondere beschr\as nkt, da
+	\[\ab{u(x,y)} \leq \norms f \norm{\mu_{x,y}} \leq \norms f \norm x\norm y\;.\]
+	Nach Satz \ref{sesq_darstellung} existiert somit in der Tat \(\varphi(f) \in \B(H)\) mit
+	\[u(x,y) = \ip{x,\varphi(f)y}\;.\]
+	\textbf{Schritt 3} (Eigenschaften) \textit{(Zu \ref{eigenschaft_mess_kalk_2}:)} Seien \(x,y\in H\), dann gilt
+	\begin{align*}
+		\ip{x,\varphi(\overline f)y} &= \int_{\sigma(T)} \overline{f}(z) \mu_{x,y}(dz)  = \overline{\int_{\sigma(T)} f(z) \overline{\mu_{x,y}}(dz)} = \overline{\int_{\sigma(T)} f(z) \mu_{y,x}(dz)} \\&= \overline{\ip{y, \varphi(f)x}} = \ip{\varphi(f)x,y} \implies \varphi(\overline f) =\varphi(f)^*
+	\end{align*}
+	\textit{(Zu \ref{eigenschaft_mess_kalk_3}:)} Beweis analog\\
+	\textit{(Zu \ref{eigenschaft_mess_kalk_5}:)} Seien \(f_n, f \in L^\infty(\sigma(T))\) wie gefordert. Damit wissen wir nach dem Satz von Lebesgue \us ber die majorisierte Konvergenz:
+	\[\forall x, y \in H:\; \lime{n}{\int_{\sigma(T)} f_n(z) \mu_{x,y}(dz)} = \int_{\sigma(T)} f(z) \mu_{x,y}(dz)\;\text{ und }\;\lime{n}{\ip{x,\varphi(f_n)y}} = \ip{x, \varphi(f)y}\;.\]
+	Sei nun \(x\in H\) beliebig, so gilt
+	\begin{align*}
+		\norm{\varphi(f_n)x}^2 &= \ip{\varphi(f_n)x, \varphi(f_n)x} = \ip{x, \varphi(f_n)^*\varphi(f_n)x} = \ip{x, \varphi(\overline{f_n})\varphi(f_n)x} \\
+		&= \ip{x,\varphi\left(\ab{f_n}^2\right)x} \overset{n\to\infty}{\longrightarrow} \ip{x, \varphi(\ab{f}^2)x} = \norm{\varphi(f)x}^2\;.
+	\end{align*}
+	Deshalb gilt
+	\begin{align*}
+		&\norm{\varphi(f_n)x -\varphi(f)x}^2 = \ip{\varphi(f)x, \varphi(f)x} - 2\Re(\ip{\varphi(f_n)x, \varphi(f)x}) + \ip{\varphi(f_n)x, \varphi(f_n)x}\\
+		& \overset{n\to\infty}{\longrightarrow} \ip{\varphi(f)x, \varphi(f)x} -2 \ip{\varphi(f)x, \varphi(f)x} + \ip{\varphi(f)x, \varphi(f)x} = 0\;.
+	\end{align*}
+	\happybegin
+	Dies war gerade zu zeigen.\hfill\happyend
 \end{proof}
+
+\begin{definition}
+	Sei \(T\in \B(H)\) normal. Dann ist das zugeh\os rige \textit{Spektralma\ss{}} \(E^T: \Sigma(\C) \to \B(H)\) definiert als
+	\[E^T(A) = 1_{A\cap \sigma(T)}(T) = \varphi(1_A)\]
+	Dabei bez. \(f(T) = \varphi(f)\) f\us r alle \( f \in L^\infty(\sigma(T))\).
+\end{definition}
+
+\begin{theorem}[Eigenschaften Spektralma\ss{}]
+	Es gilt f\us r \(T\in \B(H)\) normal:
+	\end{theorem}
+	\begin{enumerate}
+		\item \(\forall A \in \Sigma(\C):\) \(E^T(A)\) ist eine orthogonale Projektion. \label{eigenschaften_spektralmass_1}
+		\item \(\forall A, B \in \Sigma(\C):\) \(E^T(A\cap B) = E^T(A)E^T(B) = E^T(B)E^T(A)\)\label{eigenschaften_spektralmass_2}
+		\item F\us r alle \(\seq An \subseteq \Sigma(\C)^\N\), wobei die $A_n$ paarweise disjunkt, \(\forall x \in H\) gilt \label{eigenschaften_spektralmass_3}
+		\[\sum_{n\in\N}E^T(A_n)x = E^T\left(\bigcup_{n\in\N} A_n\right)x\;.\]
+		\item \(\sigma(T)\) ist die kleinste kompakte Menge $K$ mit \(E^T(K)= \I\).\label{eigenschaften_spektralmass_4}
+	\end{enumerate}
+	\begin{proof}
+		\textbf{(Zu \ref{eigenschaften_spektralmass_1})} Eine orthogonale Projektion $P\in\B(H)$ erf\us llt die Eigenschaften $P= P^2 = P^*$. Es gilt 
+		\[\forall A \in \Sigma(\C): 1_A^2 = 1_a \implies \varphi(1_A) = \varphi(1_A^2) = \varphi(1_A) \varphi(1_A)  \iff E^T(A) = (E^T(A))^2\;.\]
+		Analog l\as sst sich folgern
+		\[\overline{1_A} = 1_A \implies E^T(A)^* = E^T(A)\;.\]
+		\textbf{(Zu \ref{eigenschaften_spektralmass_2})} Die Behauptung folgt aus 
+		\[\forall A, B \in \Sigma(\C): 1_A1_B = 1_{A\cap B}\;.\]
+		\textbf{(Zu \ref{eigenschaften_spektralmass_3})} Dies folgt direkt aus Satz \ref{messb_kalk}, (\ref{eigenschaft_mess_kalk_5}).\\
+		\textbf{(Zu \ref{eigenschaften_spektralmass_4})} Nach \ref{messb_kalk} gilt \(E^T(\sigma(T)) = \I\). Sei nun 
+		\[K \subseteq \sigma(T) \;\text{ mit } \; E^T(K) = \I \implies E^T(K^C) = 0\;.\]
+		Somit gilt 
+		\[\forall f \in L^\infty(\sigma(T)) \text{ mit } f\vert_K = 0:\; \varphi(f) = 0 \implies f\vert_{\sigma(T)} = 0 \implies f=0 \implies K = \sigma(T)\;.\]
+	\end{proof}
+	
+	\begin{definition}
+		Ein \textit{projektionswertiges Ma\ss{}} (auf $\C$, $H$ Hilbertraum) ist eine Abbildung \(E:\Sigma(\C)\to \B(H)\) mit:
+		\begin{enumerate}
+			\item \(\forall A \in \Sigma(\C):\) \(E(A) = E(A)^2 = E(A)^*\)
+			\item \(\forall A, B \in \Sigma(\C):\) \(E(A)E(B) = E(A\cap B)\)
+			\item \(E(\emptyset) = 0\), \(E(\C) = \I\)
+			\item \(\forall \seq An \subseteq \Sigma(\C)^\N\), $A_n$ paarweise disjunkt, \(\forall x\in H:\)
+			\[\sum_{n\in\N}E(A_n)x = E\left(\bigcup_{n\in\N}A_n\right)x\;\text{ mit }\; E(K) = \I \text{ f\us r kompaktes }K\subseteq \C\;.\]
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{theorem}[Spektralsatz f\us r normale, beschr\as nkte Operatoren]
+		Sei $E$ ein projektionswertiges Ma\ss{}. Dann existiert genau ein normales \(\B(H)\ni T =: \int_{\sigma(T)} z E(dz)\) mit
+		\[\forall f \in L^\infty(\C)\;\forall x, y\in H:\; \ip{x,\varphi(f)y} = \int_{\sigma(T)} f(z)\ip{x,E(dz)y}\;.\]
+	\end{theorem}
+	\unsure{Wieso geht hier \(f\in L^\infty(\C)\) und nicht \(f\in L^\infty(\sigma(T))\)?}
+		\begin{proof}
+			Sei $K\subseteq \C$ kompakt. Setze
+			\unsure{Ich vermute \(K \subseteq \C\) kompakt, in der Vorlesung wurde dies jedoch nicht angegeben}
+			\[u(x,y) = \int_{\C} z \;1_K(z) \ip{x, E(dz)y} \implies \ab{(u(x,y))} \leq \max\set{z\;\vert\;z\in K}\norm x\norm y\]
+			Nach \ref{sesq_darstellung} existiert \(T\in \B(H)\) mit \(u(x,y) = \ip{x,Ty}\). Somit gilt 
+			\[\forall f \in L^\infty(K):\; \ip{x, f(T)y} = \int_K f(z) \ip{x, E(dz) y}\;.\]
+			Dabei ist die Abbildung 
+			\[\Sigma(\C) \supseteq A \mapsto \ip{x, E(A)y}\]
+			ein Ma\ss{}, dasselbe Ma\ss{}, welches in Bem. \ref{rem_mess_kalk} mit \(\mu_{x,y}\) bezeichnet wurde.
+		\end{proof}
+		\begin{rem}[Integration bzgl. eines projektionswertigen Ma\ss{}es]
+			Zur Integration einer beschr\as nkten, messbaren Funktion $f$ gehen wir in Schritten analog zur skalaren Integration vor.\\
+			\textbf{1. Schritt: Indikatorfunktionen} (\(f = 1_A,\; A\in\Sigma(\R)\)). Dann setze
+			\[\int f(z) E(dz) = E(A)\;.\]
+			\textbf{2. Schritt: Treppenfunktionen} (\(f = \sum_{i=1}^n \alpha_i 1_{A_i}\)) Dann setze
+			\[\int f(z) E(dz) = \sum_{i=1}^n \alpha_i E_{A_i}\;.\]
+			\textbf{3. Schritt:} Sei $f$ beschr\as nkt und messbar, dann existiert eine Folge \(\seq fn\) von Treppenfunktionen, die gleichm\as \ss{}ig gegen $f$ konvergiert. Es l\as sst sich zeigen, dass gerechtfertigt ist
+			\[\int f dE = \lime{n}{\int f_n dE}\]
+			zu setzen.
+		\end{rem}
+		
+		\begin{theorem}
+			Sei \(T\in \B(H)\)normal, sowie \(f: \sigma(T)\to \C\), \(g:\C \to\C\) beschr\as nkt und messbar. Dann gilt \label{komposition_mess_kalk}
+			\[(f\circ g)(T) = f(g(T))\;.\]
+		\end{theorem}
+		\begin{proof}
+			Wir sehen, dass \(E^{g(T)}(A) = E^T(g^{-1}(A))\) gilt (intuitiv wegen \(1_A \circ g = 1_{g^{-1}(A)}\)). Somit:
+			\[f(g(T)) = \int f(z) E^{g(T)}(dz) = \int f(z)E^T(g^{-1}(dz)) = \int f(g(z)) E^T(dz) = (f\circ g)(T)\;.\]
+		\end{proof}
+		\begin{theorem}
+			Sei $H$ Hilbertraum, \(T\in \B(H)\) normal mit Spektralma\ss{} \(E^T\). Dann gilt 
+			\begin{enumerate}
+				\item \(\lambda \in \varrho(T) \iff \exists \varepsilon > 0:\; E^T(K_\varepsilon(\lambda)) = 0\) \label{spektralmass_spektrum_1}
+				\item \(\lambda \in \C\) ist Eigenwert von $T$ \(\iff E^T(\set{\lambda}) \neq 0\). In diesem Fall ist \(E^T(\set\lambda)\) die Projektion auf \(\ker(T-\lambda\I)\). \label{spektralmass_spektrum_2}
+				\item Isolierte Punkte \(\lambda \in \sigma(T)\) (d. h. \(\exists \varepsilon > 0:\; K_\varepsilon(\lambda)\cap \sigma(T) = \set{\lambda}\)) sind Eigenwerte von $T$. \label{spektralmass_spektrum_3}
+			\end{enumerate}
+		\end{theorem}
+		\begin{proof}
+			\textbf{(Zu \ref{spektralmass_spektrum_1}.)} Nach Konstruktion gilt offensichtlich \(E^T(\varrho(T)) = 0\). Zeige nun die R\us ckrichtung. Sei also eine solches \(\varepsilon\) gegeben. Setze
+			\[f(z) = \frac{1}{\lambda - z} \cdot1_{K_\varepsilon(\lambda)^C}(z)\]
+			Dann ist $f$ messbar und auf \(\sigma(T)\) beschr\as nkt. Dasselbe gilt f\us r \(g(z) = \lambda - z\). Somit (mit Satz \ref{komposition_mess_kalk}) 
+			\[f(T)(\lambda -T) = f(T)g(T) = (fg)(T) = 1_{K_\varepsilon(\lambda)^C}(T) = E^T(K_\varepsilon(\lambda)^C) = \I\;.\]
+			Dabei haben wir \(\I = E^T(\C) = E^T(K_\varepsilon(\lambda)^C) + E^T(K_\varepsilon(\lambda))\) ausgenutzt. Analog zeigt man \((\lambda-T)f(T) = \I\) und somit gilt in der Tat \(\lambda \in \varrho(T)\).\\
+			\textbf{(Zu \ref{spektralmass_spektrum_2}.)} Sei \(\lambda \in \C\) Eigenwert zu \(x\in H\), d. h. \(Tx = \lambda x\). Aus \ref{stetiger_kalkuel} ist bekannt, dass f\us r $f$ stetig \(f(T)x = f(\lambda)x\) gilt. Mit Satz \ref{lemma_mess_kalk} folgt, dass diese Gleichung auch f\us r beschr\as nkte, messbare $f$ gilt. Somit
+			\[E^T(\set\lambda)x = 1_{\set\lambda}(T)x = 1_{\set\lambda}(\lambda)x = x\;.\]
+			Sei nun andersherum \(E^T(\set\lambda)\neq 0\). Sei nun \(x\in \text{im}(E^T(\set\lambda))\), d. h. \(x = E^T(\set\lambda) x\). Somit
+			\[\ip{y, (\lambda -T)x} = \ip{y, (\lambda-T)E^T(\set\lambda)x} = \int(\lambda-z)1_{\set\lambda}(z)\ip{y, E^T(dz)x} = 0\;.\]
+			Damit in der Tat \(x\in \ker(\lambda - T)\).\\
+			\textbf{(Zu \ref{spektralmass_spektrum_3}.)} W\as hle \(\varepsilon > 0\) mit \(K_\varepsilon(\lambda)\cap\sigma(T) = \set\lambda\). Nach dem \ref{spektralmass_spektrum_1}. Punkt des Satzes gilt \[K_\varepsilon(\lambda)\setminus\set\lambda\subseteq \varrho(T)\implies E^T(K_\varepsilon(\lambda)\setminus\set\lambda) = 0\]
+			W\as hre nun \(E^T(\set\lambda) = 0\), dann auch \(E^T(K_\varepsilon(\lambda)) = 0\) und deshalb \(\lambda\in \varrho(T)\). Somit \(E^T(\set\lambda) \neq 0\) und folglich Eigenwert. 
+		\end{proof}
+	
