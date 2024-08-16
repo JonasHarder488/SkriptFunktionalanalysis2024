@@ -42,7 +42,7 @@
 	\begin{align*}
 		&\hat V_0 := \{\seq x n \vert \forall n \in \N: x_n \in V, \; \seq x n \text{ Cauchyfolge}\}.\\
 	&\text{\As quivalenzrelation $\sim$ auf $\hat V_0$: } 
-	\seq xn \sim \seq yn :\iff \lim_{n\to\infty} \norm{x_n, y_n} = 0\\
+	\seq xn \sim \seq yn :\iff \lim_{n\to\infty} \norm{x_n-y_n} = 0\\
 	&\text{Menge aller \As quivalenzklassen: }
 	\hat V = \faktor{\hat V_0}{\sim} = \{\equ{\seq xn} \vert \seq xn \in \hat X_0\} 
 	\end{align*}
@@ -64,7 +64,7 @@
 
 \begin{definition}
 	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(p\in [1,\infty)\), dann definieren wir
-	\[\p^p(\Omega, \mc F, \mu) := \set{f:\Omega \to \mathbb{K} \vert f\in \mc M(\Omega, \mc F), \; \int_\Omega \ab{f}^p < \infty}\;.\]
+	\[\p^p(\Omega, \mc F, \mu) := \set{f:\Omega \to \mathbb{K} \;\Big\vert\; f\in \mc M(\Omega, \mc F), \; \int_\Omega \ab{f}^p d\mu < \infty}\;.\]
 	Wir schreiben kurz auch \(\p^p(\mu)\).
 \end{definition}
 \begin{rem}
@@ -115,7 +115,7 @@
 \end{proof}
 
 \begin{definition}
-	Sei \(\Omega, \mc F, \mu\) ein Ma\s raum sowie \(f, g: \Omega \to \K\). Dann definieren wir
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum sowie \(f, g: \Omega \to \K\). Dann definieren wir
 	\[f \muq g :\iff \mu(\set{\omega \in \Omega\vert f(\omega) \neq g(\omega)} =: \mu(\set{f\neq g}) = 0\;.\]
 	Man sagt auch \(f = g\) $\mu$-fast \us berall.
 \end{definition}
@@ -148,7 +148,7 @@
 
 \begin{definition}
 	Sei (\(\Omega, \mc F, \mu\)) ein Ma\s raum, dann 
-	\[L^p(\mu) := L^p(\Omega,\mc F \mu) := \faktor{\p^p(\Omega, \mc F,\mu)}{\muq}\]
+	\[L^p(\mu) := L^p(\Omega,\mc F, \mu) := \faktor{\p^p(\Omega, \mc F,\mu)}{\muq}\]
 	Wir schreiben meist \(L^p(\mu)\) f\us r \(\K = \R\) und \(L^p(\mu, \C)\) f\us r \(\K = \C\).
 \end{definition}
  \begin{rem}
@@ -176,7 +176,7 @@
 \end{proof}
 
 \begin{theorem}
-	Sei \(\Omega, \mc F, \mu\) ein Ma\s raum. Dann ist \(\faktor{\p^\infty(\mu)}{\muq}\) mit \(\forall f \in \p^\infty(\mu): \norms{\equ{f}} = \norms{f}\) ein normierter Raum.
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Dann ist \(\faktor{\p^\infty(\mu)}{\muq}\) mit \(\forall f \in \p^\infty(\mu): \norms{\equ{f}} = \norms{f}\) ein normierter Raum.
 \end{theorem}
 
 \begin{definition}
@@ -249,8 +249,8 @@
 	Der normierte Raum \((C^0([0,1]), \norms \cdot)\) ist ein Banachraum, wobei 
 	\[C^0([0,1]) := \set{f:[0,1]\to\K \;\vert\; f\text{ stetig}} \;\text{ und }\; \forall f \in C^0([0,1]) : \norms f = \sup\set{\ab{f(t)}\;\vert\;t\in[0,1]}\]
 	Hingegen ist \(C^0([0,1])\) nicht vollst\as ndig bzgl. der Norm \(\normn{f}{p} = \int_0^1\ab{f(t)}^p dt\).
-	Der Raum \((C^r([0,1]), \normn{\cdot}{k,\infty})\) 
-	\[C^r([0,1]) = \set{f \in C^0([0,1])\;\vert\; f \text{ $r$-mal stetig differenzierbar}} \;\text{ und }\; \forall f\in C^r([0,1]): \normn{f}{k, \infty} = \sum_{j=0}^r \norms{f^{(j)}}\]
+	Der Raum \((C^r([0,1]), \normn{\cdot}{r,\infty})\) 
+	\[C^r([0,1]) = \set{f \in C^0([0,1])\;\vert\; f \text{ $r$-mal stetig differenzierbar}} \;\text{ und }\; \forall f\in C^r([0,1]): \normn{f}{r, \infty} = \sum_{j=0}^r \norms{f^{(j)}}\]
 	 ist ein Banachraum. Man kann auch weitere Normen auf \(C^r([0,1])\) definieren, bspw. f\us r \(r=1\) und \(f\in C^1([0,1])\)
 	 \[\normn{\cdot}{1,p} = \normn fp + \normn{f'}{p} \;\text{ oder }\; \hnorm{f}_{1,p} = \left(\int_0^1 \ab{f'(x)}^p + \ab{f(x)}^p\right)\;.\]
 	\end{ex}
@@ -279,5 +279,5 @@
 	\end{ex}
 	
 	\begin{theorem}
-		Sei $V$ ein $K$-Vektorraum mit \(\dim_\K V < \infty\). Dann sind alle Normen auf $V$ \as quivalent und jeder solche normierte Vektorraum ist ein Banachraum.
+		Sei $V$ ein $\K$-Vektorraum mit \(\dim_\K V < \infty\). Dann sind alle Normen auf $V$ \as quivalent und jeder solche normierte Vektorraum ist ein Banachraum.
 	\end{theorem}

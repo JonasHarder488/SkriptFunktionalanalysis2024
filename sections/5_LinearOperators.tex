@@ -33,25 +33,23 @@
 \end{theorem}
 
 \begin{ex}[Volterra-Operator] \label{Volterra_op}
-    Betrachte $C^0([0, 1]), \norms{A},$ wobei \[I: C^0([0, 1]) \to C^0([0, 1]), f(z) \mapsto \int_0^zf(x)dx.\] Dann gilt \[\ab{I(f(z)} = \ab{\int_0^zf(x)dx} = \norms{f}\cdot t \leq \norms{f}\]
-    und mit \[\norm{If} = \sup{\ab{If(z)}:t\in [0, 1]} \leq \norms{f}\]
-    ist die Operatornorm $\norm{I} \leq 1.$ Wähle nun $f_{[0, 1]}$, dann ist $If(t) = t$ und damit $\norm{I} = 1.$
+    Betrachte $C^0([0, 1]), \norms{\cdot},$ wobei \[I: C^0([0, 1]) \to C^0([0, 1]), \;(I(f))(z) = \int_0^zf(x)dx.\] Dann gilt \[\ab{(I(f))(z)} = \ab{\int_0^zf(x)dx} \le \norms{f}\cdot z \leq \norms{f}\]
+    und mit \[\norms{If} = \sup\set{\ab{(If)(z)}:z\in [0, 1]} \leq \norms{f}\]
+    ist die Operatornorm $\norm{I} \leq 1.$ Wähle nun $f = 1_{[0, 1]}$, dann ist $(If)(t) = t$ und damit $\norm{I} = 1.$
 \end{ex}
 
 \begin{ex} \label{Differential_op}
     Sei $V_1 = C^1([0, 1])$ mit $\norms{\cdot}$ und $V_2 = C^0([0, 1])$ mit $\norms{\cdot}$ sowie eine Abbildung \[D: V_1 \to V_2, f(t) \mapsto f'(t)\]
-    
-    Definiere $f_n(t) = t^n,$ dann ist $\norms{f_n} = 1$ und da $f_n'(t) = n \cdot t^{n-1}$ auch $\norm{Df_n} = n$
-    ??
+    Definiere $f_n(t) = t^n,$ dann ist $\norms{f_n} = 1$ und da $f_n'(t) = n \cdot t^{n-1}$ gilt $\norms{Df_n} = n$, d. h. \(D \not\in \B(V_1, V_2)\).
 \end{ex}
 
 \begin{theorem}
-    Seien und $W, \norm{\cdot}_W$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c}}\] Dann gilt:
+    Seien und $(V, \normn\cdot V)$, $(W, \norm{\cdot}_W)$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c}}\] Dann gilt:
     \begin{enumerate}
-        \item $\norm{A} = \sup{\set{\norm{Av}_W: \norm{v}_V = 1}} = \sup{\set{\norm{Av}_w: \norm{v}_V \leq 1}} = \sup{\set{\frac{\norm{Av}_W}{\norm{v}_W}, v \in V, v \not=0}}$
-        \item $B \in \B(V, W): \norm{A +B} = \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
+        \item $\norm{A} = \sup{\set{\norm{Av}_W: \norm{v}_V = 1}} = \sup{\set{\norm{Av}_w: \norm{v}_V \leq 1}} = \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}: v \in V, v \not=0}}$
+        \item $B \in \B(V, W), \;\lambda \in K: \norm{A +B} \le \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
         \item Sei $(X, \norm{\cdot}_X)$ normierter Raum, $B \in \B(W, X),$ dann gilt 
-        \[\norm{AB}_{V,X} \leq \norm{A}_{V,W}\cdot\norm{B}_{W,X}\]
+        \[\norm{BA}_{V,X} \leq \norm{A}_{V,W}\cdot\norm{B}_{W,X}\]
     \end{enumerate}
     
     \begin{proof}[Beweis:]

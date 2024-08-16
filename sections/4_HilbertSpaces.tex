@@ -34,7 +34,7 @@
 \end{rem}
 
 \begin{theorem}
-	Sei \((H, \ip{\cdot,\cdot})\) ein Raum mit Skalarprodukt. Dann ist \(\norm\cdot : H \to \R \geq 0 \) mit \( \norm x = \sqrt{\ip{x,x}}\) f\us r \(x \in H\) eine Norm auf $H$.
+	Sei \((H, \ip{\cdot,\cdot})\) ein Raum mit Skalarprodukt. Dann ist \(\norm\cdot : H \to \R_{\geq 0} \) mit \( \norm x = \sqrt{\ip{x,x}}\) f\us r \(x \in H\) eine Norm auf $H$.
 	\label{NormSP}
 \end{theorem}
 \begin{proof}
@@ -68,7 +68,7 @@
 		& \norm{x-y}^2 = \ip{x-y, x-y} = \ip{x,x} - \ip{x,y} - \ip{y,x} + \ip{y,y}\\
 		\implies & \norm{x+y}^2 -  \norm{x-y}^2  = 2 \ip{x,x} +  2 \ip{y,y}
 	\end{align*}
-	\((\Longleftarrow)\) Man setzt f\us r \(\K = \R \) bzw. \(\K = \R\) das Skalarprodukt gem\as \s{} der Polarisationsformeln nach Lemma \ref{Polarisation} an und zeigt unter Ausnutzung der Parallelogrammgleichung, dass dies die Eigenschaften eines Skalarprodukts empfiehlt (explizit im \textit{Werner} S. 222).
+	\((\Longleftarrow)\) Man setzt f\us r \(\K = \R \) bzw. \(\K = \R\) das Skalarprodukt gem\as \s{} der Polarisationsformeln nach Lemma \ref{Polarisation} an und zeigt unter Ausnutzung der Parallelogrammgleichung, dass dies die Eigenschaften eines Skalarprodukts erf\us llt. (explizit im \textit{Werner} S. 222).
 \end{proof}
 
 \section{Beispiele}
@@ -82,7 +82,7 @@
 \end{ex}
 
 \begin{ex}
-	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Dann ist \(L^2(\mu, \K)\) ein Ma\s raum mit dem Skalarprodukt (\(f,g \in L^2(\mu,\K)\))
+	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum. Dann ist \(L^2(\mu, \K)\) ein Hilbertraum mit dem Skalarprodukt (\(f,g \in L^2(\mu,\K)\))
 	\[ \ip{f,g} = \int_\Omega f g \;d\mu \;\text{ f\us r } \K = \R \;\text{ bzw. }\; \ip{f,g} = \int_\Omega \overline{f}g \;d\mu \;\text{ f\us r }\K = \C\;.\] 
 \end{ex}
 
@@ -119,7 +119,7 @@
 \end{definition}
 
 \begin{ex}
-	Betrachte den Hilbertraum \(l^2_\C(\R): = \set{(a_t)_{t\in\R} \;\vert\; \forall t\in \R: a_t \in \C, \sum_{t\in \R} \ab{a_t}^p < \infty}\). Dabei ist das Skalarprodukt definiert als
+	Betrachte den Hilbertraum \(l^2_\C(\R): = \set{(a_t)_{t\in\R} \;\vert\; \forall t\in \R: a_t \in \C, \sum_{t\in \R} \ab{a_t}^2 < \infty}\). Dabei ist das Skalarprodukt definiert als
 	\[\forall (a_t)_{t\in\R}, (b_t)_{t\in\R} \in l^2_\C(\R): \ip{(a_t)_{t\in\R},(b_t)_{t\in\R}} = \sum_{t\in\R} \overline{a_t} b_t\;.\]
 	Definiere \(e_t = (\delta_{s,t})_{s\in\R}\in l^2_\C(\R)\). Dann ist \((e_t)_{t\in\R}\) eine Orthonormalbasis, da f\us r \(a:=(a_t)_{t\in\R} \in l^2_\C(\R)\)
 	\[a \perp \set{e_t\;\vert\;t\in\R} \iff \forall t \in \R: \ip{a,e_t} = \overline{a_t} = 0 \iff a = 0\;.\]
@@ -137,7 +137,7 @@
 	\label{ONS_Satz1}
 \end{theorem}
 \begin{proof}
-	Wir zeigen hier nur den 2. Teil des Satzes (???). Da $H$ vollst\as ndig, g. z. z., dass \(\seq xn\) eine Cauchyfolge ist. Dabei ist bekannt (unter Ausnutzung von Teil 1 des Satzes)
+	Wir zeigen hier nur den 2. Teil des Satzes. Da $H$ vollst\as ndig, g. z. z., dass \(\seq xn\) eine Cauchyfolge ist. Dabei ist bekannt (unter Ausnutzung von Teil 1 des Satzes)
 	\[\normn{\lambda}{\ell^2(S)}^2 = \sum_{m= 0}^\infty \ab{\lambda_{s_m}}^2 < \infty\;. \]
 	Sei \(\varepsilon > 0\), \(N \in \N\) hinreichend gro\s{}, sodass \(\sum_{m=N+1}^\infty \ab{\lambda_{s_m}}^2 < \varepsilon^2\). Seien nun \(n_1, n_2 \in \N\), \(n_1, n_2 \geq N\), \(n_1< n_2\). Dann
 	\[\norm{x_{n_2} - x_{n_1}}^2 = \norm{\sum_{m=n_1+1}^{n_2} \lambda_{s_m}\cdot e_{s_m}}\;.\]
@@ -171,7 +171,7 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 	\textit{(Existenz)}
 	Angenommen \((e_s)_{s\in S} \) ist vollst\as ndig und \(x\) ist nicht durch die Orthonormalbasis darstellbar. Bezeichne die Menge der darstellbaren Elemente in $H$ mit
 	\[H_0 = \set{\sum_{s\in S} \lambda_s e_s \;\vert\; (\lambda_s)_{s\in S} \in \ell^2_\C(S)}\;.\]	
-	F\us r eine Folge \(\seq yn,\; \forall n \in \N: y_n \in H_0\) gilt \(\li yn = y \implies y \in H_0\). Setze \(\mu_s = \ip{e_s, x}\). Sei \(S_0 \subseteq S\) h\os chstens abz\as hlbar, dann gilt mit Satz \ref{Bessel_Ungleichung}
+	F\us r eine Folge \(\seq yn,\; \forall n \in \N: y_n \in H_0\) gilt \(\li yn = y \implies y \in H_0\). Setze \(\mu_s = \ip{e_s, x}\). Sei \(S_0 \subseteq S\) h\os chstens abz\as hlbar, dann gilt mit Lemma \ref{Bessel_Ungleichung}
 	\[\sum_{s\in S_0} \ab{\mu_s}^2 = \sum_{s\in S_0} \ab{\ip{e_s, x}}^2 \leq \norm{x}^2 < \infty\;.\]
 	F\us r \(t\in S_0\) gilt weiterhin
 	\[\ip{e_t\;, \;x - \sum_{s\in S_0} \mu_s e_s} = \ip{e_t,x} - \sum_{s\in S_0} \ip{e_t,\ip{e_s, x}e_s} = 0 \;. \]
@@ -184,9 +184,6 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 \begin{proof}[Beweisidee]
 	Man wendet das Gram-Schmidt-Verfahren aus einer dichten Teilmenge an.
 \end{proof}
-\begin{rem}
-	Ein metrischer Raum \((X,d)\) hei\s t separabel, falls ein \(A \subseteq X\) existiert, sodass $A$ abz\as hlbar und $A$ dicht in $X$.
-\end{rem}
 
 \section{Projektionen}
 \begin{theorem}
@@ -203,7 +200,7 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 	Da \(K\) konvex, gilt \(\frac{1}{2}(y_n + y_m)\in K\) und folglich \(\norm{\frac{1}{2} (y_n + y_m)} \geq d^2\). Da 
 	\[\frac{1}{2} (\norm{y_n}^2 + \norm{y_m}^2) \leq \frac{1}{2}\left(\left(d+\frac{1}{n}\right)^2 + \left(d+\frac{1}{m}\right)^2\right) \overset{n,m\to \infty}{\longrightarrow} d^2 \]
 	folgt also \(\norm{y_n - y_m}\to 0\), d. h. \(\seq yn\) ist in der Tat eine Cauchyfolge und da $H$ ein Hilbertraum, existiert \(y:=\li yn \in H\). Da $K$ abgeschlossen ist, gilt \(y\in K\). Weiterhin gilt \(\norm{y} = d\), da
-	\[\norm{y} \geq d \text{ da } y\in K \;\text{ und }\; \norm{y} = \lime n \norm{y_n} \leq d+\frac{1}{n} \overset{n\to\infty}{\longrightarrow} d\;.\]
+	\[\norm{y} \geq d \text{ da } y\in K \;\text{ und }\; \norm{y} = \lime n \norm{y_n} \leq \lime n d+\frac{1}{n} = d\;.\]
 	\textit{(Eindeutigkeit)} Angenommen f\us r \(y, \tilde y \in K\) gilt
 	\[\norm{y} = \norm{\tilde y} = \inf\set{\norm z \;\vert\; z \in K} = d\;.\]
 	Sei \(\lambda \in [0,1]\) wegen der Konvexit\as t von $K$ gilt 
@@ -225,7 +222,7 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 	\end{ex}
 	
 	\begin{ex}
-		Betrachte \(\R^{2n},\normn \cdot 1\) sowie \[K = \set{\lambda \cdot \begin{pmatrix}1\\ \ldots\\1 \end{pmatrix} =: \lambda \cdot \hat y\in \R^{2n} \;\Big\vert\; \lambda \in \R},\; x : = \begin{pmatrix}x_1\\ \ldots\\ x_{2n}\end{pmatrix} \in \R^{2n}\;.\] 
+		Betrachte \((\R^{2n},\normn \cdot 1)\) sowie \[K = \set{\lambda \cdot \begin{pmatrix}1\\ \ldots\\1 \end{pmatrix} =: \lambda \cdot \hat y\in \R^{2n} \;\Big\vert\; \lambda \in \R},\; x : = \begin{pmatrix}x_1\\ \ldots\\ x_{2n}\end{pmatrix} \in \R^{2n}\;.\] 
 		Sei \(m : = \text{med}\set{x_1,\ldots,x_{2n}}\), d. h. 
 		\[m = \underset{a}{\text{argmin}} \sum_{i=1}^{2n}\ab{x_i -a} =  \underset{a}{\text{argmin}} \normn{x -a \hat y}{1}\;.\]
 		Dann gilt  \(\normn{x-m \hat y}{1} = \inf\set{\normn{x-z}{1}\vert \; z\in K}\).
@@ -247,7 +244,7 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 		\[\norm{x-y_1}^2 \leq \norm{x-y_1 -\lambda u}^2 = \norm{x-y_1}^2 -2 \lambda\Re(\ip{x-y_1, u}) + \ab{\lambda}^2 \norm{u}^2\]
 		Da \(\lambda, u\) beliebig, muss also in der Tat \(\ip{x-y_1,u} = 0\) gelten.\\
 		\textit{(Eindeutigkeit)} Angenommen \(x = \hat y_1 + \hat y_2\) mit \(\hat y_1 \in U,\; \hat y_2 \in U^\perp\). Sei \(u \in U\), dann gilt wegen der Orthogonalit\as t
-		\[\norm{x-(\hat y_1 +u)}^1 = \norm{x-\hat y_1}^2 + \norm{u}^2 \geq \norm{x-\hat y_1}^2\;.\]
+		\[\norm{x-(\hat y_1 +u)}^2 = \norm{x-\hat y_1}^2 + \norm{u}^2 \geq \norm{x-\hat y_1}^2\;.\]
 		Dies ist nur erf\us llt, wenn wir \(\hat y_1 = y_1\) nach Satz  \ref{Projektionssatz} w\as hlen, woraus die Eindeutigkeit folgt. 
 	\end{proof}
 	
