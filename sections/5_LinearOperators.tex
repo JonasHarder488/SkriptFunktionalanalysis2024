@@ -44,18 +44,18 @@
 \end{ex}
 
 \begin{theorem}
-    Seien und $(V, \normn\cdot V)$, $(W, \norm{\cdot}_W)$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c}}\] Dann gilt:
+    Seien und $(V, \normn\cdot V)$, $(W, \norm{\cdot}_W)$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c\normn{v}{V}}}\] Dann gilt:
     \begin{enumerate}
         \item $\norm{A} = \sup{\set{\norm{Av}_W: \norm{v}_V = 1}} = \sup{\set{\norm{Av}_w: \norm{v}_V \leq 1}} = \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}: v \in V, v \not=0}}$
-        \item $B \in \B(V, W), \;\lambda \in K: \norm{A +B} \le \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
+        \item $B \in \B(V, W), \;\lambda \in \K: \norm{A +B} \le \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
         \item Sei $(X, \norm{\cdot}_X)$ normierter Raum, $B \in \B(W, X),$ dann gilt 
         \[\norm{BA}_{V,X} \leq \norm{A}_{V,W}\cdot\norm{B}_{W,X}\]
     \end{enumerate}
     
     \begin{proof}[Beweis:]
     \begin{enumerate}
-        \item Sei $M := \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}, v\in V, v \not= 0}}.$ Für $v = 0,$ gilt $\norm{Av} = 0,$ für $v \not=0$ gilt:
-        \[\frac{\norm{Av}_w}{\norm{v}_V} \leq M \implies \norm{Av}_W \leq M \norm{v}_V \implies M \geq \norm{A}\]
+        \item Sei $M := \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}: v\in V, v \not= 0}}.$ Für $v = 0,$ gilt $\norm{Av} = 0,$ für $v \not=0$ gilt:
+        \[\frac{\norm{Av}_W}{\norm{v}_V} \leq M \implies \norm{Av}_W \leq M \norm{v}_V \implies M \geq \norm{A}\]
         Andererseits gilt für alle $v \not= 0:$
         \[\frac{\norm{Av}_W}{\norm{v}_V} \leq \norm{A} \implies M \leq \norm A\]
         \item Wir nutzen die Supremums- und Dreiecksungleichung aus:
@@ -71,9 +71,10 @@
 \end{theorem}
 
 \begin{ex}[Multiplikationsoperatoren] \label{Mult_op}
-    Sei $(\Omega, \mc F, \mu)$ ein Maßraum, $\phi \in L^2(\mu)$ und \[M_{\phi}: L^2(\mu) \to L^2(\mu), f \mapsto \phi \cdot f \text{ mit } M_{\phi} \cdot M_{\psi} = M_{\psi} \cdot M_{\phi} = M_{\phi \cdot \psi}\] Dann gilt:
-    \[\norm{M_{\phi}f}^2 = \int \ab{\phi(x)}^2 \ab{f(x)}^2dx \leq \int \norms{\phi}^2 \ab{f(x)}^2dx = \norms{\phi}^2\norm{f}^2 \leq \norms{\phi}^2 \text{ $\mu-$ fast überall}\] \\ Wir haben also $M_{\phi} \in \B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ Gleichheit gilt tatsächlich für $\mu(\Omega) < \infty.$ Sei $\alpha < \norms{\phi}$ und definiere
-    \[E = \set{x: \ab{\phi(x) > \alpha}}\]
+    Sei $(\Omega, \mc F, \mu)$ ein Maßraum, $\phi \in L^2(\mu)$ und \[M_{\phi}: L^2(\mu) \to L^2(\mu), \;f \mapsto \phi \cdot f \text{ mit } M_{\phi} \circ M_{\psi} = M_{\psi} \circ M_{\phi} = M_{\phi \cdot \psi}\] Dann gilt:
+    \[\norm{M_{\phi}f}^2 = \int \ab{\phi(x)}^2 \ab{f(x)}^2dx \leq \int \norms{\phi}^2 \ab{f(x)}^2dx = \norms{\phi}^2\norm{f}^2 \] \\ 
+    Dabei haben wir ausgenutzt \(\ab{\phi(x)}^2 \leq \norms{\phi}^2 \text{ $\mu-$ fast überall}\). Wir haben also $M_{\phi} \in \B(L^2(\mu), L^2(\mu))$ und $\norm{M_{\phi}} \leq \norms{\phi}.$ Gleichheit gilt tatsächlich für $\mu(\Omega) < \infty.$ Sei $\alpha < \norms{\phi}$ und definiere
+    \[E = \set{x: \ab{\phi(x) }> \alpha}\]
     dann ist $\mu(E)>0.$ Sei nun $f = 1_E,$ dann 
     \[\norm{M_{\phi}f}^2 = \int_E \norm{\phi(x)}^2 \geq \alpha \mu(E) = \alpha \norm{1_E}^2\]
 \end{ex}
@@ -118,19 +119,17 @@
 \begin{definition}
     Sei $(V, \norm{\cdot}_V)$ ein Banachraum. Dann wird $V' = \B(V, \K)$ als Dualraum von $V$ bezeichnet. $\phi \in V'$ heißt auch linear beschränktes Funktional.
 \end{definition}
-\begin{definition}
-    
-\end{definition}
+
 
 \begin{ex}
-    Wir untersuchen den Dualraum von $V = L^p(\mu).$ Mittels der Hölderungleichung erhalten wir mit $f \in L^p(\mu), g \in L^q(\mu)$: \[\ab{\int fg d \mu} \leq (\int\ab{f}^p d \mu)^{\frac{1}{p}}(\int\ab{g}^q d \mu)^{\frac{1}{q}} \text{ mit } \frac{1}{p} + \frac{1}{q} = 1\] Sei nun $\varphi_g := \int \cdot g d \mu \in V'.$ Da \[\ab{\varphi_g} \leq \norm{f}_p \norm{g}_q\] ist $\varphi_g$ beschränkt und $\set{\varphi_g: g \in L^q} = (L^p(\mu))'$ und damit $L^p(\mu)'' \simeq L^p(\mu).$
+    Wir untersuchen den Dualraum von $V = L^p(\mu).$ Mittels der Hölderungleichung erhalten wir mit $f \in L^p(\mu), g \in L^q(\mu)$: \[\ab{\int fg d \mu} \leq \left(\int\ab{f}^p d \mu)\right^{\frac{1}{p}}\left(\int\ab{g}^q d \mu\right)^{\frac{1}{q}} \text{ mit } \frac{1}{p} + \frac{1}{q} = 1\] Sei nun $\varphi_g := \int \cdot g d \mu \in V'.$ Da \[\ab{\varphi_g(f)} \leq \norm{f}_p \norm{g}_q\] ist $\varphi_g$ beschränkt und $\set{\varphi_g: g \in L^q} = (L^p(\mu))'$ und damit $L^p(\mu)'' \simeq L^p(\mu).$
 \end{ex}
 
 %%\begin{rem}
 %    Mit Hilfe des Satzen von Radon-Nikodym kann man zeigen, dass jedes beschränkte lineare Funktional auf $L^p(\mu)$ von dieser Form ist und dass für die Normen sogar Gleichheit gelten. Mit $1 < p < \infty$ ist $\varphi: L^q(\mu) \to L^p(\mu)', g \to \varphi_g$ sogar isometrisch isomorph 
 %\end{rem}
 
-\begin{theorem}[Darstellungssatz von Riesz]\label{riez1} Jedes beschränkte   lineare Funktional $\varphi$ auf dem Hilberraum $(H, \ip{\cdot, \cdot})$ hat die Form $\varphi(x)= \ip{h_0,x}$ für ein eindeutiges $h_0 \in H$ und $\norm{\varphi}_{H'} = \norm{h_0}$ und $h_0 \to \varphi$ anti-linear.
+\begin{theorem}[Darstellungssatz von Riesz]\label{riez1} Jedes beschränkte   lineare Funktional $\varphi$ auf dem Hilberraum $(H, \ip{\cdot, \cdot})$ hat die Form $\varphi(x)= \ip{h_0,x}$ für ein eindeutiges $h_0 \in H$ und $\norm{\varphi}_{H'} = \norm{h_0}$ und $h_0 \mapsto \varphi$ anti-linear.
 
 \begin{proof}[Beweis:]
 \textbf{Existenz}
