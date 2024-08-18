@@ -146,7 +146,7 @@ Damit erhalten wir $\varphi(f) = \int fhd\mu$ und die Hölderungleichung.
 
 \begin{theorem} \label{riez2}
 Die Abbildung $\psi: H \to H', h \mapsto \ip{h, \cdot}$ ist eine (anti-lineare) isometrische Projektion.
-
+\unsure{Was genau ist hier mit Projektion gemeint?}
 \begin{proof}[Beweis:] Wurde in der Vorlesung übersprungen.
 \end{proof}
 \end{theorem}
@@ -190,27 +190,27 @@ Sei $A \in \B(K, H),$ dann haben wir folgende Abschätzung mittels CBS-Ungleichu
 		\item $A \to A^*$ ist antilinear
 		\item $A^{**} = A$
 		\item $(AB)^{*} = B^*A^*$
-		\item $\norm{A^*} = \norm{A}$ und $\norm{A^*A} = \norm{A}^2 (C^*-Axiom)$
+		\item $\norm{A^*} = \norm{A}$ und $\norm{A^*A} = \norm{A}^2 (C^*-\text{Axiom})$
 	\end{enumerate}
 
 	\begin{proof}[Beweis:] \textbf{Existenz:} \\
-		Mittel der CBS-Ungleichung erhalten wir: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}.\] Aber es gilt $\ab{\ip{h, Ak}} = \ab{\ip{Ah, k}} $ Damit ist $u(k, h) := \ip{Ak, h}$ sesquilinear auf $K \times H.$ Damit gibt es aber ein eindeutiges $A^*$ mit \[\overline{\ip{Ak, h}} = \overline{u(h, k)} = \overline{\ip{k, A^*h}}\] \\
+		Mittel der CBS-Ungleichung erhalten wir: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}.\] Aber es gilt $\ab{\ip{h, Ak}} = \ab{\ip{Ak, h}} $ Damit ist $u(k, h) := \ip{Ak, h}$ sesquilinear auf $K \times H.$ Damit gibt es aber ein eindeutiges $A^*$ mit \[\overline{\ip{Ak, h}} = \overline{u(h, k)} = \overline{\ip{k, A^*h}}\] \\
 \textit{zu 1:} Es gilt \(\ip{(\lambda A)^*h, k} = \ip{h, \lambda A k} = \lambda \ip{h, Ak}= \ip{\overline{\lambda}A^*h, k}\)\\
-\textit{zu 2:} \(\ip{A^{**}k, h} = \ip{k, A*h} = \overline{\ip{A^{*}h, k}} = \overline{{\ip{h, Ak}}} = \ip{Ak, h}\) mit $h = A^{**}-Ak.$ Dann: \[0 = \ip{A^{**}k, h} - \ip{Ak, h} = \ip{(A^{**}-A)k, (A^{**}-A)k} \implies \norm{A^{**}k - Ak} = 0\] Damit gilt dann die Gleichheit. \\
-	\textit{zu 3:} Sei $A \in \B(K, H), B \in \B(L, K)$ und $AB \in \B(L, H)$. Außerdem gilt: $\norm{AB} \leq \norm{A}\norm{B}.$ Des Weiteren: \[\forall h \in H, l \in L: \ip{(AB)^*, l}= \ip{h, A(Bl)} = \ip{A^*l, Bl} = \ip{B^*A^*h, l}\] \\
-	\textit{zu 4:} Sei $k \in K$ mit $\norm{k} = 1.$ Dann gilt mit der CBS-Ungleichung \[\norm{Ak}^2 = \ip{Ak, Ak}) = \ip{A*Ak, k} \leq \norm{A^*A} \leq \norm{A^*} \norm{A}\]
+\textit{zu 2:} \(\ip{A^{**}k, h} = \ip{k, A^*h} = \overline{\ip{A^{*}h, k}} = \overline{{\ip{h, Ak}}} = \ip{Ak, h}\) mit $h = A^{**}-Ak.$ Dann: \[0 = \ip{A^{**}k, h} - \ip{Ak, h} = \ip{(A^{**}-A)k, (A^{**}-A)k} \implies \norm{A^{**}k - Ak} = 0\] Damit gilt dann die Gleichheit. \\
+	\textit{zu 3:} Sei $A \in \B(K, H), B \in \B(L, K)$ und $AB \in \B(L, H)$. Außerdem gilt: $\norm{AB} \leq \norm{A}\norm{B}.$ Des Weiteren: \[\forall h \in H, l \in L: \ip{(AB)^*h, l}= \ip{h, A(Bl)} = \ip{A^*h, Bl} = \ip{B^*A^*h, l}\] \\
+	\textit{zu 4:} Sei $k \in K$ mit $\norm{k} = 1.$ Dann gilt mit der CBS-Ungleichung \[\norm{Ak}^2 = \ip{Ak, Ak} = \ip{A^*Ak, k} \leq \norm{A^*A} \leq \norm{A^*} \norm{A}\]
 Auf der anderen Seite: \[ \sup_{\norm{k} \leq 1} \norm{Ak} = \norm{A}^2 \leq \norm{A^*} \norm{A} \implies \norm{A^*} \geq \norm{A}\] Aufgrund von 2. haben wir auch hier Gleichheit. Damit haben wir dann: \[\norm{A}^2 \leq \norm{A^*A} \leq \norm{A^*}\norm{A} = \norm{A}^2\]
 \end{proof}
 \end{theorem}
 
 \begin{ex} \label{bras_adj} \textit{„bra‘s adjoint“} \\ 
-    Sei nun $A := \langle v |: H \to \K$ und wir betrachten den dazu adjungierten Operator $A^*: \K \to H.$  Wir haben: \[\forall h \in H, \lambda \in \K: \ip{A^* \lambda, h} = \ip{\lambda, Ah}_{\K} = \overline{\lambda}Ah = \overline{\lambda} \ip{v, h} = \lambda \ip{v, h}.\] Daraus folgt dann $A^*\lambda = \lambda v$ und damit $\langle v |^* = | v \rangle$
+    Sei nun $A := \langle v |: H \to \K$ und wir betrachten den dazu adjungierten Operator $A^*: \K \to H.$  Wir haben: \[\forall h \in H, \lambda \in \K: \ip{A^* \lambda, h} = \ip{\lambda, Ah}_{\K} = \overline{\lambda}Ah = \overline{\lambda} \ip{v, h} = \ip{\lambda v, h}.\] Daraus folgt dann $A^*\lambda = \lambda v$ und damit $\langle v |^* = | v \rangle$
 \end{ex}
 
 \begin{ex} Sei $H$ ein Hilbertraum, $K \subseteq H$ ein abgeschlossener Unterraum.
 	Sei des Weiteren noch $P, Q \in \B(H)$ mit $Ph \in K, Qh \in K^{\perp}, P + Q = I_H$ wobei $I_H$ der Identitätsoperator ist.  Gesucht ist nun $P^*.$ \\
 Betrachten wir dazu: \[\ip{P^*h, h‘} = \ip{h, Ph‘} = \ip{Ph, Ph} + \underbrace{\ip{Qh, Ph‘}}_{= 0} = \ip{P^*Ph, h‘}.\] Damit haben wir $P^* = P^{*}P$ und da \[P = (P^*P)^* = P^*P^{**} = P^*P = P^* \text{ und damit } P = P^* = P^2\] Des Weiteren haben wir $h-Ph \perp Ph$:
-\[\ip{h-Ph, Ph} = \ip{Ph}- \ip{h, P^*Ph} = 0\] (Für Q analog.)
+\[\ip{h-Ph, Ph} = \ip{h,Ph}- \ip{h, P^*Ph} = 0\] (Für Q analog.)
 \end{ex}
 
 \begin{definition} Sei $A \in \B(H),$ dann heißt A:

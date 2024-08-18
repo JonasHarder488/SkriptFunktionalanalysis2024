@@ -2,7 +2,7 @@
 	%%%Vorlesung vom 27.5%%%
 	Sei $V$ ein Vektorraum über dem Körper $\K$, $V^{'}$ der Dualraum und $V^{''}$ der Bidualraum. Dann ist die natürliche Einbettung $\iota$ definiert durch: 
 	\[
-	\iota: V \to V^{'}, \iota(v)(\varphi) = \varphi(v) \text{ für alle } v \in V, \varphi \in V'
+	\iota: V \to V^{''}, \iota(v)(\varphi) = \varphi(v) \text{ für alle } v \in V, \varphi \in V'
 	\]
 	Außerdem ist $\iota$ per Definition injektiv und linear. Des Weiteren erhält $\iota$ die Norm:
 	\[
@@ -36,20 +36,20 @@
 \begin{ex} 
 	Wir untersuchen nun die Dualkette von 
 	\[
-	c_0 = \left\{ \{a_n\}_{n \in \mathbb{N}} : a_n \in \mathbb{R}, \lim_{n \to \infty} a_n = 0 \right\}
+	c_0 = \left\{ (a_n)_{n \in \mathbb{N}} : a_n \in \mathbb{R}, \lim_{n \to \infty} a_n = 0 \right\}
 	\]
 	Es stellt sich heraus, dass $c_0' = \ell^1$. Außerdem stellt sich heraus, dass $(\ell^1)' = \ell^{\infty}$ und wiederum $(\ell^{\infty})' = \left\{ \mu : 2^{\mathbb{N}} \to \mathbb{R}, \text{ $\mu $ ist endlich additiv} \right\}$. Bei $\mu$ handelt es sich nicht nur um Maße, sondern um Inhalte. Diese Kette zieht sich so fort.
 \end{ex}
 
 \section{Das Prinzip der gleichmäßigen Beschränktheit}
 \begin{definition}
-	Sei $(X, \rho)$ ein Maßraum, dann heißt $S \subset X$ nirgends dicht, wenn die Vervollständigung $\bar{S}$ keine Kugel enthält. Mit 
+	Sei $(X, \rho)$ ein metrischer Raum, dann heißt $S \subset X$ nirgends dicht, wenn der Abschluss $\bar{S}$ keine Kugel enthält. Mit 
 	\[
 	\bar{S} = \left\{ x \in X : \forall n \in \mathbb{N} \exists x_n \in S: x_n \xrightarrow{n \to \infty} x \right\} \text{ und } \bar{S} = S \cup \partial S.
 	\] 
 	Das Innere ist definiert als 
 	\[
-	S^{\mathrm{o}} = \left\{ x \in X \mid \exists \varepsilon > 0: K_{\varepsilon}(X) \subseteq S \right\}.
+	S^{\mathrm{o}} = \left\{ x \in X \mid \exists \varepsilon > 0: K_{\varepsilon}(x) \subseteq S \right\}.
 	\] 
 	$S$ ist genau dann nirgends dicht, wenn $\bar{S}^{\mathrm{o}} = \emptyset$.
 \end{definition}
@@ -62,7 +62,7 @@
 	Sei $X = \mathbb{R}$. 
 	\begin{enumerate}
 		\item Die Cantormenge $C$ ist nirgends dicht.
-		\item $\mathbb{Q}$ ist nirgends dicht.
+		\item $\mathbb{Q}$ ist mager.
 	\end{enumerate}
 \end{ex}
 
@@ -96,7 +96,7 @@
 	Sei $(X, \rho)$ ein vollständiger metrischer Raum und $\{S_n\}_{n \in \mathbb{N}}$ eine Folge nirgends dichter Mengen, dann gibt es $x \in X$ mit $x \notin \bigcup_{n \in \mathbb{N}} S_n$.
 	
 	\begin{proof}[Beweis:] 
-		Da $S_n$ nirgends dicht ist, ist $S_n^{\mathrm{o}} = \emptyset$. Nach Definition gibt es zu jedem $S_n$ und jeder offenen Menge $U \subseteq X$ eine Menge $B \subseteq U$ mit $\bar{B} \cap S_n = \emptyset$. Sei $B_1$ nun eine beliebige nicht-leere offene Teilmenge von $X$. Da $S_1$ nirgends dicht ist, gibt es $B_2 \subset B_1$ mit $\bar{B}_2 \cap S_1 = \emptyset$. So definiere man sich eine Folge absteigend nicht-leerer offener Mengen $\{B_n\}_{n \in \mathbb{N}}$ wobei $B_{n+1} \subseteq B_n$ und $\bar{B}_{n+1} \cap S_n = \emptyset$. Da $X$ vollständig ist, garantiert der Satz von Cantor, dass der Durchschnitt der abgeschlossenen Mengen $\bar{B}_n$ nicht leer ist, also $\bigcap_{n = 1}^{\infty} \bar{B}_n \not= \emptyset$. 
+		Da $S_n$ nirgends dicht ist, ist $\overline S_n^{\mathrm{o}} = \emptyset$. Nach Definition gibt es zu jedem $S_n$ und jeder offenen Menge $U \subseteq X$ eine Menge $B \subseteq U$ mit $\bar{B} \cap S_n = \emptyset$. Sei $B_1$ nun eine beliebige nicht-leere offene Teilmenge von $X$. Da $S_1$ nirgends dicht ist, gibt es $B_2 \subset B_1$ mit $\bar{B}_2 \cap S_1 = \emptyset$. So definiere man sich eine Folge absteigend nicht-leerer offener Mengen $\{B_n\}_{n \in \mathbb{N}}$ wobei $B_{n+1} \subseteq B_n$ und $\bar{B}_{n+1} \cap S_n = \emptyset$. Da $X$ vollständig ist, garantiert der Satz von Cantor, dass der Durchschnitt der abgeschlossenen Mengen $\bar{B}_n$ nicht leer ist, also $\bigcap_{n = 1}^{\infty} \bar{B}_n \not= \emptyset$. 
 	\end{proof}
 \end{theorem}
 
@@ -127,12 +127,12 @@
 	Sei $\{T_n\}$ eine Folge beschränkter linearer Operatoren mit $T_n \in \B(X, Y)$ für alle $n \in \mathbb{N}$. Außerdem existiere für alle $x \in X$ auch $\lim_{n \to \infty} T_n x$. Definiere $T: X \to Y$ durch $Tx = \lim_{n \to \infty} T_n x$. Dann ist $T \in \B(X, Y).$
 	
 	\begin{proof}[Beweis:] 
-		$T$ ist offensichtlich linear. Sei $x \in X$, dann ist $\sup_{n}{\norm{T_n x}} < \infty$, da $\{T_n x\}$ nach Voraussetzung konvergiert und konvergente Folgen in metrischen Räumen beschränkt sind. \ref{glm_beschr} liefert uns nun, dass $\sup{\norm{T_n}} = M < \infty$. Damit folgt über die CBS-Ungleichung für alle $x \in X, n \in \mathbb{N}$, dass $\norm{T_n x} \leq M \norm{x}$.
+		$T$ ist offensichtlich linear. Sei $x \in X$, dann ist $\sup_{n}{\norm{T_n x}} < \infty$, da $\{T_n x\}$ nach Voraussetzung konvergiert und konvergente Folgen in metrischen Räumen beschränkt sind. \ref{glm_beschr} liefert uns nun, dass $\sup{\norm{T_n}} = M < \infty$. Damit folgt für alle $x \in X, n \in \mathbb{N}$, dass $\norm{T_n x} \leq M \norm{x}$.
 	\end{proof}
 \end{theorem}
 
 
-\section{Das Prinzip der gleichm\as \s igen Beschr\as nktheit}
+
 %%%%%Vorlesung 30.05.2024%%%%%
 \begin{theorem}
 	Sei \((V,\normn\cdot V)\) ein normierter Raum und \(A\subseteq V\) eine Teilmenge mit
@@ -165,14 +165,14 @@
 \section{Der Satz von der offenen Abbildung}
 
 \begin{rem}[Motivation]
-	Seien \(V, W\) Banachr\as ume sowie \(T \in \B(V,W)\), d. h. \(T: V\to W\) bijektiv, linear und beschr\as nkt. Somit existiert \(T^{-1}:W\to V\). Die Umkehrabbildung ist linear, da aus
+	Seien \(V, W\) Banachr\as ume sowie \(T \in \B(V,W)\), mit \(T: V\to W\) bijektiv. Somit existiert \(T^{-1}:W\to V\). Die Umkehrabbildung ist linear, da aus
 	\[T(T^{-1}(x+y)) = x +y \;\text{ und }\; T(T^{-1}(x) + T^{-1}(y)) = T(T^{-1}(x)) + T(T^{-1}(y)) = x + y\]
 	unter Ausnutzung der Injektivit\as t von T folgt, dass \(T^{-1}(x+y) = T^{-1}(x) + T^{-1}(y)\). Weiterhin stellt sich die Frage, ob \(T^{-1}\) auch beschr\as nkt ist. Nach Satz \ref{B(V,W)_equiv} g. z. z., dass \(T^{-1}\) stetig. Daf\us r ist folgende Bedingung notwendig
 	\[\forall G \subseteq V \text{ offen}: (T^{-1})^{-1} (G) = T(G) \subseteq W \text{ offen}\;.\]
 \end{rem}
 \begin{ex}
 	Betrachte die Banachr\as ume \(V= W = (C^0([0,1]), \norms \cdot)\). Dann ist \(T\in \B(V,W)\)
-	\[\forall f \in C^0([0,1]): T(f) = \int_0^x f(y)dy\]
+	\[\forall f \in C^0([0,1]): (T(f))(x) = \int_0^x f(y)dy\]
 	ein injektiver Operator. Dann k\os nnen wir \(\tilde T^{-1}\) definieren mit
 	\[\tilde T^{-1} (g(x)) = g'(x)\;.\]
 	Da \(T\) nicht bijektiv ist existiert in diesem Fall jedoch keine Umkehrabbildung.
@@ -333,7 +333,7 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	\begin{multline*}
 	\normn{P_1(x,Tx)}V = \normn xV \leq \normn xV + \normn{Tx}{W} = \normn{(x,Tx)}{1} \implies \\ \norm{P_1} = \sup \set{ \normn{P_1(x,Tx)}V\;\big\vert\;\normn{(x,Tx)}1 = 1}\leq 1\;.
 	\end{multline*}
-	Analog folgt \(\norm{P_2} \leq 1\). Weiterhin gilt \(P_1(\Gamma_T) = V\), d. h. $P_1$ injektiv. Au\s erdem ist $P_1$ injektiv, da
+	Analog folgt \(\norm{P_2} \leq 1\). Weiterhin gilt \(P_1(\Gamma_T) = V\), d. h. $P_1$ surjektiv. Au\s erdem ist $P_1$ injektiv, da
 	\[P_1(x,Tx) = 0 \iff x = 0 \iff x = 0 \text{ und } Tx = 0 \iff (x,Tx) = 0_{V\times W}\;.\]
 	Aus der Bijektivit\as t von $P_1$ folgt nun mit Satz \ref{Inverse_Mapping} \(P_1^{-1} \in \B(V,\Gamma_T)\) und mit \(P_2 \in \B(\Gamma_T, W)\) nach Definition erhalten wir 
 	\[T = P_2 \circ P_1^{-1} \in \B(V,W)\;.\]
@@ -349,5 +349,5 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 \end{theorem}
 
 \begin{proof}
-	Definiere \(I: (V,\normn\cdot1) \to (V,\normn\cdot 2)\) als die Identit\as tabbildung, welche linear ist. Wollen nun zeigen, dass \(\Gamma_T\) abgeschlossen. Sei daf\us r eine Folge \(\seq xn, \;\forall n \in \N\; x_n \in V\) gegeben mit \(\li xn =: x\) in \((V,\normn\cdot 1)\) sowie \(\lime n Tx_n = y\) in \(V,\normn\cdot 2\). Nach Voraussetzung folgt \(x = y\). Somit ist \(\Gamma_I\) abgeschlossen und mit Satz \ref{closed_graph} gilt \(I \in \B(V,V)\). Nach Satz \ref{Inverse_Mapping} gilt auch \(I^{-1} \in \B(V,V)\). Nach Definition der Beschr\as nktheit folgt die Behauptung.
+	Definiere \(I: (V,\normn\cdot1) \to (V,\normn\cdot 2)\) als die Identit\as tabbildung, welche linear ist. Wollen nun zeigen, dass \(\Gamma_T\) abgeschlossen. Sei daf\us r eine Folge \(\seq xn, \;\forall n \in \N\; x_n \in V\) gegeben mit \(\li xn =: x\) in \((V,\normn\cdot 1)\) sowie \(\lime n Tx_n = y\) in \((V,\normn\cdot 2)\). Nach Voraussetzung folgt \(x = y\). Somit ist \(\Gamma_I\) abgeschlossen und mit Satz \ref{closed_graph} gilt \(I \in \B(V,V)\). Nach Satz \ref{Inverse_Mapping} gilt auch \(I^{-1} \in \B(V,V)\). Nach Definition der Beschr\as nktheit folgt die Behauptung.
 \end{proof}
