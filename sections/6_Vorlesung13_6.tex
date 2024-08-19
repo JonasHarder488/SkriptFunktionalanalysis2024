@@ -1,4 +1,4 @@
-\section{Eigenwerte und Vektoren von kompakten Operatoren}
+\section{Eigenwerte und -vektoren von kompakten Operatoren}
 
 In diesem Kapitel sei $H$ immer ein Hilbertraum.
 
@@ -41,7 +41,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 		
 		Damit sind $\lambda, \mu \in \R$. Betrachte nun weiterhin:
 		
-		\[ \mu \ip{x, y} = \ip{x, Ty} = \ip{Tx, y} = \lambda ip{x, y} \implies \ip{x, y} = 0. \]
+		\[ \mu \ip{x, y} = \ip{x, Ty} = \ip{Tx, y} = \lambda \ip{x, y} \implies \ip{x, y} = 0. \]
 		
 	\end{proof}
 	
@@ -51,7 +51,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 \begin{theorem}
 	
 	Sei $\lambda$ ein Eigenwert von $T \in \mc B(H)$, dann $\ab{\lambda} \leq \norm{T}$.
-	
+	\label{norm_eigenwert}
 	\begin{proof}[Beweis:]
 		
 		Betrachte:
@@ -65,13 +65,13 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 
 \begin{theorem}
 	
-	Sei $T \in \mc K(H)$, dann ist für alle $0 \not= \lambda \in \C$, $\text{dim}(\text{Kern}(T - \lambda \text{id})) < \infty$.
+	Sei $T \in \mc K(H)$, dann ist für alle $0 \not= \lambda \in \C$, $\text{dim}(\ker(T - \lambda \I)) < \infty$.
 	
 	\begin{proof}[Beweis:]
 		
-		Nehme an $\text{dim}(\text{Kern}(T - \lambda \text{id})) = \infty$, d.h. wir haben ein Orthonormalsystem $(\ell_n)_{n \in \N}$ in $\text{Kern}(T - \lambda)$ mit $\norm{\ell} \leq 1$, dann betrachte:
+		Nehme an $\text{dim}(\ker(T - \lambda \I)) = \infty$, d.h. wir haben ein Orthonormalsystem $(\ell_n)_{n \in \N}$ in $\ker(T - \lambda\I)$ mit $\norm{\ell_n} \leq 1$, dann betrachte:
 		
-		\[ \norm{T\ell_n - T\ell_m} = \norm{\lambda - \ell_n - \lambda \ell_m} = \ab{\lambda} \norm{\ell_n - \ell_m} = \ab{\lambda}\sqrt{2}. \]
+		\[ \norm{T\ell_n - T\ell_m} = \norm{\lambda\ell_n - \lambda \ell_m} = \ab{\lambda} \norm{\ell_n - \ell_m} = \ab{\lambda}\sqrt{2}. \]
 		
 		Damit ist $(T \ell_n)_{n \in \N}$ keine Cauchy-Folge. Damit gibt es kein $y \in H$ mit $T \ell_n \xrightarrow{n \to \infty} y$. Damit ist $T \notin \mc K(H)$.
 		
@@ -118,7 +118,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 		
 		Seien nun $x, y \in H$, dann können wir ausrechnen:
 		
-		\[ \ip{x, Tg} - \ip{y, Ty} \leq \ab{\ip{x, Tx}} + \ab{\ip{y, Ty}} \leq M (\norm{x}^2 + \norm{y}^2) = \frac{M}{2} (\norm{x-y}^2 + \norm{x+y}^2). \]
+		\[ \ip{x, Tx} - \ip{y, Ty} \leq \ab{\ip{x, Tx}} + \ab{\ip{y, Ty}} \leq M (\norm{x}^2 + \norm{y}^2) = \frac{M}{2} (\norm{x-y}^2 + \norm{x+y}^2). \]
 		
 		Sei nun $v \in H$ mit $\norm{v} \leq 1$, $Tv \not= 0$, $g = v$ und $f = \frac{1}{\norm{Tv}}Tv$. Definieren wir uns nun
 		
@@ -132,9 +132,9 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 		
 		so, dass $\norm{x}, \norm{y} \leq 2$, dann können wir abschätzen:
 		
-		\[ \norm{x, Tx} - \norm{y, Ty} \leq \frac{M}{2} (\norm{x-y}^2 + \norm{x+y}^2) = 4M. \]
+		\[ \norm{x, Tx} - \norm{y, Ty} \leq \frac{M}{2} (\norm{x-y}^2 + \norm{x+y}^2) \le 4M. \]
 		
-		Wenn wir nun alle Puzzelteile zusammensetzen erhalten wir unser Ergebis:
+		Wenn wir nun alle Puzzelteile zusammensetzen erhalten wir unser Ergebnis:
 		
 		\[ 4 \norm{Tv} = 4 \text{Re}\ip{\frac{1}{\norm{Tv}}Tv, Tv} = \ip{x, Tx} - \ip{y, Ty} \leq 4M \implies \norm{T} \leq M. \]
 		
@@ -163,7 +163,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 
 \begin{theorem}
 	
-	Sei $T \in \mc B(H)$ und $L \subseteq H$ abgeschlossen, dann gilt \[TL^{\perp} \subseteq L^{\perp} = \set{v \in H: \forall w \in L, v \perp w}.\]
+	Sei $T \in \mc B(H)$ selbstadjungiert und $L \subseteq H$ abgeschlossen, dann gilt \[TL^{\perp} \subseteq L^{\perp} = \set{v \in H: \forall w \in L, v \perp w}.\]
 	
 	\begin{proof}[Beweis:]
 		

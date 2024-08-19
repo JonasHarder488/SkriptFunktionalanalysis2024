@@ -24,7 +24,6 @@
 \begin{proof}
 	Da \(\seq en\) und \(\seq fn\) Orthonormalbasen sind, gilt 
 	\[\forall x \in H: x = \sum_{n\in\N}  \ip{e_n,x} e_n  = \sum_{n\in\N}  \ip{f_n,x} f_n ,\;\; \;\norm x^2 =  \sum_{n\in\N}\ab{\ip{e_n, x}}^2   =  \sum_{n\in\N}\ab{\ip{f_n, x}}^2 \;.\]
-	\unsure{In der Literatur wird f\us r diese Identit\as ten die Parseval-Gleichung ben\os tigt, welche wir nicht explizit in der Vorlesung gezeigt haben. Oder gibt es eine \as quivalente Aussage dazu?}
 	Somit gilt insbesondere f\us r alle \(n, j \in \N\)
 	\[\norm{Te_n}^2 = \sum_{j\in \N} \ab{\ip{f_j, Te_n}}^2,\;\; \norm{T^*f_j}^2 = \sum_{n\in \N} \ab{\ip{e_n, T^* f_j}}^2 =  \sum_{n\in \N} \ab{\ip{f_n, T^* f_j}}^2 \;.\]
 	Weiterhin gilt damit
@@ -81,7 +80,7 @@
 \end{rem}
 
 \begin{ex}
-	Betrachte den Hilbertraum \(H = \ell^2(\N)\) mit der Standardbasis \(\seq en \subseteq H^\N\), sowie dem Multiplikationsoperator (siehe Bsp. \ref{Mult_op}) \(T = M_\lambda\) f\us r \(\lambda := \seq \lambda n \in \K^\N\), d. h. 
+	Betrachte den Hilbertraum \(H = \ell^2(\N)\) mit der Standardbasis \(\seq en \in H^\N\), sowie dem Multiplikationsoperator (siehe Bsp. \ref{Mult_op}) \(T = M_\lambda\) f\us r \(\lambda := \seq \lambda n \in \K^\N\), d. h. 
 	\[T e_n = \lambda_n e_n\;.\]
 	Dann gilt, dass $T$ ein Hilbert-Schmidt-Operator ist, genau dann wenn
 	\[\sum_{n\in\N}\norm{Te_n}^2 < \infty \iff \sum_{n\in\N}\ab{\lambda_n}^2 < \infty \iff \lambda \in l^2(\N)\;.\]
@@ -89,24 +88,24 @@
 
 \begin{theorem}
 	Sei \((\Omega, \Sigma, \mu)\) ein \(\sigma\)-endlicher Ma\s raum, \(L^2(\mu)\) separabel und \(k(x,y)\in \mc L^2(\mu\otimes \mu)\). Dann definiert 
-	\[K f(x) := \int_\Omega k(x,y) f(y) \mu (dy)\]
+	\[(K f)(x) := \int_\Omega k(x,y) f(y) \mu (dy)\]
 	einen Hilbert-Schmidt-Operator \(K\in \B(L^2(\mu))\).
 \end{theorem}
 \begin{proof}
 	Wir zeigen zun\as chst, dass \(K\in \B(L^2(\mu))\), insbesondere zuerst, dass \(K: L^2(\mu) \to L^2(\mu)\). Sei \(f \in \mc L^2(\mu)\), \(f \muq 0\) (d. h. \(\equ{f} = \equ{0}\) in \(L^2(\mu)\)). Damit gilt in der Tat
-	\[\forall x \in \Omega: k(x,y) f(y) = 0 \text{ f\us r $\mu$-fast alle }y\in \Omega \implies \forall x \in \Omega: Kf(x) = \int_\Omega k(x,y)f(y)\mu(dy) = 0\;.\]
+	\[\forall x \in \Omega: k(x,y) f(y) = 0 \text{ f\us r $\mu$-fast alle }y\in \Omega \implies \forall x \in \Omega: (Kf)(x) = \int_\Omega k(x,y)f(y)\mu(dy) = 0\;.\]
 	Nach Voraussetzung gilt \(k(x,y)\in \mc L^2(\mu\otimes \mu)\), d. h. es gilt mit dem Satz von Fubini (Satz \ref{Fubini})
 	\[\infty >\int_{\Omega\times\Omega} \ab{k(x,y)}^2 \mu\otimes \mu(d(x,y)) = \int_\Omega \int_\Omega \ab{k(x,y)}^2\mu(dy)\mu(dx)\;.\]
 	Folglich gilt 
 	\[\int_\Omega \ab{k(x,y)}^2 \mu(dy) < \infty \text{ f\us r $\mu$-fast alle \(x\in\Omega\)} \iff k(x,\cdot) \in L^2(\mu)\;.\]
 	Sei nun \(f\in L^2(\mu)\). Wir wenden die H\os lder-Ungleichung mit \(p = q = 2\) an und erhalten 
-	\[\forall x\in \Omega: \norm{k(x,\cdot) f}_1 = \int_\Omega \ab{k(x,y) f(y)} \mu(dy)  < \norm{k(x,\cdot)}_2 \normn f2 < \infty\;.\]
+	\[\forall x\in \Omega: \norm{k(x,\cdot) f}_1 = \int_\Omega \ab{k(x,y) f(y)} \mu(dy)  \le \norm{k(x,\cdot)}_2 \normn f2 < \infty\;.\]
 	\unsure{Hier wurde nur gezeigt, dass \(Kf(x) \in L^1(\mu)\), woraus folgt dann, dass \(Kf(x) \in L^2(\mu)\)?}
 	Nun zeigen wir, dass $K$ beschr\as nkt ist. Sei \(f\in L^2(\mu)\), dann gilt mit Cauchy-Schwarz
 	\begin{align*}
 		\normn{Kf}2^2 &= \int_\Omega \ab{Kf(x)}^2 \mu(dx) = \int_\Omega \ab{\int_\Omega k(x,y) f(y) \mu(dy)}^2\mu(dx) = \int_\Omega \ab{\int_\Omega \overline{k(x,y)} f(y) \mu(dy)}^2\mu(dx) \\& \leq \int_\Omega\int_\Omega \ab{k(x,y)}^2\mu(dy) \int_\Omega \ab{f(z)}^2 \mu(dz) \mu(dx) \leq \norm{k}^2_{L^2(\mu\otimes\mu)}\norm{f}_2^2\;.
 	\end{align*}
-	Somit \(K\in\B(L^2(\mu))\). Zeigen nun die Hilbert-Schmidt-Eigenschaft. Da \(L^2(\mu)\) separabel nach Voraussetzung, sei \(\seq en \subseteq L^2(\mu)^\N\) eine Orthonormalbasis. Dann gilt
+	Somit \(K\in\B(L^2(\mu))\). Zeigen nun die Hilbert-Schmidt-Eigenschaft. Da \(L^2(\mu)\) separabel nach Voraussetzung, sei \(\seq en \in L^2(\mu)^\N\) eine Orthonormalbasis. Dann gilt
 	\[\normn{Ke_n}2^2 = \int_\Omega\ab{\int_\Omega k(x,y) e_n(y) \mu(dy)}^2 \mu(dx) = \int_\Omega\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2 \mu(dx)\;.\]
 	Wir wenden nun Beppo-Levi an und erhalten
 	\[\sum_{n\in\N} \normn{Ke_n}2^2 = \sum_{n\in\N} \int_\Omega\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2 \mu(dx) = \int_\Omega\sum_{n\in\N}\ab{\ip{\overline{e_n}, k(x,\cdot)}}^2\mu(dx)\;.\]

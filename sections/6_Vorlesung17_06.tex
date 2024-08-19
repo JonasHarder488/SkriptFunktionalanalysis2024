@@ -12,12 +12,12 @@
 	\[\exists \seq \lambda n\text{ mit }\;\forall n\neq m: \lambda_n \neq \lambda_m,\;\forall n\in\N: \ab{\lambda_n}> \varepsilon, \lambda_n \in \Sigma(T)\;.\]
 	Damit gibt es Eigenvektoren
 	\[\seq xn \text{ mit } \forall n\in\N: x_n \in H\setminus\set{0}, Tx_n = \lambda_n x_n\;.\]
-	Dabei nehmen wir o. B. d. A. an, dass \(\forall n\in\N: \norm{x_n} = 1\).  Nach Satz \textit{[...]} gilt \(\forall n \in N: \ab{\lambda_n} \leq \norm{T}\), d. h. $\seq xn$ ist beschr\as nkt. Da $T$ kompakt ist, existiert  ein \(y\in H\) sowie eine Teilfolge 
+	Dabei nehmen wir o. B. d. A. an, dass \(\forall n\in\N: \norm{x_n} = 1\).  Nach Satz \ref{norm_eigenwert} gilt \(\forall n \in N: \ab{\lambda_n} \leq \norm{T}\), weiterhin ist $\seq xn$ beschr\as nkt. Da $T$ kompakt ist, existiert  ein \(y\in H\) sowie eine Teilfolge 
 	\[\se{x_{n_k}}{k} \text{ mit } \lime k Tx_{n_k} = y \;.\]
 	Insbesondere ist \(\se{Tx_{n_k}}{k}\) eine Cauchyfolge. Weiterhin gilt
 	\[\forall k,l\in\N,\; k\neq l: x_{n_k} \perp x_{n_l}\implies Tx_{n_k}  = \lambda_{n_k} x_{n_k}\perp \lambda_{n_l} x_{n_l} = Tx_{n_l}\;.\]
 	Somit folgt 
-	\[\norm{Tx_{n_k} - Tx_{n_l}}^2 = \norm{Tx_{n_k}}^2 + \norm{Tx_{n_l}}^2 =  \lambda_{n_k}^2 + \norm{x_{n_k}}^2+ \lambda_{n_l}^2 \norm{x_{n_l}}^2  > 2\varepsilon^2\;.\]
+	\[\norm{Tx_{n_k} - Tx_{n_l}}^2 = \norm{Tx_{n_k}}^2 + \norm{Tx_{n_l}}^2 =  \lambda_{n_k}^2  \norm{x_{n_k}}^2+ \lambda_{n_l}^2 \norm{x_{n_l}}^2  > 2\varepsilon^2\;.\]
 	Dies ist ein Wiederspruch zur Definition der Cauchyfolge. Damit ist 
 	\[\forall \varepsilon > 0: \set{\lambda \in \Sigma(T)\;\vert\; \ab{\lambda}> \varepsilon} \text{ endlich.}\]
 	Folglich ist \(\Sigma(T)\) abz\as hlbar, da insbesondere 
@@ -29,7 +29,7 @@
 \end{rem}
 
 \begin{theorem}
-	Sei $H$ ein Hilbertraum, \(\seq \lambda n \subseteq \C^\N\), \(\li \lambda n = 0\) und \(\seq Pn\) orthogonale Projektionen, d. h. 
+	Sei $H$ ein Hilbertraum, \(\seq \lambda n \in \C^\N\), \(\li \lambda n = 0\) und \(\seq Pn\) orthogonale Projektionen, d. h. 
 	\[\forall n\in\N: P_n \in \B(H), \;P_n = P^*_n = P_n^2\;.\]
 	Gelte weiterhin \(\forall n\neq m: P_n P_m = P_m P_n = 0\).
 	Dann existiert \(T = \sum_{n\in\N} \lambda_n P_n\) in Operatornorm.
@@ -43,7 +43,7 @@
 		& \leq  \max\set{\ab{\lambda_n} \;\vert\; 0 \leq n \leq N}^2  \normn xH^2
 	\end{align*}
 	Wir begr\us nden nun die letzte Absch\as tzung \(\sum_{n=0}^N \normn{P_nx}H^2 \leq \normn xH^2\). Wegen der paarweisen Orthogonalit\as t der Unterr\as ume, auf die projiziert wird, gilt
-	\[\normn{\left(\sum_{n=0}^N P_n\right)x}H^2 =  \ip{\sum_{n=0}^N P_n x, \sum_{n=0}^N P_n x} = \sum_{n=0}^N \normn{P_nx}H^2\;.\]
+	\[\normn{\left(\sum_{n=0}^N P_n\right)x}H^2 =  \ip{\sum_{n=0}^N P_n x, \sum_{m=0}^N P_m x} = \sum_{n=0}^N \normn{P_nx}H^2\;.\]
 	Au\s erdem ist mit dieser Voraussetzung auch \(P:= \sum_{n=0}^N P_n\) wieder eine orthogonale Projektion. \(P^* = P\) ist klar und \(P^2 = P\) folgt aus der Orthogonalit\as tsbedingung f\us r die Unterr\as ume (d. h. \(\forall n\neq m: P_n P_m = P_m P_n = 0\)). Es gilt also 
 	\[\sum_{n=0}^N\normn{P_nx}H^2 = \normn{Px}H^2\;.\]
 	Weiterhin gilt  \(\norm{P} \leq 1\). Sei n\as mlich \(\norm{P} > 0 \) (sonst fertig), dann gilt f\us r \(x\in H\) mit Cauchy-Schwarz
@@ -53,7 +53,7 @@
 	Wir erhalten also insgesamt
 	\[\norm{T_N} = \norm{\sum_{n=0}^N \lambda_n P_n} \leq \max\set{\ab{\lambda_n}\;\vert\; 0 \leq n\leq N}\;.\]
 	Sei nun \(\varepsilon > 0\) fixiert und \(N_0 \in N\) so gro\s{}, dass \(\forall n \geq N_0: \ab{\lambda_n}<\varepsilon\). Dann gilt f\us r \(N, M \geq N_0\), o. B. d. A. \(N \leq M\) 
-	\[\norm{\sum_{n=0}^M \lambda_n P_n - \sum_{n=0}^N \lambda_n P_n} = \norm{\sum_{N+1}^M \lambda_n P_n} \leq  \max\set{\ab{\lambda_n}\;\vert\; N+1 \leq n \leq M} < \varepsilon\;.\]
+	\[\norm{\sum_{n=0}^M \lambda_n P_n - \sum_{n=0}^N \lambda_n P_n} = \norm{\sum_{n=N+1}^M \lambda_n P_n} \leq  \max\set{\ab{\lambda_n}\;\vert\; N+1 \leq n \leq M} < \varepsilon\;.\]
 	
 \end{proof}
 
@@ -79,7 +79,7 @@
 		Au\s erdem haben wir bereits gezeigt \(TL^\perp \subseteq L^\perp\).
 		Da $L$ ein abgeschlossener Unterraum ist, k\os nnen wir Satz \ref{PQ_Zerlegung} anwenden, d. h. es existieren \(P, Q \in \B(H)\) mit 
 		\[\forall x \in H: Px \in L,\; Qx \in L^\perp \text{ und } Px + Qx = x \;.\]
-		Dabei ist bekannt, dass \(H\cong L \oplus L^\perp\) sowie \(P = P_L\) und \(Q = P_{L^\perp}\), d. h. wir k\os nnen schreiben \(T = TP + TQ\). Es gilt insbesondere $PTP = P$ (analog f\us r $Q$). Insgesamt erhalten wir damit die Darstellung
+		Dabei ist bekannt, dass \(H\cong L \oplus L^\perp\) sowie \(P = P_L\) und \(Q = P_{L^\perp}\), d. h. wir k\os nnen schreiben \(T = TP + TQ\). Es gilt insbesondere $PTP = TP$ (analog f\us r $Q$). Insgesamt erhalten wir damit die Darstellung
 		\[ T = PTP + QTQ\;.\]
 		Aufgrund der Definition von $S$ ist klar, dass gilt
 		\[SL \subseteq L,\; SL^\perp \subseteq L^\perp, \; S = S^* \text{ und }  S\vert_{L^\perp} = 0\]
@@ -104,7 +104,7 @@
 	Sei $H$ ein Hilbertraum. Dann hat \(T\in \B(H)\) \textit{endlichen Rang}, falls \(\dim TH< \infty\).
 \end{definition}
 \begin{rem}
-	Wir haben bereits gezeigt, dass aus \(T \in \B(H)\) endlicher Rang auch \(T\in\mc K(H)\) folgt. Falls andersherum \(T \in \K(H)\) selbstadjungiert ist, gilt bez\us glich der Operatornorm
+	Wir haben bereits gezeigt, dass aus \(T \in \B(H)\) endlicher Rang auch \(T\in\mc K(H)\) folgt. Falls andersherum \(T \in \mc K(H)\) selbstadjungiert ist, gilt bez\us glich der Operatornorm
 	\[\lim_{\varepsilon\to 0} \sum_{n\in\N,\;\ab{\lambda_n} > \varepsilon} \lambda_n P_{N(\lambda_n)} = T\;.\]
 	F\us r jedes \(\varepsilon > 0\) ist \(\dim P_{N(\lambda_n)}<\infty\) und auch die Summe endlich, wodurch $T$ dann endlichen Rang hat.
 \end{rem}
