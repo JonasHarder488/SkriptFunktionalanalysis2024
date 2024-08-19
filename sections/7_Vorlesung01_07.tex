@@ -22,7 +22,7 @@
 \begin{theorem} \label{lem_inv} Für $T \in \mc B(H), H$ Hilbertraum, gilt für $p \in \C[X]: \sigma(p(T))= p(\sigma(T))$
 	
 	
-	\begin{proof}[Beweis:] $(\subseteq)$ Sei $\mu \not= \sigma(p(T)),$ also $p(T)-\mu$ nicht invertierbar. Nach dem Fundamentalsatz der Algebra gibt es ein $c \not= 0, \lambda_1, …, \lambda_n \in \C$ mit \[p(x)- \mu = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_n) \implies p(T)-\mu = c(T-\lambda_1) \cdot … \cdot (T- \lambda_n)\]
+	\begin{proof}[Beweis] $(\subseteq)$ Sei $\mu \not= \sigma(p(T)),$ also $p(T)-\mu$ nicht invertierbar. Nach dem Fundamentalsatz der Algebra gibt es ein $c \not= 0, \lambda_1, …, \lambda_n \in \C$ mit \[p(x)- \mu = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_n) \implies p(T)-\mu = c(T-\lambda_1) \cdot … \cdot (T- \lambda_n)\]
 		
 		Damit gibt es $\lambda_i (T), i = 1, …, n$ mit $(T- \lambda_i)$ existiert nicht, also $\lambda_i \in \sigma(T).$ Aber $p(\lambda_i)- \mu = 0 \implies \mu = p(\lambda_i).$ \\ \\
 		
@@ -40,14 +40,9 @@
 \end{definition}
 
 
-\begin{theorem} Sei $T \in \mc B(H),$ dann ist $\sigma{T} \subseteq \overline{W(T)}$
-	
-\end{theorem}
-
-
 \begin{theorem} \label{num_spec} Sei $T \in \mc B(H),$ dann $\sigma(T) \subseteq \overline{W(T)}.$
 	
-	\begin{proof}[Beweis:] Wir zeigen dies über die Kontraposition. Sei also $\lambda \notin \overline{W(T)},$ dann ist zu zeigen $(T-\lambda\text{Id})^{-1}$ existiert. Damit $d := \text{dist}(\lambda, \overline{w(T)}) > 0$ und $\overline{W(T)} \subseteq \overline{K_{\norm{T}}(0)}$ also folgt Kompaktheit. \\ \\
+	\begin{proof}[Beweis] Wir zeigen dies über die Kontraposition. Sei also $\lambda \notin \overline{W(T)},$ dann ist zu zeigen $(T-\lambda\text{Id})^{-1}$ existiert. Damit $d := \text{dist}(\lambda, \overline{w(T)}) > 0$ und $\overline{W(T)} \subseteq \overline{K_{\norm{T}}(0)}$ also folgt Kompaktheit. \\ \\
 		
 		Sei nun $\norm{x} = 1,$ dann:
 		
@@ -73,7 +68,7 @@
 \begin{theorem} Sei $T \in \mc B(H)$ selbstadjungiert mit $T = T^*,$ dann ist $\sigma(T) \subseteq [- \norm{T}, \norm{T}] \subseteq \R.$
 	
 	
-	\begin{proof}[Beweis:] Es gilt mit \ref{num_spec} $\sigma{T} \subseteq \overline{W(T)} \subseteq [-\norm{T}, \norm{T}] \subseteq \R,$ da $\ip{x, Tx} = \ip{Tx, x} = \overline{x, Tx} \in \R.$ Des Weiteren mit $\norm{x} = 1:$ \[\ab{\ip{x, Tx}} \leq \norm{T}\norm{x}^2 = \norm{T}\]
+	\begin{proof}[Beweis] Es gilt mit \ref{num_spec} $\sigma{T} \subseteq \overline{W(T)} \subseteq [-\norm{T}, \norm{T}] \subseteq \R,$ da $\ip{x, Tx} = \ip{Tx, x} = \overline{x, Tx} \in \R.$ Des Weiteren mit $\norm{x} = 1:$ \[\ab{\ip{x, Tx}} \leq \norm{T}\norm{x}^2 = \norm{T}\]
 		
 	\end{proof}
 	
@@ -84,7 +79,7 @@
 
 \begin{theorem} Sei $f \in C^0_{\R}[a, b]$ dann gibt es eine Folge von Polynomen $(p_n)_{n \in \N}, p_n \in \R[X]$ mit $p_n \xrightarrow{\norm{\cdot}_{\infty}, n \to \infty}f.$
 	
-	\begin{proof}[Beweis:] Ohne Beweis.
+	\begin{proof}[Beweis] Ohne Beweis.
 		
 	\end{proof}
 	
@@ -107,7 +102,7 @@
 	
 	Dann ist $\mc A = C^0[K, \R]$
 	
-	\begin{proof}[Beweis:] Wir zeigen $f \in \mc A, 0 \leq f \implies \sqrt{f} \in \mc A.$ Sei o.B.d.A $f \leq 1,$ dann existiert $g_n := \sqrt{\frac{1}{n}+(1- \frac{1}{n})f}$ für alle $n \in \N.$
+	\begin{proof}[Beweis] Wir zeigen $f \in \mc A, 0 \leq f \implies \sqrt{f} \in \mc A.$ Sei o.B.d.A $f \leq 1,$ dann existiert $g_n := \sqrt{\frac{1}{n}+(1- \frac{1}{n})f}$ für alle $n \in \N.$
 		
 		\unsure{Warum gilt hier Gleichheit?} Und dies ist gleich \[g_n = \frac{1}{n}+ (1- \frac{1}{n})f \leq \frac{1}{n}+(1- \frac{1}{n}) = 1 \implies \norm{g_n}_{infty} = \sqrt{1} = 1\] Aufgrund der Abgeschlossenheit haben wir nun: \[\lim_{n \to \infty} g_n = \sqrt{f} \in \mc A.\] \\ \\
 		
@@ -164,7 +159,7 @@
 	Wir schreiben \(f(T) := \varphi_T(f)\).
 \end{rem}
 
-\begin{proof}
+\begin{proof}[Beweis]
 	\textbf{Schritt 1:} Wir definieren:
 	\[A_0 := \set{f \in C^0(\sigma(T)) \;\Big\vert\; \exists p \in \C[X]: f(x) = p(x):= \sum_{n=0}^N a_n \cdot X^n \;\forall x \in \sigma(T) }\;.\]
 	Somit k\os nnen wir f\us r alle  \(f \in A_0:\) \(\varphi_0 (f) = p(T)\) sowie \(\varphi_0(f)^* = \overline{p}(T)\) setzen (mit $p$ zu $f$ wie in der Definition), wobei:
@@ -205,7 +200,7 @@
 		Sei \(T\in \B(H)\) normal, \(\lambda \in \sigma(T)\). Dann existiert \(\seq xn \subseteq H^\N\) mit 
 		\[\forall n \in \N: \; \norm{x_n} = 1 \;\text{ und }\;  \lime{n}{\norm{Tx_n - \lambda x_n}} = 0\;.\]
 	\end{lemma}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		Wir benutzen Kontraposition. Angenommen
 		\[\exists \delta > 0 \;\forall x \in H, \norm x = 1: \norm{Tx - \lambda x } \geq \delta\;.\]
 		Somit folgt
@@ -230,7 +225,7 @@
 			\item Spektralabbildungssatz: Es gilt \(\sigma(f(T)) = f(\sigma(T)) = \set{f(\lambda)\;\vert\;\lambda \in \sigma(T)}\).
 		\end{enumerate}
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		\textbf{Zu 1.)} Dies folgt sofort aus Schritt 4, Satz \ref{stetiger_kalkuel}.\\
 		\textbf{Zu 2.)} Nach Konstruktion im Beweis von Satz \ref{stetiger_kalkuel} ist bekannt:
 		\[\forall p \in \C[X]: p(T)x = p(\lambda)x\;.\]
@@ -268,7 +263,7 @@
 			\item \(\ab{T} \geq 0\)
 			\item \(T\geq 0 \implies \exists S \geq 0: T = S^2\) ($S = \sqrt{T}$)
 		\end{enumerate}
-		\begin{proof}
+		\begin{proof}[Beweis]
 			Dies folgt aus den S\as tzen \ref{stetiger_kalkuel} und \ref{eigenschaften_stetiger_kalkuel}, da \(\ab\cdot\) und \(\sqrt\cdot\) stetige Funktionen sind.
 		\end{proof}
 	\end{theorem}
@@ -277,7 +272,7 @@
 		Sei \(T\in \B(H)\), wobei $H$ ein Hilbertraum \us ber $\C$. Dann gilt
 		\[T \geq 0 \iff \forall x \in H: \ip{x,Tx} \geq 0 \;.\]
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		\textbf{($\Longrightarrow$)} Es gilt
 		\[\ip{x,Tx} = \ip{x,\sqrt{T}\sqrt{T} x} = \ip{\sqrt{T}x, \sqrt{T}x} \geq 0\;.\]
 		\textbf{($\Longleftarrow$)}

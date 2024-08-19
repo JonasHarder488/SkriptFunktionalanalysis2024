@@ -1,7 +1,7 @@
 \begin{theorem} \label{kmp_gdw_tot} $T \in \B(V, W)$ ist genau dann kompakt, wenn $T\overline{K_1^V(0)}$ totalbeschränkt. 
 	
 	
-	\begin{proof} $(\Rightarrow)$ \\
+	\begin{proof}[Beweis] $(\Rightarrow)$ \\
 		Wir nutzen aus, dass  \(Y\subset W\) total beschr\as nkt, genau dann wenn es \(Y\subseteq Z\subseteq W\) mit $Z$ kompakt gibt. Hier setzen wir \(Z := \overline{T\overline{K_1^V(0)}}\), d. h. es g. z. z., dass $Z$ kompakt ist. $T$ ist nach Voraussetzung kompakt, sei $y_n \in \overline{T\overline{K_1(0)}}$ für alle $n \in \N,$ dann approximiert das Bild den Abschluss, d. h. \[\forall n\in \N \;\exists \tilde y_n \in T\overline{K_1(0)}: \norm{y_n - \tilde y_n} < \frac{1}{n}.\] Also gibt es ein $x_n \in \overline{K_1(0)}: \norm{y_n -Tx_n} < \frac{1}{n}.$ Da $T$ kompakt ist, gibt es eine Teilfolge $(x_{n_k})_{k \in \N}$ mit $Tx_{n_k} \xrightarrow{k \to \infty} z\in W.$ Damit gilt dann aber auch $\tilde y_{n_k} \xrightarrow{k \to \infty} z$ und damit $y_{n_k} \xrightarrow{k \to \infty} z.$ Also ist $z \in \overline{T\overline{K^V_1{0}}}$, d. h. $\overline{T\overline{K^V_1{0}}}$ ist kompakt und somit folgt die Behauptung.. \\ \\
 		$(\Leftarrow)$ \\
 		Sei $T\overline{K_1^V(0)}$ totalbeschränkt und $(x_n)_{n \in \N}$ mit $x_n \in V $ für alle $n \in \N.$ Sei nun $c := \sup{\set{\norm{x_n}| n \in \N}} < \infty$ und sein nun o.B.d.A $c > 0.$ Sei $\tilde x_n = \frac{x_n}{c} \in \overline{K_1^V(0)},$ dann \[T\tilde x_n \in T\overline{k_1^V(0)} \subseteq \overline{T\overline{K_1^V(0)}} \text{ ist kompakt}\] \\
@@ -17,7 +17,7 @@
 \end{rem}
 
 
-\begin{ex}\label{finite_rank_compakt} Sei $T \in B(V, W)$ beschränkt und $\text{dim}{TV} < \infty,$ dann ist $T$ kompakt insbesondere ist $TV$ ein endlichdimensionaler Banchraum. Dies ist eine direkte Konsequenz aus dem Satz von Heine-Borel. Es gilt nun:
+\begin{ex}\label{finite_rank_compakt} Sei $T \in B(V, W)$ beschränkt und $\text{dim}{TV} < \infty,$ dann ist $T$ kompakt insbesondere ist $TV$ ein endlichdimensionaler Banachraum. Dies ist eine direkte Konsequenz aus dem Satz von Heine-Borel. Es gilt nun:
 	
 	%\unsure{Hier war in unseren Mitschriften noch eine Inklusion, die aber falsch und obsolet schien.}
 	

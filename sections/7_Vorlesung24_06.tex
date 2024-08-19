@@ -9,14 +9,14 @@
 
 \begin{rem}
 	
-	Wir erinnern uns: Eine Potenzreihe $f(z) = \sum_{n \in \N} a_n(z-z_0)^n$ mit $\forall n \in \N: a_n, z_0, z \in \C$ konvergiert absolut für \[z \in \set{\xi \in \C: \ab{\xi-z_0}< \rho(a) := \overline{\lim_{n \to \infty}}} \frac{1}{\sqrt[n]{\ab{a_n}}} \]
+	Wir erinnern uns: Eine Potenzreihe $f(z) = \sum_{n \in \N} a_n(z-z_0)^n$ mit $\forall n \in \N: a_n, z_0, z \in \C$ konvergiert absolut für \[z \in \set{\xi \in \C: \ab{\xi-z_0}< \rho(a) := \overline{\lim_{n \to \infty}} \frac{1}{\sqrt[n]{\ab{a_n}}}} \]
 	
 \end{rem}
 
 
-\begin{theorem}[Analytischer Funktionalkalk\us l] Sei $H$ ein Hilbertraum (über $\C$,) $T \in \mc B(H),$ dann \[\norm{T-z_0I}< \rho(a) \text{ dann konvergiert } f(T) = \sum_{n \in \N} a_n(T-z_0I)^n\] in der Norm. (Mit der Konvention $A^0 = \text{Id}$)Außerdem gilt \[f(T)g(T) = fg(T) \text{ und } f(g(T)) = f \circ g(T).\]
+\begin{theorem}[Analytischer Funktionalkalk\us l] Sei $H$ ein Hilbertraum (über $\C$,) $T \in \mc B(H),$ dann \[\norm{T-z_0I}< \rho(a) \text{ dann konvergiert } f(T) = \sum_{n \in \N} a_n(T-z_0I)^n\] in der Norm. Mit der Konvention $A^0 = \text{Id},$ außerdem gilt \[f(T)g(T) = (fg)(T) \text{ und } f(g(T)) = f \circ g(T).\]
 	
-	\begin{proof}[Beweis:] Betrachte folgende Abschätzung: \[\sum_{n \in \N} \norm{a_n(T-z_0\text{Id})^n} \leq \sum_{n \in \N} \ab{a_n}\norm{(T-z_0\text{Id})^n} \leq \sum_{n \in \N} \ab{a_n}\norm{(T-z_0\text{Id})}^n < \infty\]
+	\begin{proof}[Beweis] Betrachte folgende Abschätzung: \[\sum_{n \in \N} \norm{a_n(T-z_0\text{Id})^n} \leq \sum_{n \in \N} \ab{a_n}\norm{(T-z_0\text{Id})^n} \leq \sum_{n \in \N} \ab{a_n}\norm{(T-z_0\text{Id})}^n < \infty\]
 		
 		Damit ist \[(\sum_{n \in \N} a_n(T-z_0 \text{Id})^n)_{N \in \N}\]
 		
@@ -33,17 +33,17 @@
 \end{ex}
 
 
-\begin{ex} Sei $T \in \mc B(H), \norm{T} < 1.$ Dann ist $T - \text{Id}$ invertierbar und $(T- \text{Id})^{-1} = -\sum_{n \in \N} T^n$
+\begin{theorem} Sei $T \in \mc B(H), \norm{T} < 1.$ Dann ist $T - \text{Id}$ invertierbar und $(T- \text{Id})^{-1} = -\sum_{n \in \N} T^n$
 	
 	
-	\begin{proof}[Beweis:] Sei $s_N = \sum_{n = 0}^N T^n,$ betrachte \[ s_N(T- \text{Id}) = \sum_{n = 0}^N T^n (T- \text{Id}) = \sum_{n = 0}^N T^{n+1} - T^n = T^{N+1}- \text{Id} \xrightarrow{N \to \infty} - \text{Id}.\]
+	\begin{proof}[Beweis] Sei $s_N = \sum_{n = 0}^N T^n,$ betrachte \[ s_N(T- \text{Id}) = \sum_{n = 0}^N T^n (T- \text{Id}) = \sum_{n = 0}^N T^{n+1} - T^n = T^{N+1}- \text{Id} \xrightarrow{N \to \infty} - \text{Id}.\]
 		
 		
 		Die rechte Seite ist klar. 
 		
 	\end{proof}
 	
-\end{ex}
+\end{theorem}
 
 
 \section{Das Spektrum eines Operators}
@@ -58,13 +58,16 @@
 		
 		\item das Punktespektrum durch $\sigma_p(T) = \set{\lambda \in \C: \text{Ker}(T-\lambda\text{Id}) \not= \set{0}}$
 		
-		\item das kontinuierliche Spektrum $\sigma_C(T) = \set{\lambda \in \C: \text{Ker}(T-\lambda \text{Id}), \text{Im}(T- \lambda \text{Id}) \text{ nicht dicht}}$
+		\item das kontinuierliche Spektrum $\sigma_C(T) = \set{\lambda \in \C: \text{Ker}(T-\lambda \text{Id})=\set{0}, \text{Im}(T- \lambda \text{Id}) \neq H \text{ aber dicht}}$
 		
 		\item das Residualspektrum durch $\sigma_V(T) = \set{\lambda \in \C: \text{Ker}(T- \lambda \text{Id}) = \set{0}, \text{Im}(T- \lambda \text{Id}) \text{ nicht dicht}}$
 		
 	\end{enumerate}
 	
 \end{definition}
+
+\begin{rem} Aus dem Satz der offenen Abbildung Abbildung folgt \[\sigma(T) = \sigma_p(T) \cup \sigma_C(T) \cup \sigma_V(T)\]
+\end{rem}
 
 \begin{ex}
 	Betrachte den Hilbertraum \(H = L^2([0,1])\) mit dem Multiplikationsoperator \(T = M_\text{Id}\). Dieser hat das Spektrum und kontinuierliche Spektrum
@@ -94,7 +97,7 @@
 \begin{theorem}
 	Sei $H$ ein Hilbertraum. Dann ist \( M:= \set{S \in \B(H) \;\vert\; S^{-1} \text{ existiert}}\) offen in \(\B(H)\). \label{invertible_bounded_operators_open}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Es g. z. z. 
 	\[\forall S \in M \;\exists \varepsilon > 0: K_\varepsilon(S) \subseteq M\;.\]
 	Sei also $S\in M$, d. h. \(S^{-1}\) existiert. Setze \(\varepsilon = \frac{1}{\norm{S^{-1}}}\). Sei \(T\in \B(H)\) mit \(\norm{T-S} < \varepsilon\).
@@ -122,7 +125,7 @@
 		Sei $H$ ein Hilbertraum, \(T \in \B(H)\). Dann gilt 
 		\[\sigma(T^*) = \overline{\sigma(T)} := \set{\overline{\lambda}\;\vert\; \lambda \in \sigma(T)}\;.\]
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		Es g. z. z. \(\varrho(T^*) = \overline{\varrho(T)}\). Sei \(\lambda \in \C\) so, dass \(T^*-\lambda\text{Id}\) existiert, dann
 		\[(T^* - \lambda \text{Id})^{-1} = ((T-\overline{\lambda}\text{Id})^*)^{-1} = \left((T-\overline{\lambda}\text{Id})^{-1}\right)^*\;. \]
 		Dann existiert auch \((T-\overline{\lambda}\text{Id})^{-1}\), d. h. \(\varrho(T^*) = \overline{\varrho(T)}\), woraus die Behauptung folgt.
@@ -139,7 +142,7 @@
 		\end{enumerate}
 	\end{theorem}
 	
-	\begin{proof}
+	\begin{proof}[Beweis]
 		\textbf{Zu \ref{Spektren_1}.:} Es gilt
 		\[\varrho(T) = \{\lambda \in \C\;\vert\; (T-\lambda \text{Id}) \in \overbrace{\set{S \in \B(H)\;\vert\;S^{-1} \text{ existiert}}}^{=:M}\} \]
 		Die Abbildung \(\eta:\C \to \B(H),\; \lambda \mapsto T-\lambda \text{Id}\) ist stetig und somit gilt 
@@ -178,7 +181,7 @@
 		Sei \(\seq an \subseteq \R^\N\) mit \(\forall n,m\in\N: 0 \leq a_{n+m} \leq a_n a_m\). Dann konvergiert die Folge \(\se{\sqrt[n]{a_n}}{n}\) wobei f\us r den Grenzwert gilt
 		\[\lime n \sqrt[n]{a_n} = \inf_{n\in\N} \sqrt[n]{a_n}=: b\;.\]
 	\end{lemma}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		Sei \(\varepsilon > 0\) und \(N\in\N\) hinreichend gro\s{}, sodass \(a_N < (b+\varepsilon)^N\). Setze
 		\[c = c(\varepsilon) = \max\set{a_1,\ldots, a_N}\;.\]
 		Schreibe nun \(n\in \N\) in der Form \(n = kN + r\) mit \(1\leq r \leq N\). Folglich gilt:
@@ -192,7 +195,7 @@
 	\begin{theorem}
 		Sei \(T\in\B(H)\). Dann gilt \(r(T) = \lime n \sqrt[n]{\norm{T^n}}\).
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		\happybegin
 		Nach Definition des Spektralradius gilt 
 		\[\forall \lambda \in \C: \ab{\lambda} > r(T) \implies \lambda \in \varrho(T)\;.\]
@@ -217,7 +220,7 @@
 	\begin{theorem}
 		Sei $H$ ein Hilbertraum und \(T \in \B(H)\) normal (d. h. \(TT^* = T^*T\)). Dann gilt \(r(T) = \norm{T}\).
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		F\us r normale Operatoren gilt \(\norm{T}^2 = \norm{TT^*} = \norm{T^*T}\). Somit erhalten wir:
 		\[\norm{T^2}^2 = \norm{(T^*)^2 T^2} = \norm{T^*TT^*T} = \lVert(\overbrace{T^*T}^{\text{normal}})^2\rVert = \norm{T^*T}^2 = \norm T^4\;.\]
 		Somit gilt also \(\norm{T^2} = \norm T^2\). Da f\us r alle \(n\in\N\) $T^n$ normal sind, gilt  

@@ -32,7 +32,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 	\label{real_ev}
 	Sei $T \in \mc B(H)$ selbstadjungiert und $\lambda$ Eigenwert, (dann gilt $\lambda \in \mathbb{R}$), sei $x$ ein Eigenvektor zu $\lambda$, $\mu$ Eigenwert zu $y \in H$ mit $\lambda \not= \mu$, dann $x \perp y$.
 	
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		
 		Betrachte:
 		
@@ -52,7 +52,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 	
 	Sei $\lambda$ ein Eigenwert von $T \in \mc B(H)$, dann $\ab{\lambda} \leq \norm{T}$.
 	\label{norm_eigenwert}
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		
 		Betrachte:
 		
@@ -67,7 +67,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 	
 	Sei $T \in \mc K(H)$, dann ist für alle $0 \not= \lambda \in \C$, $\text{dim}(\ker(T - \lambda \I)) < \infty$.
 	
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		
 		Nehme an $\text{dim}(\ker(T - \lambda \I)) = \infty$, d.h. wir haben ein Orthonormalsystem $(\ell_n)_{n \in \N}$ in $\ker(T - \lambda\I)$ mit $\norm{\ell_n} \leq 1$, dann betrachte:
 		
@@ -101,7 +101,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 	
 	Sei $T \in \mc B(H)$ selbstadjungiert, dann $\norm{T} = \sup{\set{\ab{\ip{x, Tx}}: \norm{x} \leq 1}}$.
 	
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		
 		Sei $M := \sup{\set{\ab{\ip{x, Tx}}: \norm{x} = 1}}$. Für alle $x \in H \setminus \set{0}$ gilt nun $\norm{\frac{x}{\norm{x}}} = 1$. Damit folgt (auch für $x = 0$):
 		
@@ -147,7 +147,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 	\label{operatornorm_ev}
 	Sei $T \in \mc K(H)$ selbstadjungiert, dann ist $\norm{T}$ oder $-\norm{T}$ ein Eigenwert.
 	
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		
 		Sei o.B.d.A $\norm{T} \not= 0$. Sei $(x_n)_{n \in \N}$ und $\norm{x_n} = 1$ mit $\ab{\ip{x_n, Tx_n}} \xrightarrow{n \to \infty} \norm{T}$. Damit gibt es $\lambda \in \set{\norm{T}, -\norm{T}}$ und eine Teilfolge $(x_{n_k})_{k \in \N}$ mit $\ip{x_{n_k}, Tx_{n_k}} \xrightarrow{k \to \infty} \lambda$. Da $T$ kompakt ist, gibt es eine Teilfolge $(x_{n_{k_l}})_{l \in \N}$ und ein $y \in H$ mit $x_{n_{k_l}} \xrightarrow{l \to \infty} y$. Betrachte nun:
 		
@@ -165,7 +165,7 @@ In diesem Kapitel sei $H$ immer ein Hilbertraum.
 	
 	Sei $T \in \mc B(H)$ selbstadjungiert und $L \subseteq H$ abgeschlossen, dann gilt \[TL^{\perp} \subseteq L^{\perp} = \set{v \in H: \forall w \in L, v \perp w}.\]
 	
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		
 		Sei $v \in L^{\perp}$ und für alle $w \in L: \ip{v, w} = 0$. Sei $w \in L$ beliebig, $\ip{Tv, w} = \ip{v, Tw} = 0$.
 		

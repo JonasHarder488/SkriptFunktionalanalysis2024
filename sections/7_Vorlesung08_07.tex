@@ -14,7 +14,7 @@
 	Dies ist analog zur Polarzerlegung bei komplexen Zahlen, jedoch gilt i. A. 
 	\[\C\ni z = \ab z \exp(i\varphi(z))\implies \ab{\overline z} = \ab z \;\text{ vs }\; T \in \B(H) \implies \ab{T^*} = \sqrt{TT^*} \neq \sqrt{T^*T} = \ab{T}\;.\]
 \end{rem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Es gilt f\us r alle \(x\in H\)
 	\[\norm{Ax}^2 = \ip{Ax, Ax} = \ip{x, A^*Ax} = \ip{x, \ab{A}^2 x} = \ip{\ab{A}x, \ab{A}x} = \norm{\ab{A}x}^2\;.\]
 	Damit ist \(K:=\ker(A)^\perp\) ein Hilbertraum mit Norm 
@@ -31,7 +31,7 @@
 \begin{theorem}
 	Sei $T$ Spurklasse-Operator auf einem Hilbertraum $H$. Dan ist auch $T^*$ ein Spurklasse-Operator. Au\ss{}erdem gilt \(\tr(T^*) = \overline{\tr(T)}\).
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Nach Satz \ref{part_isom} existiert eine partielle Isometrie \(U\in\B(H): \ker(T)^\perp = \text{im}(\ab T) \to \text{im}(T)\) mit
 	\[T = U\ab{T} \implies T^* = \ab{T}U^*\;.\]
 	Somit gilt 
@@ -59,7 +59,7 @@
 	\[\tr\left(\left(\sup_{n\in\N}T_n\right)\varrho\right) = \sup_{n\in\N} \tr(T_n\varrho)\;.\] 
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Beweis]
 	Nach Satz \ref{spurklasse_geq0_Folge} existiert \(\seq \lambda n \subseteq \R^\N\) mit 
 	\[\varrho = \sum_{n\in\N} \lambda_n | e_n \rangle \langle e_n |, \;\; \forall n\in\N: \lambda_n \geq 0, \;\;\sum_{n\in\N} \lambda_n = \tr(\varrho) < \infty\;.\]
 	Damit gilt
@@ -96,7 +96,7 @@
 	Dann gilt \(V = L^\infty(K)\).
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Beweis]
 	Wir definieren f\us r \(f\in L^\infty(K)\)
 	\[V_f := \set{g\in L^\infty(K)\;\vert\; f+g \in V}.\]
 	Sei \(f\in C^0(K)\), dann \(C^0(K)\subseteq V_f\). Sei weiterhin eine Folge \(\seq gn \subseteq V_f^\N\) gegeben, mit \(\sup_{n\in\N} \norms{g_n} < \infty\) und einem existierenden punktweisen Grenzwert \(\li gn = g\). Damit folgt sofort \(g\in V_f\). Somit \(V_f = V\), also 
@@ -137,7 +137,7 @@
 	\end{enumerate}
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Beweis]
 	\textbf{Schritt 1} (Eindeutigkeit) Sei \(\tilde\varphi\) eine weitere solche Abbildung. Wir nutzen Satz \ref{lemma_mess_kalk} mit
 	\[V = \set{f\in L^\infty(\sigma(T))\;\vert\; \varphi(f) = \tilde\varphi(f)}\;.\]
 	Nach Voraussetung wissen wir, dass \(\text{id} \in V,\; 1 \in V\). Aufgrund der Eindeutigkeit des stetigen Funktionalkalk\us ls gilt \(C^0(\sigma(T)) \subseteq V\). Wegen Eigenschaft \ref{eigenschaft_mess_kalk_5} ist Satz \ref{lemma_mess_kalk} anwendbar und wir erhalten \(V = L^\infty(\sigma(T)) \iff \varphi = \tilde \varphi\).\\
@@ -184,7 +184,7 @@
 		\[\sum_{n\in\N}E^T(A_n)x = E^T\left(\bigcup_{n\in\N} A_n\right)x\;.\]
 		\item \(\sigma(T)\) ist die kleinste kompakte Menge $K$ mit \(E^T(K)= \I\).\label{eigenschaften_spektralmass_4}
 	\end{enumerate}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		\textbf{(Zu \ref{eigenschaften_spektralmass_1})} Eine orthogonale Projektion $P\in\B(H)$ erf\us llt die Eigenschaften $P= P^2 = P^*$. Es gilt 
 		\[\forall A \in \Sigma(\C): 1_A^2 = 1_a \implies \varphi(1_A) = \varphi(1_A^2) = \varphi(1_A) \varphi(1_A)  \iff E^T(A) = (E^T(A))^2\;.\]
 		Analog l\as sst sich folgern
@@ -214,7 +214,7 @@
 		\[\forall f \in L^\infty(\C)\;\forall x, y\in H:\; \ip{x,\varphi(f)y} = \int_{\sigma(T)} f(z)\ip{x,E(dz)y}\;.\]
 	\end{theorem}
 	\unsure{Wieso geht hier \(f\in L^\infty(\C)\) und nicht \(f\in L^\infty(\sigma(T))\)?}
-		\begin{proof}
+		\begin{proof}[Beweis]
 			Sei $K\subseteq \C$ kompakt. Setze
 			\unsure{Ich vermute \(K \subseteq \C\) kompakt, in der Vorlesung wurde dies jedoch nicht angegeben}
 			\[u(x,y) = \int_{\C} z \;1_K(z) \ip{x, E(dz)y} \implies \ab{(u(x,y))} \leq \max\set{z\;\vert\;z\in K}\norm x\norm y\]
@@ -239,7 +239,7 @@
 			Sei \(T\in \B(H)\)normal, sowie \(f: \sigma(T)\to \C\), \(g:\C \to\C\) beschr\as nkt und messbar. Dann gilt \label{komposition_mess_kalk}
 			\[(f\circ g)(T) = f(g(T))\;.\]
 		\end{theorem}
-		\begin{proof}
+		\begin{proof}[Beweis]
 			Wir sehen, dass \(E^{g(T)}(A) = E^T(g^{-1}(A))\) gilt (intuitiv wegen \(1_A \circ g = 1_{g^{-1}(A)}\)). Somit:
 			\[f(g(T)) = \int f(z) E^{g(T)}(dz) = \int f(z)E^T(g^{-1}(dz)) = \int f(g(z)) E^T(dz) = (f\circ g)(T)\;.\]
 		\end{proof}
@@ -251,7 +251,7 @@
 				\item Isolierte Punkte \(\lambda \in \sigma(T)\) (d. h. \(\exists \varepsilon > 0:\; K_\varepsilon(\lambda)\cap \sigma(T) = \set{\lambda}\)) sind Eigenwerte von $T$. \label{spektralmass_spektrum_3}
 			\end{enumerate}
 		\end{theorem}
-		\begin{proof}
+		\begin{proof}[Beweis]
 			\textbf{(Zu \ref{spektralmass_spektrum_1}.)} Nach Konstruktion gilt offensichtlich \(E^T(\varrho(T)) = 0\). Zeige nun die R\us ckrichtung. Sei also eine solches \(\varepsilon\) gegeben. Setze
 			\[f(z) = \frac{1}{\lambda - z} \cdot1_{K_\varepsilon(\lambda)^C}(z)\]
 			Dann ist $f$ messbar und auf \(\sigma(T)\) beschr\as nkt. Dasselbe gilt f\us r \(g(z) = \lambda - z\). Somit (mit Satz \ref{komposition_mess_kalk}) 

@@ -37,7 +37,7 @@
 \begin{theorem}
 	Sei \((V,\norm\cdot)\) ein normierter Raum, dann existiert eine Vervollst\as ndigung \((\hat V, \hnorm\cdot)\), d. h. $V$ kann in einen Banachraum eingebettet werden.
 \end{theorem}
-\begin{proof} 
+\begin{proof}[Beweis] 
 	Definiere Analog zu Satz \ref{vervollst_mR}:
 	\begin{align*}
 		&\hat V_0 := \{\seq x n \vert \forall n \in \N: x_n \in V, \; \seq x n \text{ Cauchyfolge}\}.\\
@@ -74,7 +74,7 @@
 \begin{theorem}
 	\(\normn\cdot p: \p^p(\mu) \to \K, \; \normn fp := \left(\int_\Omega \ab{f}^p d \mu\right)^{\sfrac{1}{p}}\) ist eine Halbnorm. \label{p_halbnorm}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Siehe nach Satz \ref{Hoelder}.
 \end{proof}
 \begin{rem}
@@ -94,7 +94,7 @@
 	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, \(p, q \in (1,\infty)\), \(\frac{1}{p} + \frac{1}{q} = 1\) und \(f\in \p^p(\mu), \;g\in \p^q(\mu)\). Dann gilt \(fg \in \p^1(\mu)\) und \(\normn{fg}{1} \leq \normn fp \normn gq\).
 	\label{Hoelder}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Nehmen o B. d. A. an \(f,g \geq 0, \; \normn fp = \normn gq = 1\). Mit Lemma \ref{Young} gilt
 	\begin{multline*}\normn{fg}{1} = \int_\Omega f(x) g(x) \mu(dx) \leq \int_\Omega \frac{f(x)^p}{p} + \frac{g(x)^q}{q}\mu(dx) = \frac{1}{p} \int_\Omega f(x)^p \mu(dx) + \frac{1}{q} \int_\Omega g(x)^q \mu(dx) \\= \frac{1}{p} + \frac{1}{q} = 1 = \normn fp \cdot \normn gq
 	\end{multline*}
@@ -127,7 +127,7 @@
 	\[f \muq g \implies g \in \p^p(\mu) \text{ und } \normn fp = \normn gp\;.\]
 	\label{Lp_Norm_wohldef}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Gelte o. B. d. A. \(g \muq 0\).Betrachte hier \(g:\Omega \to \K \cup\set{-\infty, \infty}\), sei \(A:=\set{\omega \in \Omega\vert g(\omega) \neq 0}\). Nach Voraussetzung gilt \(\mu(A) = 0\) und somit
 	\[\ab{g} \leq \infty \cdot 1_A \implies \int_\Omega \ab{g}^p d\mu \leq \infty \cdot \int_\Omega 1_A d\mu = \infty\cdot 0 = 0\;.\]
 	Folglich gilt also in der Tat \(g\in \p^p\). Zeige nun \(\normn fp = \normn gp\). Dabei nutzen wir \(f\muq g \iff g-f \muq 0 \implies \normn{g-f}{p} = 0\). Es folgt
@@ -138,7 +138,7 @@
 \begin{theorem} Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, dann wird
 	\(\faktor{\p^p(\mu)}{\muq}\) mit \(\forall f \in \p^p(\mu): \;\normn{\equ f}{p} := \normn fp\) ein normierter Raum.
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Die Wohldefiniertheit der Norm folgt aus Satz \ref{Lp_Norm_wohldef}. Weiterhin l\as ssen sich die Halbnormeigenschaften auf Satz \ref{p_halbnorm} zur\us ckf\us hren. Es g. z. z., dass \(\normn \cdot p\) auf \(\faktor{\p^p(\mu)}{\muq}\) definit ist. Angenommen f\us r \(\equ{f} \in \faktor{\p^p(\mu)}{\muq}\)  gilt \(\normn{\equ{f}}{p} = 0 \iff \int_\Omega \ab{f}^p = 0\). Nehme weiterhin an, dass \(f \overset{\mu}{\neq} 0\iff 0< \mu(\set{\ab{f}>0})\). Somit
 	\[0<\mu(\set{\ab{f}>0}) = \mu\left(\bigcup_{n\in\N}\set{\ab{f} > \frac{1}{n}}\right) = \lime n\mu \left(\ab{f}> \frac{1}{n}\right)\;.\]
 	Folglich \(\exists c>0: \mu(\set{\ab{f}\geq c}) > 0\). Damit erhalten wir mit \(A := \set{\ab{f}>c}\)
@@ -164,7 +164,7 @@
 \begin{theorem}
 	\(\norms\cdot\) ist eine Halbnorm und es gilt \(f\muq g \iff \norms{f-g} = 0\).
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Die \ref{skalar_norm}. Eigenschaft und die zweite Aussage sind trivial, wir zeigen hier wieder nur die Dreiecksungleichung. Seien \(f,g \in \mc M(\Omega, \mc F, \mu)\) wesentlich beschr\as nkt, \(c,d > 0\) und \(A := \set{\omega \in \Omega\;\vert\; \ab{f(\omega)} > c}\), \(B : = \set{\omega\in\Omega\;\vert\;\ab{g(\omega)} > d}\). Somit 
 	\[\mu(A) = \mu(B) = 0 \implies \mu(A\cup B) \leq \mu(A) + \mu(B) = 0\;.\]
 	Es gilt 
@@ -192,7 +192,7 @@
 \begin{theorem}
 	Sei \((\Omega, \mc F, \mu)\) ein Ma\s raum, dann ist \((L^p(\mu), \normn \cdot p)\) ein Banachraum f\us r \(p \in [1,\infty]\).
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Betrachte hier nur den Fall \(p = 1\). Sei \(\seq fn\) eine Cauchyfolge in \(L^p(\mu)\), d. h. 
 	\[\forall \varepsilon> 0 \;\exists N_0 \in \N \;\forall m,n \geq N_0: \normn{f_m - f_n}{p} < \varepsilon\;.\]
 	Daher gilt insbesondere

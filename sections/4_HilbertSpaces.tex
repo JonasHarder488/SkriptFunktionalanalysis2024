@@ -37,7 +37,7 @@
 	Sei \((H, \ip{\cdot,\cdot})\) ein Raum mit Skalarprodukt. Dann ist \(\norm\cdot : H \to \R_{\geq 0} \) mit \( \norm x = \sqrt{\ip{x,x}}\) f\us r \(x \in H\) eine Norm auf $H$.
 	\label{NormSP}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Die \ref{skalar_norm}. und \ref{definit_norm}. Eigenschaft sind trivial, zeige hier nur die Dreiecksungleichung. Es gilt f\us r \(x,y \in H\)
 	\[\norm{x+y}^2 = \ip{x+y, x+y} = \ip{x,x} + \ip{x,y} + \ip{y,x} + \ip{y,y} = \norm{x}^2 + 2 \Re(\ip{x,y}) + \norm{y}^2 \;.
 	\]
@@ -61,7 +61,7 @@
 	Ein normierter Raum \((V, \norm \cdot)\) (mit $V$ ein $\K$-Vektorraum) ist ein Raum mit Skalarprodukt \((V, \ip{\cdot, \cdot})\), wobei \(\ip{\cdot, \cdot}\) die Norm induziert, genau dann wenn 
 	\[\forall x, y \in V: \norm{x+y}^2 + \norm{x-y}^2 = 2(\norm{x}^2 + \norm{y}^2)\;.\]
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	\((\Longrightarrow)\) Es gilt: 
 	\begin{align*}
 		& \norm{x+y}^2 = \ip{x+y, x+y} = \ip{x,x} + \ip{x,y} + \ip{y,x} + \ip{y,y}\\
@@ -136,7 +136,7 @@
 	Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}, \forall s\in S: e_s \in H\) ein Orthonormalsystem. Dann existiert f\us r jedes \(\lambda := (\lambda_s)_{s\in S} \in \ell_\C^2(S) :=\set{(a_s)_{s\in S} \;\big\vert\; \forall s \in S: a_s \in \C, \sum_{s\in S} \ab{a_s}^2 < \infty}\) ein abz\as hlbares \(S_0 \subseteq S\) mit \(\ab{\lambda_s} > 0\implies s \in S_0\). Sei \(S_0 := \{s_n \;\vert\; n \in \N\}\) und \(x_n = \sum_{m=0}^n \lambda_{s_m} e_{s_m}\). Dann existiert ein \(x\in H\) mit \(\li xn = x\), wir schreiben \(x = \sum_{s\in S} \lambda_s e_s\).
 	\label{ONS_Satz1}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Wir zeigen hier nur den 2. Teil des Satzes. Da $H$ vollst\as ndig, g. z. z., dass \(\seq xn\) eine Cauchyfolge ist. Dabei ist bekannt (unter Ausnutzung von Teil 1 des Satzes)
 	\[\normn{\lambda}{\ell^2(S)}^2 = \sum_{m= 0}^\infty \ab{\lambda_{s_m}}^2 < \infty\;. \]
 	Sei \(\varepsilon > 0\), \(N \in \N\) hinreichend gro\s{}, sodass \(\sum_{m=N+1}^\infty \ab{\lambda_{s_m}}^2 < \varepsilon^2\). Seien nun \(n_1, n_2 \in \N\), \(n_1, n_2 \geq N\), \(n_1< n_2\). Dann
@@ -164,7 +164,7 @@
 \begin{theorem}
 Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonormalsystem. Dann ist \((e_s)_{s\in S}\) vollst\as ndig, genau dann wenn f\us r jedes \(x\in H\) ein \(\lambda := (\lambda_s)_{s\in S} \in \ell_\C^2(S)\) existiert mit \(x = \sum_{s\in S} \lambda_s e_s\). In diesem Fall ist \(\lambda\) eindeutig bestimmt.
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	\textit{(Eindeutigkeit)} Seien \(S_0 \subseteq S\) sowie \(x_n \in H\) wie in Satz \ref{ONS_Satz1}. Sei \(\hat s \in S\), dann
 	\[\ip{e_{\hat s}, x} = \lime n \ip{e_{\hat s}, x_n} = \lime n \ip{e_{\hat s}, \sum_{m=0}^n \lambda_{s_m} e_{s_m}}= \begin{cases}0 & \hat s\not\in S_0 \\ \lambda_{\hat s} & \hat s \in S_0\end{cases}\]
 	Somit folgt die Eindeutigkeit aus der Eindeutigkeit der Darstellung der \(x_n\).\\
@@ -191,9 +191,9 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 	\[\norm{y-x} = \inf\set{ \norm{z-x}\;\vert\; z \in K} \;.\]
 	\label{Projektionssatz}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Nehmen o. B. d. A. an \(x\not\in K\) (sonst w\as hle \(y = x\)) und \(x = 0\) (sonst verschiebe um \(-x\)).\\
-	\textit{(Existenz)} Setze \(d:= \inf\set{\norm{z-x} \;\vert\; z\in K} = \inf\set{\norm{z}\;\vert\; z\in K} \). Dann existiert eine Folge \(\seq yn\), \(\forall n \in \N: y_n \in K\) mit
+	\textit{(Existenz)} Setze \(d:= \inf\set{\norm{z-x} \;\vert\; z\in K}\). Dann existiert eine Folge \(\seq yn\), \(\forall n \in \N: y_n \in K\) mit
 	\[\forall n \in \N: \norm{y_n} < d + \frac{1}{n} \;\implies\; \lime n \norm{y_n} = d\;.\]
 	Wir zeigen nun, dass \(\seq yn\) eine Cauchyfolge ist. Mit der Parallelogrammgleichung gilt f\us r \(n,m\in\N\):
 	\[\norm{\frac{y_n + y_m}{2}}^2 + \norm{\frac{y_n - y_m}{2}}^2 = \frac{1}{2} (\norm{y_n}^2 + \norm{y_m}^2)\;.\]
@@ -237,7 +237,7 @@ Sei \((H,\ip{\cdot, \cdot})\) ein Hilbertraum, \((e_s)_{s\in S}\) ein Orthonorma
 	\begin{theorem}
 		Sei \((H, \ip{\cdot, \cdot})\) ein Hilbertraum, \(U\subseteq H\) ein abgeschlossener Unterraum.  Dann gibt es f\us r alle \(x\in H\) eindeutig bestimmte \(y_1 \in U, y_2 \in U^\perp\) mit \(x = y_1 + y_2\).
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		\textit{(Existenz)} Da \(U\) ein Unterraum ist, ist $U$ insbesondere konvex und nichtleer. Somit w\as hlen wir \(y_1 \in U\) eindeutig (nach Satz \ref{Projektionssatz}) mit
 		\[\norm{y_1 -x} = \inf\set{\norm{x-u}\;\vert\; u \in U}\;.\]
 		Wir zeigen nun \(x-y_1 \in U^\perp\). Seien \(u\in U,\; \lambda \in \K\), dann 

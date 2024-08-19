@@ -120,7 +120,7 @@
 	Sei \((X_1,d_1)\) ein metrischer Raum, \(S\subseteq X_1\) dicht und \((X_2, d_2)\) ein vollst\as ndiger metrischer Raum sowie \(\varphi: S \to X_2\) isometrisch. Dann gibt es genau eine isometrisches \(\hat\varphi: X_1\to X_2\) mit \(\hat\varphi\vert_S = \varphi\).
 	\label{vollst_isometrie}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Sei \(x\in X_1\), dann gibt es eine Folge \(\seq xn\) mit \(\forall n \in \N: x_n \in S\) und \(\li xn = x\). Somit ist \(\seq xn\) insbesondere eine Cauchyfolge. Folglich ist auch \((\varphi(x_n))_{n\in\N}\) eine Cauchyfolge und mit der Vollst\as ndigkeit von $X_2$ gilt
 	\[\exists y\in X_2: \lime n \varphi(x_n) = y:= \hat\varphi(x)\;.\]
 	Wir setzen also f\us r solche Folgen \[\hat\varphi\left(\li x n\right) := \lime n \varphi(x_n)\;.\]
@@ -136,7 +136,7 @@
 	Sei $(X,d)$ ein metrischer Raum. Dann gibt es einen vollst\as ndigen metrischen Raum $(\hat X, \hat d)$ (bez. Vervollst\as ndigung von $X$) und eine Isometrie \(\varphi: X \to \hat X\) (d. h. \(\forall x, y \in X: d(x,y) = \hat d (\varphi(x), \varphi(y))\)), sodass das Bild $\varphi(X)$ dicht in $\hat X$ ist. Haben $(\tilde X, \tilde d)$ und $\tilde \varphi$ die gleiche Eigenschaft, so gibt es eine Bijektion \(\psi: \hat X \to \tilde X\) mit \(\tilde \varphi = \psi \circ \varphi\).
 	\label{vervollst_mR}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Definiere die Menge aller Cauchyfolgen in $X$ durch 
 	\[\hat X_0 := \{\seq x n \vert \forall n \in \N: x_n \in X, \; \seq x n \text{ Cauchyfolge}\}.\]
 	Definiere weiterhin eine \As quivalenzrelation $\sim$ auf $\hat X_0$ mit 
@@ -168,7 +168,7 @@
 	\begin{lemma}
 		Sei \((X,d)\) metrischer Raum, $S\subseteq X$ dicht in $X$, sodass jede Cauchyfolge in $S$ in $X$ konvergiert. Dann ist X vollst\as ndig.\label{vervollst_lemma}
 	\end{lemma}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		Sei $\seq xn$ eine Cauchyfolge in $X$. Da $S$ dicht in $X$ gilt
 		\[\forall n \in \N \;\exists y_n \in S: d(x_n, y_n) < \sfrac 1n \;.\]
 		Somit ist \(\seq yn\) auch eine Cauchyfolge in $S$, da
@@ -214,7 +214,7 @@
 \begin{theorem}
 	Sei \((X, d)\) ein vollst\as ndiger metrischer Raum, \(Y\subseteq X\). Dann ist $Y$ kompakt $\iff Y$ abgeschlossen und total beschr\as nkt. 
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	 \((\Longrightarrow)\)\\
 	 Sei $Y$ kompakt. $Y$ abgeschlossen folgt aus Satz  \ref{kompakt_beschr_abg}. Zeige nun die totale Beschr\as nktheit, sei $\varepsilon>0$ daf\us r fixiert. Dann gilt offensichtlich
 	 \[Y \subseteq \bigcup_{y\in Y} K_\varepsilon(y) \overset{\text{$Y$ kompakt}}{\implies}\exists y_1,\ldots,y_M: Y \subseteq \bigcup_{i=1}^M K_\varepsilon(y_i)\]

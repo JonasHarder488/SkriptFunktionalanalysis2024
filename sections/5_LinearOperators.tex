@@ -19,22 +19,18 @@
         \item $A$ ist Lipschitz-stetig
         \item $A$ ist stetig in $0$
     \end{enumerate}
-    \begin{proof}[Beweis:] Siehe Analysis 2.
+    \begin{proof}[Beweis] Siehe Analysis 2.
     
     \end{proof}
 \end{theorem}
 
-\unsure{???}
-
 \begin{theorem} 
     Jedes lineare Funktional $A: \K^n \to \K^m$ ist beschränkt.
-    \begin{proof}[Beweis:] Dieser Beweis wurde in der Vorlesung übersprungen.
-    \end{proof}
 \end{theorem}
 
 \begin{ex}[Volterra-Operator] \label{Volterra_op}
-    Betrachte $C^0([0, 1]), \norms{\cdot},$ wobei \[I: C^0([0, 1]) \to C^0([0, 1]), \;(I(f))(z) = \int_0^zf(x)dx.\] Dann gilt \[\ab{(I(f))(z)} = \ab{\int_0^zf(x)dx} \le \norms{f}\cdot z \leq \norms{f}\]
-    und mit \[\norms{If} = \sup\set{\ab{(If)(z)}:z\in [0, 1]} \leq \norms{f}\]
+    Betrachte $C^0([0, 1]), \norms{\cdot},$ wobei \[I: C^0([0, 1]) \to C^0([0, 1]), \;(I(f))(t) = \int_0^tf(x)dx.\] Dann gilt \[\ab{(I(f))(t)} = \ab{\int_0^tf(x)dx} \le \norms{f}\cdot t \leq \norms{f}\]
+    und mit \[\norms{If} = \sup\set{\ab{(If)(t)}:t\in [0, 1]} \leq \norms{f}\]
     ist die Operatornorm $\norm{I} \leq 1.$ Wähle nun $f = 1_{[0, 1]}$, dann ist $(If)(t) = t$ und damit $\norm{I} = 1.$
 \end{ex}
 
@@ -44,7 +40,7 @@
 \end{ex}
 
 \begin{theorem}
-    Seien und $(V, \normn\cdot V)$, $(W, \norm{\cdot}_W)$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c\normn{v}{V}}}\] Dann gilt:
+    Seien $(V, \normn\cdot V)$, $(W, \norm{\cdot}_W)$ normierte Räume mit $ A \in \B(V, W)$ mit \[\norm{A}_{V,W} = \inf{\set{c \in \mathbb{R}| \forall v \in V: \norm{Av}_{W} \leq c\normn{v}{V}}}\] Dann gilt:
     \begin{enumerate}
         \item $\norm{A} = \sup{\set{\norm{Av}_W: \norm{v}_V = 1}} = \sup{\set{\norm{Av}_w: \norm{v}_V \leq 1}} = \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}: v \in V, v \not=0}}$
         \item $B \in \B(V, W), \;\lambda \in \K: \norm{A +B} \le \norm{A}+\norm{B}$ sowie $\norm{\lambda A} = \ab{\lambda}\norm{A}$
@@ -52,7 +48,7 @@
         \[\norm{BA}_{V,X} \leq \norm{A}_{V,W}\cdot\norm{B}_{W,X}\]
     \end{enumerate}
     
-    \begin{proof}[Beweis:]
+    \begin{proof}[Beweis]
     \begin{enumerate}
         \item Sei $M := \sup{\set{\frac{\norm{Av}_W}{\norm{v}_V}: v\in V, v \not= 0}}.$ Für $v = 0,$ gilt $\norm{Av} = 0,$ für $v \not=0$ gilt:
         \[\frac{\norm{Av}_W}{\norm{v}_V} \leq M \implies \norm{Av}_W \leq M \norm{v}_V \implies M \geq \norm{A}\]
@@ -95,7 +91,7 @@
     0 & U = \set{0}
     \end{cases}\]
     
-    \begin{proof}[Beweis:] Da $U$ abgeschlossener Unterraum von $H,$ gibt es für jedes $v \in H$ eine eindeutige Zerlegung von $u \in U, u^{\perp} \in U^{\perp}$ mit $v = u + u^{\perp}.$ Wir verwenden die Definitionen $Pv = u, Qv = u^{\perp}$ mit $v, w \in H$ und $v = Pv + Qv, w = Pw + Qw.$ Betrachte: \[v + w = \underbrace{(Pv + Pw)}_{\in U} + \underbrace{(Qv + Qw)}_{\in U^{\perp}}\]
+    \begin{proof}[Beweis] Da $U$ abgeschlossener Unterraum von $H,$ gibt es für jedes $v \in H$ eine eindeutige Zerlegung von $u \in U, u^{\perp} \in U^{\perp}$ mit $v = u + u^{\perp}.$ Wir verwenden die Definitionen $Pv = u, Qv = u^{\perp}$ mit $v, w \in H$ und $v = Pv + Qv, w = Pw + Qw.$ Betrachte: \[v + w = \underbrace{(Pv + Pw)}_{\in U} + \underbrace{(Qv + Qw)}_{\in U^{\perp}}\]
     Folglich \[P(v + w) = Pv + Pw \text{ und } Q(v+w) = Qv + Qw.\] ($\lambda v$ geht analog.) Wir setzen für $v \in H$ nun 
     \[\norm{v}^2 = \norm{Pv + Qv}^2 = \norm{Pv}^2 + \norm{Qv}^2 \text{ da } \ip{Pv, Qv} = 0\] Daraus folgt $\norm{Pv}^2 \leq \norm{v}^2$ und $\norm{P}, \norm{Q} \leq 1.$ Sei $v \in U, v \not= 0,$ dann $Pv = v$ und damit $\norm{Pv} = \norm{v},$ also $\norm{P} \geq 1.$
     \end{proof}
@@ -104,7 +100,7 @@
 \begin{theorem}
     Sei $V$ ein normierter Raum, $W$ ein Banachraum, dann ist $\B(V, W)$ ein Banachraum mit der Operatornorm.
     \label{B(V,W)_Banach}
-    \begin{proof}[Beweis:] Sei $\seq{A}{n}$ eine Cauchy-Folge in $\B(V, W),$ dann $\lime{n, m}{\norm{A_n - A_m}} = 0.$ Sei nun $v \in V,$ dann \[\lime{n, m}{\norm{A_nv- A_mv}} \leq \lime{n, m}{\norm{A_n - A_m}\norm{v}}\] und damit ist $(A_nv)_{n \in \N}$ eine Cauchy-Folge in $W.$ Somit ist $Av = \lim_{n \to \infty}{A_nv}$. Definiere $A: V \to W$ nun als Abbildung aus diesem Grenzwert. \\
+    \begin{proof}[Beweis] Sei $\seq{A}{n}$ eine Cauchy-Folge in $\B(V, W),$ dann $\lime{n, m}{\norm{A_n - A_m}} = 0.$ Sei nun $v \in V,$ dann \[\lime{n, m}{\norm{A_nv- A_mv}} \leq \lime{n, m}{\norm{A_n - A_m}\norm{v}}\] und damit ist $(A_nv)_{n \in \N}$ eine Cauchy-Folge in $W.$ Somit ist $Av = \lim_{n \to \infty}{A_nv}$. Definiere $A: V \to W$ nun als Abbildung aus diesem Grenzwert. \\
     \unsure{Hier gab es in der Vorlesung einen Nachtrag, allerdings sollte es so auch gehen.}
     Damit gilt schon \[\norm{A - A_n} = \sup_{\norm{v} \leq 1}{\set{\norm{Av-A_nv}}} \xrightarrow{n \to \infty} 0\] \\
     Sein nun $v, w \in V,$ dann sehen wir die Linearität wie folgt: \[A(v+w) = \lim_{n \to \infty}{A_n(v+w)} = \lim_{n \to \infty}{A_nv + A_nw} = \lim_{n \to \infty}{A_nv} + \lim_{n \to \infty}{A_nw} = Av + Aw \text{ (für $A(\lambda v)$ genauso)}\] \\
@@ -131,7 +127,7 @@
 
 \begin{theorem}[Darstellungssatz von Riesz]\label{riez1} Jedes beschränkte   lineare Funktional $\varphi$ auf dem Hilberraum $(H, \ip{\cdot, \cdot})$ hat die Form $\varphi(x)= \ip{h_0,x}$ für ein eindeutiges $h_0 \in H$ und $\norm{\varphi}_{H'} = \norm{h_0}$ und $h_0 \mapsto \varphi$ anti-linear.
 
-\begin{proof}[Beweis:]
+\begin{proof}[Beweis]
 \textbf{Existenz}
 Sei O.b.d.A $\varphi \not= 0,$ d.h. $\ker \varphi = \set{x \in H | \varphi(x) = 0}$ ist ein echter abgeschlossener Teilraum. Dann muss aber auch $\ker{\varphi^{\perp}} \not= \set{0}.$ Sei $z \in \ker{\varphi}^\perp$ mit $\norm{z}>0$ und o.B.d.A $\varphi(z) = 1.$ Sei $h \in H$ beliebig, dann sehen wir \[ \varphi(\underbrace{\varphi(h)z-h}_{\in \ker\varphi }) = \varphi(h)\varphi(z)-\varphi(h) = 0.\] Damit ist $z \perp \varphi(h)z - h$ und äquivalent dazu \[0 = \ip{z, \varphi(h)z-h} = \varphi(h)\norm{z}^2-\ip{z,h} \text{ also } \varphi(h) = \ip{\frac{z}{\norm{z}^2}, h}.\] \\ \\\textbf{Eindeutigkeit} \\
 Nehmen wir an, dass $\ip{h_1, h} = \ip{h_2, h}$ mit $h = h_1 - h_2$ und sei \[0 = \ip{h_1 - h_2, h} = \norm{h_1 - h_2}^2 \implies h_1 = h_2.\] Über die CBS-Ungleichung gilt außerdem: \[\ab{\ip{h_0, h}} \leq \norm{h_0}\norm{h} \implies \norm{\varphi}_{H'} \leq \norm{h_0}.\] Da aber \[\ab{\varphi(h_0)} = \ip{h_0, h_0} = \norm{h_0}^2 = \norm{h_0}\norm{h_0} \implies \norm{\varphi} = \norm{h_0}.\]
@@ -147,7 +143,7 @@ Damit erhalten wir $\varphi(f) = \int fhd\mu$ und die Hölderungleichung.
 \begin{theorem} \label{riez2}
 Die Abbildung $\psi: H \to H', h \mapsto \ip{h, \cdot}$ ist eine (anti-lineare) isometrische Projektion.
 \unsure{Was genau ist hier mit Projektion gemeint?}
-\begin{proof}[Beweis:] Wurde in der Vorlesung übersprungen.
+\begin{proof}[Beweis] Wurde in der Vorlesung übersprungen.
 \end{proof}
 \end{theorem}
 
@@ -168,9 +164,9 @@ Die Abbildung $\psi: H \to H', h \mapsto \ip{h, \cdot}$ ist eine (anti-lineare) 
 	\label{sesq_darstellung}
 Ein Operator $u$ wie in \ref{sesq_bound} ist genau dann beschränkt, wenn \[\exists A \in \B(K, H): \forall h \in H, \forall k \in K: u(h, k) = \ip{h, Ak}\]
 
-\begin{proof}[Beweis:] $(\Longrightarrow)$ \\
+\begin{proof}[Beweis] $(\Longrightarrow)$ \\
 Sei $k$ fixiert, $u(\cdot, k) \in H',$ da:
-\[\ab{u(h, k)} \leq M \norm{h}_H \norm{k}_K \leq (M \norm{k}_K)\norm{h}_H.\] Mit \ref{riez2} folgt:
+\[\ab{u(h, k)} \leq M \norm{h}_H \norm{k}_K \leq (M \norm{k}_K)\norm{h}_H.\] Mit \ref{riez1} folgt:
 \[\exists!A(k) \in H: \overline{u(\cdot, k)} = \ip{A(k), \cdot} \text{ bzw. } \forall h \in H: u(h, k) = \ip{h, A(k)}\]
 Sei nun $k_1, k_2 \in K,$ dann haben wir:
 \[\ip{h, A(k_1 + k_2)} = u(h, k_1 + k_2) = u(h, k_1)+u(h, k_2) = \ip{h, A(k_1) + A(k_2)}\] Sei nun $\lambda \in \K, k \in K,$ so folgt: \[\ip{h, A(\lambda k)} = u(h, \lambda k)= \lambda u(h, k) = \lambda \ip{h, A(k)} = \ip{h, \lambda A(k)}\] Damit ist $A$ linear.\\ 
@@ -193,7 +189,7 @@ Sei $A \in \B(K, H),$ dann haben wir folgende Abschätzung mittels CBS-Ungleichu
 		\item $\norm{A^*} = \norm{A}$ und $\norm{A^*A} = \norm{A}^2 (C^*-\text{Axiom})$
 	\end{enumerate}
 
-	\begin{proof}[Beweis:] \textbf{Existenz:} \\
+	\begin{proof}[Beweis] \textbf{Existenz:} \\
 		Mittel der CBS-Ungleichung erhalten wir: \[\ab{\ip{h, Ak}} \leq \norm{h}\norm{Ak} \leq \norm{A}\norm{h}\norm{k}.\] Aber es gilt $\ab{\ip{h, Ak}} = \ab{\ip{Ak, h}} $ Damit ist $u(k, h) := \ip{Ak, h}$ sesquilinear auf $K \times H.$ Damit gibt es aber ein eindeutiges $A^*$ mit \[\overline{\ip{Ak, h}} = \overline{u(h, k)} = \overline{\ip{k, A^*h}}\] \\
 \textit{zu 1:} Es gilt \(\ip{(\lambda A)^*h, k} = \ip{h, \lambda A k} = \lambda \ip{h, Ak}= \ip{\overline{\lambda}A^*h, k}\)\\
 \textit{zu 2:} \(\ip{A^{**}k, h} = \ip{k, A^*h} = \overline{\ip{A^{*}h, k}} = \overline{{\ip{h, Ak}}} = \ip{Ak, h}\) mit $h = A^{**}-Ak.$ Dann: \[0 = \ip{A^{**}k, h} - \ip{Ak, h} = \ip{(A^{**}-A)k, (A^{**}-A)k} \implies \norm{A^{**}k - Ak} = 0\] Damit gilt dann die Gleichheit. \\

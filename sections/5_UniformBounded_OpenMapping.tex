@@ -43,7 +43,7 @@
 
 \section{Das Prinzip der gleichmäßigen Beschränktheit}
 \begin{definition}
-	Sei $(X, \rho)$ ein metrischer Raum, dann heißt $S \subset X$ nirgends dicht, wenn der Abschluss $\bar{S}$ keine Kugel enthält. Mit 
+	Sei $(X, \rho)$ ein metrischer Raum, dann heißt $S \subset X$ nirgends dicht, wenn der Abschluss $\bar{S}$ keine inneren Punkte enthält. Mit 
 	\[
 	\bar{S} = \left\{ x \in X : \forall n \in \mathbb{N} \exists x_n \in S: x_n \xrightarrow{n \to \infty} x \right\} \text{ und } \bar{S} = S \cup \partial S.
 	\] 
@@ -51,7 +51,7 @@
 	\[
 	S^{\mathrm{o}} = \left\{ x \in X \mid \exists \varepsilon > 0: K_{\varepsilon}(x) \subseteq S \right\}.
 	\] 
-	$S$ ist genau dann nirgends dicht, wenn $\bar{S}^{\mathrm{o}} = \emptyset$.
+	$S$ ist genau dann nirgends dicht, wenn $(\bar{S})^{\mathrm{o}} = \emptyset$.
 \end{definition}
 
 \begin{definition}
@@ -69,7 +69,7 @@
 \begin{lemma} \label{lemma_glm_beschr}
 	Seien $(V, \norm{\cdot}_V)$ sowie $(W, \norm{\cdot}_W)$ normierte Räume, $T: V \to W$ eine lineare Abbildung. Sei $r, \varepsilon > 0$, $x_0 \in V$ mit $\overline{K_{\varepsilon}(x_0)} \subset T^{-1}(\overline{K_r(0)})$, dann ist $T$ beschränkt und $\norm{T} \leq \frac{2r}{\varepsilon}$.
 	
-	\begin{proof}[Beweis:] 
+	\begin{proof}[Beweis] 
 		Sei $y \in V$ und $\norm{y} \leq \varepsilon$, dann $x_0, x_0 + y \in T^{-1}(\overline{K_r(0)})$, also $\norm{Tx_0} \leq r$ und $\norm{T(x_0 + y)} \leq r$. Mit der Dreiecksungleichung folgt: 
 		\[
 		\norm{Ty} = \norm{T(x_0 + y) - T(x_0)} \leq 2r.
@@ -88,46 +88,48 @@
 	\end{enumerate}
 \end{rem}
 
-\begin{theorem}[Cantor'scher Schnitt] \label{Cantor} 
-	Sei $(X, d)$ ein vollständiger metrischer Raum, $\{K_n\}_{n \in \mathbb{N}}$ eine absteigende Folge nichtleerer abgeschlossener Mengen in $X$, mit $K_{n+1} \subset K_n$ für alle $n \in \mathbb{N}$. Sei außerdem $\lim_{n \to \infty} \text{diam}(K_n) = 0$, dann gibt es $x \in X$ mit $\bigcap_{n = 1}^{\infty} K_n = \{x\}$.
-\end{theorem}
+%\begin{theorem}[Cantor'scher Schnitt] \label{Cantor} 
+%	Sei $(X, d)$ ein vollständiger metrischer Raum, $\{K_n\}_{n \in \mathbb{N}}$ eine absteigende Folge nichtleerer abgeschlossener Mengen in $X$, mit $K_{n+1} \subset K_n$ für alle $n \in \mathbb{N}$. Sei außerdem $\lim_{n \to \infty} \text{diam}(K_n) = 0$, dann gibt es $x \in X$ mit $\bigcap_{n = 1}^{\infty} K_n = \{x\}$.
+%\end{theorem}
+
+%\begin{theorem}[Baire'sches Kategorientheorem] \label{baire_kat}
+%	Sei $(X, \rho)$ ein vollständiger metrischer Raum und $\{S_n\}_{n \in \mathbb{N}}$ eine Folge nirgends dichter Mengen, dann gibt es $x \in X$ mit $x \notin \bigcup_{n \in \mathbb{N}} S_n$.
+	
+%	\begin{proof}[Beweis:] 
+%		Da $S_n$ nirgends dicht ist, ist $\overline S_n^{\mathrm{o}} = \emptyset$. Nach Definition gibt es zu jedem $S_n$ und jeder offenen Menge $U \subseteq X$ eine Menge $B \subseteq U$ mit $\bar{B} \cap S_n = \emptyset$. Sei $B_1$ nun eine beliebige nicht-leere offene Teilmenge von $X$. Da $S_1$ nirgends dicht ist, gibt es $B_2 \subset B_1$ mit $\bar{B}_2 \cap S_1 = \emptyset$. So definiere man sich eine Folge absteigend nicht-leerer offener Mengen $\{B_n\}_{n \in \mathbb{N}}$ wobei $B_{n+1} \subseteq B_n$ und $\bar{B}_{n+1} \cap S_n = \emptyset$. Da $X$ vollständig ist, garantiert der Satz von Cantor, dass der Durchschnitt der abgeschlossenen Mengen $\bar{B}_n$ nicht leer ist, also $\bigcap_{n = 1}^{\infty} \bar{B}_n \not= \emptyset$. 
+%	\end{proof}
+%\end{theorem}
 
 \begin{theorem}[Baire'sches Kategorientheorem] \label{baire_kat}
 	Sei $(X, \rho)$ ein vollständiger metrischer Raum und $\{S_n\}_{n \in \mathbb{N}}$ eine Folge nirgends dichter Mengen, dann gibt es $x \in X$ mit $x \notin \bigcup_{n \in \mathbb{N}} S_n$.
 	
-	\begin{proof}[Beweis:] 
-		Da $S_n$ nirgends dicht ist, ist $\overline S_n^{\mathrm{o}} = \emptyset$. Nach Definition gibt es zu jedem $S_n$ und jeder offenen Menge $U \subseteq X$ eine Menge $B \subseteq U$ mit $\bar{B} \cap S_n = \emptyset$. Sei $B_1$ nun eine beliebige nicht-leere offene Teilmenge von $X$. Da $S_1$ nirgends dicht ist, gibt es $B_2 \subset B_1$ mit $\bar{B}_2 \cap S_1 = \emptyset$. So definiere man sich eine Folge absteigend nicht-leerer offener Mengen $\{B_n\}_{n \in \mathbb{N}}$ wobei $B_{n+1} \subseteq B_n$ und $\bar{B}_{n+1} \cap S_n = \emptyset$. Da $X$ vollständig ist, garantiert der Satz von Cantor, dass der Durchschnitt der abgeschlossenen Mengen $\bar{B}_n$ nicht leer ist, also $\bigcap_{n = 1}^{\infty} \bar{B}_n \not= \emptyset$. 
+	(Bzw. dazu äquivalent: Jeder vollständige metrische Raum ist von zweiter Kategorie.)
+	
+	\begin{proof}[Beweis]
+		Wir zeigen dies über die Gegenannahme. Seien $S_n$ nirgends dichte Teilmengen von $X$ für alle $n \in \N$ mit $X = \cup_{n \in \N}S_n.$ Da $S_1$ nirgends dicht, gibt es ein $x_1 \in X \setminus \bar S_1.$ Da $\bar S_1$ abgeschlossen und $X$ offen ist, existiert zu $x_1$ eine offene Kugel $K_{r_1}(x_1)$ so, dass mit $r_1 < 1$ auch $\bar K_{r_1}(x_1) \cap \bar S_1 = \emptyset.$ \\ \\ Weil $S_2$ nirgends dicht ist, gibt es nun $x_2 \in K_{r_1}(x_1) \setminus \bar S_2.$ Weil $K_{r_1}(x_1)$ offen und $\bar S_2$ abgeschlossen ist, gibt es nun eine Kugel $K_{r_2}(x_2)$ mit $r_2 < \frac{1}{2}$ so, dass $K_{r_2}(x_2) \subset K_{r_1}(x_1)$ und $\bar K_{r_2}(x_2) \cap \bar S_n = \emptyset.$ \\ \\ Induktiv lässt sich nun mit einer Konstruktion der Folge fortfahren. Dabei konstruiert man eine Folge ineinandergeschachtelte Kugeln $K_{r_k}(x_k)$ mit den Mittelpunkten $x_k$ und Radien $r_k < \frac{1}{k}$ so, dass: \[K_{r_{k-1}}(x_{k-1}) \subset K_{r_{k}}(x_{k}), \\ \bar K_{r_{k}}(x_{k}) \cap \bar S_n = \emptyset.\] Da alle Mittelpunkte $x_k, x_{k+1}, ...$ in $K_{r_{k}}(x_{k})$ und mit $m \geq k,$ auch $d(x_k, x_m) \leq \frac{2}{k}$ und $(x_k)_{k \in \N}$ eine Cauchyfolge ist, konvergiert sie also gegen ein $x \in X.$ Dieses $x$ liegt aber für alle $k$ in $\bar K_{r_{k}}(x_{k})$ und deshalb für kein $k$ in $\bar S_k.$ Es ergibt sich ein Widerspruch.  		
 	\end{proof}
-\end{theorem}
 
-\begin{theorem}[Gleichmäßige Beschränktheit] \label{glm_beschr} \\
-	Seien $(V, \norm{\cdot}_V)$ und $(W, \norm{\cdot}_W)$ normierte Räume und $\mathcal{F}$ eine Familie von Operatoren mit $\mathcal{F} \subseteq \B(V, W)$ mit 
+
+\begin{theorem}[Banach-Steinhaus] \label{Banach_Steinhaus} \\
+	Seien $(V, \norm{\cdot}_V)$ ein Banachraum, $(W, \norm{\cdot}_W)$ ein normierter Raum und $\mathcal{F}$ eine Familie von Operatoren mit $\mathcal{F} \subseteq \B(V, W)$ mit 
 	\[
 	\forall x \in V: \sup{\left\{\norm{Tx}_W: T \in \mathcal{F}\right\}} < \infty,
 	\] 
 	dann gilt $\sup{\left\{\norm{T}_{V, W}: T \in \mathcal{F}\right\}} < \infty.$
 	
-	\begin{proof}[Beweis:] 
+	\begin{proof}[Beweis] 
 		Wir zerlegen $V$ zunächst in abzählbare Mengen mit 
 		\[
-		S_n := \left\{ x \in V: \forall T \in \mathcal{F}, \norm{Tx} \leq n \right\} 
-		\]
-		und $V = \bigcup_{n \in \mathbb{N}} S_n$. Aufgrund von \ref{baire_kat} hat $\bar{S}_n$ ein nichtleeres Inneres für ein beliebiges $n \in \mathbb{N}$. $S_n$ ist abgeschlossen: Sei $x_m \in S_n$ mit $m = 1, 2, \ldots$ und $x_m \to x$. Dann gilt für alle $T \in \mathcal{F}$, dass $\norm{Tx_m} \leq n$, mit Stetigkeit aber $\norm{Tx_m} \to \norm{Tx}$. Also $\norm{Tx} \leq n$ für alle $T \in \mathcal{F}$.
+		E_n := \left\{ x \in V: \sup_{i \in \mc F}{\norm{Tx}} \leq n \right\} 
+		\] Mit $X = \bigcup_{n \in \N}E_n.$ Da die $T_i$ stetig sind, ist jedes \[E_n = \bigcap_{i \in \mc F} \norm{T_i(\cdot)}^{-1}([0, n])\] abgeschlossen. Nach \ref{baire_kat} enthält mindestens eine der Mengen $E_n$ einen inneren Punkt. \\ \\ Es existieren also $N \in \N, y \in E_N$ und $\varepsilon > 0$ mit \[\norm{x-y} \leq \varepsilon \implies x \in E_N.\] Da $E_N$ symmetrisch ist, hat auch $-y$ diese Eigenschaft. Aufgrund der Konvexität der $E_n$ folgt nun: \[\norm{u} \leq \varepsilon \implies u = \frac{1}{2}((u+y)+(u-y)) \in \frac{1}{2}(E_N + E_N) \subset E_N.\] Das heißt explizit: Wenn $\norm{u} \leq \varepsilon$ ist, dann gilt $\norm{T_i u} \leq N$ für alle $i \in \mc F,$ also: \[\sup_{i \in \mc F} \leq \frac{N}{\varepsilon}< \infty\]
 		
-		Sei nun $n \in \mathbb{N}$ fixiert, dann hat $S_n$ einen inneren Punkt $x_0$. Sei $\varepsilon > 0$ so gewählt, dass 
-		\[
-		\overline{K_{\varepsilon}(x_0)} \subseteq S_n \subseteq \left\{ x \in V: \norm{Tx} \leq n, T \in \mathcal{F} \right\},
-		\]
-		dann folgt mit \ref{lemma_glm_beschr} $\norm{T} \leq \frac{2n}{\varepsilon}$.
 	\end{proof}
 \end{theorem}
 
-\begin{theorem}[Banach-Steinhaus] \\
-	\label{Banach_Steinhaus}
-	Sei $\{T_n\}$ eine Folge beschränkter linearer Operatoren mit $T_n \in \B(X, Y)$ für alle $n \in \mathbb{N}$. Außerdem existiere für alle $x \in X$ auch $\lim_{n \to \infty} T_n x$. Definiere $T: X \to Y$ durch $Tx = \lim_{n \to \infty} T_n x$. Dann ist $T \in \B(X, Y).$
-	
-	\begin{proof}[Beweis:] 
-		$T$ ist offensichtlich linear. Sei $x \in X$, dann ist $\sup_{n}{\norm{T_n x}} < \infty$, da $\{T_n x\}$ nach Voraussetzung konvergiert und konvergente Folgen in metrischen Räumen beschränkt sind. \ref{glm_beschr} liefert uns nun, dass $\sup{\norm{T_n}} = M < \infty$. Damit folgt für alle $x \in X, n \in \mathbb{N}$, dass $\norm{T_n x} \leq M \norm{x}$.
+\begin{theorem} \\
+	Sei $X$ ein Banachraum, $Y$ ein normierter Raum,ferner $T_n \in \B(X, Y)$ für $n \in \N.$ Für $x \in X$ existiere $Tx := \lim_{n \to \infty}T_nx.$ Dann ist $T \in \B(X, Y)$ 	
+	\begin{proof}[Beweis] 
+		$T$ ist offensichtlich linear. Da $(T_n x)$ für alle $x \in X$ konvergiert, ist stets $\sup_n \norm{T_nx}< \infty.$ Der Satz \ref{Banach_Steinhaus} liefert $\sup_n \norm{T_n} =: M < \infty.$ Es folgt \[\norm{Tx} = \lim_{n \to \infty}{\norm{T_nx} \leq M\norm{x}}\] 
 	\end{proof}
 \end{theorem}
 
@@ -139,7 +141,7 @@
 	\[\forall \varphi \in V': \sup\set{\ab{\varphi(x)} \;\big\vert\; x\in A}<\infty\;.\]
 	Dann ist A beschr\as nkt.
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Betrachte die kanonische Einbettung \(\Phi: V \to V'',\; \Phi(x)(\varphi) = \varphi(x)\). Diese ist isometrisch, wie in Satz \ref{Doppeldual_1} gezeigt. Sei nun 
 	\[\mc F = \Phi(A) = \set{\Phi(x)\;\vert\;x \in A} \subseteq V'' = \B(V',\K)\;.\]
 	Damit gilt nun  f\us r alle \(\varphi\in V'\)
@@ -188,7 +190,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 	\[\forall \varepsilon > 0 \;\forall y\in W \;\exists x \in V: \norm{Tx-y} < \varepsilon \text{ und } \norm{x} < d^{-1}\norm{y}\;.\]
 	\label{lemma1_Offene_Abb}
 \end{lemma}
-\begin{proof}
+\begin{proof}[Beweis]
 	Da T surjektiv ist, existiert f\us r \(y\in W\) beliebig ein \(\tilde x \in V\) mit \(T\tilde x = y\). Somit gilt
 	\[W = \bigcup_{m\in \N} T(K_m(0))\;.\] 
 	Da $W$ ein vollst\as ndiger metrischer Raum, k\os nnen wir die Kontraposition des Bairschen Kategorientheorems anwenden. Demnach existieren \(r\in \R_{>0},\;y_0 \in  W,\; m\in\N\) mit 
@@ -211,7 +213,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 	\[K_\delta(0) \subseteq T(K_1(0)) \iff \forall y\in W \text{ mit }\norm{y}<\delta \;\exists x\in V \text{ mit } \norm{x} < 1 \text{ und } Tx = y\;.\]
 	\label{lemma2_Offene_Abb}
 \end{lemma}
-\begin{proof}
+\begin{proof}[Beweis]
 	Wir erhalten die Behauptung durch iteratives Anwenden des vorhergehenden Lemmas. Setzen \(\delta = d\), wobei $d$ wie im vorherigen Lemma sei. Sei weiterhin \(y_0:=y\in K_d(0)\) fixiert sowie \(\varepsilon_0 = \frac{d}{2}\). Dann liefert Lemma \ref{lemma1_Offene_Abb}
 	\[\exists x_0 \in K_1(0): \norm{T(x_0) - y_0} < \frac{d}{2}\;.\]
 	Dabei braucht nicht der Abschluss \(\overline{K_1(0)}\) zu betrachtet werden, weil nach dem Lemma \(\norm{x_0} \leq d^{-1} \norm{y_0} < d^{-1} d =1\). Erneutes Anwenden des Lemmas auf \(y_1:= y_0 -T(x_0)\) und \(\varepsilon_1 = \frac{d}{4}\) liefert
@@ -243,7 +245,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 \begin{theorem}[Schlussfolgerung] Ist zus\as tzlich zu den Voraussetzungen von Satz \ref{Offene_Abb} $T$ injektiv (d. h. \(T\) bijektiv), dann gilt \(T^{-1} \in \B(W,V)\).
 	\label{Inverse_Mapping}
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Wie bereits zuvor motiviert, g. z. z., dass \(T^{-1} \) beschr\as nkt und somit g. z. z., dass \(T^{-1}\) stetig. Es gilt 
 	\[T^{-1}: W\to V \text{ stetig} \iff \forall G \subseteq V \text{ offen}: (T^{-1})^{-1}(G) = T(G) \subseteq W \text{ offen}\;.\] 
 	Dies gilt nach Satz \ref{Offene_Abb} und somit ist \(T^{-1}\in \B(W,V)\).
@@ -266,7 +268,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 	\[\normn{(x,y)}{1} := \normn xV + \normn yW ,\;\;\;\; \normn{(x,y)}{2} := \sqrt{\normn xV ^2 + \normn yW ^2},\;\;\;\; \normn{(x,y)}{3} := \max\set{\normn xV, \normn yW}\]
 	wird \(V\times W\) ein Banachraum.
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	Dass \(V\times W\) ein Vektorraum ist, ist aus der linearen Algebra bekannt. Zeige nun, dass \(\normn\cdot 1\) eine Norm ist. Es gilt \(\forall (x,y)\in V\times W\)
 	\[0 = \normn{(x,y)}{1} \iff \normn xV + \normn yW = 0 \iff \normn xV = 0 \land \normn yW = 0 \iff x = 0 \land y = 0\;.\]
 	Somit ist \(\normn\cdot 1\) definit. Die Homogenit\as t ist klar. Zeige nun die Dreiecksungleichung mit  
@@ -301,7 +303,7 @@ Wir zeigen zun\as chst zwei Lemmata.
 	Dann ist \(H = H_1 \times H_2\) ein Hilbertraum mit dem Skalarprodukt
 	\[\ip{(x_1,y_1), (x_2,y_2)} = \ip{x_1,x_2}_1 + \ip{y_1,y_2}_2\;.\]
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	\happybegin
 	Man kann leicht einsehen, dass \(\ip{\cdot,\cdot}\) die Norm \(\normn\cdot 2 \) induziert. Der Rest folgt trivial.\happyend
 \end{proof}
@@ -322,7 +324,7 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	Mit Satz \ref{B(V,W)_equiv} l\as sst sich dies \as quivalent umformulieren zu
 	\[\forall \seq xn \text{ mit }\;\forall n\in \N\; x_n \in V,\;\li xn =: x \in V  \text{ und } \lime n {Tx_n} = y \in W\text{ existieren } \implies y = T(x)\]
 \end{rem}
-\begin{proof}
+\begin{proof}[Beweis]
 	\happybegin
 	\forw Sei \(T\in \B(V,W)\) und sei \(\se{(x_n, Tx_n)}{n}, \forall n\in \N\; x_n \in V\) eine Folge in \(\Gamma_T\), mit \(\lime n (x_n, Tx_n) = (x,y) \in V\times W\).  Somit 
 	\[\lime n\normn{x_n - x}{V}  = 0 \text{ und } \lime n \normn{Tx_n - y}{W} = 0\;.\]
@@ -348,6 +350,6 @@ Seien \((V,\normn\cdot V)\), \((W,\normn\cdot W)\) Banachr\as ume und \(T:V\to W
 	Dann sind \(\normn\cdot 1\) und \(\normn\cdot 2\) \as quivalent.
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Beweis]
 	Definiere \(I: (V,\normn\cdot1) \to (V,\normn\cdot 2)\) als die Identit\as tabbildung, welche linear ist. Wollen nun zeigen, dass \(\Gamma_T\) abgeschlossen. Sei daf\us r eine Folge \(\seq xn, \;\forall n \in \N\; x_n \in V\) gegeben mit \(\li xn =: x\) in \((V,\normn\cdot 1)\) sowie \(\lime n Tx_n = y\) in \((V,\normn\cdot 2)\). Nach Voraussetzung folgt \(x = y\). Somit ist \(\Gamma_I\) abgeschlossen und mit Satz \ref{closed_graph} gilt \(I \in \B(V,V)\). Nach Satz \ref{Inverse_Mapping} gilt auch \(I^{-1} \in \B(V,V)\). Nach Definition der Beschr\as nktheit folgt die Behauptung.
 \end{proof}

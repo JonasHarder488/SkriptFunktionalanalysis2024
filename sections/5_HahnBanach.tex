@@ -17,7 +17,7 @@
 	
 		\label{Lemma_Hahn_Banach}
 	\end{lemma}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		Wir zeigen hier nur den Fall \(\K = \R\). Nehmen o. B. d. A. an, dass \(\varphi_0 \neq 0\) (ansonsten setze \(\varphi = 0\)) und \(\norm{\varphi_0} = 1\). Weiterhin gilt nach Voraussetzung
 		\[V = \text{span}\set{U\cup\set{z}} = \set{u + \alpha z \;\vert\; u \in U, \alpha \in \R} = \set{\alpha z - u \;\vert\; u \in U, \alpha\in \R}\;.\]
 		Zeige nun, dass die Darstellung \(v = \alpha z - u \in V\) durch \(u\in U, \alpha \in \R\) eindeutig ist. Angenommen f\us r \(u_1, u_2 \in U, \alpha_1, \alpha_2 \in \R\) gilt \(v = u_1 + \alpha_1 z = u_2 + \alpha_2 z\), dann folgt
@@ -47,7 +47,7 @@
 \begin{theorem}[Hahn-Banach]
 	Sei \((V,\norm\cdot)\) ein normierter Vektorraum, \(U\subseteq V\) ein Unterraum und \(\varphi_0 \in U'\). Dann gibt es ein \(\varphi \in V'\) mit \(\varphi\vert_U = \varphi_0\) und \(\normn{\varphi}{V'} = \normn{\varphi_0}{U'}\). D. h. jedes beschr\as nkte, lineare Funktional kann normgleich fortgesetzt werden. 
 \end{theorem}
-\begin{proof}
+\begin{proof}[Beweis]
 	O. B. d. A \(\norm{\varphi_0} = 1\). Wir setzen
 	\[Z := \set{(W,\psi)\;\big\vert\; U\subseteq W \subseteq V \text{ Unterraum, }\;\psi \in W',\; \psi\vert_U = \varphi_0,\; \norm{\psi} = \norm{\varphi_0} = 1}\;.\]
 	Definieren partielle Ordnung auf $Z$ \us ber
@@ -78,7 +78,7 @@
 	\begin{theorem}
 		Sei \((V,\norm\cdot)\) ein normierter Raum, wobei \(V \neq \set{0}\). Dann gibt es f\us r jedes \(x_0\neq 0 \in V\) ein \(\varphi \in V'\) mit \(\varphi(x_0) = \norm{x_0}\) und \(\norm{\varphi} = 1\).
 	\end{theorem}
-	\begin{proof}
+	\begin{proof}[Beweis]
 		Wir setzen \(U:=\set{\alpha x_0\;\vert\; \alpha \in \K}\), damit ist \(U\subseteq V\) ein Unterraum. Definieren \(\varphi_0\in U'\) \us ber 
 		\[\forall \alpha \in \K: \varphi_0(\alpha x_0) = \alpha \norm{x_0} \implies \varphi_0(x_0) = \norm{x_0}\;.\]
 		Weiterhin gilt
@@ -91,7 +91,7 @@
 		\[\psi: V \to V'',\; x \mapsto (x'':\varphi \mapsto \varphi(x))\]
 		eine isometrische Abbildung.
 	\end{theorem}
-	\begin{proof}[Beweis:]
+	\begin{proof}[Beweis]
 		Es gilt 
 		\[\norm{x''} = \sup\set{\ab{\varphi(x)} \;\big\vert\;\varphi\in V', \norm{\varphi} \leq 1} \]
 		Dabei gilt \(\ab{\varphi(x)} \leq \norm{\varphi}\norm{x} \leq \norm{x}\) f\us r \(\norm{\varphi}\leq 1\). Somit \(\norm{x''} \leq \norm{x}\). Da \(\varphi_x \in V'\) mit \(\varphi_x(x):= \norm{x}\), folgt die Gleichheit \(\norm{x''} = \norm{x}\).
