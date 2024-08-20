@@ -23,12 +23,9 @@
 	
 	
 	\begin{proof}[Beweis] $(\subseteq)$ Sei $\mu \not= \sigma(p(T)),$ also $p(T)-\mu$ nicht invertierbar. Nach dem Fundamentalsatz der Algebra gibt es ein $c \not= 0, \lambda_1, …, \lambda_n \in \C$ mit \[p(x)- \mu = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_n) \implies p(T)-\mu = c(T-\lambda_1) \cdot … \cdot (T- \lambda_n)\]
-		
-		Damit gibt es $\lambda_i (T), i = 1, …, n$ mit $(T- \lambda_i)$ existiert nicht, also $\lambda_i \in \sigma(T).$ Aber $p(\lambda_i)- \mu = 0 \implies \mu = p(\lambda_i).$ \\ \\
-		
-		$(\supseteq)$ Sei $\lambda \in \sigma(T).$ Es gibt ein $c \not= 0, \lambda_1, …, \lambda_n: p(x)-p(\lambda) = c(x-\lambda_1)\cdot \dots \cdot (x- \lambda_n).$ Sei $x \not= \lambda_i, i = 1, \dots,j, \dots, n,$ dann folgt aus \[0 = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_j) \cdot \dots \cdot (x- \lambda_n) \implies x= \lambda_j\]
-		
-		Dann \[p(T)-p(\lambda_j)\text{Id} = cc(x- \lambda_1)\cdot \dots \cdot (x- \lambda_j) \cdot \dots \cdot (x- \lambda_n) = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_{j+1}) \cdot \dots \cdot (x- \lambda_n) (x- \lambda_j).\] Da aber $(T-\lambda_j)$ nicht existiert existiert durch \ref{lem_inv} auch $(P(T)-p(\lambda)\text{Id})^{-1}$ nicht. Damit $p(\lambda_j \in \sigma(p(T))).$
+	Damit gibt es $\lambda_i (T), i = 1, …, n$ mit $(T- \lambda_i)$ existiert nicht, also $\lambda_i \in \sigma(T).$ Aber $p(\lambda_i)- \mu = 0 \implies \mu = p(\lambda_i).$ \\ \\
+	$(\supseteq)$ Sei $\lambda \in \sigma(T).$ Es gibt ein $c \not= 0, \lambda_1, …, \lambda_n: p(x)-p(\lambda) = c(x-\lambda_1)\cdot \dots \cdot (x- \lambda_n).$ Sei $x \not= \lambda_i, i = 1, \dots,j, \dots, n,$ dann folgt aus \[0 = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_j) \cdot \dots \cdot (x- \lambda_n) \implies x= \lambda_j\]
+	Dann \[p(T)-p(\lambda_j)\text{Id} = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_j) \cdot \dots \cdot (x- \lambda_n) = c(x- \lambda_1)\cdot \dots \cdot (x- \lambda_{j+1}) \cdot \dots \cdot (x- \lambda_n) (x- \lambda_j).\] Da aber $(T-\lambda_j)^{-1}$ nicht  existiert durch \ref{lem_inv} auch $(p(T)-p(\lambda_j)\text{Id})^{-1}$ nicht. Damit $p(\lambda_j )\in \sigma(p(T))).$
 		
 	\end{proof}
 	
@@ -42,13 +39,13 @@
 
 \begin{theorem} \label{num_spec} Sei $T \in \mc B(H),$ dann $\sigma(T) \subseteq \overline{W(T)}.$
 	
-	\begin{proof}[Beweis] Wir zeigen dies über die Kontraposition. Sei also $\lambda \notin \overline{W(T)},$ dann ist zu zeigen $(T-\lambda\text{Id})^{-1}$ existiert. Damit $d := \text{dist}(\lambda, \overline{w(T)}) > 0$ und $\overline{W(T)} \subseteq \overline{K_{\norm{T}}(0)}$ also folgt Kompaktheit. \\ \\
+	\begin{proof}[Beweis] Wir zeigen dies über die Kontraposition. Sei also $\lambda \notin \overline{W(T)},$ dann ist zu zeigen $(T-\lambda\text{Id})^{-1}$ existiert. Damit $d := \text{dist}(\lambda, \overline{W(T)}) > 0$ und $\overline{W(T)} \subseteq \overline{K_{\norm{T}}(0)}$ also folgt Kompaktheit. \\ \\
 		
 		Sei nun $\norm{x} = 1,$ dann:
 		
-		\[d \leq \ab{\lambda - \ip{x, Tx}} = \ab{\lambda \ip{x, x} - \ip{x, Tx}} = \ab{\ip{x, (T-\lambda \text{Id})x}} \leq \underbrace{\norm{x}}_{= 1} \norm{(T-\lambda{text{Id}})x}\]
+		\[d \leq \ab{\lambda - \ip{x, Tx}} = \ab{\lambda \ip{x, x} - \ip{x, Tx}} = \ab{\ip{x, (T-\lambda \text{Id})x}} \leq \underbrace{\norm{x}}_{= 1} \norm{(T-\lambda{\text{Id}})x}\]
 		
-		Also gilt für alle $x \in H$ mit $norm{x} = 1.$ Damit aber auch für alle $x \in H\setminus \set{0}$ (Für $\set{0}$ trivialerweise.): \[\]
+		Also gilt für alle $x \in H$ mit $\norm{x} = 1.$ Damit aber auch für alle $x \in H\setminus \set{0}$ (Für $\set{0}$ trivialerweise.): \[\]
 		
 		\[\norm{(T-\lambda \text{Id})x} = \norm{x} \norm{(T-\lambda \text{Id})\frac{x}{\norm{x}}} \geq d \norm{x} \implies \ker{T - \lambda \text{Id}} = \set{0}\] Damit haben wir die Injektivität. \unsure{Wie geht es weiter???}%
 		
@@ -56,7 +53,7 @@
 		
 		Sei nun $y_n = (T-\lambda \text{Id}x_n) \xrightarrow{n \to \infty} y.$ Wenn $(y_n)_{n \in \N}$ eine Cauchy-Folge ist, so auch $(x_n)_{n \in \N}.$ \\ \\
 		
-		Sei nun $(T- \lambda \text{Id})H$ nicht dicht, d.h es gibt $0 \not= x \in ((T-\lambda \text{Id})H)^{\perp}, \norm{x} = 0.$ Dann folgt: \[0 = \ip{x, (T- \lambda \text{Id})x} = \ip{x, Tx}-\lambda \implies \lambda \in \overline{W(T)}\]
+		Sei nun $(T- \lambda \text{Id})H$ nicht dicht, d.h es gibt $0 \not= x \in ((T-\lambda \text{Id})H)^{\perp}, \norm{x} = 1.$ Dann folgt: \[0 = \ip{x, (T- \lambda \text{Id})x} = \ip{x, Tx}-\lambda \implies \lambda \in \overline{W(T)}\]
 		
 		und damit ein Widerspruch. 
 		
@@ -68,7 +65,7 @@
 \begin{theorem} Sei $T \in \mc B(H)$ selbstadjungiert mit $T = T^*,$ dann ist $\sigma(T) \subseteq [- \norm{T}, \norm{T}] \subseteq \R.$
 	
 	
-	\begin{proof}[Beweis] Es gilt mit \ref{num_spec} $\sigma{T} \subseteq \overline{W(T)} \subseteq [-\norm{T}, \norm{T}] \subseteq \R,$ da $\ip{x, Tx} = \ip{Tx, x} = \overline{x, Tx} \in \R.$ Des Weiteren mit $\norm{x} = 1:$ \[\ab{\ip{x, Tx}} \leq \norm{T}\norm{x}^2 = \norm{T}\]
+	\begin{proof}[Beweis] Es gilt mit \ref{num_spec} $\sigma{T} \subseteq \overline{W(T)} \subseteq [-\norm{T}, \norm{T}] \subseteq \R,$ da $\ip{x, Tx} = \ip{Tx, x} = \overline{\ip{x, Tx}} \in \R.$ Des Weiteren mit $\norm{x} = 1:$ \[\ab{\ip{x, Tx}} \leq \norm{T}\norm{x}^2 = \norm{T}\]
 		
 	\end{proof}
 	
@@ -77,7 +74,7 @@
 
 \section{Der Satz von Stone-Weierstraß}
 
-\begin{theorem} Sei $f \in C^0_{\R}[a, b]$ dann gibt es eine Folge von Polynomen $(p_n)_{n \in \N}, p_n \in \R[X]$ mit $p_n \xrightarrow{\norm{\cdot}_{\infty}, n \to \infty}f.$
+\begin{theorem}[Satz von Weierstra\ss{}] Sei $f \in C^0_{\R}[a, b]$ dann gibt es eine Folge von Polynomen $(p_n)_{n \in \N}, p_n \in \R[X]$ mit $p_n \xrightarrow{\norm{\cdot}_{\infty}, n \to \infty}f.$
 	
 	\begin{proof}[Beweis] Ohne Beweis.
 		
@@ -104,7 +101,7 @@
 	
 	\begin{proof}[Beweis] Wir zeigen $f \in \mc A, 0 \leq f \implies \sqrt{f} \in \mc A.$ Sei o.B.d.A $f \leq 1,$ dann existiert $g_n := \sqrt{\frac{1}{n}+(1- \frac{1}{n})f}$ für alle $n \in \N.$
 		
-		\unsure{Warum gilt hier Gleichheit?} Und dies ist gleich \[g_n = \frac{1}{n}+ (1- \frac{1}{n})f \leq \frac{1}{n}+(1- \frac{1}{n}) = 1 \implies \norm{g_n}_{infty} = \sqrt{1} = 1\] Aufgrund der Abgeschlossenheit haben wir nun: \[\lim_{n \to \infty} g_n = \sqrt{f} \in \mc A.\] \\ \\
+		\unsure{Warum gilt hier Gleichheit?} Und dies ist gleich \[g_n^2 = \frac{1}{n}+ (1- \frac{1}{n})f \leq \frac{1}{n}+(1- \frac{1}{n}) = 1 \implies \norm{g_n}_{\infty} = \sqrt{1} = 1\] Aufgrund der Abgeschlossenheit haben wir nun: \[\lim_{n \to \infty} g_n = \sqrt{f} \in \mc A.\] \\ \\
 		
 		Wir erhalten nun folgendes geschenkt:
 		
@@ -116,13 +113,13 @@
 			
 		\end{enumerate}
 		
-		Sei nun $f \in C^0(K, \R), \varepsilon > 0.$ Für alle $s \not= t \in \mc A$ gibt es ein $h \in h(s) \not= h(t),$ sei nun \[f_{s, t}: K \to \R, f_s,t(v) = f(t)+(f(s)+f(t))\frac{h(v)-h(t)}{h(s)-h(t)} \implies f_{s, t} \in \mc A\] Außerdem $f_{s, t}(s) = f(s), f_{s, t}(t) = f(t).$ \\ \\
+		Sei nun $f \in C^0(K, \R), \varepsilon > 0.$ Für alle $s \not= t \in  K$ gibt es ein $h \in \mc A,\; h(s) \not= h(t),$ sei nun \[f_{s, t}: K \to \R, f_{s,t}(v) = f(t)+(f(s)-f(t))\frac{h(v)-h(t)}{h(s)-h(t)} \implies f_{s, t} \in \mc A\] Außerdem $f_{s, t}(s) = f(s), f_{s, t}(t) = f(t).$ \\ \\
 		
-		Definiere nun $U_t = \set{v \in K: f_{s, t}(v) < f(v)+\varepsilon}.$ Dann ist $U_t$ offen. Setze nun $s \in K$ fix. Aufgrund der Kompaktheit gilt: \[\exists I = \set{t_1, …, t_m}: \Cup_{t \in I}U_t = K\] 
+		Definiere nun $U_t = \set{v \in K: f_{s, t}(v) < f(v)+\varepsilon}.$ Dann ist $U_t$ offen. Setze nun $s \in K$ fix. Aufgrund der Kompaktheit gilt: \[\exists I = \set{t_1, …, t_m}: \bigcup_{t \in I}U_t = K\] 
 		
-		Wir setzen $h_s := \cap_{t \in I}f_{s, t} \in \mc A$ (und schneiden damit nur über endlich viele.) Wir wissen $h_s(s)=f(s)$ und $\forall v \in K: h_s(v) \subset f(v)+\varepsilon.$
+		Wir setzen $h_s := \land_{t \in I}f_{s, t} \in \mc A$. Wir wissen $h_s(s)=f(s)$ und $\forall v \in K: h_s(v) < f(v)+\varepsilon.$
 		
-		Für alle $s \in K$ ist $v_s = \set{v \in K, f(v)- \varepsilon \subset h_s(v)}$ offen. Es folgt mit Kompaktheit wieder $K = \cup_{j=1}^n v_{s_j},$ und setzte $g_i = \cup_{j=1}^n h_{s_j} \in \mc A$ (wieder nur endlich viele), also gilt für alle $v \in K: g(v) < f(v)+\varepsilon$ und $g(v) > f(v) -\varepsilon.$ Folglich $\norm{g-f}_{\infty} < \varepsilon.$ Damit haben wir die Dichtheit gewonnen. Da alle Grenzwerte aufgrund der Abgeschlossenheit in $\mc A$ enthalten sind, erhalten wir die Behauptung.
+		Für alle $s \in K$ ist $v_s = \set{v \in K: f(v)- \varepsilon < h_s(v)}$ offen. Es folgt mit Kompaktheit wieder $K = \cup_{j=1}^n v_{s_j},$ und setzte $g_i = \lor_{j=1}^n h_{s_j} \in \mc A$ (wieder nur endlich viele), also gilt für alle $v \in K: g(v) < f(v)+\varepsilon$ und $g(v) > f(v) -\varepsilon.$ Folglich $\norm{g-f}_{\infty} < \varepsilon.$ Damit haben wir die Dichtheit gewonnen. Da alle Grenzwerte aufgrund der Abgeschlossenheit in $\mc A$ enthalten sind, erhalten wir die Behauptung.
 		
 	\end{proof}
 	
@@ -173,7 +170,7 @@
 	\textbf{Schritt 4:} Folglich gilt f\us r alle $f \in A_0$ mit $p$ wie in der Definition:
 	\begin{align*}
 	\norm{\varphi_0(f)}^2 &= \norm{\varphi_0(f)^* \varphi_0(f)} = \norm{\varphi_0(p \overline{p})} \overset{(*)}{=} r(\varphi_0(\overline p p )) = \sup\set{\ab{\lambda} \;\vert\; \lambda \in \sigma(\varphi_0(\overline p p ))} \\
-	&  = \sup\set{\ab{\lambda} \;\vert\; \lambda \in \sigma(\overline p p (T))} \overline{(**)}{=} \sup\set{\ab{\lambda} \;\vert\; \lambda \in \overline p p (\sigma(T))}\\& = \sup\set{\ab{p(\lambda)}^2 \;\vert\; \lambda \in \sigma(T)}  = \norms p ^2
+	&  = \sup\set{\ab{\lambda} \;\vert\; \lambda \in \sigma(\overline p p (T))} \overset{(**)}{=} \sup\set{\ab{\lambda} \;\vert\; \lambda \in \overline p p (\sigma(T))}\\& = \sup\set{\ab{p(\lambda)}^2 \;\vert\; \lambda \in \sigma(T)}  = \norms p ^2
 	\end{align*}
 	Dabei haben wir im Schritt \((*)\) ausgenutzt, dass \(\varphi_0(\overline p p )\) selbstadjungiert ist und im Schritt \((**)\) Satz \textit{[...]}. Somit ist $\varphi_0$ in der Tat eine Isometrie. \\
 	\unsure{Label fehlt.}
@@ -218,7 +215,7 @@
 	\end{proof}
 	
 	\begin{theorem}\label{eigenschaften_stetiger_kalkuel}
-		Sei $H$ ein Hilbertraum, \(T\in \B(H)\) normal.  Dann gilt f\us r \(f\in C^0(\varrho(T))\):
+		Sei $H$ ein Hilbertraum, \(T\in \B(H)\) normal.  Dann gilt f\us r \(f\in C^0(\sigma(T))\):
 		\begin{enumerate}
 			\item \(\norm{f(T)}_{\B(H)} = \norms{f} = \sup\set{\ab{f(\lambda)}\;\vert\;\lambda \in \sigma(T)}\) \label{eigenschaften_stetiger_kalkuel_1}
 			\item Falls \(x\in H\setminus\set{0}\), \(T\) selbstadjungiert sowie \(\lambda \in \R\) die Eigenwertgleichung \(Tx = \lambda x\) erf\us llen, so gilt \(f(T)x = f(\lambda)x\)\;.
@@ -241,7 +238,7 @@
 		Nach Satz \ref{stetiger_kalkuel} gilt somit
 		\[g(T)(f(T) -\mu\I) = (f(T) -\mu\I)g(T) = \I \implies (f(T) -\mu\I)^{-1}\;\text{ existiert.}\]
 		Somit gilt in der Tat \(\mu\not\in \sigma(f(T))\).\\
-		\textbf{($\subseteq$)} Sei \(\mu = f(\lambda)\) f\us r ein \(\lambda \in \sigma(T)\). W\as hle Polynomfolge \(\seq gn \subseteq \C[X,\overline X]^\N\) mit \(\norms{f - g_n} \leq \frac1n\). Somit gilt insbesondere \(\ab{f(\lambda) - g_n(\lambda)} \leq \frac 1n\). Unter Ausnutzung von \(\sigma(g_n(T)) = g_n(\sigma(T))\) (Bew. von Satz \ref{stetiger_kalkuel}) existiert also (nach Lemma \ref{spektrum_normal}) \(\seq xn \subseteq H^\N\) mit 
+		\textbf{($\subseteq$)} Sei \(\mu = f(\lambda)\) f\us r ein \(\lambda \in \sigma(T)\). W\as hle Polynomfolge \(\seq gn \in \C[X,\overline X]^\N\) mit \(\norms{f - g_n} \leq \frac1n\). Somit gilt insbesondere \(\ab{f(\lambda) - g_n(\lambda)} \leq \frac 1n\). Unter Ausnutzung von \(\sigma(g_n(T)) = g_n(\sigma(T))\) (Bew. von Satz \ref{stetiger_kalkuel}) existiert also (nach Lemma \ref{spektrum_normal}) \(\seq xn \subseteq H^\N\) mit 
 		\[\forall n\in\N: \norm{x_n} = 1 \;\text{ und } \; \norm{(g_n(T) - g_n(\lambda)\I)(x_n)}\leq \frac 1n\;.\]
 		Damit gilt
 		\begin{align*}

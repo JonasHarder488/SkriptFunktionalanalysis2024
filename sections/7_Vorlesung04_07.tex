@@ -29,13 +29,13 @@
 
 \begin{theorem} Sei $T \in \mc B(H),$ dann ist $\norm{T} = \sqrt{\inf{\set{\lambda \geq 0: \lambda \text{Id} - T^*T \geq 0}}}$
 
-\begin{proof}[Beweis:] Wir wissen $\norm{T}^2 = \norm{T^*T}$ und zeigen nun für $S \geq 0,$ dann \[\norm{S} = \inf \set{\lambda \geq 0: \lambda \text{If}} \geq S =: \norm{S}'.\]
+\begin{proof}[Beweis:] Wir wissen $\norm{T}^2 = \norm{T^*T}$ und zeigen nun für $S \geq 0,$ dass \[\norm{S} = \inf \set{\lambda \geq 0: \lambda \text{Id}\geq S} =: \norm{S}'.\]
 	
-Für alle $\lambda \geq \norm{S}$ und $\norm{x} = 1$ gilt: \[\lambda = \lambda \norm{x}^2 \geq \ip{x, Sx} \implies \lambda \geq \norm{S} \implies \norm{S} \leq \norm{S}'\] \\
+Für alle $\lambda \geq \norm{S}'$ und $\norm{x} = 1$ gilt: \[\lambda = \lambda \norm{x}^2 \geq \ip{x, Sx} \implies \lambda \geq \norm{S} \implies \norm{S} \leq \norm{S}'\] \\
 	
 Sei nun $\lambda \geq \norm{S},$ dann für alle $x \in H, \norm{x} = 1:$
 	
-\[\ip{x, Sx} \leq \norm{Sx} \leq \norm{S}\norm{x} = \norm{S}\] Damit haben wir $\norm{S} = \norm{S}^*.$
+\[\lambda = \ip{x,\lambda\I x} \geq \ip{x,Sx} \implies  \ip{x, (\lambda I -S)x} \geq 0 \implies \lambda I \geq S\] Damit haben wir $\norm{S} = \norm{S}'.$
 	
 \end{proof}
 	
@@ -45,33 +45,32 @@ Sei nun $\lambda \geq \norm{S},$ dann für alle $x \in H, \norm{x} = 1:$
 \begin{theorem} Seien $A_n \in \mc B(H)_{\geq 0}, A \in \mc B(H)$ und für alle $n \in \N$ gelte $A \geq A_{n+1} \geq A_n,$ dann existiert $\sup_{n\in \N}\set{A_n} =: B$ und für alle $x, y \in H$ gilt: \[\ip{x, A_n y} \xrightarrow{n \to \infty} \ip{x, By}.\]
 	
 	
-	\begin{proof}[Beweis:] Wir setzen für $x, y \in H: L_B = \ip{ x, A_ny}.$ Wir observieren: \[\forall x \in H: \lim_{n \to \infty} \ip{x, A_nx} = \sup_{n \in \N}{\ip{x, A_nx}} \implies L_B(x,x) \text{ ist definiert.}\] Betrachte nun $x, y \in H.$ Wir wenden die Polarisationsformel an: \[\lim_{n \to \infty} \ip{x, A_n y} = \lim_{n \to \infty} \frac{1}{4} \sum^n_{n = 0}(-1)^k \ip{x+iy^k, A_n x + i^k y} \implies L_B(x, y) \text{ existiert.}\] Außerdem gilt \[L_B(x+y, x+y) + L_B(x - y, x-y) = 2L_B(x, x) + 2L_B(y, y).\] Somit ist $L_B$ eine Sesquilinearform. Da wir nun wissen, dass $A_n \leq A,$ folgt für alle \[x \in H: L_B(x, x) = \lim_{n \to \infty} \ip{x, A_nx} \leq \ip{x, Ax} \leq \norm{A} \norm{x}^2\] Und über die Sesquilinearität folgt die Beschränktheit, mit Riez die Eindeutigkeit.
+	\begin{proof}[Beweis:] Wir setzen für $x, y \in H: L_B = \lime{n}{\ip{ x, A_ny}}.$ Wir observieren: \[\forall x \in H: \lim_{n \to \infty} \ip{x, A_nx} = \sup_{n \in \N}{\ip{x, A_nx}} \implies L_B(x,x) \text{ ist definiert.}\] Betrachte nun $x, y \in H.$ Wir wenden die Polarisationsformel an: \[\lim_{n \to \infty} \ip{x, A_n y} = \lim_{n \to \infty} \frac{1}{4} \sum^3_{k = 0}(-i)^k \ip{x+i^k y, A_n (x + i^k y)} \implies L_B(x, y) \text{ existiert.}\] Außerdem gilt \[L_B(x+y, x+y) + L_B(x - y, x-y) = 2L_B(x, x) + 2L_B(y, y).\] Somit ist $L_B$ eine Sesquilinearform. Da wir nun wissen, dass $A_n \leq A,$ folgt für alle \[x \in H: L_B(x, x) = \lim_{n \to \infty} \ip{x, A_nx} \leq \ip{x, Ax} \leq \norm{A} \norm{x}^2\] Und über die Sesquilinearität folgt die Beschränktheit, mit Riesz die Eindeutigkeit.
 		
-		\[\forall x, y \in H: \norm{L_B(x, y) \leq 4 \norm{A} \norm{x} \norm{y}} \implies \exists ! B \in \mc B(H): L_B(x, y) = \ip{x, By}\]
+		\[\forall x, y \in H: \ab{L_B(x, y)} \leq 4 \norm{A} \norm{x} \norm{y} \implies \exists ! B \in \mc B(H): L_B(x, y) = \ip{x, By}\]
 		
 	\end{proof}
 	
 \end{theorem}
 
 
-\begin{definition} Ein Operator $T \in \mc B(H)$ gehört zur Spurklasse genau dann wenn es eine ONB $(e_s)_{s \in S}$ gibt mit der Spur $\text{tr}(T) = \sum_{s \in S} \ip{e_s, Te_s} < \infty.$
+\begin{definition} Ein Operator $T \in \mc B(H)$ gehört zur Spurklasse genau dann wenn es eine ONB $(e_s)_{s \in S}$ gibt mit der Spur $\text{tr}(\ab T) = \sum_{s \in S} \ip{e_s, \ab Te_s} < \infty.$
 	
 \end{definition}
 
 
-\begin{theorem} $T \geq 0$ gehört zur Spurklasse genau dann wenn $\sqrt{\ab{T}}$ ein Hilbert-Schmidt-Operator ist. Es gilt dann für alle ONB‘s: \[\sum_{s \in S} \ip{e_s, Te_s} = \sum_{s \in S} \ip{e_s', Te_s'}\]
+\begin{theorem} $T $ gehört zur Spurklasse genau dann wenn $\sqrt{\ab{T}}$ ein Hilbert-Schmidt-Operator ist. Es gilt dann für alle ONB‘s: \[\sum_{s \in S} \ip{e_s, Te_s} = \sum_{s' \in S'} \ip{e'_{s'}, Te'_{s'}}\;\;(*)\]
 	
 	
 	\begin{proof}[Beweis:] $(\Rightarrow)$ Gehöre $T$ zu Spurklasse:
 		
-	\[ \infty > \sum_{s \in S} \ip{e_s, \ab{T} e_s} = \sum_{s \in S} \ip{\sqrt{\ab{T}e_s, \sqrt{\ab{T}}e_s}} = \sum_{s \in S} \norm{\sqrt{\ab{T}}e_s}^2\] Damit ist $\sqrt{\ab{T}}$  ein Hilbert Schmidt Operator
-			
-	$(\Leftarrow)$ Sei $T \geq 0,$ dann ist $T$ selbstadjungiert. Sei nun \[T_+ = \frac{1}{2}(T + \ab{T}) \geq 0, T_- = \frac{1}{2}(\ab{T}- T) \geq 0, T = T_+ - T_-.\] Dann haben wir \[\sum_{s \in S} \ip{e_s, T_+e_s} = \sum_{s \in S'} \ip{e_s, T_+ e_s} \implies (*).\] Sei $T \in \mc B(H)$ beliebig, dann $\text{Re}(T) = \frac{1}{2} (T + T^*), \text{Im}(T) = \frac{1}{2}(T-T^*)$ sind selbstadjungiert mit $T = \text{Re}(T)= + \text{Im}(T).$ 
+	\[ \infty > \sum_{s \in S} \ip{e_s, \ab{T} e_s} = \sum_{s \in S} \ip{\sqrt{\ab{T}}e_s, \sqrt{\ab{T}}e_s} = \sum_{s \in S} \norm{\sqrt{\ab{T}}e_s}^2\] Damit ist $\sqrt{\ab{T}}$  ein Hilbert Schmidt Operator. Die R\us ckrichtung folgt analog. \\
+	Betrachte nun die zweite Behauptung. Die Spur ist nur f\us r positive Operatoren definiert. Sei $T \geq 0,$ dann  folgt die Behauptung sofort. Sei $T$ nur selbstadjungiert. Somit \[T_+ = \frac{1}{2}(T + \ab{T}) \geq 0, \;\;T_- = \frac{1}{2}(\ab{T}- T) \geq 0,\;\; T = T_+ - T_-.\] Dann haben wir \[\sum_{s \in S} \ip{e_s, T_+e_s} = \sum_{s' \in S'} \ip{e'_{s'}, T_+ e'_{s'}} \implies (*).\] Sei $T \in \mc B(H)$ beliebig, dann $\text{Re}(T) = \frac{1}{2} (T + T^*), \text{Im}(T) = \frac{1}{2}(T-T^*)$ sind selbstadjungiert mit $T = \text{Re}(T) + \text{Im}(T).$ 
 	\end{proof}
 \end{theorem}
 
 \begin{theorem}
-	Jeder Spurklasseoperator auf einem Hilbertraum $H$ ist kompakt. Weiterhin gilt f\us r $T$ Spurklasse sowie \(S \in B(H)\) auch \(TS, ST\) Spurklasse und \(\tr (ST) = \tr(TS)\).
+	Jeder Spurklasseoperator auf einem Hilbertraum $H$ ist kompakt. Weiterhin gilt f\us r $T$ Spurklasse sowie \(S \in \B(H)\) auch \(TS, ST\) Spurklasse und \(\tr (ST) = \tr(TS)\).
 \end{theorem}
 \begin{proof}[Beweis]
 	Sei also \(S\in \B(H)\) und $T$ Spurklassse.  Da die Isometrie nach Satz \ref{stetiger_kalkuel} involutorisch ist, gilt
